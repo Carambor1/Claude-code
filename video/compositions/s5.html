@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, #161616 0%, #000 65%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 14px rgba(255,255,255,0.55)); }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; color: #9a9a9a; }
+    #s5-ground { left: 0; right: 0; top: 860px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+    #s5-kicker { left: 0; width: 1920px; top: 300px; text-align: center; }
+    #s5-box { left: 560px; top: 370px; width: 800px; height: 170px; border: 3px solid #fff; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 36px; font-weight: 900; font-size: 72px; letter-spacing: 0.02em; text-transform: uppercase; box-shadow: 0 0 40px rgba(255,255,255,0.25), inset 0 0 30px rgba(255,255,255,0.08); }
+    #s5-sub { left: 0; width: 1920px; top: 580px; text-align: center; font-weight: 700; font-size: 40px; color: #d8d8d8; }
+    #s5-fig { left: 920px; top: 730px; width: 80px; height: 130px; }
+  </style>
+  <div id="root" data-composition-id="s5" data-width="1920" data-height="1080">
+    <div id="s5-ground" class="abs clip" data-start="0" data-duration="4"></div>
+    <div id="s5-kicker" class="abs small clip" data-start="0" data-duration="4">Der beste Zeitpunkt</div>
+    <div id="s5-box" class="abs clip" data-start="0" data-duration="4"><span id="s5-a">Tag 1</span><span id="s5-arrow">→</span><span id="s5-b">Heute</span></div>
+    <div id="s5-sub" class="abs clip" data-start="0" data-duration="4">1 % reicht. Jeden Tag.</div>
+    <svg id="s5-fig" class="abs glow clip" data-start="0" data-duration="4" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(["#s5-ground", "#s5-fig"], { opacity: 0 }, { opacity: 1, duration: 0.35 }, 0);
+    tl.fromTo("#s5-kicker", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.25);
+    tl.fromTo("#s5-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, 0.45);
+    tl.fromTo("#s5-a", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.6);
+    tl.fromTo("#s5-arrow", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.75);
+    tl.fromTo("#s5-b", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(2)" }, 0.9);
+    tl.fromTo("#s5-sub", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 1.5);
+    tl.to(["#s5-ground", "#s5-kicker", "#s5-box", "#s5-sub", "#s5-fig"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 3.45);
+    window.__timelines["s5"] = tl;
+  </script>
+</template>

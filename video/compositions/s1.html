@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 70%, #151515 0%, #000 65%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 14px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 28px; letter-spacing: 0.2em; text-transform: uppercase; color: #cfcfcf; background: #141414; border: 1.5px solid #4a4a4a; border-radius: 999px; padding: 9px 20px; white-space: nowrap; }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; color: #9a9a9a; }
+    #s1-ground { left: 0; right: 0; top: 860px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+    #s1-spot { left: 760px; top: 0; width: 400px; height: 860px; background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02)); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }
+    #s1-fig { left: 920px; top: 730px; width: 80px; height: 130px; }
+    #s1-you { left: 0; width: 1920px; top: 890px; text-align: center; }
+    #s1-kicker { left: 0; width: 1920px; top: 160px; text-align: center; }
+    #s1-big { left: 0; width: 1920px; top: 222px; text-align: center; font-weight: 900; font-size: 190px; letter-spacing: -0.04em; line-height: 1; }
+    #s1-line { left: 0; width: 1920px; top: 452px; text-align: center; font-weight: 700; font-size: 54px; letter-spacing: -0.01em; }
+    #s1-line span { display: inline-block; margin: 0 9px; }
+    #root .chip { top: 680px; left: 1010px; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div id="s1-spot" class="abs clip" data-start="0" data-duration="5"></div>
+    <div id="s1-ground" class="abs clip" data-start="0" data-duration="5"></div>
+    <svg id="s1-fig" class="abs glow clip" data-start="0" data-duration="5" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <div id="s1-you" class="abs small clip" data-start="0" data-duration="5">Du · Heute</div>
+    <div id="s1-kicker" class="abs small clip" data-start="0" data-duration="5">Die 1 %-Regel</div>
+    <div id="s1-big" class="abs glow clip" data-start="0" data-duration="5">1 %</div>
+    <div id="s1-line" class="abs clip" data-start="0" data-duration="5"><span>Jeden</span><span>Tag</span><span>nur</span><span>ein</span><span>bisschen</span><span>besser.</span></div>
+    <div id="s1-chip1" class="abs pill chip clip" data-start="0" data-duration="5">+1 %</div>
+    <div id="s1-chip2" class="abs pill chip clip" data-start="0" data-duration="5">+1 %</div>
+    <div id="s1-chip3" class="abs pill chip clip" data-start="0" data-duration="5">+1 %</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo("#s1-spot", { opacity: 0.5 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0);
+    
+    tl.fromTo("#s1-you", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.6);
+    tl.fromTo("#s1-kicker", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.85);
+    tl.fromTo("#s1-big", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 1.0);
+    tl.fromTo("#s1-line span", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.14, ease: "power2.out" }, 1.6);
+    ["#s1-chip1", "#s1-chip2", "#s1-chip3"].forEach((id, i) => {
+      const t = 3.0 + i * 0.4;
+      tl.fromTo(id, { opacity: 0, y: 0, x: i * 18 - 30 }, { opacity: 1, y: -50, duration: 0.3, ease: "power2.out" }, t);
+      tl.to(id, { opacity: 0, y: -120, duration: 0.6, ease: "power1.in" }, t + 0.3);
+    });
+    tl.fromTo("#s1-fig", { scale: 1 }, { scale: 1.08, transformOrigin: "50% 100%", duration: 0.9, ease: "power1.out" }, 3.0);
+    tl.to(["#s1-big", "#s1-kicker", "#s1-line", "#s1-you", "#s1-spot"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 4.55);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>

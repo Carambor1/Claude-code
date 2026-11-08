@@ -1,0 +1,70 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 60%, #141414 0%, #000 65%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 14px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 28px; letter-spacing: 0.2em; text-transform: uppercase; color: #cfcfcf; background: #141414; border: 1.5px solid #4a4a4a; border-radius: 999px; padding: 9px 20px; white-space: nowrap; }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; color: #9a9a9a; }
+    #s3-chart { left: 0; top: 0; width: 1920px; height: 1080px; }
+    #s3-daylabel { left: 340px; top: 120px; }
+    #s3-day { left: 340px; top: 176px; font-weight: 900; font-size: 96px; letter-spacing: -0.03em; line-height: 1; }
+    #s3-x0 { left: 270px; top: 892px; }
+    #s3-x1 { left: 1490px; top: 892px; }
+    #s3-upTag { left: 1020px; top: 190px; }
+    #s3-upVal { left: 1020px; top: 262px; font-weight: 900; font-size: 84px; letter-spacing: -0.03em; line-height: 1; }
+    #s3-dnTag { left: 1180px; top: 690px; }
+    #s3-dnVal { left: 1180px; top: 762px; font-weight: 900; font-size: 64px; letter-spacing: -0.03em; line-height: 1; color: #8a8a8a; }
+    #s3-head { left: 0; width: 1920px; top: 975px; text-align: center; font-weight: 700; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1920" data-height="1080">
+    <svg id="s3-chart" class="abs clip" data-start="0" data-duration="9" viewBox="0 0 1920 1080">
+      <defs>
+        <clipPath id="s3-clip"><rect id="s3-cliprect" x="280" y="0" width="0" height="1080"/></clipPath>
+        <filter id="s3-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+      </defs>
+      <g id="s3-axes" stroke="rgba(255,255,255,0.55)" stroke-width="2" fill="none">
+        <line x1="300" y1="200" x2="300" y2="870"/>
+        <line x1="290" y1="860" x2="1560" y2="860" stroke-dasharray="8 8"/>
+      </g>
+      <g clip-path="url(#s3-clip)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M300.0 844.0 L317.0 843.2 L334.0 842.3 L351.0 841.4 L367.9 840.5 L384.9 839.5 L401.9 838.4 L418.9 837.3 L435.9 836.2 L452.9 835.0 L469.9 833.7 L486.8 832.3 L503.8 830.9 L520.8 829.5 L537.8 827.9 L554.8 826.3 L571.8 824.5 L588.8 822.7 L605.8 820.8 L622.7 818.8 L639.7 816.7 L656.7 814.5 L673.7 812.2 L690.7 809.8 L707.7 807.2 L724.7 804.5 L741.6 801.7 L758.6 798.7 L775.6 795.6 L792.6 792.3 L809.6 788.8 L826.6 785.2 L843.6 781.4 L860.5 777.4 L877.5 773.2 L894.5 768.7 L911.5 764.1 L928.5 759.2 L945.5 754.0 L962.5 748.6 L979.5 742.9 L996.4 737.0 L1013.4 730.7 L1030.4 724.1 L1047.4 717.2 L1064.4 709.9 L1081.4 702.2 L1098.4 694.2 L1115.3 685.7 L1132.3 676.8 L1149.3 667.5 L1166.3 657.7 L1183.3 647.3 L1200.3 636.5 L1217.3 625.1 L1234.2 613.1 L1251.2 600.5 L1268.2 587.3 L1285.2 573.4 L1302.2 558.8 L1319.2 543.4 L1336.2 527.2 L1353.2 510.3 L1370.1 492.4 L1387.1 473.7 L1404.1 454.0 L1421.1 433.3 L1438.1 411.5 L1455.1 388.6 L1472.1 364.6 L1489.0 339.3 L1506.0 312.7 L1523.0 284.8 L1540.0 255.5" stroke="#fff" stroke-width="12" opacity="0.35" filter="url(#s3-blur)"/>
+        <path d="M300.0 844.0 L317.0 843.2 L334.0 842.3 L351.0 841.4 L367.9 840.5 L384.9 839.5 L401.9 838.4 L418.9 837.3 L435.9 836.2 L452.9 835.0 L469.9 833.7 L486.8 832.3 L503.8 830.9 L520.8 829.5 L537.8 827.9 L554.8 826.3 L571.8 824.5 L588.8 822.7 L605.8 820.8 L622.7 818.8 L639.7 816.7 L656.7 814.5 L673.7 812.2 L690.7 809.8 L707.7 807.2 L724.7 804.5 L741.6 801.7 L758.6 798.7 L775.6 795.6 L792.6 792.3 L809.6 788.8 L826.6 785.2 L843.6 781.4 L860.5 777.4 L877.5 773.2 L894.5 768.7 L911.5 764.1 L928.5 759.2 L945.5 754.0 L962.5 748.6 L979.5 742.9 L996.4 737.0 L1013.4 730.7 L1030.4 724.1 L1047.4 717.2 L1064.4 709.9 L1081.4 702.2 L1098.4 694.2 L1115.3 685.7 L1132.3 676.8 L1149.3 667.5 L1166.3 657.7 L1183.3 647.3 L1200.3 636.5 L1217.3 625.1 L1234.2 613.1 L1251.2 600.5 L1268.2 587.3 L1285.2 573.4 L1302.2 558.8 L1319.2 543.4 L1336.2 527.2 L1353.2 510.3 L1370.1 492.4 L1387.1 473.7 L1404.1 454.0 L1421.1 433.3 L1438.1 411.5 L1455.1 388.6 L1472.1 364.6 L1489.0 339.3 L1506.0 312.7 L1523.0 284.8 L1540.0 255.5" stroke="#fff" stroke-width="4"/>
+        <path d="M300.0 844.0 L317.0 844.8 L334.0 845.5 L351.0 846.2 L367.9 846.9 L384.9 847.6 L401.9 848.2 L418.9 848.7 L435.9 849.3 L452.9 849.8 L469.9 850.3 L486.8 850.8 L503.8 851.2 L520.8 851.7 L537.8 852.1 L554.8 852.5 L571.8 852.8 L588.8 853.2 L605.8 853.5 L622.7 853.8 L639.7 854.1 L656.7 854.4 L673.7 854.7 L690.7 855.0 L707.7 855.2 L724.7 855.4 L741.6 855.7 L758.6 855.9 L775.6 856.1 L792.6 856.3 L809.6 856.5 L826.6 856.6 L843.6 856.8 L860.5 857.0 L877.5 857.1 L894.5 857.2 L911.5 857.4 L928.5 857.5 L945.5 857.6 L962.5 857.7 L979.5 857.9 L996.4 858.0 L1013.4 858.1 L1030.4 858.2 L1047.4 858.2 L1064.4 858.3 L1081.4 858.4 L1098.4 858.5 L1115.3 858.6 L1132.3 858.6 L1149.3 858.7 L1166.3 858.8 L1183.3 858.8 L1200.3 858.9 L1217.3 858.9 L1234.2 859.0 L1251.2 859.0 L1268.2 859.1 L1285.2 859.1 L1302.2 859.2 L1319.2 859.2 L1336.2 859.3 L1353.2 859.3 L1370.1 859.3 L1387.1 859.4 L1404.1 859.4 L1421.1 859.4 L1438.1 859.4 L1455.1 859.5 L1472.1 859.5 L1489.0 859.5 L1506.0 859.5 L1523.0 859.6 L1540.0 859.6" stroke="#888" stroke-width="3" stroke-dasharray="10 8"/>
+      </g>
+      <circle id="s3-dotUp" cx="300" cy="844" r="10" fill="#fff" style="filter: drop-shadow(0 0 12px #fff)"/>
+      <circle id="s3-dotDn" cx="300" cy="844" r="7" fill="#999"/>
+    </svg>
+    <div id="s3-daylabel" class="abs small clip" data-start="0" data-duration="9">Tag</div>
+    <div id="s3-day" class="abs glow clip" data-start="0" data-duration="9">0</div>
+    <div id="s3-x0" class="abs small clip" data-start="0" data-duration="9">Tag 0</div>
+    <div id="s3-x1" class="abs small clip" data-start="0" data-duration="9">Tag 365</div>
+    <div id="s3-upTag" class="abs pill clip" data-start="0" data-duration="9">1 % besser</div>
+    <div id="s3-upVal" class="abs glow clip" data-start="0" data-duration="9">37,8×</div>
+    <div id="s3-dnTag" class="abs pill clip" data-start="0" data-duration="9">1 % schlechter</div>
+    <div id="s3-dnVal" class="abs clip" data-start="0" data-duration="9">0,03×</div>
+    <div id="s3-head" class="abs clip" data-start="0" data-duration="9">Nach 1 Jahr: 1.480-facher Unterschied.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const X0 = 300, W = 1240, Y0 = 860, H = 640, MAX = 40;
+    tl.fromTo("#s3-axes", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+    tl.fromTo(["#s3-x0", "#s3-x1"], { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.3);
+    tl.fromTo(["#s3-daylabel", "#s3-day"], { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.5);
+    tl.fromTo(["#s3-dotUp", "#s3-dotDn"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.8);
+    const c = { d: 0 };
+    tl.fromTo(c, { d: 0 }, { d: 365, duration: 5.0, ease: "power1.in", onUpdate: () => {
+      const d = c.d;
+      const x = X0 + W * d / 365;
+      document.querySelector("#s3-cliprect").setAttribute("width", (x - 280 + 6).toFixed(1));
+      document.querySelector("#s3-day").textContent = Math.round(d);
+      const up = document.querySelector("#s3-dotUp"), dn = document.querySelector("#s3-dotDn");
+      up.setAttribute("cx", x.toFixed(1)); up.setAttribute("cy", (Y0 - H * Math.pow(1.01, d) / MAX).toFixed(1));
+      dn.setAttribute("cx", x.toFixed(1)); dn.setAttribute("cy", (Y0 - H * Math.pow(0.99, d) / MAX).toFixed(1));
+    } }, 1.0);
+    tl.fromTo(["#s3-upTag", "#s3-upVal"], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: "back.out(1.8)" }, 6.0);
+    tl.fromTo(["#s3-dnTag", "#s3-dnVal"], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" }, 6.2);
+    tl.fromTo("#s3-head", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 6.4);
+    tl.to(["#s3-chart", "#s3-daylabel", "#s3-day", "#s3-x0", "#s3-x1", "#s3-upTag", "#s3-upVal", "#s3-dnTag", "#s3-dnVal", "#s3-head"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 8.6);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>

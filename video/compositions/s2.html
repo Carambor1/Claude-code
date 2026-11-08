@@ -1,0 +1,63 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 70%, #151515 0%, #000 65%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 14px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 28px; letter-spacing: 0.2em; text-transform: uppercase; color: #cfcfcf; background: #141414; border: 1.5px solid #4a4a4a; border-radius: 999px; padding: 9px 20px; white-space: nowrap; }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; color: #9a9a9a; }
+    #s2-ground { left: 0; right: 0; top: 860px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+    #s2-daylabel { left: 0; width: 1920px; top: 110px; text-align: center; }
+    #s2-day { left: 0; width: 1920px; top: 178px; text-align: center; font-weight: 900; font-size: 120px; letter-spacing: -0.03em; line-height: 1; }
+    #s2-figA { left: 520px; top: 730px; width: 80px; height: 130px; }
+    #s2-figB { left: 1320px; top: 730px; width: 80px; height: 130px; }
+    #s2-pillA { left: 340px; width: 440px; top: 430px; text-align: center; }
+    #s2-pillB { left: 1140px; width: 440px; top: 430px; text-align: center; }
+    #s2-valA { left: 340px; width: 440px; top: 515px; text-align: center; font-weight: 900; font-size: 72px; }
+    #s2-valB { left: 1140px; width: 440px; top: 515px; text-align: center; font-weight: 900; font-size: 72px; color: #8a8a8a; }
+    #root .step { left: 470px; width: 180px; height: 26px; border: 2px solid #fff; background: #050505; }
+    #s2-step1 { top: 834px; } #s2-step2 { top: 808px; } #s2-step3 { top: 782px; }
+    #s2-note { left: 0; width: 1920px; top: 950px; text-align: center; }
+    #s2-note .pill { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-ground" class="abs clip" data-start="0" data-duration="6"></div>
+    <div id="s2-daylabel" class="abs small clip" data-start="0" data-duration="6">Tag</div>
+    <div id="s2-day" class="abs glow clip" data-start="0" data-duration="6">1</div>
+    <div id="s2-step1" class="abs step clip" data-start="0" data-duration="6"></div>
+    <div id="s2-step2" class="abs step clip" data-start="0" data-duration="6"></div>
+    <div id="s2-step3" class="abs step clip" data-start="0" data-duration="6"></div>
+    <svg id="s2-figA" class="abs glow clip" data-start="0" data-duration="6" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <svg id="s2-figB" class="abs clip" data-start="0" data-duration="6" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#bbb"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#bbb"/></svg>
+    <div id="s2-pillA" class="abs clip" data-start="0" data-duration="6"><span class="pill">1 % besser</span></div>
+    <div id="s2-pillB" class="abs clip" data-start="0" data-duration="6"><span class="pill">1 % schlechter</span></div>
+    <div id="s2-valA" class="abs glow clip" data-start="0" data-duration="6">1,00</div>
+    <div id="s2-valB" class="abs clip" data-start="0" data-duration="6">1,00</div>
+    <div id="s2-note" class="abs clip" data-start="0" data-duration="6"><span class="pill">Nach 30 Tagen: kaum ein Unterschied</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const fmt = (v) => v.toFixed(2).replace(".", ",");
+    tl.fromTo("#s2-ground", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+    tl.fromTo(["#s2-figA", "#s2-figB"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, stagger: 0.12, ease: "back.out(1.6)" }, 0.1);
+    tl.fromTo(["#s2-pillA", "#s2-pillB"], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.12, ease: "power2.out" }, 0.4);
+    tl.fromTo(["#s2-valA", "#s2-valB"], { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.12 }, 0.6);
+    tl.fromTo(["#s2-daylabel", "#s2-day"], { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.5);
+    const c = { d: 1 };
+    tl.fromTo(c, { d: 1 }, { d: 30, duration: 3.2, ease: "power1.inOut", onUpdate: () => {
+      const d = Math.round(c.d);
+      document.querySelector("#s2-day").textContent = d;
+      document.querySelector("#s2-valA").textContent = fmt(Math.pow(1.01, d));
+      document.querySelector("#s2-valB").textContent = fmt(Math.pow(0.99, d));
+    } }, 0.9);
+    // Left climbs three small steps, right sinks a little
+    ["#s2-step1", "#s2-step2", "#s2-step3"].forEach((id, i) => {
+      const t = 1.3 + i * 0.9;
+      tl.fromTo(id, { opacity: 0, scaleY: 0, transformOrigin: "50% 100%" }, { opacity: 1, scaleY: 1, duration: 0.25, ease: "power2.out" }, t);
+      tl.to("#s2-figA", { y: -26 * (i + 1), duration: 0.3, ease: "back.out(2)" }, t + 0.2);
+    });
+    tl.to("#s2-figB", { y: 22, opacity: 0.45, duration: 3.0, ease: "power1.inOut" }, 1.1);
+    tl.fromTo("#s2-note", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 3.6);
+    tl.to(["#s2-ground", "#s2-daylabel", "#s2-day", "#s2-step1", "#s2-step2", "#s2-step3", "#s2-figA", "#s2-figB", "#s2-pillA", "#s2-pillB", "#s2-valA", "#s2-valB", "#s2-note"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 5.55);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

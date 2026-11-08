@@ -1,0 +1,52 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 70%, #151515 0%, #000 65%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 14px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 32px; letter-spacing: 0.2em; text-transform: uppercase; color: #cfcfcf; background: #141414; border: 1.5px solid #4a4a4a; border-radius: 999px; padding: 10px 22px; white-space: nowrap; display: inline-block; }
+    #s4-ground { left: 0; right: 0; top: 860px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+    #s4-stairs { left: 0; top: 0; width: 1920px; height: 1080px; }
+    #s4-burst { left: 1330px; top: 0px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0) 70%); }
+    #s4-fig { left: 330px; top: 730px; width: 80px; height: 130px; }
+    #s4-t1, #s4-t2 { left: 0; width: 1920px; top: 110px; text-align: center; }
+    #s4-t2 .pill { color: #000; background: #fff; border-color: #fff; box-shadow: 0 0 30px rgba(255,255,255,0.5); }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1920" data-height="1080">
+    <div id="s4-ground" class="abs clip" data-start="0" data-duration="6"></div>
+    <div id="s4-burst" class="abs clip" data-start="0" data-duration="6"></div>
+    <svg id="s4-stairs" class="abs clip" data-start="0" data-duration="6" viewBox="0 0 1920 1080" fill="#050505" stroke-width="2.5">
+      <rect id="s4-st0" class="st dim" x="420" y="790" width="150" height="70"/>
+      <rect id="s4-st1" class="st dim" x="570" y="720" width="150" height="140"/>
+      <rect id="s4-st2" class="st dim" x="720" y="650" width="150" height="210"/>
+      <rect id="s4-st3" class="st dim" x="870" y="580" width="150" height="280"/>
+      <rect id="s4-st4" class="st dim" x="1020" y="510" width="150" height="350"/>
+      <rect id="s4-st5" class="st" x="1170" y="440" width="150" height="420"/>
+      <rect id="s4-st6" class="st" x="1320" y="370" width="150" height="490"/>
+      <rect id="s4-st7" class="st" x="1470" y="300" width="150" height="560"/>
+    </svg>
+    <svg id="s4-fig" class="abs glow clip" data-start="0" data-duration="6" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <div id="s4-t1" class="abs clip" data-start="0" data-duration="6"><span class="pill">Die ersten 100 Tage sieht es niemand</span></div>
+    <div id="s4-t2" class="abs clip" data-start="0" data-duration="6"><span class="pill">Dann sieht es jeder</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s4-ground", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+    tl.fromTo("#s4-fig", { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.3 }, 0.05);
+    tl.fromTo("#s4-t1", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.3);
+    tl.fromTo("#s4-stairs .st", { stroke: "#444" }, { stroke: "#444", duration: 0.01 }, 0);
+    tl.fromTo("#s4-t2", { opacity: 0, scale: 0.85 }, { opacity: 0, scale: 0.85, duration: 0.01 }, 0);
+    tl.fromTo("#s4-burst", { opacity: 0, scale: 0.4 }, { opacity: 0, scale: 0.4, duration: 0.01 }, 0);
+    for (let i = 0; i < 8; i++) {
+      tl.fromTo("#s4-st" + i, { opacity: 0, scaleY: 0, transformOrigin: "50% 100%" }, { opacity: 1, scaleY: 1, duration: 0.25, ease: "power2.out" }, 0.25 + 0.33 * i);
+      tl.to("#s4-fig", { x: 125 + 150 * i, y: -70 * (i + 1), duration: 0.26, ease: "power2.out" }, 0.5 + 0.35 * i);
+    }
+    // Payoff: the top lights up
+    tl.to("#s4-t1", { opacity: 0, duration: 0.25 }, 3.3);
+    tl.to("#s4-stairs .st", { stroke: "#ffffff", duration: 0.35, stagger: 0.04, ease: "power2.out" }, 3.55);
+    tl.to("#s4-burst", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 3.6);
+    tl.to("#s4-t2", { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 3.6);
+    tl.to("#s4-fig", { scale: 1.12, transformOrigin: "50% 100%", duration: 0.4, ease: "back.out(2)" }, 3.6);
+    tl.to(["#s4-ground", "#s4-burst", "#s4-stairs", "#s4-fig", "#s4-t2"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 5.55);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>
