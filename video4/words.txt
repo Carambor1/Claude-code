@@ -1,0 +1,18 @@
+e01 You@0.10 get@0.22 about@0.42 4,000@1.06 weeks@1.72
+e02 That's@0.12 it.@0.40 If@1.14 you're@1.30 lucky@1.54 enough@1.80 to@2.08 make@2.20 it@2.36 to@2.46 80@2.70
+e03 Here@0.10 they@0.28 are,@0.50 every@1.30 single@1.72 one.@2.24 Each@3.08 row@3.36 is@3.76 one@4.00 year@4.24
+e03b 4,000@0.34 little@1.20 boxes.@1.46 It@2.52 looks@2.64 like@2.86 plenty@3.06
+e04 Now,@0.10 let's@0.48 be@0.72 honest@0.88 about@1.22 them.@1.46 If@2.14 you're@2.24 twenty-five,@2.44 the@3.50 first@3.70 thirteen@4.02 hundred@4.52 are@4.94 already@5.22 gone.@5.62
+e05 A@0.08 third@0.24 of@0.50 what's@0.62 left@0.90 you'll@1.52 spend@1.74 asleep@1.96
+e06 Work@0.12 takes@0.44 about@0.72 500@1.40 more@1.84
+e07 Eating,@0.08 cleaning,@0.76 commuting,@1.58 another@2.78 340.@3.30
+e08 And@0.14 your@0.32 phone.@0.50 Three@1.46 hours@1.74 a@2.04 day@2.18 adds@2.58 up@2.84 to@2.98 three@3.18 hundred@3.50 and@3.78 forty@4.06 weeks@4.50 of@4.80 scrolling@4.96
+e09 So@0.14 what's@0.62 actually@0.90 left?@1.32 Time@2.24 that's@2.56 truly@2.86 yours?@3.24
+e10 About@0.08 600@0.82 weeks@1.24
+e10b Roughly@0.10 12@0.54 years@1.06 that@1.78 are@1.92 really@2.20 yours@2.54 to@2.86 choose@3.02
+e11 Not@0.10 four@0.48 thousand,@0.78 six@1.78 hundred@2.08
+e11b And@0.14 they@0.30 don't@0.56 wait@0.92 for@1.18 you@1.34
+e12 And@0.10 every@0.36 Sunday@0.66 night,@1.02 one@1.82 more@2.06 goes@2.34 dark.@2.62
+e13 You@0.12 don't@0.22 have@0.44 time.@0.72 You@1.64 have@1.78 weeks@2.06
+e14 Spend@0.14 them@0.50 on@0.84 purpose@1.10
+e15 Starting@0.18 with@0.56 this@0.76 one@1.00
