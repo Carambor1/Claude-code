@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s06-k { top: 205px; }
+    #s06-day { top: 245px; font-size: 150px; }
+    #s06-num { top: 470px; font-size: 110px; }
+    #s06-nl { top: 600px; }
+    #s06-phone { left: 572px; top: 918px; width: 42px; height: 70px; border-radius: 9px; background: #fff; box-shadow: 0 0 40px 8px rgba(255,255,255,0.55); }
+    #s06-beam { left: 470px; top: 820px; width: 160px; height: 120px; background: radial-gradient(ellipse at 70% 90%, rgba(255,255,255,0.35), rgba(255,255,255,0) 70%); }
+    #s06-today { top: 700px; }
+    #s06-week { left: 160px; top: 470px; width: 760px; display: flex; justify-content: space-between; }
+    #s06-week .dd { width: 130px; height: 130px; border: 3px solid #555; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 44px; color: #777; }
+
+  </style>
+  <div id="root" data-composition-id="s06" data-width="1080" data-height="1920">
+    <div id="s06-ground" class="abs ground clip" data-start="0" data-duration="11.5" style=""></div>
+    <div id="s06-beam" class="abs  clip" data-start="0" data-duration="11.5" style=""></div>
+    <svg id="s06-fig" class="abs glow clip" data-start="0" data-duration="11.5" style="left:480px;top:845px;width:120px;height:195px" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <div id="s06-phone" class="abs  clip" data-start="0" data-duration="11.5" style=""></div>
+    <div id="s06-k" class="abs small ctr clip" data-start="0" data-duration="11.5" style="">Tag</div>
+    <div id="s06-day" class="abs big ctr glow clip" data-start="0" data-duration="11.5" style="">70</div>
+    <div id="s06-num" class="abs big ctr clip" data-start="0" data-duration="11.5" style="">−600</div>
+    <div id="s06-nl" class="abs small ctr clip" data-start="0" data-duration="11.5" style="">Wörter verloren</div>
+    <div id="s06-today" class="abs ctr clip" data-start="0" data-duration="11.5" style=""><span class="pill">Nur für heute</span></div>
+    <div id="s06-week" class="abs  clip" data-start="0" data-duration="11.5" style=""><div class="dd" id="s06-d0"><span>71</span></div><div class="dd" id="s06-d1"><span>72</span></div><div class="dd" id="s06-d2"><span>73</span></div><div class="dd" id="s06-d3"><span>74</span></div><div class="dd" id="s06-d4"><span>75</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    tl.fromTo(["#s06-ground", "#s06-fig", "#s06-phone", "#s06-beam", "#s06-k", "#s06-day"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+    tl.fromTo(["#s06-num", "#s06-nl", "#s06-today", "#s06-week"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    // "Er sieht die Zahl"
+    tl.fromTo("#s06-num", { scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 2.35);
+    tl.to("#s06-nl", { opacity: 1, duration: 0.3 }, 2.5);
+    // "… und legt das Handy weg"
+    tl.to("#s06-phone", { x: 200, y: 98, rotation: 90, duration: 0.55, ease: "power2.in" }, 3.8);
+    tl.to("#s06-phone", { boxShadow: "0 0 0px 0px rgba(255,255,255,0)", backgroundColor: "#2a2a2a", duration: 0.4 }, 4.35);
+    tl.to("#s06-beam", { opacity: 0, duration: 0.4 }, 3.9);
+    tl.to(["#s06-num", "#s06-nl"], { opacity: 0, duration: 0.3 }, 4.9);
+    tl.fromTo("#s06-today", { y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 6.25);
+    // "Und morgen wieder" — one day at a time
+    tl.to("#s06-week", { opacity: 1, duration: 0.3 }, 8.2);
+    [8.35, 8.95, 9.75, 10.15, 10.55].forEach((t, i) => {
+      tl.fromTo("#s06-d" + i, { borderColor: "#555", color: "#777", backgroundColor: "#000" }, { borderColor: "#fff", color: "#000", backgroundColor: "#fff", duration: 0.2 }, t);
+    });
+    tl.to(["#s06-k", "#s06-day", "#s06-today", "#s06-week"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 11.15);
+
+    window.__timelines["s06"] = tl;
+  </script>
+</template>

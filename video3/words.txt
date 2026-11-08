@@ -1,0 +1,12 @@
+m01 Tag@0.08 fünfzig.@0.40 Drei@1.50 neue@1.86 Nachrichten.@2.18 Und@3.36 er@3.50 tut,@3.74 was@4.22 er@4.38 fünfzig@4.60 Tage@5.12 lang@5.46 nicht@5.72 getan@5.96 hat@6.36
+m02 Er@0.06 greift@0.20 zum@0.54 Handy.@0.74 Nur@1.78 kurz,@2.00 denkt@2.56 er.@2.82 Aus@3.54 fünf@3.80 Minuten@4.10 wird@4.76 eine@5.06 Stunde@5.32
+m03 Am@0.08 nächsten@0.22 Tag@0.64 sind@0.96 es@1.12 zwei@1.42 Stunden,@1.68 dann@2.54 drei.@2.84 Nach@3.70 einer@3.92 Woche@4.18 ist@4.52 alles@4.86 wie@5.12 vorher@5.32
+m04 Und@0.06 genau@0.22 hier@0.80 wird@1.10 es@1.28 interessant,@1.42 denn@2.62 jede@2.92 Stunde@3.24 am@3.60 Handy@3.78 hat@4.22 einen@4.40 Preis.@4.60 Man@5.54 sieht@5.72 ihn@5.92 nur@6.06 nicht@6.22
+m05 21@0.04 Stunden@0.94 pro@1.38 Woche,@1.58 210@2.70 Wörter,@3.38 die@4.00 er@4.16 nie@4.44 lernen@4.70 wird@5.06
+m06 Nach@0.10 zwanzig@0.34 Tagen@0.80 fehlen@1.30 ihm@1.62 sechzig@1.86 Stunden,@2.34 sechshundert@3.38 Wörter.@4.04 Die@5.02 Kurve,@5.18 die@5.70 so@5.96 schön@6.22 gestiegen@6.52 ist,@7.08 ist@7.62 flach@7.88
+m07 Tag@0.08 70.@0.34 Er@1.44 sieht@1.60 die@1.80 Zahl@2.02 und@2.88 legt@3.04 das@3.22 Handy@3.38 weg.@3.70 Nicht@4.40 für@4.62 immer,@4.80 nur@5.48 für@5.62 heute@5.76
+m08 Und@0.08 morgen@0.34 wieder.@0.70 Nur@1.54 für@1.76 heute@1.92
+m09 Tag@0.08 100,@0.36 2400@1.66 Wörter.@2.68 Nicht@3.64 3000@4.10 wie@4.74 geplant,@4.86 aber@5.92 2400@6.26 mehr@7.62 als@7.88 vorher@8.10
+m10 Der@0.08 Rückfall@0.26 hat@0.76 ihn@0.94 zwanzig@1.20 Tage@1.74 gekostet.@2.08 Aufgeben@3.24 hätte@3.92 ihn@4.20 alles@4.50 gekostet@4.80
+m08b Tag@0.08 80.@0.38 Tag@1.50 90.@1.78 Die@2.86 Kurve@3.02 steigt@3.42 wieder@3.84
+m11 Und@0.08 was@0.26 machst@0.48 du@0.76 mit@0.94 deinen@1.10 drei@1.34 Stunden?@1.56

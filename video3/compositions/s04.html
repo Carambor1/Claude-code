@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s04-phone { left: 440px; top: 330px; width: 200px; height: 340px; border: 5px solid #fff; border-radius: 36px; box-shadow: 0 0 40px rgba(255,255,255,0.3); }
+    #s04-string { left: 0; top: 0; width: 1080px; height: 1920px; }
+    #s04-tag { left: 640px; top: 600px; width: 230px; height: 110px; }
+    #s04-tagq { left: 690px; top: 618px; width: 170px; text-align: center; font-weight: 900; font-size: 64px; }
+    #s04-hid { top: 790px; }
+    #root .cost { left: 160px; width: 760px; height: 170px; border: 3px solid #fff; border-radius: 22px; background: #070707; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; }
+    #root .cost .v { font-weight: 900; font-size: 84px; }
+    #root .cost .l { font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a9a9a; text-align: right; line-height: 1.35; }
+    #s04-c1 { top: 420px; } #s04-c2 { top: 620px; }
+    #s04-k { top: 300px; }
+    #s04-never { top: 850px; }
+
+  </style>
+  <div id="root" data-composition-id="s04" data-width="1080" data-height="1920">
+    <div id="s04-phone" class="abs  clip" data-start="0" data-duration="15" style=""></div>
+    <svg id="s04-string" class="abs clip" data-start="0" data-duration="15" viewBox="0 0 1080 1920"><path id="s04-str" d="M640 380 C 700 420, 690 560, 660 600" fill="none" stroke="#fff" stroke-width="3"/></svg>
+    <svg id="s04-tag" class="abs clip" data-start="0" data-duration="15" viewBox="0 0 230 110"><path d="M40 4 H222 a4 4 0 0 1 4 4 V102 a4 4 0 0 1 -4 4 H40 L4 55 Z" fill="#0a0a0a" stroke="#fff" stroke-width="4"/><circle cx="38" cy="55" r="8" fill="none" stroke="#fff" stroke-width="4"/></svg>
+    <div id="s04-tagq" class="abs  clip" data-start="0" data-duration="15" style="">?</div>
+    <div id="s04-hid" class="abs ctr clip" data-start="0" data-duration="15" style=""><span class="pill">Unsichtbar</span></div>
+    <div id="s04-k" class="abs small ctr clip" data-start="0" data-duration="15" style="">Der Preis pro Woche</div>
+    <div id="s04-c1" class="abs cost clip" data-start="0" data-duration="15" style=""><span class="v">−21 h</span><span class="l">Stunden<br>pro Woche</span></div>
+    <div id="s04-c2" class="abs cost clip" data-start="0" data-duration="15" style=""><span class="v">−210</span><span class="l">Wörter<br>pro Woche</span></div>
+    <div id="s04-never" class="abs ctr clip" data-start="0" data-duration="15" style=""><span class="pill">Nie gelernt</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    tl.fromTo("#s04-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.2);
+    tl.fromTo(["#s04-string", "#s04-tag", "#s04-tagq"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo(["#s04-k", "#s04-c1", "#s04-c2", "#s04-never", "#s04-hid"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    // "hat einen Preis" — a price tag swings onto the phone
+    tl.to(["#s04-string", "#s04-tag", "#s04-tagq"], { opacity: 1, duration: 0.3 }, 4.5);
+    tl.fromTo(["#s04-tag", "#s04-tagq"], { rotation: -14, transformOrigin: "10% 50%" }, { rotation: 0, duration: 0.9, ease: "elastic.out(1, 0.4)" }, 4.5);
+    // "man sieht ihn nur nicht" — the tag fades to a ghost
+    tl.to(["#s04-tag", "#s04-tagq", "#s04-string"], { opacity: 0.18, duration: 0.6 }, 5.5);
+    tl.to("#s04-hid", { opacity: 1, duration: 0.35 }, 5.6);
+    tl.to(["#s04-phone", "#s04-tag", "#s04-tagq", "#s04-string", "#s04-hid"], { opacity: 0, duration: 0.35 }, 7.6);
+    // The weekly cost, made visible
+    tl.to("#s04-k", { opacity: 1, duration: 0.3 }, 8.2);
+    tl.fromTo("#s04-c1", { x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, 8.25);
+    tl.fromTo("#s04-c2", { x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, 10.9);
+    tl.fromTo("#s04-never", { y: 10 }, { opacity: 1, y: 0, duration: 0.35 }, 12.6);
+    tl.to(["#s04-k", "#s04-c1", "#s04-c2", "#s04-never"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 14.65);
+
+    window.__timelines["s04"] = tl;
+  </script>
+</template>

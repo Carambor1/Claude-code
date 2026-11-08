@@ -1,0 +1,65 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #root .chart { left: 0; top: 0; width: 1080px; height: 1920px; }
+    #root .yt, #root .xt { fill: #8a8a8a; font: 700 28px Inter, sans-serif; }
+    #root .hk { top: 205px; }
+    #root .hday { top: 245px; font-size: 120px; }
+
+    #s07-area { left: 0; top: 0; width: 1080px; height: 1920px; }
+    #s07-a1 { left: 200px; top: 480px; }
+    #s07-v1 { left: 200px; top: 518px; font-size: 84px; }
+    #s07-pl { left: 200px; top: 425px; color: #8a8a8a; }
+    #s07-plus { top: 1090px; }
+
+  </style>
+  <div id="root" data-composition-id="s07" data-width="1080" data-height="1920">
+    <svg id="s07-area" class="abs clip" data-start="0" data-duration="17.5" viewBox="0 0 1080 1920"><path d="M160.0 1020.0 L540.0 720.0 L692.0 720.0 L920.0 540.0 L920.0 1020.0 Z" fill="rgba(255,255,255,0.12)"/></svg>
+    <div id="s07-k" class="abs small ctr hk clip" data-start="0" data-duration="17.5" style="">Tag</div>
+    <div id="s07-day" class="abs big ctr glow hday clip" data-start="0" data-duration="17.5" style="">70</div>
+    <svg id="s07-chart" class="abs chart clip" data-start="0" data-duration="17.5" viewBox="0 0 1080 1920"><defs><clipPath id="s07-clip"><rect id="s07-cr" x="150" y="0" width="0" height="1920"/></clipPath></defs><line x1="160" y1="820.0" x2="920" y2="820.0" stroke="#222" stroke-width="2"/><text class="yt" x="145" y="830.0" text-anchor="end">1k</text><line x1="160" y1="620.0" x2="920" y2="620.0" stroke="#222" stroke-width="2"/><text class="yt" x="145" y="630.0" text-anchor="end">2k</text><line x1="160" y1="420.0" x2="920" y2="420.0" stroke="#222" stroke-width="2"/><text class="yt" x="145" y="430.0" text-anchor="end">3k</text><line x1="160" y1="1020" x2="930" y2="1020" stroke="#777" stroke-width="2"/><line x1="160" y1="400" x2="160" y2="1020" stroke="#777" stroke-width="2"/><text class="xt" x="160.0" y="1065" text-anchor="middle">0</text><text class="xt" x="540.0" y="1065" text-anchor="middle">50</text><text class="xt" x="692.0" y="1065" text-anchor="middle">70</text><text class="xt" x="920.0" y="1065" text-anchor="middle">100</text><path id="s07-plan" d="M160.0 1020.0 L920.0 420.0" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-dasharray="10 9" fill="none"/><g clip-path="url(#s07-clip)"><path d="M160.0 1020.0 L540.0 720.0 L692.0 720.0 L920.0 540.0" stroke="#fff" stroke-width="12" opacity="0.3" fill="none" style="filter: blur(6px)"/><path d="M160.0 1020.0 L540.0 720.0 L692.0 720.0 L920.0 540.0" stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"/></g><circle id="s07-dot" cx="160.0" cy="1020.0" r="11" fill="#fff" style="filter: drop-shadow(0 0 10px #fff)"/></svg>
+    <div id="s07-pl" class="abs small clip" data-start="0" data-duration="17.5" style="">Geplant: 3.000</div>
+    <div id="s07-a1" class="abs small clip" data-start="0" data-duration="17.5" style="">Geschafft</div>
+    <div id="s07-v1" class="abs big glow clip" data-start="0" data-duration="17.5" style="">2.400</div>
+    <div id="s07-plus" class="abs ctr clip" data-start="0" data-duration="17.5" style=""><span class="pill">+2.400 mehr als vorher</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    const X = (d) => 160 + 7.6 * d, Y = (w) => 1020 - 0.2 * w;
+    const words = (d) => d <= 50 ? d * 30 : d <= 70 ? 1500 : 1500 + (d - 70) * 30;
+    const at = (pts, t) => { if (t <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) { const [t1, v1] = pts[i], [t0, v0] = pts[i - 1]; if (t <= t1) { const u = (t - t0) / (t1 - t0); return v0 + (v1 - v0) * (u * u * (3 - 2 * u)); } } return pts[pts.length - 1][1]; };
+    // The drawn day is a pure function of scene time: pts = [[time, day], ...]
+    const drawPts = (pid, pts, dur) => {
+      const o = { t: 0 };
+      tl.fromTo(o, { t: 0 }, { t: dur, duration: dur, ease: "none", onUpdate: () => {
+        const d = at(pts, o.t);
+        $("#" + pid + "-cr").setAttribute("width", (X(d) - 150 + 3).toFixed(1));
+        $("#" + pid + "-dot").setAttribute("cx", X(d).toFixed(1));
+        $("#" + pid + "-dot").setAttribute("cy", Y(words(d)).toFixed(1));
+        $("#" + pid + "-day").textContent = Math.round(d);
+      } }, 0);
+    };
+
+    tl.fromTo(["#s07-chart", "#s07-k", "#s07-day"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+    tl.fromTo(["#s07-area", "#s07-pl", "#s07-a1", "#s07-v1", "#s07-plus"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    drawPts("s07", [[0, 0], [0.7, 70], [1.0, 70], [3.0, 80], [4.4, 90], [6.6, 100]], 17.5);   // "Tag 80 … Tag 90 … die Kurve steigt wieder"
+    tl.fromTo(["#s07-a1", "#s07-v1"], { x: -20 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.06, ease: "back.out(1.8)" }, 9.1);  // "2.400 Wörter"
+    tl.to("#s07-pl", { opacity: 1, duration: 0.35 }, 11.55);   // "nicht 3.000, wie geplant"
+    tl.to("#s07-area", { opacity: 1, duration: 0.6 }, 13.9);  // "aber 2.400 mehr als vorher"
+    tl.fromTo("#s07-plus", { y: 10 }, { opacity: 1, y: 0, duration: 0.35 }, 14.1);
+    tl.to(["#s07-chart", "#s07-k", "#s07-day", "#s07-area", "#s07-pl", "#s07-a1", "#s07-v1", "#s07-plus"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 17.1);
+
+    window.__timelines["s07"] = tl;
+  </script>
+</template>

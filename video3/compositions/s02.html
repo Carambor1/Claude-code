@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s02-k { top: 250px; }
+    #s02-clock { top: 295px; font-size: 180px; }
+    #s02-think { top: 560px; }
+    #s02-think .pill { font-style: italic; }
+    #s02-phone { left: 572px; top: 918px; width: 42px; height: 70px; border-radius: 9px; background: #fff; box-shadow: 0 0 40px 8px rgba(255,255,255,0.55); }
+    #s02-beam { left: 470px; top: 820px; width: 160px; height: 120px; background: radial-gradient(ellipse at 70% 90%, rgba(255,255,255,0.35), rgba(255,255,255,0) 70%); }
+
+  </style>
+  <div id="root" data-composition-id="s02" data-width="1080" data-height="1920">
+    <div id="s02-ground" class="abs ground clip" data-start="0" data-duration="7" style=""></div>
+    <div id="s02-beam" class="abs  clip" data-start="0" data-duration="7" style=""></div>
+    <svg id="s02-fig" class="abs glow clip" data-start="0" data-duration="7" style="left:480px;top:845px;width:120px;height:195px" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <div id="s02-phone" class="abs  clip" data-start="0" data-duration="7" style=""></div>
+    <div id="s02-k" class="abs small ctr clip" data-start="0" data-duration="7" style="">Bildschirmzeit heute</div>
+    <div id="s02-clock" class="abs big ctr glow clip" data-start="0" data-duration="7" style="">0:00</div>
+    <div id="s02-think" class="abs ctr clip" data-start="0" data-duration="7" style=""><span class="pill">„Nur kurz …“</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    // The phone comes up from the floor into his hand
+    tl.fromTo("#s02-phone", { x: 180, y: 95, rotation: 90, opacity: 1 }, { x: 0, y: 0, rotation: 0, duration: 0.45, ease: "power3.out" }, 0.25);
+    tl.fromTo("#s02-beam", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.5);
+    tl.fromTo(["#s02-k", "#s02-clock"], { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.08 }, 1.0);
+    tl.fromTo("#s02-think", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 1.75);
+    tl.to("#s02-think", { opacity: 0, duration: 0.3 }, 3.6);
+    const c = { m: 0 };
+    tl.fromTo(c, { m: 0 }, { m: 5, duration: 0.5, ease: "none", onUpdate: () => { $("#s02-clock").textContent = "0:" + String(Math.round(c.m)).padStart(2, "0"); } }, 3.6);
+    const c2 = { m: 5 };
+    tl.fromTo(c2, { m: 5 }, { m: 72, duration: 1.4, ease: "power2.in", onUpdate: () => { const m = Math.round(c2.m); $("#s02-clock").textContent = Math.floor(m / 60) + ":" + String(m % 60).padStart(2, "0"); } }, 4.4);
+    tl.fromTo("#s02-clock", { scale: 1 }, { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1 }, 5.8);
+    tl.to(["#s02-k", "#s02-clock", "#s02-fig", "#s02-phone", "#s02-beam", "#s02-ground"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 6.65);
+
+    window.__timelines["s02"] = tl;
+  </script>
+</template>
