@@ -1,23 +1,26 @@
-h1 This@0.12 tower@0.38 reaches@0.98 the@1.44 moon@1.64
-h2 It's@0.08 made@0.32 of@0.52 a@0.64 single@0.86 sheet@1.24 of@1.46 paper@1.64
-h3 Folded@0.14 42@0.88 times@1.42
-h4 Don't@0.10 believe@0.30 me?@0.62 Let's@1.32 fold@1.56
-f1 A@0.08 sheet@0.20 of@0.42 paper@0.62 is@1.16 a@1.32 tenth@1.54 of@1.98 a@2.08 millimeter@2.18 thick.@2.76
-f2 Fold@0.14 it@0.38 once,@0.58 two@1.50 layers.@1.72 Again,@2.64 four@3.56
-f3 Seven@0.22 folds,@0.68 as@1.78 thick@2.10 as@2.34 a@2.48 notebook@2.68
-f4 Ten,@0.08 as@1.06 tall@1.30 as@1.64 a@1.78 coffee@1.90 cup@2.28
-f5 Fifteen,@0.10 taller@1.26 than@1.60 you@1.80
-f6 20.@0.24 Taller@1.10 than@1.44 a@1.62 30-story@1.98 building@2.62
-f7 23.@0.24 Higher@1.50 than@1.86 the@2.02 tallest@2.20 building@2.70 on@3.04 Earth@3.30
-f8 Twenty-seven.@0.08 Above@1.38 Mount@1.88 Everest.@2.18 Above@3.22 the@3.56 plains@3.70
-f9 Thirty.@0.10 A@1.08 hundred@1.22 kilometers@1.60 up.@2.24 You're@3.00 in@3.16 space@3.46
-f10 32.@0.24 Past@1.34 the@1.70 space@1.90 station@2.20
-f11 Thirty-seven:@0.10 taller@1.42 than@1.82 the@1.96 Earth@2.20 is@2.58 wide@2.80
-f12 Forty-one.@0.14 More@1.32 than@1.48 halfway@1.74 there@2.20
-f13 And@0.12 42@0.56
-f14 The@0.12 moon@0.30
-t1 In@0.10 real@0.26 life,@0.46 the@1.28 record@1.50 is@1.88 around@2.02 12@2.46 folds@2.88
-t2 But@0.10 keep@0.32 doubling@0.62 and@1.44 it@1.56 gets@1.70 absurd.@1.92
-t3 Fifty-one@0.14 folds@0.92 past@2.00 the@2.36 sun@2.54
-t4 Hundred@0.24 and@0.54 three:@0.72 wider@1.80 than@2.24 the@2.38 observable@2.52 universe@3.30
-t5 From@0.12 one@0.50 sheet@0.76 of@1.00 paper@1.16
+h1 This@0.14 tower@0.44 reaches@1.02 the@1.46 moon@1.70
+h2 It's@0.08 made@0.32 of@0.58 a@0.70 single@0.94 sheet@1.36 of@1.62 paper@1.80
+h3 Folded@0.12 42@0.88 times@1.54
+h4 Don't@0.12 believe@0.34 me?@0.70 Let's@1.40 fold@1.66
+f1 A@0.12 sheet@0.22 of@0.46 paper@0.62 is@1.18 a@1.32 tenth@1.52 of@1.92 a@2.06 millimeter@2.20 thick@2.84
+f2a Fold@0.14 it@0.42 once@0.66
+f2b Two@0.08 layers@0.36
+f2c Again@0.06
+f2d Four@0.12
+f3 Seven@0.20 folds,@0.68 as@1.76 thick@2.10 as@2.34 a@2.48 notebook@2.68
+f4 Ten,@0.10 as@1.08 tall@1.34 as@1.76 a@1.90 coffee@2.02 cup@2.44
+f5 Fifteen.@0.10 Taller@1.30 than@1.72 you@1.96
+f6 20.@0.22 Taller@1.12 than@1.56 a@1.76 30-story@2.10 building@2.78
+f7 Twenty-three:@0.08 higher@1.48 than@1.86 the@2.04 tallest@2.24 building@2.80 on@3.28 Earth.@3.58
+f8 Twenty-seven.@0.08 Above@1.44 Mount@1.94 Everest.@2.30 Above@3.36 the@3.70 plains@3.84
+f9 30.@0.28 A@1.10 hundred@1.24 kilometers@1.64 up.@2.38 You're@3.14 in@3.30 space@3.60
+f10 Thirty-two.@0.10 Past@1.50 the@1.92 space@2.12 station@2.42
+f11 Thirty-seven:@0.10 taller@1.48 than@1.90 the@2.08 Earth@2.32 is@2.82 wide@3.06
+f12 41.@0.28 More@1.32 than@1.50 halfway@1.80 there@2.28
+f13 And@0.10 forty-two@0.44
+f14 The@0.12 moon@0.28
+t1 In@0.10 real@0.28 life,@0.52 the@1.32 record@1.50 is@1.94 around@2.08 12@2.46 folds@2.92
+t2 But@0.10 keep@0.34 doubling@0.72 and@1.50 it@1.62 gets@1.74 absurd@2.00
+t3 Fifty-one@0.14 folds.@0.94 Past@2.04 the@2.46 sun.@2.64
+t4 A@0.12 hundred@0.20 and@0.54 three:@0.72 wider@1.86 than@2.34 the@2.50 observable@2.62 universe@3.44
+t5 From@0.12 one@0.54 sheet@0.82 of@1.04 paper@1.24

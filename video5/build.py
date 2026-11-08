@@ -17,9 +17,11 @@ def Y(m):                     # world height (px above the paper's base) for a h
     return (math.log10(m) - L0) * K
 
 VO = {k: float(v) for k, v in json.load(open("vo-durations.json")).items()}
-STARTS = {"h1": 0.25, "h2": 2.7, "h3": 5.05, "h4": 7.3, "f1": 11.8, "f2": 15.2, "f3": 20.5, "f4": 24.4, "f5": 27.6,
-          "f6": 30.2, "f7": 33.9, "f8": 38.0, "f9": 42.9, "f10": 47.4, "f11": 50.6, "f12": 54.4, "f13": 57.6,
-          "f14": 60.3, "t1": 62.6, "t2": 66.3, "t3": 69.3, "t4": 72.6, "t5": 77.0}
+# Voice: ElevenLabs "Sarah" (female). Each line is placed so its key word lands where the picture expects it.
+STARTS = {"h1": 0.19, "h2": 2.58, "h3": 5.05, "h4": 7.2, "f1": 11.82, "f2a": 15.2, "f2b": 16.62, "f2c": 17.78,
+          "f2d": 18.64, "f3": 20.52, "f4": 24.38, "f5": 27.6, "f6": 30.22, "f7": 33.96, "f8": 38.0, "f9": 42.72,
+          "f10": 47.54, "f11": 50.6, "f12": 54.26, "f13": 57.72, "f14": 60.32, "t1": 62.6, "t2": 66.3, "t3": 69.2,
+          "t4": 72.46, "t5": 77.0}
 
 # ---------------------------------------------------------------- icons (stroke style, white)
 S = 'fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"'
@@ -262,8 +264,8 @@ JS = f"""
     tl.to(["#w-world", "#w-tip"], {{ opacity: 1, duration: 0.5 }}, 19.85);
 
     // ================= THE CLIMB =================
-    tl.fromTo("#w-plane", {{ opacity: 1, x: 1160 }}, {{ opacity: 1, x: -260, duration: 1.4, ease: "none" }}, 41.25);
-    tl.to("#w-plane", {{ opacity: 0, duration: 0.05 }}, 42.66);
+    tl.fromTo("#w-plane", {{ opacity: 1, x: 1160 }}, {{ opacity: 1, x: -260, duration: 1.4, ease: "none" }}, 41.39);
+    tl.to("#w-plane", {{ opacity: 0, duration: 0.05 }}, 42.8);
     // the Moon
     tl.fromTo("#w-flash", {{ opacity: 0 }}, {{ opacity: 0.85, duration: 0.06 }}, 60.45);
     tl.to("#w-flash", {{ opacity: 0, duration: 0.9, ease: "power2.out" }}, 60.52);
@@ -305,7 +307,7 @@ wcomp = f"""<template>
 """
 
 # ---------------------------------------------------------------- captions
-FIX = {"plains": "planes", "Hundred": "A hundred"}
+FIX = {"plains": "planes", "Twenty-three:": "Twenty-three."}
 words = {}
 for line in open("words.txt", encoding="utf-8"):
     k, *ws = line.split()
@@ -350,7 +352,7 @@ SFX = [
     (15.1, "paper_fold1", 1.0), (16.65, "pop", 0.35), (17.57, "paper_fold2", 1.0), (18.72, "pop", 0.35),
     (19.45, "up1", 0.6), (20.2, "counter", 0.55), (20.85, "up2", 0.5),
     (24.25, "up1", 0.6), (27.45, "up2", 0.6), (28.86, "pop", 0.3), (30.1, "up1", 0.6), (33.85, "up2", 0.6), (36.05, "pop", 0.3),
-    (37.6, "wind", 0.75), (38.0, "up1", 0.5), (40.95, "jet", 0.85),
+    (37.6, "wind", 0.75), (38.0, "up1", 0.5), (41.09, "jet", 0.85),
     (42.85, "up2", 0.6), (45.4, "space", 0.8), (47.4, "up1", 0.6), (49.25, "radio", 0.8),
     (50.5, "counter", 0.5), (51.0, "up2", 0.5), (52.6, "big_pass", 0.8), (54.35, "counter", 0.5), (55.0, "up1", 0.5),
     (57.35, "riser", 0.75), (57.6, "heartbeat", 0.9), (59.1, "heartbeat", 0.9), (60.38, "moon_impact", 1.0),
@@ -358,7 +360,7 @@ SFX = [
     (68.4, "warp", 0.85), (71.12, "flare", 0.8), (72.6, "warp", 0.85), (75.75, "cosmic", 1.0), (77.15, "rustle", 0.8),
 ]
 dur_of = {f: float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f"assets/sfx/{f}.mp3"], capture_output=True, text=True).stdout) for f in {s[1] for s in SFX}}
-audio = ['      <!-- Voiceover: ElevenLabs "Brian", eleven_v4, English -->']
+audio = ['      <!-- Voiceover: ElevenLabs "Sarah" (female), eleven_v4, English -->']
 for k, s in STARTS.items():
     audio.append(f'      <audio id="vo-{k}" class="clip" src="assets/vo/{k}.mp3" data-start="{s}" data-duration="{round(VO[k] - 0.01, 2)}" data-track-index="2" data-volume="1.8"></audio>')
 audio.append('      <!-- Sound design (no music by request): custom ElevenLabs effects on their actions -->')
