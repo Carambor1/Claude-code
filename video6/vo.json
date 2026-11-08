@@ -1,0 +1,648 @@
+{
+ "h1": {
+  "text": "Napoleon wasn't short.",
+  "dur": 2.037551,
+  "words": [
+   [
+    "Napoleon",
+    0.0
+   ],
+   [
+    "wasn't",
+    0.88
+   ],
+   [
+    "short.",
+    1.28
+   ]
+  ]
+ },
+ "h2": {
+  "text": "And that's not even the craziest thing you were taught.",
+  "dur": 2.925714,
+  "words": [
+   [
+    "And",
+    0.0
+   ],
+   [
+    "that's",
+    0.28
+   ],
+   [
+    "not",
+    0.48
+   ],
+   [
+    "even",
+    0.72
+   ],
+   [
+    "the",
+    0.88
+   ],
+   [
+    "craziest",
+    1.12
+   ],
+   [
+    "thing",
+    1.88
+   ],
+   [
+    "you",
+    2.04
+   ],
+   [
+    "were",
+    2.16
+   ],
+   [
+    "taught.",
+    2.32
+   ]
+  ]
+ },
+ "m1": {
+  "text": "Napoleon was tiny.",
+  "dur": 1.959184,
+  "words": [
+   [
+    "Napoleon",
+    0.0
+   ],
+   [
+    "was",
+    0.8
+   ],
+   [
+    "tiny.",
+    1.12
+   ]
+  ]
+ },
+ "t1": {
+  "text": "He was about one meter sixty-nine. Average for his time. British cartoons made him small.",
+  "dur": 6.60898,
+  "words": [
+   [
+    "He",
+    0.0
+   ],
+   [
+    "was",
+    0.24
+   ],
+   [
+    "about",
+    0.48
+   ],
+   [
+    "one",
+    0.8
+   ],
+   [
+    "meter",
+    1.04
+   ],
+   [
+    "sixty-nine.",
+    1.44
+   ],
+   [
+    "Average",
+    2.64
+   ],
+   [
+    "for",
+    3.12
+   ],
+   [
+    "his",
+    3.28
+   ],
+   [
+    "time.",
+    3.44
+   ],
+   [
+    "British",
+    4.32
+   ],
+   [
+    "cartoons",
+    4.8
+   ],
+   [
+    "made",
+    5.44
+   ],
+   [
+    "him",
+    5.72
+   ],
+   [
+    "small.",
+    6.08
+   ]
+  ]
+ },
+ "m2": {
+  "text": "Vikings wore horned helmets.",
+  "dur": 2.272653,
+  "words": [
+   [
+    "Vikings",
+    0.0
+   ],
+   [
+    "wore",
+    0.64
+   ],
+   [
+    "horned",
+    1.04
+   ],
+   [
+    "helmets.",
+    1.44
+   ]
+  ]
+ },
+ "t2": {
+  "text": "They didn't. The horns came from an opera costume in 1876.",
+  "dur": 5.250612,
+  "words": [
+   [
+    "They",
+    0.0
+   ],
+   [
+    "didn't.",
+    0.4
+   ],
+   [
+    "The",
+    1.28
+   ],
+   [
+    "horns",
+    1.44
+   ],
+   [
+    "came",
+    1.96
+   ],
+   [
+    "from",
+    2.16
+   ],
+   [
+    "an",
+    2.36
+   ],
+   [
+    "opera",
+    2.56
+   ],
+   [
+    "costume",
+    2.88
+   ],
+   [
+    "in",
+    3.44
+   ],
+   [
+    "1876.",
+    3.72
+   ]
+  ]
+ },
+ "m3": {
+  "text": "Goldfish have a three-second memory.",
+  "dur": 2.586122,
+  "words": [
+   [
+    "Goldfish",
+    0.0
+   ],
+   [
+    "have",
+    0.72
+   ],
+   [
+    "a",
+    0.96
+   ],
+   [
+    "three-second",
+    1.2
+   ],
+   [
+    "memory.",
+    1.84
+   ]
+  ]
+ },
+ "t3": {
+  "text": "Wrong. They can remember things for months.",
+  "dur": 3.239184,
+  "words": [
+   [
+    "Wrong.",
+    0.0
+   ],
+   [
+    "They",
+    1.04
+   ],
+   [
+    "can",
+    1.2
+   ],
+   [
+    "remember",
+    1.48
+   ],
+   [
+    "things",
+    1.76
+   ],
+   [
+    "for",
+    2.16
+   ],
+   [
+    "months.",
+    2.48
+   ]
+  ]
+ },
+ "m4": {
+  "text": "You can see the Great Wall of China from space.",
+  "dur": 3.317551,
+  "words": [
+   [
+    "You",
+    0.0
+   ],
+   [
+    "can",
+    0.24
+   ],
+   [
+    "see",
+    0.4
+   ],
+   [
+    "the",
+    0.56
+   ],
+   [
+    "Great",
+    0.72
+   ],
+   [
+    "Wall",
+    1.12
+   ],
+   [
+    "of",
+    1.36
+   ],
+   [
+    "China",
+    1.52
+   ],
+   [
+    "from",
+    2.08
+   ],
+   [
+    "space.",
+    2.4
+   ]
+  ]
+ },
+ "t4": {
+  "text": "Not with your eyes. It's long, but only a few meters wide.",
+  "dur": 4.675918,
+  "words": [
+   [
+    "Not",
+    0.0
+   ],
+   [
+    "with",
+    0.4
+   ],
+   [
+    "your",
+    0.56
+   ],
+   [
+    "eyes.",
+    0.72
+   ],
+   [
+    "It's",
+    1.6
+   ],
+   [
+    "long,",
+    1.92
+   ],
+   [
+    "but",
+    2.68
+   ],
+   [
+    "only",
+    2.96
+   ],
+   [
+    "a",
+    3.2
+   ],
+   [
+    "few",
+    3.36
+   ],
+   [
+    "meters",
+    3.6
+   ],
+   [
+    "wide.",
+    4.0
+   ]
+  ]
+ },
+ "m5": {
+  "text": "Bulls hate the color red.",
+  "dur": 2.194286,
+  "words": [
+   [
+    "Bulls",
+    0.0
+   ],
+   [
+    "hate",
+    0.64
+   ],
+   [
+    "the",
+    1.04
+   ],
+   [
+    "color",
+    1.28
+   ],
+   [
+    "red.",
+    1.52
+   ]
+  ]
+ },
+ "t5": {
+  "text": "Bulls can't even see red. They charge at the movement.",
+  "dur": 3.866122,
+  "words": [
+   [
+    "Bulls",
+    0.0
+   ],
+   [
+    "can't",
+    0.56
+   ],
+   [
+    "even",
+    0.8
+   ],
+   [
+    "see",
+    1.2
+   ],
+   [
+    "red.",
+    1.44
+   ],
+   [
+    "They",
+    2.28
+   ],
+   [
+    "charge",
+    2.64
+   ],
+   [
+    "at",
+    2.92
+   ],
+   [
+    "the",
+    3.04
+   ],
+   [
+    "movement.",
+    3.12
+   ]
+  ]
+ },
+ "m6": {
+  "text": "Lightning never strikes the same place twice.",
+  "dur": 3.082449,
+  "words": [
+   [
+    "Lightning",
+    0.0
+   ],
+   [
+    "never",
+    0.72
+   ],
+   [
+    "strikes",
+    1.04
+   ],
+   [
+    "the",
+    1.52
+   ],
+   [
+    "same",
+    1.72
+   ],
+   [
+    "place",
+    1.92
+   ],
+   [
+    "twice.",
+    2.24
+   ]
+  ]
+ },
+ "t6": {
+  "text": "The Empire State Building gets hit about twenty times a year.",
+  "dur": 3.709388,
+  "words": [
+   [
+    "The",
+    0.0
+   ],
+   [
+    "Empire",
+    0.24
+   ],
+   [
+    "State",
+    0.72
+   ],
+   [
+    "Building",
+    1.04
+   ],
+   [
+    "gets",
+    1.44
+   ],
+   [
+    "hit",
+    1.68
+   ],
+   [
+    "about",
+    2.0
+   ],
+   [
+    "twenty",
+    2.24
+   ],
+   [
+    "times",
+    2.64
+   ],
+   [
+    "a",
+    3.0
+   ],
+   [
+    "year.",
+    3.12
+   ]
+  ]
+ },
+ "m7": {
+  "text": "We only use ten percent of our brain.",
+  "dur": 3.004082,
+  "words": [
+   [
+    "We",
+    0.0
+   ],
+   [
+    "only",
+    0.4
+   ],
+   [
+    "use",
+    0.64
+   ],
+   [
+    "ten",
+    1.04
+   ],
+   [
+    "percent",
+    1.36
+   ],
+   [
+    "of",
+    1.96
+   ],
+   [
+    "our",
+    2.08
+   ],
+   [
+    "brain.",
+    2.24
+   ]
+  ]
+ },
+ "t7": {
+  "text": "Brain scans show we use virtually all of it.",
+  "dur": 3.239184,
+  "words": [
+   [
+    "Brain",
+    0.0
+   ],
+   [
+    "scans",
+    0.4
+   ],
+   [
+    "show",
+    0.96
+   ],
+   [
+    "we",
+    1.2
+   ],
+   [
+    "use",
+    1.44
+   ],
+   [
+    "virtually",
+    1.68
+   ],
+   [
+    "all",
+    2.32
+   ],
+   [
+    "of",
+    2.56
+   ],
+   [
+    "it.",
+    2.72
+   ]
+  ]
+ },
+ "e1": {
+  "text": "So which one did you believe?",
+  "dur": 2.272653,
+  "words": [
+   [
+    "So",
+    0.0
+   ],
+   [
+    "which",
+    0.72
+   ],
+   [
+    "one",
+    1.04
+   ],
+   [
+    "did",
+    1.2
+   ],
+   [
+    "you",
+    1.36
+   ],
+   [
+    "believe?",
+    1.52
+   ]
+  ]
+ }
+}
