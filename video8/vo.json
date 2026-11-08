@@ -1,0 +1,338 @@
+{
+ "n1": {
+  "text": "Nobody's coming to save you!",
+  "dur": 2.194286,
+  "words": [
+   [
+    "Nobody's",
+    0.573
+   ],
+   [
+    "coming",
+    0.8
+   ],
+   [
+    "to",
+    1.16
+   ],
+   [
+    "save",
+    1.44
+   ],
+   [
+    "you!",
+    1.68
+   ]
+  ]
+ },
+ "n2": {
+  "text": "Not your parents. Not your boss. Not the algorithm.",
+  "dur": 4.04898,
+  "words": [
+   [
+    "Not",
+    0.0
+   ],
+   [
+    "your",
+    0.32
+   ],
+   [
+    "parents.",
+    0.72
+   ],
+   [
+    "Not",
+    1.36
+   ],
+   [
+    "your",
+    1.6
+   ],
+   [
+    "boss.",
+    1.76
+   ],
+   [
+    "Not",
+    2.64
+   ],
+   [
+    "the",
+    2.88
+   ],
+   [
+    "algorithm.",
+    3.12
+   ]
+  ]
+ },
+ "n3": {
+  "text": "YOU!",
+  "dur": 0.992653,
+  "words": [
+   [
+    "YOU!",
+    0.16
+   ]
+  ]
+ },
+ "n4": {
+  "text": "Sounds harsh? It's not. It's freedom.",
+  "dur": 3.317551,
+  "words": [
+   [
+    "Sounds",
+    0.08
+   ],
+   [
+    "harsh?",
+    0.52
+   ],
+   [
+    "It's",
+    1.28
+   ],
+   [
+    "not.",
+    1.52
+   ],
+   [
+    "It's",
+    2.24
+   ],
+   [
+    "freedom.",
+    2.56
+   ]
+  ]
+ },
+ "n5": {
+  "text": "Because if nobody's coming... nobody can stop you either.",
+  "dur": 3.866122,
+  "words": [
+   [
+    "Because",
+    0.0
+   ],
+   [
+    "if",
+    0.4
+   ],
+   [
+    "nobody's",
+    0.56
+   ],
+   [
+    "coming...",
+    1.04
+   ],
+   [
+    "nobody",
+    2.08
+   ],
+   [
+    "can",
+    2.48
+   ],
+   [
+    "stop",
+    2.8
+   ],
+   [
+    "you",
+    3.04
+   ],
+   [
+    "either.",
+    3.2
+   ]
+  ]
+ },
+ "n6": {
+  "text": "No permission. No perfect moment. No Monday.",
+  "dur": 4.675918,
+  "words": [
+   [
+    "No",
+    0.24
+   ],
+   [
+    "permission.",
+    0.48
+   ],
+   [
+    "No",
+    1.52
+   ],
+   [
+    "perfect",
+    1.92
+   ],
+   [
+    "moment.",
+    2.4
+   ],
+   [
+    "No",
+    3.36
+   ],
+   [
+    "Monday.",
+    3.76
+   ]
+  ]
+ },
+ "n7": {
+  "text": "One hour a day. One rep. One page. One call.",
+  "dur": 4.989388,
+  "words": [
+   [
+    "One",
+    0.0
+   ],
+   [
+    "hour",
+    0.4
+   ],
+   [
+    "a",
+    0.64
+   ],
+   [
+    "day.",
+    0.8
+   ],
+   [
+    "One",
+    1.68
+   ],
+   [
+    "rep.",
+    1.92
+   ],
+   [
+    "One",
+    2.8
+   ],
+   [
+    "page.",
+    3.04
+   ],
+   [
+    "One",
+    4.08
+   ],
+   [
+    "call.",
+    4.4
+   ]
+  ]
+ },
+ "n8": {
+  "text": "Six months from now, you'll be someone they don't recognize.",
+  "dur": 3.63102,
+  "words": [
+   [
+    "Six",
+    0.0
+   ],
+   [
+    "months",
+    0.4
+   ],
+   [
+    "from",
+    0.72
+   ],
+   [
+    "now,",
+    0.88
+   ],
+   [
+    "you'll",
+    1.52
+   ],
+   [
+    "be",
+    1.76
+   ],
+   [
+    "someone",
+    1.92
+   ],
+   [
+    "they",
+    2.24
+   ],
+   [
+    "don't",
+    2.36
+   ],
+   [
+    "recognize.",
+    2.76
+   ]
+  ]
+ },
+ "n9": {
+  "text": "They'll ask how. You'll just smile.",
+  "dur": 2.76898,
+  "words": [
+   [
+    "They'll",
+    0.0
+   ],
+   [
+    "ask",
+    0.32
+   ],
+   [
+    "how.",
+    0.64
+   ],
+   [
+    "You'll",
+    1.52
+   ],
+   [
+    "just",
+    1.84
+   ],
+   [
+    "smile.",
+    2.0
+   ]
+  ]
+ },
+ "n10": {
+  "text": "So stop waiting. Because nobody's coming...",
+  "dur": 3.63102,
+  "words": [
+   [
+    "So",
+    0.16
+   ],
+   [
+    "stop",
+    0.4
+   ],
+   [
+    "waiting.",
+    0.96
+   ],
+   [
+    "Because",
+    1.92
+   ],
+   [
+    "nobody's",
+    2.4
+   ],
+   [
+    "coming...",
+    2.96
+   ]
+  ]
+ }
+}

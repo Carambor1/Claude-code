@@ -1,0 +1,132 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root svg { width: 100%; height: 100%; display: block; }
+    #root .title { font-weight: 900; font-size: 104px; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.02; padding: 0 60px; filter: drop-shadow(0 0 18px rgba(255,255,255,0.45)); }
+    #root .title i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    #root .huge { font-size: 260px; top: 230px; }
+    #root .ch { position: absolute; font-weight: 800; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: #111; border: 2px solid #fff; border-radius: 999px; padding: 8px 20px; white-space: nowrap; }
+    #root .lk { position: absolute; top: 0; width: 40px; height: 20px; border: 5px solid #cfcfcf; border-radius: 10px; }
+    #root .xc { position: relative; margin: 0 auto 26px; width: fit-content; font-weight: 800; font-size: 48px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 34px; border: 3px solid #fff; border-radius: 999px; background: #0d0d0d; }
+    #root .xs { position: absolute; left: 14px; right: 14px; top: 50%; height: 8px; margin-top: -4px; background: #fff; border-radius: 4px; transform-origin: 0% 50%; transform: scaleX(0); }
+    #root .icn { position: absolute; top: 0; width: 170px; height: 170px; }
+    #root #ichour { left: 0; } #root #icrep { left: 210px; } #root #icpage { left: 420px; } #root #iccall { left: 630px; }
+    #root .sg { float: left; width: 118px; height: 14px; margin-right: 10px; border-radius: 7px; background: #2a2a2a; overflow: hidden; }
+    #root .sgf { width: 100%; height: 100%; background: #fff; transform-origin: 0% 50%; transform: scaleX(0); }
+    #root #t2, #root #t3, #root #t4, #root #t5, #root #t6, #root #t7, #root #t8, #root #t9, #root #t10, #root #spot, #root #pool, #root #chain, #root #wl, #root #wr, #root #star, #root #x6, #root #ic, #root #segs, #root #crowd, #root #fl, #root #gA { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+        <div id="t1" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">Nobody’s <i>coming</i></div>
+    <div id="t2" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">Not <i>them</i>.</div>
+    <div id="t3" class="abs ctr title huge clip" data-start="0" data-duration="38.17" style="top:250px">You.</div>
+    <div id="t4" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">It’s <i>freedom</i>.</div>
+    <div id="t5" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">Nobody can <i>stop</i> you</div>
+    <div id="t6" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">No <i>excuses</i>.</div>
+    <div id="t7" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">One <i>step</i> a day.</div>
+    <div id="t8" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">6 months <i>later</i></div>
+    <div id="t9" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">They’ll <i>ask</i>.</div>
+    <div id="t10" class="abs ctr title clip" data-start="0" data-duration="38.17" style="top:250px">Nobody’s <i>coming</i></div>
+    <div id="spot" class="abs  clip" data-start="0" data-duration="38.17" style="left:340px;top:0;width:400px;height:1100px;background:linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.03));clip-path:polygon(40% 0,60% 0,100% 100%,0 100%)"></div>
+    <div id="pool" class="abs  clip" data-start="0" data-duration="38.17" style="left:330px;top:1060px;width:420px;height:80px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,0.35),rgba(255,255,255,0) 70%)"></div>
+    <div id="ground" class="abs  clip" data-start="0" data-duration="38.17" style="left:0;top:1100px;width:1080px;height:0;border-top:2px dashed rgba(255,255,255,0.32)"></div>
+    <div id="gP" class="abs  clip" data-start="0" data-duration="38.17" style="left:70px;top:960px;width:220px;height:140px"><div class="ch" style="left:20px;top:-70px">Parents</div><div style="position:absolute;left:10px;top:10px;width:80px;height:130px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#cfcfcf"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#cfcfcf"/></svg></div><div style="position:absolute;left:110px;top:20px;width:74px;height:120px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#cfcfcf"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#cfcfcf"/></svg></div></div>
+    <div id="gB" class="abs  clip" data-start="0" data-duration="38.17" style="left:820px;top:960px;width:160px;height:140px"><div class="ch" style="left:10px;top:-70px">Boss</div><div style="position:absolute;left:30px;top:10px;width:80px;height:130px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#cfcfcf"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#cfcfcf"/></svg></div></div>
+    <div id="gA" class="abs  clip" data-start="0" data-duration="38.17" style="left:770px;top:640px;width:240px;height:180px"><div class="ch" style="left:0;top:0">Algorithm</div><svg style="position:absolute;left:70px;top:60px;width:100px;height:100px" viewBox="0 0 100 100"><rect x="30" y="12" width="40" height="76" rx="8" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="76" r="3" fill="#fff"/></svg></div>
+    <div id="chain" class="abs  clip" data-start="0" data-duration="38.17" style="left:250px;top:1000px;width:240px;height:20px"><div class="lk" id="lk0" style="left:0px"></div><div class="lk" id="lk1" style="left:34px"></div><div class="lk" id="lk2" style="left:68px"></div><div class="lk" id="lk3" style="left:102px"></div><div class="lk" id="lk4" style="left:136px"></div><div class="lk" id="lk5" style="left:170px"></div><div class="lk" id="lk6" style="left:204px"></div></div>
+    <div id="wl" class="abs  clip" data-start="0" data-duration="38.17" style="left:360px;top:820px;width:16px;height:280px;background:#fff;border-radius:6px"></div>
+    <div id="wr" class="abs  clip" data-start="0" data-duration="38.17" style="left:704px;top:820px;width:16px;height:280px;background:#fff;border-radius:6px"></div>
+    <div id="fig" class="abs glow clip" data-start="0" data-duration="38.17" style="left:480px;top:905px;width:120px;height:195px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div>
+    <div id="star" class="abs glow clip" data-start="0" data-duration="38.17" style="left:510px;top:820px;width:60px;height:60px"><svg viewBox="0 0 80 80"><path d="M40 4 L49 30 L76 30 L54 47 L62 74 L40 58 L18 74 L26 47 L4 30 L31 30 Z" fill="#fff"/></svg></div>
+    <div id="x6" class="abs  clip" data-start="0" data-duration="38.17" style="left:0;top:520px;width:1080px"><div class="xc" id="x0"><span>Permission</span><div class="xs" id="xs0"></div></div><div class="xc" id="x1"><span>Perfect moment</span><div class="xs" id="xs1"></div></div><div class="xc" id="x2"><span>Monday</span><div class="xs" id="xs2"></div></div></div>
+    <div id="ic" class="abs  clip" data-start="0" data-duration="38.17" style="left:140px;top:560px;width:800px;height:200px"><div class="icn" id="ichour"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 28v24l14 10" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="icn" id="icrep"><svg viewBox="0 0 100 100"><path d="M14 36v28M26 28v44M74 28v44M86 36v28M26 50h48" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="icn" id="icpage"><svg viewBox="0 0 100 100"><path d="M50 26c-10-8-26-8-36-4v54c10-4 26-4 36 4c10-8 26-8 36-4V22c-10-4-26-4-36 4zM50 26v54" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="icn" id="iccall"><svg viewBox="0 0 100 100"><rect x="30" y="12" width="40" height="76" rx="8" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="76" r="3" fill="#fff"/></svg></div></div>
+    <div id="segs" class="abs  clip" data-start="0" data-duration="38.17" style="left:160px;top:1128px;width:760px;height:14px"><div class="sg"><div class="sgf" id="sg0"></div></div><div class="sg"><div class="sgf" id="sg1"></div></div><div class="sg"><div class="sgf" id="sg2"></div></div><div class="sg"><div class="sgf" id="sg3"></div></div><div class="sg"><div class="sgf" id="sg4"></div></div><div class="sg"><div class="sgf" id="sg5"></div></div></div>
+    <div id="crowd" class="abs  clip" data-start="0" data-duration="38.17" style="left:40px;top:930px;width:400px;height:170px"><div style="position:absolute;left:20px;top:40px;width:80px;height:130px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#9a9a9a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#9a9a9a"/></svg></div><div style="position:absolute;left:120px;top:60px;width:68px;height:110px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#9a9a9a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#9a9a9a"/></svg></div><div style="position:absolute;left:210px;top:40px;width:80px;height:130px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#9a9a9a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#9a9a9a"/></svg></div><div class="ch bub" id="bb0" style="left:0px;top:-40px">How?</div><div class="ch bub" id="bb1" style="left:110px;top:-90px">???</div><div class="ch bub" id="bb2" style="left:220px;top:-40px">Wait…</div></div>
+    <div id="fl" class="abs  clip" data-start="0" data-duration="38.17" style="left:0;top:0;width:1080px;height:1920px;background:#fff"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#gA", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, 2.24);
+    tl.to("#t1", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 3.06);
+    tl.fromTo("#t2", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.26);
+    tl.to("#gP", { opacity: 0.18, x: -60, duration: 0.45, ease: "power2.out" }, 3.26);
+    tl.to("#gB", { opacity: 0.18, x: 60, duration: 0.45, ease: "power2.out" }, 4.30);
+    tl.to("#gA", { opacity: 0.18, x: 60, duration: 0.45, ease: "power2.out" }, 5.66);
+    tl.to("#t2", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 6.49);
+    tl.fromTo("#t3", { opacity: 0, y: 40, scale: 1.4, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.in" }, 6.69);
+    tl.to(["#gP", "#gB", "#gA"], { opacity: 0, duration: 0.3 }, 6.69);
+    tl.fromTo(["#spot", "#pool"], { opacity: 0 }, { opacity: 1, duration: 0.08 }, 6.69);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.35, duration: 0.04 }, 6.69); tl.to("#fl", { opacity: 0, duration: 0.35 }, 6.74);
+    tl.fromTo("#fig", { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.12, duration: 0.25, ease: "back.out(3)" }, 6.69);
+    tl.fromTo("#chain", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.36);
+    tl.to("#t3", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 10.50);
+    tl.fromTo("#t4", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 10.70);
+    tl.to("#lk0", { x: -120, y: 150, rotation: -90, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk1", { x: -80, y: 190, rotation: -37, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk2", { x: -40, y: 230, rotation: 16, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk3", { x: 0, y: 150, rotation: 69, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk4", { x: 40, y: 190, rotation: -58, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk5", { x: 80, y: 230, rotation: -5, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.to("#lk6", { x: 120, y: 150, rotation: 48, opacity: 0, duration: 0.7, ease: "power2.in" }, 10.70);
+    tl.fromTo(["#wl", "#wr"], { opacity: 0, scaleY: 0, transformOrigin: "50% 100%" }, { opacity: 1, scaleY: 1, duration: 0.35, ease: "power3.out" }, 11.75);
+    tl.to("#t4", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 14.35);
+    tl.fromTo("#t5", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 14.55);
+    tl.to("#wl", { rotation: -90, x: -140, transformOrigin: "50% 100%", opacity: 0, duration: 0.55, ease: "power2.in" }, 14.65);
+    tl.to("#wr", { rotation: 90, x: 140, transformOrigin: "50% 100%", opacity: 0, duration: 0.55, ease: "power2.in" }, 14.73);
+    tl.to("#t5", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 16.25);
+    tl.fromTo("#t6", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 16.45);
+    tl.fromTo("#x6", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 16.35);
+    tl.fromTo("#x0", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }, 16.30);
+    tl.to("#xs0", { scaleX: 1, duration: 0.18, ease: "power2.out" }, 16.80);
+    tl.to("#x0", { opacity: 0.35, duration: 0.2 }, 17.00);
+    tl.fromTo("#x1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }, 17.74);
+    tl.to("#xs1", { scaleX: 1, duration: 0.18, ease: "power2.out" }, 18.24);
+    tl.to("#x1", { opacity: 0.35, duration: 0.2 }, 18.44);
+    tl.fromTo("#x2", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }, 19.58);
+    tl.to("#xs2", { scaleX: 1, duration: 0.18, ease: "power2.out" }, 20.08);
+    tl.to("#x2", { opacity: 0.35, duration: 0.2 }, 20.28);
+    tl.to("#x6", { opacity: 0, duration: 0.25 }, 20.85);
+    tl.to("#t6", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 21.15);
+    tl.fromTo("#t7", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 21.35);
+    tl.fromTo("#ic", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 21.25);
+    tl.fromTo("#ichour", { opacity: 0, scale: 0.4, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2.5)" }, 21.30);
+    tl.fromTo("#icrep", { opacity: 0, scale: 0.4, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2.5)" }, 22.82);
+    tl.fromTo("#icpage", { opacity: 0, scale: 0.4, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2.5)" }, 23.94);
+    tl.fromTo("#iccall", { opacity: 0, scale: 0.4, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2.5)" }, 25.30);
+    tl.to("#ic", { opacity: 0, y: -30, duration: 0.25 }, 26.18);
+    tl.to(["#spot", "#pool"], { opacity: 0, duration: 0.3 }, 26.13);
+    tl.to("#t7", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 26.13);
+    tl.fromTo("#t8", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 26.33);
+    tl.fromTo("#segs", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 26.13);
+    tl.to("#fig", { x: -320, scale: 1, duration: 0.3, ease: "power2.inOut" }, 25.78);
+    tl.to("#sg0", { scaleX: 1, duration: 0.51, ease: "none" }, 26.33);
+    tl.to("#sg1", { scaleX: 1, duration: 0.51, ease: "none" }, 26.84);
+    tl.to("#sg2", { scaleX: 1, duration: 0.51, ease: "none" }, 27.35);
+    tl.to("#sg3", { scaleX: 1, duration: 0.51, ease: "none" }, 27.86);
+    tl.to("#sg4", { scaleX: 1, duration: 0.51, ease: "none" }, 28.37);
+    tl.to("#sg5", { scaleX: 1, duration: 0.51, ease: "none" }, 28.88);
+    tl.to("#fig", { x: 320, duration: 3.06, ease: "none" }, 26.33);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 26.33);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 26.83);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 27.33);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 27.83);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 28.33);
+    tl.to("#fig", { y: -10, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, 28.83);
+    tl.fromTo("#star", { opacity: 0, scale: 0.3, x: 320 }, { opacity: 1, scale: 1, x: 320, duration: 0.4, ease: "back.out(3)" }, 29.39);
+    tl.fromTo("#fig", { filter: "drop-shadow(0 0 16px rgba(255,255,255,0.55))" }, { filter: "drop-shadow(0 0 40px rgba(255,255,255,0.95))", duration: 0.5, immediateRender: false }, 29.39);
+    tl.to("#t8", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 30.39);
+    tl.fromTo("#t9", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 30.59);
+    tl.fromTo("#crowd", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 30.39);
+    tl.fromTo("#bb0", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 30.74);
+    tl.fromTo("#bb1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 30.96);
+    tl.fromTo("#bb2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 31.18);
+    tl.to("#segs", { opacity: 0, duration: 0.3 }, 30.59);
+    tl.to(["#crowd", "#star"], { opacity: 0, duration: 0.35 }, 33.38);
+    tl.to("#fig", { x: 0, duration: 0.6, ease: "power2.inOut", filter: "drop-shadow(0 0 16px rgba(255,255,255,0.55))" }, 33.48);
+    tl.to("#t9", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 33.53);
+    tl.fromTo("#t10", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 33.73);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
