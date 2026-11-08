@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s01-q { top: 300px; font-size: 120px; }
+    #s01-strike { left: 170px; top: 362px; width: 740px; height: 10px; background: #fff; border-radius: 5px; }
+    #s01-three { top: 500px; font-size: 170px; }
+    #s01-each { top: 700px; }
+    #s01-phone { left: 572px; top: 918px; width: 42px; height: 70px; border-radius: 9px; background: #fff; box-shadow: 0 0 40px 8px rgba(255,255,255,0.55); }
+    #s01-beam { left: 470px; top: 820px; width: 160px; height: 120px; background: radial-gradient(ellipse at 70% 90%, rgba(255,255,255,0.35), rgba(255,255,255,0) 70%); }
+    #s01-you { top: 1065px; }
+
+  </style>
+  <div id="root" data-composition-id="s01" data-width="1080" data-height="1920">
+    <div id="s01-ground" class="abs ground clip" data-start="0" data-duration="8" style=""></div>
+    <div id="s01-beam" class="abs  clip" data-start="0" data-duration="8" style=""></div>
+    <svg id="s01-fig" class="abs glow clip" data-start="0" data-duration="8" style="left:480px;top:845px;width:120px;height:195px" viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg>
+    <div id="s01-phone" class="abs  clip" data-start="0" data-duration="8" style=""></div>
+    <div id="s01-you" class="abs small ctr clip" data-start="0" data-duration="8" style="">Du</div>
+    <div id="s01-q" class="abs big ctr glow clip" data-start="0" data-duration="8" style="">Keine Zeit?</div>
+    <div id="s01-strike" class="abs  clip" data-start="0" data-duration="8" style=""></div>
+    <div id="s01-three" class="abs big ctr glow clip" data-start="0" data-duration="8" style="">3 Stunden</div>
+    <div id="s01-each" class="abs ctr clip" data-start="0" data-duration="8" style=""><span class="pill">Jeden Tag</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    tl.fromTo("#s01-strike", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 2.4);
+    tl.to("#s01-q", { opacity: 0.35, duration: 0.3 }, 2.5);
+    tl.fromTo("#s01-three", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 3.55);
+    tl.fromTo("#s01-each", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 4.75);
+    tl.fromTo("#s01-phone", { opacity: 0.75 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.9);
+    tl.fromTo("#s01-beam", { opacity: 0.6 }, { opacity: 1, duration: 0.6 }, 5.9);
+    tl.to(["#s01-q", "#s01-strike", "#s01-three", "#s01-each", "#s01-you", "#s01-fig", "#s01-phone", "#s01-beam", "#s01-ground"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.65);
+
+    window.__timelines["s01"] = tl;
+  </script>
+</template>

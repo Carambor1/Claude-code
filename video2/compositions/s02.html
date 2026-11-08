@@ -1,0 +1,42 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s02-k { top: 300px; }
+    #s02-h { top: 345px; font-size: 170px; }
+    #s02-x { top: 560px; }
+    #s02-n { top: 690px; font-size: 200px; }
+    #s02-u { top: 905px; }
+
+  </style>
+  <div id="root" data-composition-id="s02" data-width="1080" data-height="1920">
+    <div id="s02-k" class="abs small ctr clip" data-start="0" data-duration="8" style="">Bildschirmzeit · Ø pro Tag</div>
+    <div id="s02-h" class="abs big ctr glow clip" data-start="0" data-duration="8" style="">≈ 3 h</div>
+    <div id="s02-x" class="abs ctr clip" data-start="0" data-duration="8" style=""><span class="pill">× 365 Tage</span></div>
+    <div id="s02-n" class="abs big ctr glow clip" data-start="0" data-duration="8" style="">0</div>
+    <div id="s02-u" class="abs small ctr clip" data-start="0" data-duration="8" style="">Stunden pro Jahr</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    tl.fromTo(["#s02-k", "#s02-h"], { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, ease: "power2.out" }, 0.3);
+    tl.fromTo("#s02-x", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 2.85);
+    tl.fromTo("#s02-n", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 3.6);
+    const c = { v: 0 };
+    tl.fromTo(c, { v: 0 }, { v: 1095, duration: 1.0, ease: "power2.out", onUpdate: () => { $("#s02-n").textContent = de(c.v); } }, 3.6);
+    tl.fromTo("#s02-u", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 4.5);
+    tl.fromTo("#s02-n", { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, 4.6);
+    tl.to(["#s02-k", "#s02-h", "#s02-x", "#s02-n", "#s02-u"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.65);
+
+    window.__timelines["s02"] = tl;
+  </script>
+</template>

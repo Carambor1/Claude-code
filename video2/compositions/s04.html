@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root .pill { font-weight: 700; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #d0d0d0; background: #141414; border: 2px solid #4a4a4a; border-radius: 999px; padding: 12px 26px; white-space: nowrap; display: inline-block; }
+    #root .small { font-weight: 700; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a9a9a; }
+    #root .big { font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .ground { left: 0; width: 1080px; top: 1040px; height: 0; border-top: 2px dashed rgba(255,255,255,0.32); }
+
+    #s04-k { top: 215px; }
+    #s04-big { top: 262px; font-size: 130px; }
+    #s04-chart { left: 0; top: 0; width: 1080px; height: 1920px; }
+    #s04-chart .bar { fill: #0c0c0c; stroke: #555; stroke-width: 2; }
+    #s04-chart .yl { fill: #8a8a8a; font: 700 28px Inter, sans-serif; }
+    #s04-lab { top: 1075px; }
+
+  </style>
+  <div id="root" data-composition-id="s04" data-width="1080" data-height="1920">
+    <div id="s04-k" class="abs small ctr clip" data-start="0" data-duration="5.5" style="">In 10 Jahren</div>
+    <div id="s04-big" class="abs big ctr glow clip" data-start="0" data-duration="5.5" style="">> 1 Jahr</div>
+    <svg id="s04-chart" class="abs clip" data-start="0" data-duration="5.5" viewBox="0 0 1080 1920"><rect class="bar" x="160" y="470" width="760" height="40" rx="8"/><text class="yl" x="140" y="500" text-anchor="end">1</text><rect class="bar" x="160" y="528" width="760" height="40" rx="8"/><text class="yl" x="140" y="558" text-anchor="end">2</text><rect class="bar" x="160" y="586" width="760" height="40" rx="8"/><text class="yl" x="140" y="616" text-anchor="end">3</text><rect class="bar" x="160" y="644" width="760" height="40" rx="8"/><text class="yl" x="140" y="674" text-anchor="end">4</text><rect class="bar" x="160" y="702" width="760" height="40" rx="8"/><text class="yl" x="140" y="732" text-anchor="end">5</text><rect class="bar" x="160" y="760" width="760" height="40" rx="8"/><text class="yl" x="140" y="790" text-anchor="end">6</text><rect class="bar" x="160" y="818" width="760" height="40" rx="8"/><text class="yl" x="140" y="848" text-anchor="end">7</text><rect class="bar" x="160" y="876" width="760" height="40" rx="8"/><text class="yl" x="140" y="906" text-anchor="end">8</text><rect class="bar" x="160" y="934" width="760" height="40" rx="8"/><text class="yl" x="140" y="964" text-anchor="end">9</text><rect class="bar" x="160" y="992" width="760" height="40" rx="8"/><text class="yl" x="140" y="1022" text-anchor="end">10</text><rect id="s04-hi1" x="160" y="470" width="760" height="40" rx="8" fill="#fff"/><rect id="s04-hi2" x="160" y="528" width="190" height="40" rx="8" fill="#fff"/></svg>
+    <div id="s04-lab" class="abs small ctr clip" data-start="0" data-duration="5.5" style="">≈ 1,25 Jahre nur am Handy</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const de = (n) => Math.round(n).toLocaleString("de-DE");
+
+    tl.fromTo("#s04-k", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35 }, 0.3);
+    tl.fromTo("#s04-chart .bar", { opacity: 0, scaleX: 0, transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, stagger: 0.07, ease: "power2.out" }, 0.4);
+    tl.fromTo("#s04-chart .yl", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.07 }, 0.4);
+    tl.fromTo(["#s04-hi1", "#s04-hi2"], { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, stagger: 0.4, ease: "power2.inOut" }, 2.4);
+    tl.fromTo("#s04-big", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 3.0);
+    tl.fromTo("#s04-lab", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 3.4);
+    tl.to(["#s04-k", "#s04-big", "#s04-chart", "#s04-lab"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 5.15);
+
+    window.__timelines["s04"] = tl;
+  </script>
+</template>

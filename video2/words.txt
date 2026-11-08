@@ -1,0 +1,10 @@
+l01 Du@0.10 sagst,@0.26 du@0.70 hast@0.82 keine@1.02 Zeit?@1.34 Doch,@2.26 du@2.98 hast@3.08 drei@3.34 Stunden@3.62 jeden@4.52 Tag.@4.86 Du@5.68 siehst@5.84 sie@6.12 nur@6.28 nicht@6.46
+l02 Im@0.08 Schnitt@0.24 hängen@0.66 wir@0.88 rund@1.02 drei@1.28 Stunden@1.62 am@2.08 Tag@2.24 am@2.50 Handy.@2.64 Das@3.46 sind@3.60 über@3.92 tausend@4.30 Stunden@4.82 im@5.28 Jahr@5.48
+l03 Fünfundvierzig@0.10 volle@1.04 Tage@1.36 wach,@2.38 mit@3.16 dem@3.28 Blick@3.46 nach@3.70 unten@3.92
+l04 In@0.08 zehn@0.30 Jahren@0.60 ist@1.16 das@1.30 mehr@1.64 als@1.92 ein@2.08 ganzes@2.34 Jahr@2.84 deines@3.02 Lebens@3.36
+l05 Und@0.06 was@0.28 könnte@0.52 man@0.80 mit@0.94 tausend@1.20 Stunden@1.64 anfangen?@2.12 Eine@3.18 neue@3.38 Sprache@3.60 lernen,@4.06 ein@4.76 Instrument,@4.90 einen@6.08 Körper@6.38 aufbauen,@6.82 den@7.38 du@7.54 nicht@7.82 wiedererkennst@8.10
+l06 Also@0.12 probiert@0.38 er@0.74 es@0.84 aus.@1.06 Hundert@1.64 Tage@2.08 lang.@2.42 Die@3.16 drei@3.30 Stunden@3.54 vom@3.92 Handy@4.10 gehen@4.50 in@4.72 eine@5.00 einzige@5.36 Sache:@5.80 Spanisch@6.58
+l07 Tag@0.08 eins:@0.38 Es@1.18 ist@1.34 zäh.@1.70 Zwanzig@2.76 Mal@3.32 greift@3.56 er@3.84 nach@3.92 einem@4.08 Handy,@4.34 das@4.74 gar@5.00 nicht@5.18 da@5.42 ist@5.74
+l08 Tag@0.08 zehn,@0.46 30@1.36 Stunden,@1.88 300@2.82 Wörter.@3.50 Es@4.56 wird@4.72 ruhiger@4.96 in@5.36 seinem@5.52 Kopf@5.82
+l09 Tag@0.08 30,@0.36 90@1.54 Stunden.@2.04 Zum@3.04 ersten@3.34 Mal@3.78 versteht@4.12 er@4.48 ein@4.62 ganzes@4.90 Gespräch@5.36
+l10 Tag@0.08 fünfzig,@0.40 hundertfünfzig@1.56 Stunden,@2.38 Halbzeit.@3.36 Und@4.56 genau@4.70 da@5.24 passiert@5.52 etwas,@5.96 womit@6.46 er@6.72 nicht@6.92 gerechnet@7.18 hat@7.66
