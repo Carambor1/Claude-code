@@ -6,5 +6,6 @@
     stages: { Script|Voice|Sound FX|Animation|Check|Render|Upload: { status: pending|active|done, startedAt, est (min) } } }
   - `log/<id>`: { t (ms), stage, msg } — one entry per real step.
 - Chat: only short replies; the finished video is still sent as a file.
-- Defaults: English, female voice (ElevenLabs "Sarah", passionate/dramatic), no music, 9:16, DLF-like style.
+- Defaults: English, female voice (ElevenLabs "Sarah", passionate/dramatic or calm for essays), no music, DLF/cryothum style.
+- Never use [whispers] (or any whispering) in the voice. User asked to stop it.
 - Stats log: video-stats.md
