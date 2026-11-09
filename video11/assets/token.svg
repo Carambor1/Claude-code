@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
   <defs>
     <radialGradient id="g" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff3b0"/><stop offset="0.45" stop-color="#f2c14e"/><stop offset="1" stop-color="#9a6a12"/></radialGradient>
-    <radialGradient id="glow" r="50%"><stop offset="0.55" stop-color="#ffd76a" stop-opacity="0.55"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset="0.5" stop-color="#f5b82e"/><stop offset="1" stop-color="#a86d0c"/></linearGradient>
+    <radialGradient id="glow" r="50%"><stop offset="0.5" stop-color="#ffd76a" stop-opacity="0.6"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#3b2705" flood-opacity="0.7"/></filter>
   </defs>
   <rect width="600" height="600" fill="#000"/>
-  <circle cx="300" cy="300" r="290" fill="url(#glow)"/>
-  <circle cx="300" cy="300" r="210" fill="url(#g)" stroke="#7a520c" stroke-width="10"/>
-  <circle cx="300" cy="300" r="178" fill="none" stroke="#7a520c" stroke-width="6" stroke-dasharray="6 10"/>
-  <!-- skull -->
-  <path d="M300 190c-55 0-92 38-92 86 0 30 14 50 34 62v30h116v-30c20-12 34-32 34-62 0-48-37-86-92-86z" fill="#3b2705"/>
-  <circle cx="265" cy="282" r="22" fill="#f2c14e"/><circle cx="335" cy="282" r="22" fill="#f2c14e"/>
-  <path d="M300 300l-12 24h24z" fill="#f2c14e"/>
-  <path d="M268 352v16M288 352v16M312 352v16M332 352v16" stroke="#f2c14e" stroke-width="7"/>
-  <!-- crossed bones -->
-  <g stroke="#3b2705" stroke-width="20" stroke-linecap="round"><line x1="190" y1="410" x2="410" y2="450"/><line x1="410" y1="410" x2="190" y2="450"/></g>
-  <circle cx="222" cy="140" r="7" fill="#fff8d6"/><circle cx="420" cy="180" r="5" fill="#fff8d6"/>
+  <circle cx="300" cy="300" r="295" fill="url(#glow)"/>
+  <!-- gold star around the coin -->
+  <path d="M300 18 L366 196 L556 204 L407 322 L459 506 L300 400 L141 506 L193 322 L44 204 L234 196 Z" fill="url(#s)" stroke="#7a520c" stroke-width="8" stroke-linejoin="round" filter="url(#sh)"/>
+  <!-- coin -->
+  <circle cx="300" cy="300" r="150" fill="url(#g)" stroke="#7a520c" stroke-width="9" filter="url(#sh)"/>
+  <circle cx="300" cy="300" r="128" fill="none" stroke="#7a520c" stroke-width="5" stroke-dasharray="6 9"/>
+  <!-- big white F -->
+  <path d="M248 205 H362 L352 244 H294 V282 H346 L337 320 H294 V398 H248 Z" fill="#ffffff" stroke="#2a2a2a" stroke-width="7" stroke-linejoin="round" filter="url(#sh)"/>
+  <circle cx="232" cy="230" r="8" fill="#fff8d6"/><circle cx="392" cy="372" r="6" fill="#fff8d6"/>
 </svg>
