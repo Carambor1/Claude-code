@@ -1,18 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
   <defs>
-    <radialGradient id="g" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff3b0"/><stop offset="0.45" stop-color="#f2c14e"/><stop offset="1" stop-color="#9a6a12"/></radialGradient>
-    <linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset="0.5" stop-color="#f5b82e"/><stop offset="1" stop-color="#a86d0c"/></linearGradient>
-    <radialGradient id="glow" r="50%"><stop offset="0.5" stop-color="#ffd76a" stop-opacity="0.6"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#3b2705" flood-opacity="0.7"/></filter>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#5a3d0a"/><stop offset="1" stop-color="#000"/></radialGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2b8"/><stop offset="0.35" stop-color="#f3c24f"/><stop offset="1" stop-color="#b07a16"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6c8"/><stop offset="0.5" stop-color="#f1bb3a"/><stop offset="1" stop-color="#9c6510"/></linearGradient>
+    <radialGradient id="orb" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#fff7cf"/><stop offset="0.35" stop-color="#f6c845"/><stop offset="0.8" stop-color="#c88a17"/><stop offset="1" stop-color="#8a5a0c"/></radialGradient>
+    <radialGradient id="glow" r="50%"><stop offset="0.4" stop-color="#ffd76a" stop-opacity="0.7"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2a1a02" flood-opacity="0.75"/></filter>
   </defs>
-  <rect width="600" height="600" fill="#000"/>
-  <circle cx="300" cy="300" r="295" fill="url(#glow)"/>
-  <!-- gold star around the coin -->
-  <path d="M300 18 L366 196 L556 204 L407 322 L459 506 L300 400 L141 506 L193 322 L44 204 L234 196 Z" fill="url(#s)" stroke="#7a520c" stroke-width="8" stroke-linejoin="round" filter="url(#sh)"/>
-  <!-- coin -->
-  <circle cx="300" cy="300" r="150" fill="url(#g)" stroke="#7a520c" stroke-width="9" filter="url(#sh)"/>
-  <circle cx="300" cy="300" r="128" fill="none" stroke="#7a520c" stroke-width="5" stroke-dasharray="6 9"/>
-  <!-- big white F -->
-  <path d="M248 205 H362 L352 244 H294 V282 H346 L337 320 H294 V398 H248 Z" fill="#ffffff" stroke="#2a2a2a" stroke-width="7" stroke-linejoin="round" filter="url(#sh)"/>
-  <circle cx="232" cy="230" r="8" fill="#fff8d6"/><circle cx="392" cy="372" r="6" fill="#fff8d6"/>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="300" cy="300" r="300" fill="url(#glow)"/>
+  <!-- golden back plate with notched corners -->
+  <path d="M120 140 L470 140 L490 160 L490 440 L470 470 L130 470 L110 450 L110 150 Z" fill="url(#plate)" stroke="#a87212" stroke-width="5" filter="url(#sh)"/>
+  <path d="M140 165 L455 165 L465 175 L465 430 L455 445 L145 445 L135 435 L135 175 Z" fill="none" stroke="#fff3c0" stroke-opacity="0.6" stroke-width="3"/>
+  <!-- dark ring with gear segments -->
+  <circle cx="300" cy="305" r="150" fill="#2a1c06" stroke="#7a520c" stroke-width="6"/>
+  <g fill="url(#gold)" stroke="#6b4709" stroke-width="2">
+    <path d="M300 160 A145 145 0 0 1 402 202 L382 222 A117 117 0 0 0 300 188 Z"/>
+    <path d="M445 305 A145 145 0 0 1 402 408 L382 388 A117 117 0 0 0 417 305 Z"/>
+    <path d="M300 450 A145 145 0 0 1 198 408 L218 388 A117 117 0 0 0 300 422 Z"/>
+    <path d="M155 305 A145 145 0 0 1 198 202 L218 222 A117 117 0 0 0 183 305 Z"/>
+  </g>
+  <!-- 8-point compass star -->
+  <g filter="url(#sh)">
+    <path d="M300 112 L322 283 L488 305 L322 327 L300 498 L278 327 L112 305 L278 283 Z" fill="url(#gold)" stroke="#6b4709" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M300 305 L408 197 L330 312 Z M300 305 L408 413 L312 330 Z M300 305 L192 413 L270 298 Z M300 305 L192 197 L288 280 Z" fill="url(#gold)" stroke="#6b4709" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M300 112 L300 498 M112 305 L488 305" stroke="#fff6c8" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+  <!-- gold orb with white F -->
+  <circle cx="300" cy="305" r="82" fill="url(#orb)" stroke="#7a520c" stroke-width="5" filter="url(#sh)"/>
+  <ellipse cx="275" cy="268" rx="38" ry="20" fill="#fffbe6" opacity="0.5"/>
+  <path d="M272 255 H340 L334 278 H298 V296 H330 L325 318 H298 V358 H272 Z" fill="#ffffff" stroke="#b07a16" stroke-width="3" stroke-linejoin="round"/>
 </svg>
