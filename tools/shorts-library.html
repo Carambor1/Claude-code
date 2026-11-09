@@ -1,0 +1,229 @@
+<title>Shorts Library</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a glowing control bar on a dotted black grid, folder rail on the left, video cards in a grid. Deliberately single dark theme to match the videos. */
+:root{
+  --bg:#050506; --panel:#0e0f12; --panel2:#15171b; --line:rgba(255,255,255,.09);
+  --fg:#f3f4f6; --muted:#8b9099; --glow:rgba(255,255,255,.55);
+  --tiktok:#25f4ee; --yt:#ff3b3b; --done:#3ddc84;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--body);font-size:14px;line-height:1.45;min-height:100vh;
+  background-image:radial-gradient(rgba(255,255,255,.11) 1.2px,transparent 1.5px);background-size:26px 26px;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(5,5,6,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;text-shadow:0 0 14px var(--glow);margin-right:auto}
+.factory{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:600;box-shadow:0 0 14px rgba(255,255,255,.18),inset 0 0 10px rgba(255,255,255,.06);transition:box-shadow .2s,background .2s}
+.factory:hover{background:rgba(255,255,255,.08);box-shadow:0 0 22px rgba(255,255,255,.35)}
+.factory svg{width:18px;height:18px}
+
+.wrap{max-width:1280px;margin:0 auto;padding-block:20px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:220px 1fr;gap:24px}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}}
+
+.stats{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:120px}
+.stat b{display:block;font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.meter{height:4px;border-radius:2px;background:var(--panel2);margin-top:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:#fff;box-shadow:0 0 8px #fff}
+
+.rail{display:flex;flex-direction:column;gap:4px}
+@media (max-width:760px){.rail{flex-direction:row;overflow-x:auto;padding-bottom:4px}}
+.rail h3{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 6px 8px;font-weight:600}
+@media (max-width:760px){.rail h3{display:none}}
+.folder{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;border:1px solid transparent;background:none;cursor:pointer;text-align:left;white-space:nowrap}
+.folder svg{width:18px;height:18px;flex:none;opacity:.8}
+.folder .n{margin-left:auto;color:var(--muted);font-family:var(--mono);font-size:12px}
+.folder:hover{background:var(--panel)}
+.folder[aria-pressed="true"]{background:var(--panel2);border-color:rgba(255,255,255,.25);box-shadow:0 0 12px rgba(255,255,255,.08)}
+.folder[aria-pressed="true"] svg{opacity:1;filter:drop-shadow(0 0 4px #fff)}
+
+.main{min-width:0;display:flex;flex-direction:column;gap:14px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tools label{color:var(--muted);font-size:12px;display:flex;align-items:center;gap:6px}
+.tools select{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:var(--panel);border:0;padding:7px 11px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--panel2);color:var(--fg)}
+.note{color:var(--muted);font-size:13px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card.done{border-color:rgba(61,220,132,.35)}
+.thumb{position:relative;aspect-ratio:9/16;max-height:340px;width:100%;background:#000;cursor:pointer;border:0;padding:0;display:block;overflow:hidden}
+.thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.thumb .no{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:12px}
+.thumb .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .2s;background:rgba(0,0,0,.35)}
+.thumb:hover .play,.thumb:focus-visible .play{opacity:1}
+.play svg{width:56px;height:56px;filter:drop-shadow(0 0 10px #fff)}
+.num{position:absolute;top:8px;left:8px;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.7);padding:2px 7px;border-radius:6px}
+.dur{position:absolute;bottom:8px;right:8px;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.7);padding:2px 7px;border-radius:6px}
+.lang{position:absolute;top:8px;right:8px;font-size:11px;font-weight:600;background:rgba(0,0,0,.7);padding:2px 7px;border-radius:6px}
+.body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ttl{font-family:var(--display);font-weight:700;font-size:16px;line-height:1.25;text-wrap:balance;margin:0}
+.tags{color:var(--muted);font-size:12.5px;word-break:break-word}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.chk{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted)}
+.chk .box{width:14px;height:14px;border-radius:4px;border:1.5px solid currentColor;display:grid;place-items:center}
+.chk[aria-pressed="true"].tt{color:var(--tiktok);border-color:rgba(37,244,238,.5);box-shadow:0 0 10px rgba(37,244,238,.18)}
+.chk[aria-pressed="true"].yt{color:var(--yt);border-color:rgba(255,59,59,.5);box-shadow:0 0 10px rgba(255,59,59,.18)}
+.chk[aria-pressed="true"] .box::after{content:"";width:6px;height:6px;border-radius:1px;background:currentColor}
+.chk:disabled{cursor:default;opacity:.7}
+.copy{margin-left:auto;background:none;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12.5px;cursor:pointer;color:var(--muted)}
+.copy:hover{color:var(--fg)}
+
+.empty{border:1px dashed var(--line);border-radius:12px;padding:40px 20px;text-align:center;color:var(--muted)}
+
+dialog{background:#000;border:1px solid var(--line);border-radius:14px;padding:0;color:var(--fg);max-width:min(420px,92vw);width:100%}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog video{width:100%;display:block;max-height:78vh;background:#000}
+.dlg-b{padding:12px;display:flex;flex-direction:column;gap:6px}
+.dlg-b .x{align-self:flex-end;background:none;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="bar"><div class="bar-in">
+  <div class="brand">Shorts Library</div>
+  <a class="factory" href="https://claude.ai/artifact/2dYRGf3pSttpCuSG6vgQut" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 16.5h5M3 12v3M21 12v3"/></svg>
+    Shorts Factory öffnen
+  </a>
+</div></header>
+
+<div class="wrap">
+  <section class="stats" id="stats" aria-label="Übersicht"></section>
+  <nav class="rail" id="rail" aria-label="Ordner"><h3>Ordner</h3></nav>
+  <main class="main">
+    <div class="tools">
+      <label for="sort">Sortieren
+        <select id="sort">
+          <option value="new">Neueste zuerst</option>
+          <option value="old">Älteste zuerst</option>
+          <option value="az">Titel A–Z</option>
+          <option value="short">Kürzeste zuerst</option>
+          <option value="long">Längste zuerst</option>
+          <option value="open">Noch offen zuerst</option>
+        </select>
+      </label>
+      <div class="seg" role="group" aria-label="Status" id="seg">
+        <button data-s="all" aria-pressed="true">Alle</button>
+        <button data-s="open">Offen</button>
+        <button data-s="tt">TikTok fehlt</button>
+        <button data-s="yt">YouTube fehlt</button>
+        <button data-s="done">Gepostet</button>
+      </div>
+      <span class="note" id="note"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>Videos werden geladen … Neue Videos erscheinen hier automatisch, sobald Claude sie fertig gerendert hat.</div>
+  </main>
+</div>
+
+<dialog id="dlg">
+  <video id="dv" controls playsinline></video>
+  <div class="dlg-b"><b id="dt"></b><span class="tags" id="dh"></span><button class="x" id="dx">Schließen</button></div>
+</dialog>
+
+<script>
+const FOLDERS=[
+  {id:"all",name:"Alle Videos",icon:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>'},
+  {id:"motivation",name:"Motivation",icon:'<path d="M13 3 4 14h7l-1 7 9-11h-7z"/>'},
+  {id:"finanzen",name:"Finanzen",icon:'<circle cx="12" cy="12" r="8"/><path d="M15 9.5c-.6-.9-1.7-1.5-3-1.5-2 0-3.5 1.8-3.5 4s1.5 4 3.5 4c1.3 0 2.4-.6 3-1.5M7 11h5M7 13h5"/>'},
+  {id:"fakten",name:"Fakten & Wissen",icon:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'},
+  {id:"deutsch",name:"Deutsch",icon:'<path d="M4 5h9M8.5 5v2c0 4-2 7-5 8M6 10c1 2.5 3 4 6 5M13 20l4-9 4 9M14.5 17h5"/>'},
+];
+const S={docs:[],folder:"all",sort:"new",status:"all",canWrite:false,coll:null};
+const $=id=>document.getElementById(id);
+try{const p=JSON.parse(localStorage.getItem("sl-prefs")||"{}");Object.assign(S,{folder:p.folder||"all",sort:p.sort||"new",status:p.status||"all"})}catch(e){}
+function savePrefs(){try{localStorage.setItem("sl-prefs",JSON.stringify({folder:S.folder,sort:S.sort,status:S.status}))}catch(e){}}
+const fmt=s=>{s=Math.round(s||0);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
+const src=v=>v.url||(v.assetId?"/_blob/"+v.assetId:"");
+const st=v=>{const p=v.posted||{};return {tt:!!p.tiktok,yt:!!p.youtube}};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderRail(){
+  const r=$("rail");r.querySelectorAll(".folder").forEach(e=>e.remove());
+  FOLDERS.forEach(f=>{
+    const n=f.id==="all"?S.docs.length:S.docs.filter(v=>(v.folders||[]).includes(f.id)).length;
+    const b=document.createElement("button");b.className="folder";b.setAttribute("aria-pressed",S.folder===f.id);
+    b.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${f.icon}</svg>${f.name}<span class="n">${n}</span>`;
+    b.onclick=()=>{S.folder=f.id;savePrefs();render()};r.appendChild(b);
+  });
+}
+function renderStats(){
+  const t=S.docs.length,tt=S.docs.filter(v=>st(v).tt).length,yt=S.docs.filter(v=>st(v).yt).length,both=S.docs.filter(v=>st(v).tt&&st(v).yt).length;
+  const m=(a)=>`<div class="meter"><i style="width:${t?a/t*100:0}%"></i></div>`;
+  $("stats").innerHTML=`<div class="stat"><b>${t}</b><span>Videos</span></div>
+  <div class="stat"><b>${tt}/${t}</b><span>TikTok</span>${m(tt)}</div>
+  <div class="stat"><b>${yt}/${t}</b><span>YouTube</span>${m(yt)}</div>
+  <div class="stat"><b>${both}/${t}</b><span>Überall gepostet</span>${m(both)}</div>`;
+}
+function view(){
+  let L=S.docs.filter(v=>S.folder==="all"||(v.folders||[]).includes(S.folder));
+  L=L.filter(v=>{const s=st(v);return S.status==="all"||(S.status==="open"&&!s.tt&&!s.yt)||(S.status==="tt"&&!s.tt)||(S.status==="yt"&&!s.yt)||(S.status==="done"&&s.tt&&s.yt)});
+  const score=v=>{const s=st(v);return (s.tt?1:0)+(s.yt?1:0)};
+  const c={new:(a,b)=>b.n-a.n,old:(a,b)=>a.n-b.n,az:(a,b)=>String(a.title).localeCompare(b.title,"de"),short:(a,b)=>a.duration-b.duration,long:(a,b)=>b.duration-a.duration,open:(a,b)=>score(a)-score(b)||b.n-a.n}[S.sort];
+  return L.slice().sort(c);
+}
+function card(v){
+  const s=st(v),d=document.createElement("article");d.className="card"+(s.tt&&s.yt?" done":"");
+  const u=src(v);
+  d.innerHTML=`<button class="thumb" aria-label="${esc(v.title)} abspielen">
+    ${u?`<video muted preload="metadata" src="${esc(u)}#t=${v.thumbAt||3}"></video>`:'<span class="no">Video wird hochgeladen …</span>'}
+    <span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="num">#${String(v.n).padStart(2,"0")}</span><span class="lang">${esc(v.lang||"EN")}</span><span class="dur">${fmt(v.duration)}</span></button>
+  <div class="body"><h2 class="ttl">${esc(v.title)}</h2><div class="tags">${esc(v.hashtags)}</div>
+  <div class="row"><button class="chk tt" aria-pressed="${s.tt}"><span class="box"></span>TikTok</button>
+  <button class="chk yt" aria-pressed="${s.yt}"><span class="box"></span>YouTube</button>
+  <button class="copy" title="Titel und Hashtags kopieren">Kopieren</button></div></div>`;
+  d.querySelector(".thumb").onclick=()=>u&&openPlayer(v);
+  const [bt,by]=d.querySelectorAll(".chk");
+  if(!S.canWrite){bt.disabled=by.disabled=true}
+  bt.onclick=()=>toggle(v,"tiktok",bt);by.onclick=()=>toggle(v,"youtube",by);
+  const cp=d.querySelector(".copy");
+  cp.onclick=()=>{const t=v.title+"\n\n"+v.hashtags;navigator.clipboard.writeText(t).then(()=>{cp.textContent="Kopiert ✓";setTimeout(()=>cp.textContent="Kopieren",1400)}).catch(()=>{cp.textContent="Nicht möglich"})};
+  return d;
+}
+async function toggle(v,k,btn){
+  if(!S.coll||btn.dataset.busy)return;btn.dataset.busy=1;
+  const now=!(v.posted||{})[k];btn.setAttribute("aria-pressed",now);
+  try{await S.coll.doc(v.id).update({posted:{[k]:now}})}catch(e){btn.setAttribute("aria-pressed",!now);$("note").textContent="Speichern ging nicht: "+(e.message||e.code)}
+  delete btn.dataset.busy;
+}
+function render(){
+  renderRail();renderStats();
+  $("sort").value=S.sort;document.querySelectorAll("#seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===S.status));
+  const g=$("grid");g.innerHTML="";const L=view();L.forEach(v=>g.appendChild(card(v)));
+  $("empty").hidden=S.docs.length>0;
+  if(S.docs.length&&!L.length){g.innerHTML='<div class="empty" style="grid-column:1/-1">Keine Videos mit diesem Filter.</div>'}
+}
+function openPlayer(v){$("dv").src=src(v);$("dt").textContent=v.title;$("dh").textContent=v.hashtags;$("dlg").showModal();$("dv").play().catch(()=>{})}
+$("dx").onclick=()=>$("dlg").close();
+$("dlg").addEventListener("close",()=>{$("dv").pause()});
+$("sort").onchange=e=>{S.sort=e.target.value;savePrefs();render()};
+document.querySelectorAll("#seg button").forEach(b=>b.onclick=()=>{S.status=b.dataset.s;savePrefs();render()});
+render();
+
+(async()=>{
+  const timer=setTimeout(()=>{if(!S.docs.length)$("empty").textContent="Die Liste ist gerade nicht erreichbar. Bitte später nochmal öffnen."},10000);
+  const db=await claude.use("db");
+  if(!db){clearTimeout(timer);$("empty").textContent="Melde dich bei claude.ai an, um die Videos zu sehen.";return}
+  const user=await claude.use("user");
+  S.canWrite=user?(user.can("data.write")!==false&&(user.canEdit?.()??true)):false;
+  S.coll=db.collection("videos");
+  S.coll.onSnapshot(snap=>{
+    if(!snap.metadata.fromCache)clearTimeout(timer);
+    S.docs=snap.docs.map(d=>({id:d.id,...d.data()}));render();
+  },e=>{clearTimeout(timer);$("empty").textContent="Fehler beim Laden: "+(e.message||e.code)});
+})();
+</script>

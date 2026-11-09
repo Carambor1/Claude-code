@@ -14,4 +14,5 @@
 - Look (from the user): dotted grid background + soft white glow on all graphics, like the reference videos.
 
 ## Videos-Ordner
+Haupt-Ablage ist die Seite **Shorts Library** (https://claude.ai/artifact/4msEKa1pN6jDx3wbC9cpoK): neues Video als Asset hochladen und als Dokument `videos/vNN` eintragen ({n,title,hashtags,lang,duration,folders[motivation|finanzen|fakten|deutsch],assetId,url,posted:{tiktok,youtube}}).
 Jedes fertige Video sofort als `Videos/NN - Titel.mp4` ablegen und in `Videos/README.md` eintragen (Tabelle + Titel + 5 Hashtags). Oben im README bleibt der Link zur Shorts Factory.
