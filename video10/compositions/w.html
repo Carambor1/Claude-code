@@ -1,0 +1,111 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root svg { width: 100%; height: 100%; display: block; }
+    #root .title { font-weight: 900; font-size: 98px; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.02; padding: 0 60px; filter: drop-shadow(0 0 18px rgba(255,255,255,0.45)); }
+    #root .title i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    #root .gl { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(200,230,255,0.55), rgba(200,230,255,0.15)); border: 2px solid rgba(220,240,255,0.9); border-radius: 6px; box-shadow: 0 0 30px rgba(200,230,255,0.45); }
+    #root .sh { position: absolute; top: 0; width: 100px; height: 26px; background: rgba(210,235,255,0.75); opacity: 0; }
+    #root .sal { position: absolute; left: 50%; top: -64px; transform: translateX(-50%); font-weight: 800; font-size: 34px; letter-spacing: 0.1em; text-transform: uppercase; background: #111; border: 2px solid #fff; border-radius: 999px; padding: 8px 24px; white-space: nowrap; }
+    #root .ch { font-weight: 800; font-size: 32px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: #111; border: 2px solid #fff; border-radius: 999px; padding: 8px 22px; white-space: nowrap; display: inline-block; }
+    #root .ch.rel { display: block; width: fit-content; margin-bottom: 18px; opacity: 0; font-size: 28px; }
+    #root .tw { position: absolute; left: 0; bottom: 0; width: 120px; height: 400px; background: #fff; border-radius: 10px 10px 0 0; transform-origin: 50% 100%; transform: scaleY(0); box-shadow: 0 0 30px rgba(255,255,255,0.5); }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a9a9a; }
+    #root .sv { font-weight: 900; font-size: 60px; margin-top: 4px; }
+    #root .row { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; border: 2px solid #555; border-radius: 18px; margin-bottom: 18px; font-weight: 800; font-size: 36px; text-transform: uppercase; letter-spacing: 0.06em; color: #9a9a9a; }
+    #root .row b { font-size: 54px; color: #cfcfcf; letter-spacing: -0.02em; }
+    #root .row.hot { border-color: #fff; color: #fff; box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+    #root .row.hot b { color: #fff; }
+    #root #t2, #root #t3, #root #t4, #root #t5, #root #t6, #root #t7, #root #t8, #root #t9, #root #t10, #root #desk, #root #raise, #root #pills, #root #tower, #root #tlab, #root #cmp, #root #spot, #root #fl { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+        <div id="t1" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">Your salary is a <i>ceiling</i></div>
+    <div id="t2" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">+3 % if you’re <i>lucky</i></div>
+    <div id="t3" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">Same <i>number</i>.</div>
+    <div id="t4" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">One side <i>project</i></div>
+    <div id="t5" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">1 hour a <i>day</i></div>
+    <div id="t6" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">Beats 5 <i>raises</i></div>
+    <div id="t7" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">They set your <i>salary</i></div>
+    <div id="t8" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">You set your <i>skills</i></div>
+    <div id="t9" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">Never the <i>limit</i>.</div>
+    <div id="t10" class="abs ctr title clip" data-start="0" data-duration="39.3" style="top:230px">Build something. <i>Tonight.</i></div>
+    <div id="ceil" class="abs  clip" data-start="0" data-duration="39.3" style="left:140px;top:700px;width:800px;height:26px"><div class="gl"></div><div class="sh" id="sh0" style="left:0px;clip-path:polygon(0% 0,100% 0%,0% 100%,0 0%)"></div><div class="sh" id="sh1" style="left:100px;clip-path:polygon(37% 0,100% 23%,61% 100%,0 41%)"></div><div class="sh" id="sh2" style="left:200px;clip-path:polygon(24% 0,100% 46%,22% 100%,0 2%)"></div><div class="sh" id="sh3" style="left:300px;clip-path:polygon(11% 0,100% 9%,83% 100%,0 43%)"></div><div class="sh" id="sh4" style="left:400px;clip-path:polygon(48% 0,100% 32%,44% 100%,0 4%)"></div><div class="sh" id="sh5" style="left:500px;clip-path:polygon(35% 0,100% 55%,5% 100%,0 45%)"></div><div class="sh" id="sh6" style="left:600px;clip-path:polygon(22% 0,100% 18%,66% 100%,0 6%)"></div><div class="sh" id="sh7" style="left:700px;clip-path:polygon(9% 0,100% 41%,27% 100%,0 47%)"></div><div class="sal" id="sal">€3,000 / month</div></div>
+    <div id="ground" class="abs  clip" data-start="0" data-duration="39.3" style="left:0;top:1100px;width:1080px;height:0;border-top:2px dashed rgba(255,255,255,0.32)"></div>
+    <div id="desk" class="abs  clip" data-start="0" data-duration="39.3" style="left:420px;top:1010px;width:240px;height:90px"><div style="position:absolute;left:0;top:0;width:240px;height:16px;background:#cfcfcf;border-radius:4px"></div><div style="position:absolute;left:20px;top:16px;width:12px;height:74px;background:#cfcfcf"></div><div style="position:absolute;right:20px;top:16px;width:12px;height:74px;background:#cfcfcf"></div></div>
+    <div id="fig" class="abs glow clip" data-start="0" data-duration="39.3" style="left:480px;top:905px;width:120px;height:195px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div>
+    <div id="raise" class="abs  clip" data-start="0" data-duration="39.3" style="left:760px;top:640px"><span class="ch">+3 %</span></div>
+    <div id="pills" class="abs  clip" data-start="0" data-duration="39.3" style="left:110px;top:780px;width:300px"><div class="ch rel" id="pl0">40 h / week</div><div class="ch rel" id="pl1">Same desk</div><div class="ch rel" id="pl2">Same number</div></div>
+    <div id="tower" class="abs  clip" data-start="0" data-duration="39.3" style="left:760px;top:700px;width:120px;height:400px"><div class="tw" id="tw"></div></div>
+    <div id="tlab" class="abs  clip" data-start="0" data-duration="39.3" style="left:690px;top:980px;width:260px;text-align:center"><div class="small">Side project</div><div class="sv" id="sv">€0/mo</div></div>
+    <div id="cmp" class="abs  clip" data-start="0" data-duration="39.3" style="left:110px;top:460px;width:860px"><div class="row"><span>Last 5 raises</span><b>+€478/mo</b></div><div class="row hot"><span>Side project</span><b>+€2,000/mo</b></div></div>
+    <div id="spot" class="abs  clip" data-start="0" data-duration="39.3" style="left:620px;top:0;width:400px;height:1100px;background:linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.03));clip-path:polygon(40% 0,60% 0,100% 100%,0 100%)"></div>
+    <div id="fl" class="abs  clip" data-start="0" data-duration="39.3" style="left:0;top:0;width:1080px;height:1920px;background:#fff"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    tl.fromTo("#ceil", { y: -60 }, { y: 0, duration: 0.5, ease: "bounce.out" }, 1.37);
+    tl.fromTo("#fig", { scaleY: 1 }, { scaleY: 0.93, transformOrigin: "50% 100%", duration: 0.3 }, 1.77);
+    tl.to("#t1", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 6.02);
+    tl.fromTo("#t2", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 6.20);
+    tl.fromTo("#raise", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 6.20);
+    tl.to("#ceil", { y: -10, duration: 0.6, ease: "power2.out" }, 6.30);
+    tl.to("#raise", { opacity: 0, duration: 0.3 }, 8.07);
+    tl.to("#t2", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 8.09);
+    tl.fromTo("#t3", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 8.27);
+    tl.fromTo("#desk", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 10.08);
+    tl.fromTo("#pills", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 8.27);
+    tl.fromTo("#pl0", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 8.27);
+    tl.fromTo("#pl1", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 10.18);
+    tl.fromTo("#pl2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 11.25);
+    tl.to("#t3", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 13.93);
+    tl.fromTo("#t4", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 14.11);
+    tl.to(["#pills", "#desk"], { opacity: 0, duration: 0.3 }, 12.62);
+    tl.to("#fig", { x: -120, scaleY: 1, duration: 0.5, ease: "power2.inOut" }, 12.62);
+    tl.fromTo(["#tower", "#tlab"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 14.11);
+    tl.to("#t4", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 15.66);
+    tl.fromTo("#t5", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 15.84);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 50, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#sv").textContent = "€" + Math.round(o.v).toLocaleString("en-US") + "/mo"; } }, 18.01); })();
+    tl.to("#tw", { scaleY: 0.06, duration: 0.6, ease: "power2.out" }, 18.01);
+    tl.to("#tlab", { y: -44.0, duration: 0.6, ease: "power2.out" }, 18.01);
+    (() => { const o = { v: 50 }; tl.fromTo(o, { v: 50 }, { v: 500, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#sv").textContent = "€" + Math.round(o.v).toLocaleString("en-US") + "/mo"; } }, 20.74); })();
+    tl.to("#tw", { scaleY: 0.35, duration: 0.6, ease: "power2.out" }, 20.74);
+    tl.to("#tlab", { y: -160.0, duration: 0.6, ease: "power2.out" }, 20.74);
+    tl.to("#t5", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 24.53);
+    tl.fromTo("#t6", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 24.71);
+    (() => { const o = { v: 500 }; tl.fromTo(o, { v: 500 }, { v: 2000, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#sv").textContent = "€" + Math.round(o.v).toLocaleString("en-US") + "/mo"; } }, 23.37); })();
+    tl.to("#tw", { scaleY: 1.0, duration: 0.8, ease: "power2.out" }, 23.37);
+    tl.to("#tlab", { y: -420.0, duration: 0.8, ease: "power2.out" }, 23.37);
+    tl.fromTo("#ceil", { x: 0 }, { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, 24.07);
+    tl.fromTo("#cmp", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35 }, 25.01);
+    tl.to("#tlab", { opacity: 0, duration: 0.25 }, 24.86);
+    tl.to("#sal", { opacity: 0, duration: 0.25 }, 23.37);
+    tl.to(".gl", { opacity: 0, duration: 0.05 }, 26.42); 
+    tl.fromTo("#sh0", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: -245.0, y: -200, rotation: -180, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh1", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: -175.0, y: -253, rotation: -109, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh2", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: -105.0, y: -306, rotation: -38, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh3", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: -35.0, y: -359, rotation: 33, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh4", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: 35.0, y: -412, rotation: 104, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh5", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: 105.0, y: -205, rotation: 175, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh6", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: 175.0, y: -258, rotation: -114, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#sh7", { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: 245.0, y: -311, rotation: -43, duration: 1.1, ease: "power2.out", immediateRender: false }, 26.42);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.35, duration: 0.04 }, 26.42); tl.to("#fl", { opacity: 0, duration: 0.4 }, 26.47);
+    tl.to("#cmp", { opacity: 0, duration: 0.3 }, 29.13);
+    tl.to("#t6", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 29.05);
+    tl.fromTo("#t7", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 29.23);
+    tl.to("#t7", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 30.35);
+    tl.fromTo("#t8", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 30.53);
+    tl.to("#fig", { keyframes: [{ x: 0, y: -420, duration: 0.45, ease: "power2.out" }, { x: 280, y: -400, duration: 0.3, ease: "power2.in" }] }, 30.73);
+    tl.to("#t8", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 34.09);
+    tl.fromTo("#t9", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 34.27);
+    tl.to("#fig", { filter: "drop-shadow(0 0 40px rgba(255,255,255,0.95))", duration: 0.5 }, 34.88);
+    tl.to("#t9", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 36.61);
+    tl.fromTo("#t10", { opacity: 0, y: 40, scale: 1.35, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, 36.79);
+    tl.fromTo("#spot", { opacity: 0 }, { opacity: 1, duration: 0.08 }, 37.29);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.35, duration: 0.04, immediateRender: false }, 37.29); tl.to("#fl", { opacity: 0, duration: 0.4 }, 37.34);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
