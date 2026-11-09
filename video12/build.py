@@ -99,7 +99,7 @@ body = [
 ]
 SCENE_IDS = [s for s, _ in SCENES]
 CSS = f"""
-    #root {{ position: absolute; inset: 0; background: #000; font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }}
+    #root {{ position: absolute; inset: 0; background-color: #000; background-image: radial-gradient(ellipse at 50% 42%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%), radial-gradient(rgba(255,255,255,0.16) 1.6px, transparent 1.8px); background-size: 100% 100%, 34px 34px; font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }}
     #root .abs {{ position: absolute; }}
     #root .ctr {{ left: 0; width: 1920px; text-align: center; }}
     #root svg {{ width: 100%; height: 100%; display: block; }}
@@ -185,7 +185,7 @@ a(f'tl.fromTo("#e2", {{ opacity: 0, scale: 1.12 }}, {{ opacity: 1, scale: 1, dur
 open("compositions/w.html", "w").write(f"""<template>
   <style>{CSS}  </style>
   <div id="root" data-composition-id="w" data-width="{W}" data-height="{H}" data-layout-allow-overlap>
-    <div id="lay" style="position:absolute;left:-420px;top:280px;width:1920px;height:1080px;transform:scale(1.15);transform-origin:960px 540px">
+    <div id="lay" style="position:absolute;left:-420px;top:280px;width:1920px;height:1080px;transform:scale(1.15);transform-origin:960px 540px;filter:drop-shadow(0 0 6px rgba(255,255,255,0.55)) drop-shadow(0 0 18px rgba(255,255,255,0.25))">
     {chr(10).join("    " + b for b in body)}
     </div>
   </div>

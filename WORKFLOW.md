@@ -11,3 +11,4 @@
 - Stats log: video-stats.md
 - Visual direction (from the user): more pictures/symbol icons, less on-screen text; cleaner, smoother transitions
   (e.g. one element morphs/moves into the next, consistent easing, no hard cuts or blur-swaps); icons carry the story.
+- Look (from the user): dotted grid background + soft white glow on all graphics, like the reference videos.
