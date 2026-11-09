@@ -1,7 +1,7 @@
 {
  "r1": {
   "text": "Earning more money won't make you rich.",
-  "dur": 3.082449,
+  "dur": 2.847347,
   "words": [
    [
     "Earning",
@@ -13,29 +13,29 @@
    ],
    [
     "money",
-    0.8
+    0.72
    ],
    [
     "won't",
-    1.52
+    1.36
    ],
    [
     "make",
-    1.84
+    1.68
    ],
    [
     "you",
-    2.08
+    1.92
    ],
    [
     "rich.",
-    2.24
+    2.08
    ]
   ]
  },
  "r2": {
   "text": "Imagine getting a raise. A big one. Twenty percent more, every single month.",
-  "dur": 6.426122,
+  "dur": 6.530612,
   "words": [
    [
     "Imagine",
@@ -43,39 +43,39 @@
    ],
    [
     "getting",
-    0.72
+    0.64
    ],
    [
     "a",
-    1.0
+    0.92
    ],
    [
     "raise.",
-    1.2
+    1.04
    ],
    [
     "A",
-    2.08
+    2.0
    ],
    [
     "big",
-    2.4
+    2.32
    ],
    [
     "one.",
-    2.72
+    2.64
    ],
    [
     "Twenty",
-    3.44
+    3.36
    ],
    [
     "percent",
-    3.76
+    3.68
    ],
    [
     "more,",
-    4.32
+    4.16
    ],
    [
     "every",
@@ -87,7 +87,7 @@
    ],
    [
     "month.",
-    5.84
+    5.92
    ]
   ]
  },
@@ -131,7 +131,7 @@
  },
  "r4": {
   "text": "A nicer apartment. A better car. Eating out a little more often. After all, you earned it.",
-  "dur": 6.765714,
+  "dur": 6.60898,
   "words": [
    [
     "A",
@@ -139,7 +139,7 @@
    ],
    [
     "nicer",
-    0.16
+    0.24
    ],
    [
     "apartment.",
@@ -159,53 +159,53 @@
    ],
    [
     "Eating",
-    2.96
+    2.88
    ],
    [
     "out",
-    3.28
+    3.2
    ],
    [
     "a",
-    3.493
+    3.4
    ],
    [
     "little",
-    3.6
+    3.52
    ],
    [
     "more",
-    3.84
+    3.68
    ],
    [
     "often.",
-    4.08
+    3.92
    ],
    [
     "After",
-    4.88
+    4.72
    ],
    [
     "all,",
-    5.28
+    5.12
    ],
    [
     "you",
-    5.84
+    5.68
    ],
    [
     "earned",
-    6.08
+    5.84
    ],
    [
     "it.",
-    6.44
+    6.16
    ]
   ]
  },
  "r5": {
   "text": "But there's something most people overlook.",
-  "dur": 2.586122,
+  "dur": 2.690612,
   "words": [
    [
     "But",
@@ -217,7 +217,7 @@
    ],
    [
     "something",
-    0.48
+    0.6
    ],
    [
     "most",
@@ -235,7 +235,7 @@
  },
  "r6": {
   "text": "Your income went up. And so did everything else.",
-  "dur": 3.63102,
+  "dur": 3.395918,
   "words": [
    [
     "Your",
@@ -247,37 +247,37 @@
    ],
    [
     "went",
-    0.8
+    0.72
    ],
    [
     "up.",
-    1.04
+    0.96
    ],
    [
     "And",
-    1.84
+    1.72
    ],
    [
     "so",
-    2.16
+    1.92
    ],
    [
     "did",
-    2.4
+    2.16
    ],
    [
     "everything",
-    2.68
+    2.32
    ],
    [
     "else.",
-    2.96
+    2.72
    ]
   ]
  },
  "r7": {
   "text": "A year later, the raise is gone. Not taken. Spent. Quietly. One upgrade at a time.",
-  "dur": 7.810612,
+  "dur": 7.967347,
   "words": [
    [
     "A",
@@ -285,7 +285,7 @@
    ],
    [
     "year",
-    0.24
+    0.28
    ],
    [
     "later,",
@@ -293,35 +293,35 @@
    ],
    [
     "the",
-    1.24
+    1.28
    ],
    [
     "raise",
-    1.36
+    1.52
    ],
    [
     "is",
-    1.68
+    1.76
    ],
    [
     "gone.",
-    1.84
+    2.08
    ],
    [
     "Not",
-    2.72
+    2.8
    ],
    [
     "taken.",
-    2.96
+    3.04
    ],
    [
     "Spent.",
-    3.92
+    4.0
    ],
    [
     "Quietly.",
-    4.96
+    5.04
    ],
    [
     "One",
@@ -329,25 +329,25 @@
    ],
    [
     "upgrade",
-    6.4
+    6.48
    ],
    [
     "at",
-    6.96
+    7.04
    ],
    [
     "a",
-    7.08
+    7.2
    ],
    [
     "time.",
-    7.2
+    7.28
    ]
   ]
  },
  "r8": {
   "text": "It's called lifestyle inflation. Most people just call it normal.",
-  "dur": 4.597551,
+  "dur": 4.675918,
   "words": [
    [
     "It's",
@@ -367,33 +367,33 @@
    ],
    [
     "Most",
-    2.68
+    2.72
    ],
    [
     "people",
-    2.88
+    3.08
    ],
    [
     "just",
-    3.2
+    3.36
    ],
    [
     "call",
-    3.44
-   ],
-   [
-    "it",
     3.6
    ],
    [
+    "it",
+    3.76
+   ],
+   [
     "normal.",
-    3.84
+    3.92
    ]
   ]
  },
  "r9": {
   "text": "The problem begins when you measure your progress by what you earn, instead of what you keep.",
-  "dur": 5.720816,
+  "dur": 5.564082,
   "words": [
    [
     "The",
@@ -401,7 +401,7 @@
    ],
    [
     "problem",
-    0.36
+    0.24
    ],
    [
     "begins",
@@ -441,33 +441,33 @@
    ],
    [
     "earn,",
-    3.6
+    3.36
    ],
    [
     "instead",
-    4.32
+    4.24
    ],
    [
     "of",
-    4.64
+    4.52
    ],
    [
     "what",
-    4.8
+    4.64
    ],
    [
     "you",
-    4.96
+    4.84
    ],
    [
     "keep.",
-    5.12
+    5.04
    ]
   ]
  },
  "r10": {
   "text": "Because a bigger salary only raises the ceiling. It doesn't build the floor.",
-  "dur": 5.146122,
+  "dur": 5.250612,
   "words": [
    [
     "Because",
@@ -491,41 +491,41 @@
    ],
    [
     "raises",
-    2.0
+    2.08
    ],
    [
     "the",
-    2.48
+    2.56
    ],
    [
     "ceiling.",
-    2.64
+    2.72
    ],
    [
     "It",
-    3.44
+    3.6
    ],
    [
     "doesn't",
-    3.72
+    3.76
    ],
    [
     "build",
-    4.0
+    4.2
    ],
    [
     "the",
-    4.28
+    4.4
    ],
    [
     "floor.",
-    4.4
+    4.72
    ]
   ]
  },
  "r11": {
   "text": "This is why some people with modest incomes quietly become wealthy, while others earning twice as much never do.",
-  "dur": 7.810612,
+  "dur": 7.706122,
   "words": [
    [
     "This",
@@ -545,7 +545,7 @@
    ],
    [
     "people",
-    1.04
+    0.96
    ],
    [
     "with",
@@ -553,11 +553,11 @@
    ],
    [
     "modest",
-    1.68
+    1.6
    ],
    [
     "incomes",
-    2.16
+    2.08
    ],
    [
     "quietly",
@@ -565,15 +565,15 @@
    ],
    [
     "become",
-    3.36
+    3.28
    ],
    [
     "wealthy,",
-    3.68
+    3.6
    ],
    [
     "while",
-    4.68
+    4.64
    ],
    [
     "others",
@@ -597,11 +597,11 @@
    ],
    [
     "never",
-    6.88
+    6.8
    ],
    [
     "do.",
-    7.2
+    7.12
    ]
   ]
  },
@@ -615,7 +615,7 @@
    ],
    [
     "not",
-    0.24
+    0.32
    ],
    [
     "about",
@@ -639,11 +639,11 @@
    ],
    [
     "It's",
-    2.16
+    2.2
    ],
    [
     "about",
-    2.32
+    2.44
    ],
    [
     "how",
@@ -685,7 +685,7 @@
    ],
    [
     "rich.",
-    1.68
+    1.84
    ],
    [
     "Keeping",

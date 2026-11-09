@@ -1,7 +1,7 @@
 import json, base64, urllib.request, subprocess
 V = "EXAVITQu4vr4xnSDxMaL"  # Sarah, dramatic settings
 L = {
- "r1": "[calm] Earning more money won't make you rich.",
+ "r1": "[confident] Earning more money won't make you rich.",
  "r2": "Imagine getting a raise. A big one. Twenty percent more, every single month.",
  "r3": "It feels like everything is about to change.",
  "r4": "A nicer apartment. A better car. Eating out a little more often. After all, you earned it.",
@@ -17,7 +17,7 @@ L = {
 }
 out = {}
 for k, t in L.items():
-    body = json.dumps({"text": t, "model_id": "eleven_v4", "language_code": "en", "voice_settings": {"stability": 0.55, "similarity_boost": 0.8}}).encode()
+    body = json.dumps({"text": t, "model_id": "eleven_v4", "language_code": "en", "voice_settings": {"stability": 0.4, "similarity_boost": 0.85}}).encode()
     r = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{V}/with-timestamps?output_format=mp3_44100_128", data=body, headers={"Content-Type": "application/json", "xi-api-key": "proxy-injected"})
     d = json.loads(urllib.request.urlopen(r, timeout=120).read())
     open(f"assets/vo/{k}.mp3", "wb").write(base64.b64decode(d["audio_base64"]))

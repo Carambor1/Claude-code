@@ -11,7 +11,7 @@ for k in ORDER:
     at[k] = T
     T += VO[k]["dur"] + GAP.get(k, 0.3)
 DUR = round(T + 2.0, 2)
-W, H = 1920, 1080
+W, H = 1080, 1920
 
 def w(k, word, nth=0):
     hits = [t for x, t in VO[k]["words"] if re.sub(r"[^a-z0-9]", "", x.lower()) == word]
@@ -40,7 +40,7 @@ def card(id, lab, val, style):
     return C(id, "card", style, f'<div class="lab">{lab}</div><div class="val" id="{id}v">{val}</div>')
 
 # chart geometry (s6/s7)
-CX0, CY0, CW, CH = 560, 760, 800, 380
+CX0, CY0, CW, CH = 520, 760, 720, 380
 inc = [(0, 3000), (3, 3000), (3, 3600), (12, 3600)]
 exp_ = [(0, 2900), (3, 2900), (5, 3150), (7, 3300), (9, 3500), (12, 3600)]
 def pts(series): return " ".join(f"{CX0 + CW * m / 12:.0f},{CY0 - CH * (v - 2600) / 1200:.0f}" for m, v in series)
@@ -62,7 +62,7 @@ body = [
       f'<div class="abs fig" style="left:900px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs ground"></div>'
       f'<div class="abs card" style="left:800px;top:120px"><div class="lab">Monthly income</div><div class="val">€3,600</div></div>'
       + "".join(f'<div class="abs up" id="u{i}" style="left:{x}px;top:{y}px"><div class="ic" style="width:{iw}px;height:{ih}px">{ICON[k]}</div><div class="lab">{lab}</div><div class="cost">{c}</div></div>'
-                for i, (k, lab, c, x, y, iw, ih) in enumerate((("house", "Nicer apartment", "−€300", 420, 470, 130, 120), ("car", "Better car", "−€200", 1290, 500, 170, 96), ("plate", "Eating out", "−€100", 860, 330, 140, 110))))),
+                for i, (k, lab, c, x, y, iw, ih) in enumerate((("house", "Nicer apartment", "−€300", 470, 470, 130, 120), ("car", "Better car", "−€200", 1250, 500, 170, 96), ("plate", "Eating out", "−€100", 860, 330, 140, 110))))),
     # S6/S7 chart: income and spending rise together
     C("s6", "", "left:0;top:0;width:1920px;height:1080px",
       f'<svg class="abs" style="left:0;top:0;width:1920px;height:1080px" viewBox="0 0 1920 1080">'
@@ -83,15 +83,15 @@ body = [
     # S10 ceiling vs floor
     C("s10", "", "left:0;top:0;width:1920px;height:1080px",
       f'<div class="abs fig" style="left:900px;top:614px;width:90px;height:146px">{FIG}</div>'
-      '<div class="abs ceil" id="ceil"></div><div class="abs small" id="ceilL" style="left:1420px;top:300px">Ceiling · salary</div>'
+      '<div class="abs ceil" id="ceil"></div><div class="abs small" id="ceilL" style="left:520px;top:270px">Ceiling · salary</div>'
       + "".join(f'<div class="abs blk" style="left:{560 + i * 100}px;top:766px"></div>' for i in range(8)) +
-      '<div class="abs small" style="left:1420px;top:780px">Floor · savings</div>'),
+      '<div class="abs small" style="left:520px;top:840px">Floor · savings</div>'),
     # S11 two people
     C("s11", "", "left:0;top:0;width:1920px;height:1080px",
-      f'<div class="abs fig" style="left:520px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs fig dimf" style="left:1300px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs ground"></div>'
-      '<div class="abs small" style="left:420px;top:830px;width:300px;text-align:center">Modest income</div><div class="abs small" style="left:1200px;top:830px;width:300px;text-align:center">Twice as much</div>'
-      '<div class="abs bar" style="left:480px;top:300px;width:200px"><i id="ba" style="width:45%"></i></div><div class="abs bar" style="left:1250px;top:300px;width:200px"><i style="width:90%"></i></div>'
-      f'<div class="abs jar" style="left:660px;top:600px">{ICON["jar"]}<div class="fill" id="jA"></div></div><div class="abs jar" style="left:1440px;top:600px">{ICON["jar"]}<div class="fill" id="jB"></div></div>'),
+      f'<div class="abs fig" style="left:520px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs fig dimf" style="left:1180px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs ground"></div>'
+      '<div class="abs small" style="left:420px;top:830px;width:300px;text-align:center">Modest income</div><div class="abs small" style="left:1075px;top:830px;width:300px;text-align:center">Twice as much</div>'
+      '<div class="abs bar" style="left:480px;top:300px;width:200px"><i id="ba" style="width:45%"></i></div><div class="abs bar" style="left:1125px;top:300px;width:200px"><i style="width:90%"></i></div>'
+      f'<div class="abs jar" style="left:660px;top:600px">{ICON["jar"]}<div class="fill" id="jA"></div></div><div class="abs jar" style="left:1300px;top:600px">{ICON["jar"]}<div class="fill" id="jB"></div></div>'),
     # S12 in vs stays
     C("s12", "", "left:0;top:0;width:1920px;height:1080px",
       f'<svg class="abs" style="left:760px;top:200px;width:400px;height:300px" viewBox="0 0 400 300"><path d="M20 20 H380 L230 170 V280 H170 V170 Z" {S}/></svg>'
@@ -121,7 +121,7 @@ CSS = f"""
     #root .up .cost {{ font-weight: 800; font-size: 40px; }}
     #root .tl {{ fill: #fff; font: 700 28px Inter, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }}
     #root .tl.dim {{ fill: #9a9a9a; }}
-    #root .word {{ font-weight: 800; font-size: 96px; letter-spacing: 0.04em; text-transform: uppercase; }}
+    #root .word {{ font-weight: 800; font-size: 70px; letter-spacing: 0.04em; text-transform: uppercase; }}
     #root .pan {{ width: 120px; text-align: center; font-weight: 800; font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; }}
     #root .ceil {{ left: 520px; top: 330px; width: 880px; height: 0; border-top: 4px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5); }}
     #root .blk {{ width: 88px; height: 56px; border: 2px dashed rgba(255,255,255,0.45); border-radius: 6px; }}
@@ -130,7 +130,7 @@ CSS = f"""
     #root .jar {{ width: 100px; height: 130px; }}
     #root .fill {{ position: absolute; left: 12%; right: 12%; bottom: 6%; height: 0; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 0 18px rgba(255,255,255,0.6); }}
     #root .coin {{ width: 44px; height: 44px; border: 3px solid #fff; border-radius: 50%; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; opacity: 0; }}
-    #root .endw {{ font-weight: 800; font-size: 110px; letter-spacing: 0.12em; text-transform: uppercase; }}
+    #root .endw {{ font-weight: 800; font-size: 96px; letter-spacing: 0.12em; text-transform: uppercase; }}
     #root #e2, #root #s7p, #root #s8b, #root #s2p {{ opacity: 0; }}
     #root {", #root ".join("#" + s for s in SCENE_IDS[1:])} {{ opacity: 0; }}
 """
@@ -182,7 +182,9 @@ a(f'tl.fromTo("#e2", {{ opacity: 0, scale: 1.12 }}, {{ opacity: 1, scale: 1, dur
 open("compositions/w.html", "w").write(f"""<template>
   <style>{CSS}  </style>
   <div id="root" data-composition-id="w" data-width="{W}" data-height="{H}" data-layout-allow-overlap>
+    <div id="lay" style="position:absolute;left:-420px;top:300px;width:1920px;height:1080px">
     {chr(10).join("    " + b for b in body)}
+    </div>
   </div>
   <script>
     const tl = gsap.timeline({{ paused: true }});
@@ -198,7 +200,7 @@ for k in ORDER:
     cur = []
     for wd, t in VO[k]["words"]:
         cur.append((wd, at[k] + t))
-        if len(cur) >= 5 or wd[-1] in ".,?:!":
+        if len(cur) >= 3 or wd[-1] in ".,?:!":
             grp.append([cur, None]); cur = []
     if cur:
         grp.append([cur, None])
@@ -212,8 +214,8 @@ open("compositions/cap.html", "w").write(f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; font-family: "Inter", sans-serif; }}
     #root .abs {{ position: absolute; }}
-    #root .cap {{ left: 260px; width: 1400px; top: 930px; text-align: center; font-weight: 600; font-size: 40px; color: #fff; }}
-    #root .cap span {{ display: inline-block; background: rgba(0,0,0,0.8); padding: 4px 16px 6px; border-radius: 10px; }}
+    #root .cap {{ left: 90px; width: 900px; top: 1240px; text-align: center; font-weight: 800; font-size: 54px; line-height: 1.15; color: #fff; }}
+    #root .cap span {{ display: inline-block; background: rgba(0,0,0,0.86); padding: 6px 22px 10px; border-radius: 16px; }}
   </style>
   <div id="root" data-composition-id="cap" data-width="{W}" data-height="{H}">
 {chr(10).join("    " + c for c in caps)}
