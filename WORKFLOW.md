@@ -12,3 +12,6 @@
 - Visual direction (from the user): more pictures/symbol icons, less on-screen text; cleaner, smoother transitions
   (e.g. one element morphs/moves into the next, consistent easing, no hard cuts or blur-swaps); icons carry the story.
 - Look (from the user): dotted grid background + soft white glow on all graphics, like the reference videos.
+
+## Videos-Ordner
+Jedes fertige Video sofort als `Videos/NN - Titel.mp4` ablegen und in `Videos/README.md` eintragen (Tabelle + Titel + 5 Hashtags). Oben im README bleibt der Link zur Shorts Factory.

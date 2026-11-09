@@ -1,3 +1,5 @@
+> 🤖 **[Shorts Factory öffnen – Live-Modell mit den Robotern](https://claude.ai/artifact/2dYRGf3pSttpCuSG6vgQut)**
+
 # Alle Videos
 
 | # | Video | Länge | Sprache |
