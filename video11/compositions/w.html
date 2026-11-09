@@ -1,0 +1,133 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, #1e1506 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root svg { width: 100%; height: 100%; display: block; }
+    #root .title { font-weight: 900; font-size: 98px; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.02; padding: 0 60px; filter: drop-shadow(0 0 18px rgba(255,210,110,0.45)); }
+    #root .title i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; color: #ffd66b; }
+    #root #tok { overflow: hidden; border-radius: 24px; -webkit-mask: radial-gradient(circle, #000 55%, transparent 72%); mask: radial-gradient(circle, #000 55%, transparent 72%); }
+    #root .sweep { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,240,0.55), rgba(255,255,255,0)); transform: rotate(18deg); mix-blend-mode: screen; }
+    #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a9a9a; }
+    #root .money { font-weight: 900; font-size: 140px; letter-spacing: -0.03em; line-height: 1; filter: drop-shadow(0 0 20px rgba(255,214,110,0.5)); }
+    #root .bt { position: relative; height: 34px; border-radius: 17px; border: 2px solid #555; background: #0c0c0c; }
+    #root .dot { position: absolute; left: 6px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: #ffd66b; box-shadow: 0 0 18px #ffd66b, 0 0 40px #ffb627; }
+    #root .cw { position: absolute; top: 0; width: 86px; height: 140px; }
+    #root .ch { position: absolute; font-weight: 800; font-size: 36px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #111; border: 2px solid #fff; border-radius: 999px; padding: 10px 26px; white-space: nowrap; }
+    #root .tk { position: absolute; width: 104px; height: 56px; border-radius: 10px; background: linear-gradient(135deg, #ffe58a, #c88a17); color: #2a1a02; font-weight: 900; font-size: 24px; display: flex; align-items: center; justify-content: center; opacity: 0; box-shadow: 0 0 14px rgba(255,200,80,0.4); }
+    #root .bub { display: inline-block; font-weight: 800; font-size: 40px; line-height: 1.15; background: #fff; color: #000; border-radius: 26px; padding: 18px 28px; box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+    #root .stp { position: absolute; left: 60px; top: -10px; font-weight: 900; font-size: 120px; text-transform: uppercase; color: #fff; border: 10px solid #fff; border-radius: 18px; padding: 0 30px; background: rgba(0,0,0,0.75); transform: rotate(-12deg); opacity: 0; }
+    #root #t2, #root #t3, #root #t4, #root #t5, #root #t6, #root #t7, #root #t8, #root #t9, #root #bar, #root #crowd, #root #chips, #root #cnt, #root #tks, #root #spot, #root #kid, #root #kb, #root #ib, #root #fl, #root #ground, #root #fig { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+        <div id="t1" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">The Pirate <i>Token</i></div>
+    <div id="t2" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">The odds? <i>Tiny.</i></div>
+    <div id="t3" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">Most people <i>quit</i>.</div>
+    <div id="t4" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">Never <i>zero</i>.</div>
+    <div id="t5" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">Every try is a <i>ticket</i></div>
+    <div id="t6" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">They didn’t <i>stop</i>.</div>
+    <div id="t7" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">Your kids will <i>ask</i>.</div>
+    <div id="t8" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">“I gave <i>up</i>”?</div>
+    <div id="t9" class="abs ctr title clip" data-start="0" data-duration="38.21" style="top:200px">Drop in <i>again</i>.</div>
+    <div id="rays" class="abs  clip" data-start="0" data-duration="38.21" style="left:-260px;top:120px;width:1600px;height:1600px;background:repeating-conic-gradient(from 0deg, rgba(255,214,110,0.18) 0deg 8deg, rgba(0,0,0,0) 8deg 24deg);border-radius:50%;-webkit-mask:radial-gradient(circle, #000 20%, transparent 62%);mask:radial-gradient(circle, #000 20%, transparent 62%)"></div>
+    <div id="tok" class="abs  clip" data-start="0" data-duration="38.21" style="left:190px;top:470px;width:700px;height:700px"><img src="assets/token.png" alt="" style="width:100%;height:100%;display:block"><div class="sweep" id="sweep"></div></div>
+    <div id="note" class="abs ctr clip" data-start="0" data-duration="38.21" style="top:1310px;font-size:26px;color:#7a7a7a;letter-spacing:0.08em">Fan video · not affiliated with Epic Games</div>
+    <div id="bar" class="abs  clip" data-start="0" data-duration="38.21" style="left:140px;top:600px;width:800px"><div class="bt"><div class="dot" id="dot"></div></div><div class="small" style="margin-top:16px;text-align:center">Your chance per round</div></div>
+    <div id="ground" class="abs  clip" data-start="0" data-duration="38.21" style="left:0;top:1100px;width:1080px;height:0;border-top:2px dashed rgba(255,255,255,0.32)"></div>
+    <div id="crowd" class="abs  clip" data-start="0" data-duration="38.21" style="left:0;top:960px;width:1080px;height:140px"><div class="cw" id="cw0" style="left:60px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div class="cw" id="cw1" style="left:170px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div class="cw" id="cw2" style="left:760px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div class="cw" id="cw3" style="left:870px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div class="cw" id="cw4" style="left:960px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div></div>
+    <div id="fig" class="abs glow clip" data-start="0" data-duration="38.21" style="left:480px;top:905px;width:120px;height:195px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div>
+    <div id="chips" class="abs  clip" data-start="0" data-duration="38.21" style="left:0;top:0;width:1080px;height:1920px"><div class="ch" id="q0" style="left:120px;top:560px">It’s rigged</div><div class="ch" id="q1" style="left:560px;top:660px">Impossible</div><div class="ch" id="q2" style="left:220px;top:780px">Waste of time</div></div>
+    <div id="cnt" class="abs ctr clip" data-start="0" data-duration="38.21" style="top:440px"><div class="small">Attempts</div><div class="money" id="cn">#1</div></div>
+    <div id="tks" class="abs  clip" data-start="0" data-duration="38.21" style="left:180px;top:700px;width:720px;height:150px"><div class="tk" id="tk0" style="left:0px;top:0px">#40</div><div class="tk" id="tk1" style="left:120px;top:0px">#80</div><div class="tk" id="tk2" style="left:240px;top:0px">#120</div><div class="tk" id="tk3" style="left:360px;top:0px">#160</div><div class="tk" id="tk4" style="left:480px;top:0px">#200</div><div class="tk" id="tk5" style="left:600px;top:0px">#240</div><div class="tk" id="tk6" style="left:0px;top:70px">#280</div><div class="tk" id="tk7" style="left:120px;top:70px">#320</div><div class="tk" id="tk8" style="left:240px;top:70px">#360</div><div class="tk" id="tk9" style="left:360px;top:70px">#400</div><div class="tk" id="tk10" style="left:480px;top:70px">#440</div><div class="tk" id="tk11" style="left:600px;top:70px">#480</div></div>
+    <div id="spot" class="abs  clip" data-start="0" data-duration="38.21" style="left:340px;top:0;width:400px;height:1100px;background:linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.03));clip-path:polygon(40% 0,60% 0,100% 100%,0 100%)"></div>
+    <div id="kid" class="abs  clip" data-start="0" data-duration="38.21" style="left:660px;top:990px;width:68px;height:110px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#cfcfcf"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#cfcfcf"/></svg></div>
+    <div id="kb" class="abs  clip" data-start="0" data-duration="38.21" style="left:470px;top:780px;width:520px"><div class="bub">Did you get the Pirate Token?</div></div>
+    <div id="ib" class="abs  clip" data-start="0" data-duration="38.21" style="left:180px;top:700px;width:420px"><div class="bub">I gave up…</div><div class="stp" id="stp">No.</div></div>
+    <div id="fl" class="abs  clip" data-start="0" data-duration="38.21" style="left:0;top:0;width:1080px;height:1920px;background:#fff"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    tl.fromTo("#rays", { rotation: 0 }, { rotation: 40, duration: 38.21, ease: "none" }, 0);
+    tl.fromTo("#tok", { scale: 0.9 }, { scale: 1.04, duration: 4.07, ease: "sine.inOut" }, 0);
+    tl.fromTo("#sweep", { x: 0 }, { x: 1300, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 0.40);
+    tl.fromTo("#sweep", { x: 0 }, { x: 1300, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 1.74);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.25, duration: 0.04 }, 1.64); tl.to("#fl", { opacity: 0, duration: 0.4 }, 1.69);
+    tl.to("#t1", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 3.59);
+    tl.fromTo("#t2", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.77);
+    tl.to(["#tok", "#rays"], { opacity: 0, scale: 0.5, duration: 0.4, ease: "power2.in" }, 3.77);
+    tl.fromTo("#bar", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35 }, 4.07);
+    tl.fromTo("#dot", { scale: 1 }, { scale: 1.6, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 4.37);
+    tl.to("#t2", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 6.26);
+    tl.fromTo("#t3", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 6.44);
+    tl.to("#bar", { opacity: 0, duration: 0.3 }, 6.44);
+    tl.fromTo(["#ground", "#fig", "#crowd"], { opacity: 0 }, { opacity: 1, duration: 0.35 }, 6.44);
+    tl.to("#cw0", { x: -300, opacity: 0, duration: 0.7, ease: "power1.in" }, 9.04);
+    tl.to("#cw1", { x: -300, opacity: 0, duration: 0.7, ease: "power1.in" }, 9.16);
+    tl.to("#cw2", { x: 300, opacity: 0, duration: 0.7, ease: "power1.in" }, 9.28);
+    tl.to("#cw3", { x: 300, opacity: 0, duration: 0.7, ease: "power1.in" }, 9.40);
+    tl.to("#cw4", { x: 300, opacity: 0, duration: 0.7, ease: "power1.in" }, 9.52);
+    tl.fromTo("#q0", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 10.29);
+    tl.fromTo("#q1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 11.28);
+    tl.fromTo("#q2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 12.42);
+    tl.fromTo("#chips", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 10.24);
+    tl.to(["#t3"], { opacity: 0.25, duration: 0.3 }, 10.34);
+    tl.to("#t3", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 15.18);
+    tl.fromTo("#t4", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 15.36);
+    tl.to("#chips", { opacity: 0, scale: 0.8, duration: 0.3 }, 15.36);
+    tl.to("#bar", { opacity: 1, duration: 0.3 }, 15.36);
+    tl.fromTo("#dot", { scale: 1 }, { scale: 2.2, duration: 0.25, yoyo: true, repeat: 1, ease: "back.out(3)", immediateRender: false }, 15.74);
+    tl.to("#t4", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 16.90);
+    tl.fromTo("#t5", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 17.08);
+    tl.to("#bar", { opacity: 0, duration: 0.3 }, 17.08);
+    tl.fromTo(["#cnt", "#tks"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 17.08);
+    (() => { const o = { v: 1 }; tl.fromTo(o, { v: 1 }, { v: 480, duration: 4.18, ease: "power1.in", immediateRender: false, onUpdate: () => { $("#cn").textContent = "#" + Math.round(o.v); } }, 17.08); })();
+    tl.fromTo("#tk0", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 17.28);
+    tl.fromTo("#tk1", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 17.61);
+    tl.fromTo("#tk2", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 17.94);
+    tl.fromTo("#tk3", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 18.27);
+    tl.fromTo("#tk4", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 18.61);
+    tl.fromTo("#tk5", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 18.94);
+    tl.fromTo("#tk6", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 19.27);
+    tl.fromTo("#tk7", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 19.60);
+    tl.fromTo("#tk8", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 19.93);
+    tl.fromTo("#tk9", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 20.27);
+    tl.fromTo("#tk10", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 20.60);
+    tl.fromTo("#tk11", { opacity: 0, y: -40, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, 20.93);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 17.08);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 17.43);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 17.78);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 18.13);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 18.48);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 18.83);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 19.18);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 19.53);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 19.88);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 20.23);
+    tl.to("#fig", { y: -14, duration: 0.1, yoyo: true, repeat: 1 }, 20.58);
+    tl.to("#t5", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 24.33);
+    tl.fromTo("#t6", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 24.51);
+    tl.to(["#cnt", "#tks"], { opacity: 0, duration: 0.3 }, 21.89);
+    tl.fromTo("#spot", { opacity: 0 }, { opacity: 1, duration: 0.1 }, 25.01);
+    tl.to("#fig", { filter: "drop-shadow(0 0 40px rgba(255,255,255,0.95))", duration: 0.4 }, 25.01);
+    tl.to("#t6", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 27.44);
+    tl.fromTo("#t7", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 27.62);
+    tl.to("#spot", { opacity: 0, duration: 0.4 }, 27.62);
+    tl.fromTo("#kid", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 27.62);
+    tl.fromTo("#kb", { opacity: 0, scale: 0.6, transformOrigin: "70% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.5)" }, 28.89);
+    tl.to("#t7", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 31.81);
+    tl.fromTo("#t8", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 31.99);
+    tl.to("#kb", { opacity: 0, duration: 0.25 }, 31.47);
+    tl.fromTo("#ib", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, 32.09);
+    tl.to("#fig", { scaleY: 0.9, transformOrigin: "50% 100%", opacity: 0.6, filter: "drop-shadow(0 0 0px rgba(255,255,255,0))", duration: 0.4 }, 32.39);
+    tl.fromTo("#stp", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, 33.28);
+    tl.to("#t8", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 34.19);
+    tl.fromTo("#t9", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 34.37);
+    tl.to(["#ib", "#kid", "#ground", "#fig"], { opacity: 0, duration: 0.3 }, 34.37);
+    tl.to(["#tok", "#rays"], { opacity: 1, scale: 1.05, duration: 0.5, ease: "back.out(1.6)" }, 34.37);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.4, duration: 0.04, immediateRender: false }, 34.37); tl.to("#fl", { opacity: 0, duration: 0.5 }, 34.42);
+    tl.fromTo("#sweep", { x: 0 }, { x: 1300, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 36.28);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
