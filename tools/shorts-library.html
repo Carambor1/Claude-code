@@ -79,6 +79,9 @@ button,select{font:inherit;color:inherit}
 .chk[aria-pressed="true"].yt{color:var(--yt);border-color:rgba(255,59,59,.5);box-shadow:0 0 10px rgba(255,59,59,.18)}
 .chk[aria-pressed="true"] .box::after{content:"";width:6px;height:6px;border-radius:1px;background:currentColor}
 .chk:disabled{cursor:default;opacity:.7}
+.dl{display:inline-flex;align-items:center;gap:6px;width:100%;justify-content:center;background:#fff;color:#000;border:0;border-radius:8px;padding:8px 10px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 0 12px rgba(255,255,255,.25)}
+.dl svg{width:16px;height:16px}
+.dl:hover{box-shadow:0 0 18px rgba(255,255,255,.45)}
 .copy{margin-left:auto;background:none;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12.5px;cursor:pointer;color:var(--muted)}
 .copy:hover{color:var(--fg)}
 
@@ -185,14 +188,25 @@ function card(v){
   <div class="body"><h2 class="ttl">${esc(v.title)}</h2><div class="tags">${esc(v.hashtags)}</div>
   <div class="row"><button class="chk tt" aria-pressed="${s.tt}"><span class="box"></span>TikTok</button>
   <button class="chk yt" aria-pressed="${s.yt}"><span class="box"></span>YouTube</button>
-  <button class="copy" title="Titel und Hashtags kopieren">Kopieren</button></div></div>`;
+  <button class="copy" title="Titel und Hashtags kopieren">Kopieren</button>
+  <button class="dl" title="Video herunterladen" ${u&&DL?"":"hidden"}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download</button></div></div>`;
   d.querySelector(".thumb").onclick=()=>u&&openPlayer(v);
   const [bt,by]=d.querySelectorAll(".chk");
   if(!S.canWrite){bt.disabled=by.disabled=true}
   bt.onclick=()=>toggle(v,"tiktok",bt);by.onclick=()=>toggle(v,"youtube",by);
+  const dl=d.querySelector(".dl");dl.onclick=()=>download(v,dl);
   const cp=d.querySelector(".copy");
   cp.onclick=()=>{const t=v.title+"\n\n"+v.hashtags;navigator.clipboard.writeText(t).then(()=>{cp.textContent="Kopiert ✓";setTimeout(()=>cp.textContent="Kopieren",1400)}).catch(()=>{cp.textContent="Nicht möglich"})};
   return d;
+}
+let DL=null;
+async function download(v,btn){
+  if(!DL||btn.dataset.busy)return;btn.dataset.busy=1;const lab=btn.lastChild;lab.textContent="Lädt …";
+  try{const r=await fetch(src(v));if(!r.ok)throw new Error("HTTP "+r.status);const b=await r.blob();
+    const name=String(v.n).padStart(2,"0")+" - "+String(v.title).replace(/[^\p{L}\p{N} .,'€%-]/gu,"").trim().slice(0,80)+".mp4";
+    await DL.save({filename:name,data:b});lab.textContent="Gespeichert ✓";
+  }catch(e){lab.textContent=e&&e.code==="declined"?"Download":"Ging nicht"}
+  setTimeout(()=>{lab.textContent="Download"},2000);delete btn.dataset.busy;
 }
 async function toggle(v,k,btn){
   if(!S.coll||btn.dataset.busy)return;btn.dataset.busy=1;
@@ -217,6 +231,7 @@ render();
 
 (async()=>{
   const timer=setTimeout(()=>{if(!S.docs.length)$("empty").textContent="Die Liste ist gerade nicht erreichbar. Bitte später nochmal öffnen."},10000);
+  claude.use("downloads").then(d=>{DL=d;if(d)render()});
   const db=await claude.use("db");
   if(!db){clearTimeout(timer);$("empty").textContent="Melde dich bei claude.ai an, um die Videos zu sehen.";return}
   const user=await claude.use("user");
