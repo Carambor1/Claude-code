@@ -20,7 +20,7 @@ a{color:inherit}
 button,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid #fff;outline-offset:2px}
 
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(5,5,6,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
 .brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;text-shadow:0 0 14px var(--glow);margin-right:auto}
 .factory{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:600;box-shadow:0 0 14px rgba(255,255,255,.18),inset 0 0 10px rgba(255,255,255,.06);transition:box-shadow .2s,background .2s}
@@ -61,7 +61,7 @@ button,select{font:inherit;color:inherit}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
 .card.done{border-color:rgba(61,220,132,.35)}
 .thumb{position:relative;aspect-ratio:9/16;max-height:340px;width:100%;background:#000;cursor:pointer;border:0;padding:0;display:block;overflow:hidden}
-.thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 .thumb .no{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:12px}
 .thumb .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .2s;background:rgba(0,0,0,.35)}
 .thumb:hover .play,.thumb:focus-visible .play{opacity:1}
@@ -179,7 +179,7 @@ function card(v){
   const s=st(v),d=document.createElement("article");d.className="card"+(s.tt&&s.yt?" done":"");
   const u=src(v);
   d.innerHTML=`<button class="thumb" aria-label="${esc(v.title)} abspielen">
-    ${u?`<video muted preload="metadata" src="${esc(u)}#t=${v.thumbAt||3}"></video>`:'<span class="no">Video wird hochgeladen …</span>'}
+    ${v.poster?`<img src="${esc(v.poster)}" alt="" loading="lazy" decoding="async">`:(u?'':'<span class="no">Video wird hochgeladen …</span>')}
     <span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
     <span class="num">#${String(v.n).padStart(2,"0")}</span><span class="lang">${esc(v.lang||"EN")}</span><span class="dur">${fmt(v.duration)}</span></button>
   <div class="body"><h2 class="ttl">${esc(v.title)}</h2><div class="tags">${esc(v.hashtags)}</div>
@@ -207,9 +207,10 @@ function render(){
   $("empty").hidden=S.docs.length>0;
   if(S.docs.length&&!L.length){g.innerHTML='<div class="empty" style="grid-column:1/-1">Keine Videos mit diesem Filter.</div>'}
 }
-function openPlayer(v){$("dv").src=src(v);$("dt").textContent=v.title;$("dh").textContent=v.hashtags;$("dlg").showModal();$("dv").play().catch(()=>{})}
+function openPlayer(v){$("dv").poster=v.poster||"";$("dv").preload="auto";$("dv").src=src(v);$("dt").textContent=v.title;$("dh").textContent=v.hashtags;$("dlg").showModal();$("dv").play().catch(()=>{})}
 $("dx").onclick=()=>$("dlg").close();
-$("dlg").addEventListener("close",()=>{$("dv").pause()});
+$("dlg").addEventListener("close",()=>{const d=$("dv");d.pause();d.removeAttribute("src");d.load()});
+$("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("sort").onchange=e=>{S.sort=e.target.value;savePrefs();render()};
 document.querySelectorAll("#seg button").forEach(b=>b.onclick=()=>{S.status=b.dataset.s;savePrefs();render()});
 render();
