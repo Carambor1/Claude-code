@@ -1,0 +1,115 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #161616 0%, #000 70%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .glow { filter: drop-shadow(0 0 16px rgba(255,255,255,0.55)); }
+    #root svg { width: 100%; height: 100%; display: block; }
+    #root .title { font-weight: 900; font-size: 100px; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.02; padding: 0 60px; filter: drop-shadow(0 0 18px rgba(255,255,255,0.45)); }
+    #root .title i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    #root .money { font-weight: 900; font-size: 150px; letter-spacing: -0.03em; line-height: 1; filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); }
+    #root .gt { width: 600px; height: 16px; border-radius: 8px; background: #262626; overflow: hidden; }
+    #root .gf { width: 100%; height: 100%; background: #fff; transform-origin: 0% 50%; transform: scaleX(0); box-shadow: 0 0 14px #fff; }
+    #root .gl { margin-top: 14px; text-align: center; font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a9a9a; }
+    #root .ch { position: absolute; font-weight: 800; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: #111; border: 2px solid #fff; border-radius: 999px; padding: 8px 20px; white-space: nowrap; }
+    #root .ch.big { font-size: 40px; padding: 12px 30px; box-shadow: 0 0 24px rgba(255,255,255,0.3); }
+    #root .br { display: grid; grid-template-columns: 150px 1fr 110px; align-items: center; gap: 18px; margin-bottom: 34px; opacity: 0; }
+    #root .bl, #root .bm { font-weight: 800; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; }
+    #root .bm { text-align: right; }
+    #root .bt { height: 46px; }
+    #root .bf { height: 46px; border-radius: 10px; background: #fff; transform-origin: 0% 50%; transform: scaleX(0); box-shadow: 0 0 18px rgba(255,255,255,0.4); }
+    #root #t2, #root #t3, #root #t4, #root #t5, #root #t6, #root #t7, #root #t8, #root #t9, #root #t10, #root #t11, #root #spot, #root #ghost, #root #crowd, #root #star, #root #sk, #root #bars, #root #fl { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+        <div id="t1" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">The first <i>€1,000</i></div>
+    <div id="t2" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Sounds <i>wrong</i>.</div>
+    <div id="t3" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Month <i>one</i></div>
+    <div id="t4" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Month <i>three</i></div>
+    <div id="t5" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Month <i>eight</i></div>
+    <div id="t6" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Nobody tells you <i>this</i></div>
+    <div id="t7" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">New <i>skills</i></div>
+    <div id="t8" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">The next <i>€1,000</i></div>
+    <div id="t9" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Same <i>person</i>.</div>
+    <div id="t10" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">€10,000 starts at <i>€1</i></div>
+    <div id="t11" class="abs ctr title clip" data-start="0" data-duration="45.33" style="top:230px">Go make it. <i>Today.</i></div>
+    <div id="cnt" class="abs ctr money clip" data-start="0" data-duration="45.33" style="top:470px">€0</div>
+    <div id="goal" class="abs  clip" data-start="0" data-duration="45.33" style="left:240px;top:640px;width:600px;height:16px"><div class="gt"><div class="gf" id="gf"></div></div><div class="gl">Goal · €1,000</div></div>
+    <div id="spot" class="abs  clip" data-start="0" data-duration="45.33" style="left:340px;top:0;width:400px;height:1100px;background:linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.03));clip-path:polygon(40% 0,60% 0,100% 100%,0 100%)"></div>
+    <div id="ground" class="abs  clip" data-start="0" data-duration="45.33" style="left:0;top:1100px;width:1080px;height:0;border-top:2px dashed rgba(255,255,255,0.32)"></div>
+    <div id="ghost" class="abs  clip" data-start="0" data-duration="45.33" style="left:300px;top:905px;width:120px;height:195px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#4a4a4a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#4a4a4a"/></svg></div>
+    <div id="fig" class="abs glow clip" data-start="0" data-duration="45.33" style="left:480px;top:905px;width:120px;height:195px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div>
+    <div id="crowd" class="abs  clip" data-start="0" data-duration="45.33" style="left:40px;top:950px;width:330px;height:150px"><div style="position:absolute;left:20px;top:30px;width:74px;height:120px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div style="position:absolute;left:130px;top:40px;width:68px;height:110px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#8a8a8a"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#8a8a8a"/></svg></div><div class="ch" id="b0" style="left:0;top:-48px">meh</div><div class="ch" id="b1" style="left:120px;top:-90px">lol</div></div>
+    <div id="star" class="abs glow clip" data-start="0" data-duration="45.33" style="left:510px;top:820px;width:60px;height:60px"><svg viewBox="0 0 80 80"><path d="M40 4 L49 30 L76 30 L54 47 L62 74 L40 58 L18 74 L26 47 L4 30 L31 30 Z" fill="#fff"/></svg></div>
+    <div id="sk" class="abs  clip" data-start="0" data-duration="45.33" style="left:0;top:0;width:1080px;height:1920px"><div class="ch big" id="sk0" style="left:220px;top:820px">Sell</div><div class="ch big" id="sk1" style="left:690px;top:780px">Save</div><div class="ch big" id="sk2" style="left:640px;top:960px">Show up</div></div>
+    <div id="bars" class="abs  clip" data-start="0" data-duration="45.33" style="left:120px;top:470px;width:840px"><div class="br" id="br0"><span class="bl">€1k #1</span><div class="bt"><div class="bf" id="bf0" style="width:656px"></div></div><span class="bm">8 mo</span></div><div class="br" id="br1"><span class="bl">€1k #2</span><div class="bt"><div class="bf" id="bf1" style="width:328px"></div></div><span class="bm">4 mo</span></div><div class="br" id="br2"><span class="bl">€1k #3</span><div class="bt"><div class="bf" id="bf2" style="width:164px"></div></div><span class="bm">2 mo</span></div><div class="br" id="br3"><span class="bl">€1k #4</span><div class="bt"><div class="bf" id="bf3" style="width:82px"></div></div><span class="bm">1 mo</span></div></div>
+    <div id="fl" class="abs  clip" data-start="0" data-duration="45.33" style="left:0;top:0;width:1080px;height:1920px;background:#fff"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    tl.fromTo("#cnt", { scale: 1 }, { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1 }, 2.23);
+    tl.to("#t1", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 4.11);
+    tl.fromTo("#t2", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 4.29);
+    tl.to("#t2", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 6.96);
+    tl.fromTo("#t3", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 7.14);
+    tl.fromTo("#crowd", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.93);
+    tl.fromTo("#b0", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 9.23);
+    tl.fromTo("#b1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 9.48);
+    tl.to("#t3", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 10.73);
+    tl.fromTo("#t4", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 10.91);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 200, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#cnt").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 11.90); })();
+    tl.to("#gf", { scaleX: 0.2, duration: 0.6, ease: "power2.out" }, 11.90);
+    tl.to("#fig", { scaleY: 0.9, x: 40, rotation: 8, transformOrigin: "50% 100%", opacity: 0.6, duration: 0.5 }, 13.71);
+    tl.to("#t4", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 14.83);
+    tl.fromTo("#t5", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 15.01);
+    tl.to("#crowd", { opacity: 0, duration: 0.3 }, 15.01);
+    (() => { const o = { v: 200 }; tl.fromTo(o, { v: 200 }, { v: 1000, duration: 1.0, ease: "power3.in", immediateRender: false, onUpdate: () => { $("#cnt").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 15.24); })();
+    tl.to("#gf", { scaleX: 1, duration: 1.0, ease: "power3.in" }, 15.24);
+    tl.to("#fig", { scaleY: 1, x: 0, rotation: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 16.14);
+    tl.fromTo(["#spot", "#star"], { opacity: 0 }, { opacity: 1, duration: 0.1 }, 16.24);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.3, duration: 0.04 }, 16.24); tl.to("#fl", { opacity: 0, duration: 0.4 }, 16.29);
+    tl.fromTo("#cnt", { scale: 1 }, { scale: 1.15, duration: 0.18, yoyo: true, repeat: 1, immediateRender: false }, 16.24);
+    tl.to("#t5", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 19.92);
+    tl.fromTo("#t6", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 20.10);
+    tl.to(["#cnt", "#goal"], { opacity: 0.25, duration: 0.4 }, 21.23);
+    tl.to("#t6", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 24.04);
+    tl.fromTo("#t7", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 24.22);
+    tl.fromTo("#sk", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 24.42);
+    tl.fromTo("#sk0", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 24.47);
+    tl.fromTo("#sk1", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 25.53);
+    tl.fromTo("#sk2", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 26.74);
+    tl.to("#fig", { filter: "drop-shadow(0 0 40px rgba(255,255,255,0.95))", duration: 0.5 }, 26.79);
+    tl.to(["#sk", "#cnt", "#goal", "#star", "#spot"], { opacity: 0, duration: 0.3 }, 27.71);
+    tl.to("#t7", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 28.16);
+    tl.fromTo("#t8", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 28.34);
+    tl.fromTo("#bars", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 27.81);
+    tl.fromTo("#br0", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 27.86);
+    tl.to("#bf0", { scaleX: 1, duration: 0.5, ease: "power2.out" }, 27.91);
+    tl.fromTo("#br1", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 29.61);
+    tl.to("#bf1", { scaleX: 1, duration: 0.3, ease: "power2.out" }, 29.66);
+    tl.fromTo("#br2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 31.10);
+    tl.to("#bf2", { scaleX: 1, duration: 0.3, ease: "power2.out" }, 31.15);
+    tl.fromTo("#br3", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 32.46);
+    tl.to("#bf3", { scaleX: 1, duration: 0.3, ease: "power2.out" }, 32.51);
+    tl.to("#t8", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 33.19);
+    tl.fromTo("#t9", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 33.37);
+    tl.to("#bars", { opacity: 0, duration: 0.3 }, 33.37);
+    tl.fromTo("#ghost", { opacity: 0, x: 0 }, { opacity: 1, x: -40, duration: 0.5 }, 33.47);
+    tl.to("#fig", { x: 60, duration: 0.5 }, 33.47);
+    tl.to("#sk", { opacity: 1, duration: 0.3 }, 34.37);
+    tl.to("#t9", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 36.08);
+    tl.fromTo("#t10", { opacity: 0, y: 40, scale: 1, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 36.26);
+    tl.to(["#ghost", "#sk"], { opacity: 0, duration: 0.3 }, 36.26);
+    tl.to("#cnt", { opacity: 1, duration: 0.3 }, 36.26);
+    (() => { const o = { v: 1000 }; tl.fromTo(o, { v: 1000 }, { v: 10000, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#cnt").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 36.26); })();
+    (() => { const o = { v: 10000 }; tl.fromTo(o, { v: 10000 }, { v: 1, duration: 0.7, ease: "power2.in", immediateRender: false, onUpdate: () => { $("#cnt").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 39.73); })();
+    tl.fromTo("#cnt", { scale: 1 }, { scale: 1.2, duration: 0.18, yoyo: true, repeat: 1, immediateRender: false }, 40.43);
+    tl.to("#t10", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 42.48);
+    tl.fromTo("#t11", { opacity: 0, y: 40, scale: 1.35, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, 42.66);
+    tl.to("#cnt", { opacity: 0, duration: 0.2 }, 42.66);
+    tl.fromTo("#spot", { opacity: 0 }, { opacity: 1, duration: 0.08, immediateRender: false }, 43.26);
+    tl.fromTo("#fl", { opacity: 0 }, { opacity: 0.35, duration: 0.04, immediateRender: false }, 43.26); tl.to("#fl", { opacity: 0, duration: 0.4 }, 43.31);
+    tl.to("#fig", { x: 0, scale: 1.12, transformOrigin: "50% 100%", duration: 0.3, ease: "back.out(3)" }, 43.26);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
