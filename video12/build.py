@@ -58,7 +58,7 @@ body = [
       + NOTE(830, 230, "€3,000", "s1v") + I("crown", 880, 420, 140, 110, "opacity:0", "s1p")),
     C("s2", "", "left:0;top:0;width:1920px;height:1080px",
       f'<div class="abs fig" id="s2f" style="left:900px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs ground"></div>'
-      + NOTE(830, 230, "€3,000", "s2v") + I("up", 1110, 250, 70, 90, "", "s2p")
+      + NOTE(830, 230, "€3,000", "s2v") + I("up", 1110, 250, 70, 90, "", "s2p") + '<div class="abs pct" id="s2q" style="left:1190px;top:262px">+20%</div>'
       + "".join(f'<div class="abs spark" id="sp{i}" style="left:{x}px;top:{y}px">✦</div>' for i, (x, y) in enumerate(((840, 560), (1010, 590), (870, 660), (1040, 680))))),
     C("s4", "", "left:0;top:0;width:1920px;height:1080px",
       f'<div class="abs fig" style="left:900px;top:614px;width:90px;height:146px">{FIG}</div><div class="abs ground"></div>'
@@ -131,8 +131,9 @@ CSS = f"""
     #root .zero {{ position: absolute; left: 0; top: 54px; width: 110px; text-align: center; font-weight: 800; font-size: 30px; }}
     #root .balloon {{ width: 400px; height: 400px; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 30px rgba(255,255,255,0.25); }}
     #root .coin.big {{ width: 70px; height: 70px; font-size: 38px; opacity: 1; }}
+    #root .pct {{ font-weight: 900; font-size: 68px; letter-spacing: -0.02em; color: #fff; text-shadow: 0 0 12px rgba(255,255,255,0.9), 0 0 32px rgba(255,255,255,0.6); }}
     #root .endw {{ font-weight: 800; font-size: 96px; letter-spacing: 0.12em; text-transform: uppercase; }}
-    #root #e2, #root #s7p, #root #s2p {{ opacity: 0; }}
+    #root #e2, #root #s7p, #root #s2p, #root #s2q {{ opacity: 0; }}
     #root {", #root ".join("#" + s for s in SCENE_IDS[1:])} {{ opacity: 0; }}
 """
 
@@ -149,7 +150,9 @@ a(f'tl.fromTo("#s1p", {{ opacity: 0, y: 14, scale: 0.8 }}, {{ opacity: 1, y: 0, 
 a(f'tl.to("#s1p", {{ opacity: 0.25, duration: 0.6 }}, {E["rich"] + 0.9:.2f});')
 # S2: the raise
 a(f'(() => {{ const o = {{ v: 3000 }}; tl.fromTo(o, {{ v: 3000 }}, {{ v: 3600, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => {{ $("#s2v").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); }} }}, {E["twenty"]:.2f}); }})();')
-a(f'tl.fromTo("#s2p", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }}, {E["twenty"]:.2f});')
+a(f'tl.fromTo("#s2p", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.45, ease: "back.out(2)" }}, {E["twenty"] - 0.05:.2f});')
+a(f'tl.fromTo("#s2q", {{ opacity: 0, scale: 0.5 }}, {{ opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.5)" }}, {E["twenty"]:.2f});')
+a(f'tl.fromTo("#s2q", {{ scale: 1 }}, {{ scale: 1.08, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }}, {E["twenty"] + 0.5:.2f});')
 for i in range(4):
     a(f'tl.fromTo("#sp{i}", {{ opacity: 0, scale: 0.3 }}, {{ opacity: 1, scale: 1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.out" }}, {E["change"] - 0.8 + i * 0.2:.2f});')
 # S4: upgrades on their words
