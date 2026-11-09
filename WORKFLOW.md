@@ -9,3 +9,5 @@
 - Defaults: English, female voice (ElevenLabs "Sarah", passionate/dramatic or calm for essays), no music, DLF/cryothum style.
 - Never use [whispers] (or any whispering) in the voice. User asked to stop it.
 - Stats log: video-stats.md
+- Visual direction (from the user): more pictures/symbol icons, less on-screen text; cleaner, smoother transitions
+  (e.g. one element morphs/moves into the next, consistent easing, no hard cuts or blur-swaps); icons carry the story.
