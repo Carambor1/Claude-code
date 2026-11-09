@@ -1,0 +1,113 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #000; font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1920px; text-align: center; }
+    #root svg { width: 100%; height: 100%; display: block; }
+    #root .fig { filter: drop-shadow(0 0 14px rgba(255,255,255,0.5)); }
+    #root .fig.dimf { opacity: 0.55; }
+    #root .ground { left: 0; top: 760px; width: 1920px; height: 0; border-top: 2px dashed rgba(255,255,255,0.3); }
+    #root .pill { font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 8px 22px; white-space: nowrap; background: #000; }
+    #root .card { width: 320px; border: 2px solid rgba(255,255,255,0.8); border-radius: 16px; padding: 18px 24px; text-align: center; }
+    #root .lab, #root .small { font-weight: 700; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a9a9a; }
+    #root .val { font-weight: 800; font-size: 72px; letter-spacing: -0.02em; margin-top: 4px; }
+    #root .spark { font-size: 40px; opacity: 0; }
+    #root .up { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 220px; opacity: 0; }
+    #root .up .ic { width: 140px; height: 110px; }
+    #root .up .cost { font-weight: 800; font-size: 40px; }
+    #root .tl { fill: #fff; font: 700 28px Inter, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
+    #root .tl.dim { fill: #9a9a9a; }
+    #root .word { font-weight: 800; font-size: 96px; letter-spacing: 0.04em; text-transform: uppercase; }
+    #root .pan { width: 120px; text-align: center; font-weight: 800; font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; }
+    #root .ceil { left: 520px; top: 330px; width: 880px; height: 0; border-top: 4px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    #root .blk { width: 88px; height: 56px; border: 2px dashed rgba(255,255,255,0.45); border-radius: 6px; }
+    #root .bar { height: 26px; border: 2px solid #fff; border-radius: 13px; overflow: hidden; }
+    #root .bar i { display: block; height: 100%; background: #fff; }
+    #root .jar { width: 100px; height: 130px; }
+    #root .fill { position: absolute; left: 12%; right: 12%; bottom: 6%; height: 0; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 0 18px rgba(255,255,255,0.6); }
+    #root .coin { width: 44px; height: 44px; border: 3px solid #fff; border-radius: 50%; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; opacity: 0; }
+    #root .endw { font-weight: 800; font-size: 110px; letter-spacing: 0.12em; text-transform: uppercase; }
+    #root #e2, #root #s7p, #root #s8b, #root #s2p { opacity: 0; }
+    #root #s2, #root #s4, #root #s6, #root #s8, #root #s9, #root #s10, #root #s11, #root #s12, #root #s13 { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1920" data-height="1080" data-layout-allow-overlap>
+        <div id="s1" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs fig" style="left:900px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs ground"></div><div class="abs pill" id="s1p" style="left:860px;top:520px">Rich?</div><div class="abs card" style="left:800px;top:250px"><div class="lab">Monthly income</div><div class="val" id="s1v">€3,000</div></div></div>
+    <div id="s2" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs fig" id="s2f" style="left:900px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs ground"></div><div class="abs card" style="left:800px;top:250px"><div class="lab">Monthly income</div><div class="val" id="s2v">€3,000</div></div><div class="abs pill" id="s2p" style="left:1150px;top:300px">+20 %</div><div class="abs spark" id="sp0" style="left:840px;top:560px">✦</div><div class="abs spark" id="sp1" style="left:1010px;top:590px">✦</div><div class="abs spark" id="sp2" style="left:870px;top:660px">✦</div><div class="abs spark" id="sp3" style="left:1040px;top:680px">✦</div></div>
+    <div id="s4" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs fig" style="left:900px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs ground"></div><div class="abs card" style="left:800px;top:120px"><div class="lab">Monthly income</div><div class="val">€3,600</div></div><div class="abs up" id="u0" style="left:420px;top:470px"><div class="ic" style="width:130px;height:120px"><svg viewBox="0 0 120 110"><path d="M10 50 L60 10 L110 50 V104 H10 Z M45 104 V70 H75 V104" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="lab">Nicer apartment</div><div class="cost">−€300</div></div><div class="abs up" id="u1" style="left:1290px;top:500px"><div class="ic" style="width:170px;height:96px"><svg viewBox="0 0 160 90"><path d="M10 62 V48 L32 22 H112 L140 48 H152 V62 Z M40 22 L30 46 H128 M76 22 V46" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="44" cy="68" r="12" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="118" cy="68" r="12" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="lab">Better car</div><div class="cost">−€200</div></div><div class="abs up" id="u2" style="left:860px;top:330px"><div class="ic" style="width:140px;height:110px"><svg viewBox="0 0 140 110"><circle cx="70" cy="55" r="40" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="70" cy="55" r="26" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 18 V50 M8 18 V36 M20 18 V36 M14 50 V96 M126 18 C116 28 116 48 126 54 V96" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="lab">Eating out</div><div class="cost">−€100</div></div></div>
+    <div id="s6" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><svg class="abs" style="left:0;top:0;width:1920px;height:1080px" viewBox="0 0 1920 1080"><path d="M560 350 V760 H1390" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.5"/><polyline id="lin" points="560,633 760,633 760,443 1360,443" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><polyline id="lex" points="560,665 760,665 893,586 1027,538 1160,475 1360,443" fill="none" stroke="#9a9a9a" stroke-width="4" stroke-dasharray="12 9" stroke-linejoin="round"/><text x="1380" y="425.3333333333333" class="tl">Income</text><text x="1380" y="473.3333333333333" class="tl dim">Spending</text><text x="560" y="804" class="tl dim">Month 1</text><text x="1360" y="804" class="tl dim" text-anchor="end">Month 12</text></svg><div class="abs pill" id="s7p" style="left:1240px;top:300px">Saved: €0</div></div>
+    <div id="s8" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs ctr word" style="top:430px" id="s8a">Lifestyle inflation</div><div class="abs ctr small" style="top:560px" id="s8b">a.k.a. “normal”</div></div>
+    <div id="s9" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><svg class="abs" style="left:660px;top:280px;width:600px;height:480px" viewBox="0 0 600 480"><path d="M300 70 V440 M220 440 H380" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><g id="beam"><path d="M90 90 H510" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 90 L50 210 H130 Z M510 90 L470 210 H550 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></g><circle cx="300" cy="60" r="12" fill="#fff"/></svg><div class="abs pan" id="pe" style="left:690px;top:510px">Earn</div><div class="abs pan" id="pk" style="left:1110px;top:510px">Keep</div></div>
+    <div id="s10" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs fig" style="left:900px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs ceil" id="ceil"></div><div class="abs small" id="ceilL" style="left:1420px;top:300px">Ceiling · salary</div><div class="abs blk" style="left:560px;top:766px"></div><div class="abs blk" style="left:660px;top:766px"></div><div class="abs blk" style="left:760px;top:766px"></div><div class="abs blk" style="left:860px;top:766px"></div><div class="abs blk" style="left:960px;top:766px"></div><div class="abs blk" style="left:1060px;top:766px"></div><div class="abs blk" style="left:1160px;top:766px"></div><div class="abs blk" style="left:1260px;top:766px"></div><div class="abs small" style="left:1420px;top:780px">Floor · savings</div></div>
+    <div id="s11" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs fig" style="left:520px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs fig dimf" style="left:1300px;top:614px;width:90px;height:146px"><svg viewBox="0 0 80 130"><circle cx="40" cy="24" r="20" fill="#fff"/><path d="M6 130 V94 a34 34 0 0 1 68 0 V130 Z" fill="#fff"/></svg></div><div class="abs ground"></div><div class="abs small" style="left:420px;top:830px;width:300px;text-align:center">Modest income</div><div class="abs small" style="left:1200px;top:830px;width:300px;text-align:center">Twice as much</div><div class="abs bar" style="left:480px;top:300px;width:200px"><i id="ba" style="width:45%"></i></div><div class="abs bar" style="left:1250px;top:300px;width:200px"><i style="width:90%"></i></div><div class="abs jar" style="left:660px;top:600px"><svg viewBox="0 0 100 130"><path d="M22 10 H78 M28 10 V26 C14 34 12 46 12 60 V112 C12 120 18 124 26 124 H74 C82 124 88 120 88 112 V60 C88 46 86 34 72 26 V10" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="fill" id="jA"></div></div><div class="abs jar" style="left:1440px;top:600px"><svg viewBox="0 0 100 130"><path d="M22 10 H78 M28 10 V26 C14 34 12 46 12 60 V112 C12 120 18 124 26 124 H74 C82 124 88 120 88 112 V60 C88 46 86 34 72 26 V10" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="fill" id="jB"></div></div></div>
+    <div id="s12" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><svg class="abs" style="left:760px;top:200px;width:400px;height:300px" viewBox="0 0 400 300"><path d="M20 20 H380 L230 170 V280 H170 V170 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="abs small" style="left:700px;top:160px;width:520px;text-align:center">Comes in</div><div class="abs coin" id="c0" style="left:820px;top:150px">€</div><div class="abs coin" id="c1" style="left:875px;top:150px">€</div><div class="abs coin" id="c2" style="left:930px;top:150px">€</div><div class="abs coin" id="c3" style="left:985px;top:150px">€</div><div class="abs coin" id="c4" style="left:1040px;top:150px">€</div><div class="abs coin" id="c5" style="left:1095px;top:150px">€</div><div class="abs jar" style="left:890px;top:560px;width:140px;height:182px"><svg viewBox="0 0 100 130"><path d="M22 10 H78 M28 10 V26 C14 34 12 46 12 60 V112 C12 120 18 124 26 124 H74 C82 124 88 120 88 112 V60 C88 46 86 34 72 26 V10" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="fill" id="jS"></div></div><div class="abs small" style="left:1060px;top:680px">Stays</div></div>
+    <div id="s13" class="abs  clip" data-start="0" data-duration="72.96" style="left:0;top:0;width:1920px;height:1080px"><div class="abs ctr endw" id="e1" style="top:420px">Earn more.</div><div class="abs ctr endw" id="e2" style="top:420px">Keep more.</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    tl.fromTo("#s1", { scale: 1 }, { scale: 1.03, duration: 3.98, ease: "none", immediateRender: false }, 0.00);
+    tl.to("#s1", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 3.58);
+    tl.fromTo("#s2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 3.73);
+    tl.fromTo("#s2", { scale: 1 }, { scale: 1.03, duration: 10.13, ease: "none", immediateRender: false }, 3.98);
+    tl.to("#s2", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 13.71);
+    tl.fromTo("#s4", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 13.86);
+    tl.fromTo("#s4", { scale: 1 }, { scale: 1.03, duration: 10.35, ease: "none", immediateRender: false }, 14.11);
+    tl.to("#s4", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 24.06);
+    tl.fromTo("#s6", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 24.21);
+    tl.fromTo("#s6", { scale: 1 }, { scale: 1.03, duration: 12.24, ease: "none", immediateRender: false }, 24.46);
+    tl.to("#s6", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 36.31);
+    tl.fromTo("#s8", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 36.46);
+    tl.fromTo("#s8", { scale: 1 }, { scale: 1.03, duration: 5.20, ease: "none", immediateRender: false }, 36.71);
+    tl.to("#s8", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 41.50);
+    tl.fromTo("#s9", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 41.65);
+    tl.fromTo("#s9", { scale: 1 }, { scale: 1.03, duration: 6.02, ease: "none", immediateRender: false }, 41.90);
+    tl.to("#s9", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 47.52);
+    tl.fromTo("#s10", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 47.67);
+    tl.fromTo("#s10", { scale: 1 }, { scale: 1.03, duration: 5.65, ease: "none", immediateRender: false }, 47.92);
+    tl.to("#s10", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 53.17);
+    tl.fromTo("#s11", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 53.32);
+    tl.fromTo("#s11", { scale: 1 }, { scale: 1.03, duration: 8.31, ease: "none", immediateRender: false }, 53.57);
+    tl.to("#s11", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 61.48);
+    tl.fromTo("#s12", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 61.63);
+    tl.fromTo("#s12", { scale: 1 }, { scale: 1.03, duration: 4.65, ease: "none", immediateRender: false }, 61.88);
+    tl.to("#s12", { opacity: 0, x: -40, duration: 0.45, ease: "power2.in" }, 66.13);
+    tl.fromTo("#s13", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 66.28);
+    tl.fromTo("#s13", { scale: 1 }, { scale: 1.03, duration: 6.43, ease: "none", immediateRender: false }, 66.53);
+    (() => { const o = { v: 3000 }; tl.fromTo(o, { v: 3000 }, { v: 9000, duration: 2.04, ease: "power2.in", immediateRender: false, onUpdate: () => { $("#s1v").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 0.3); })();
+    tl.fromTo("#s1p", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35 }, 2.44);
+    (() => { const o = { v: 3000 }; tl.fromTo(o, { v: 3000 }, { v: 3600, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => { $("#s2v").textContent = "€" + Math.round(o.v).toLocaleString("en-US"); } }, 7.42); })();
+    tl.fromTo("#s2p", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, 7.42);
+    tl.fromTo("#sp0", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.out" }, 12.07);
+    tl.fromTo("#sp1", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.out" }, 12.27);
+    tl.fromTo("#sp2", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.out" }, 12.47);
+    tl.fromTo("#sp3", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.out" }, 12.67);
+    tl.fromTo("#u0", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 14.57);
+    tl.fromTo("#u1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 16.01);
+    tl.fromTo("#u2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 16.97);
+    tl.fromTo("#lin", { strokeDasharray: "2000 2000", strokeDashoffset: 2000, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, duration: 1.6, ease: "power1.inOut" }, 24.78);
+    tl.fromTo("#lex", { strokeDasharray: "12 9", strokeDashoffset: 0, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 1.6, ease: "power1.inOut" }, 26.92);
+    tl.fromTo("#s7p", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 30.24);
+    tl.fromTo("#s8a", { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 37.41);
+    tl.fromTo("#s8b", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 40.35);
+    tl.fromTo("#beam", { rotation: 0, svgOrigin: "300 60" }, { rotation: -8, duration: 0.6, ease: "power2.out" }, 45.40);
+    tl.to("#beam", { rotation: 9, duration: 0.8, ease: "back.out(1.6)" }, 46.92);
+    tl.fromTo("#pe", { y: 0 }, { y: 36, duration: 0.6 }, 45.40); tl.to("#pe", { y: -40, opacity: 0.5, duration: 0.8 }, 46.92);
+    tl.fromTo("#pk", { y: 0 }, { y: -36, duration: 0.6 }, 45.40); tl.to("#pk", { y: 40, duration: 0.8 }, 46.92);
+    tl.fromTo(["#ceil", "#ceilL"], { y: 80 }, { y: -60, duration: 1.4, ease: "power2.out" }, 49.56);
+    tl.fromTo("#jA", { height: "0%" }, { height: "80%", duration: 2.4, ease: "power1.inOut" }, 55.25);
+    tl.fromTo("#jB", { height: "0%" }, { height: "4%", duration: 1.0 }, 59.33);
+    tl.fromTo("#c0", { opacity: 0, y: 0 }, { opacity: 1, y: 380, x: 100.0, duration: 0.9, ease: "power1.in" }, 62.68);
+    tl.fromTo("#c1", { opacity: 0, y: 0 }, { opacity: 1, y: 120, x: 0, duration: 0.9, ease: "power1.in" }, 62.86);
+    tl.to("#c1", { opacity: 0, duration: 0.3 }, 63.76);
+    tl.fromTo("#c2", { opacity: 0, y: 0 }, { opacity: 1, y: 380, x: 20.0, duration: 0.9, ease: "power1.in" }, 63.04);
+    tl.fromTo("#c3", { opacity: 0, y: 0 }, { opacity: 1, y: 120, x: 0, duration: 0.9, ease: "power1.in" }, 63.22);
+    tl.to("#c3", { opacity: 0, duration: 0.3 }, 64.12);
+    tl.fromTo("#c4", { opacity: 0, y: 0 }, { opacity: 1, y: 380, x: -60.0, duration: 0.9, ease: "power1.in" }, 63.40);
+    tl.fromTo("#c5", { opacity: 0, y: 0 }, { opacity: 1, y: 120, x: 0, duration: 0.9, ease: "power1.in" }, 63.58);
+    tl.to("#c5", { opacity: 0, duration: 0.3 }, 64.48);
+    tl.fromTo("#jS", { height: "0%" }, { height: "55%", duration: 1.2 }, 64.50);
+    tl.to("#e1", { opacity: 0, duration: 0.3 }, 68.71);
+    tl.fromTo("#e2", { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 69.01);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
