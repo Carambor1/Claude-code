@@ -1,445 +1,493 @@
 {
  "r1": {
-  "text": "This account has no face. And it gets paid, every single month. Here's how.",
-  "dur": 5.564082,
+  "text": "A faceless account. One video. One million views. So how much does that actually pay?",
+  "dur": 7.235918,
   "words": [
    [
-    "This",
-    0.16
+    "A",
+    0.206
    ],
    [
-    "account",
-    0.44
+    "faceless",
+    0.32
    ],
    [
-    "has",
-    0.72
+    "account.",
+    0.8
    ],
    [
-    "no",
-    1.16
+    "One",
+    1.76
    ],
    [
-    "face.",
-    1.36
+    "video.",
+    2.0
+   ],
+   [
+    "One",
+    2.96
+   ],
+   [
+    "million",
+    3.36
+   ],
+   [
+    "views.",
+    3.84
+   ],
+   [
+    "So",
+    5.0
+   ],
+   [
+    "how",
+    5.28
+   ],
+   [
+    "much",
+    5.52
+   ],
+   [
+    "does",
+    5.68
+   ],
+   [
+    "that",
+    5.96
+   ],
+   [
+    "actually",
+    6.32
+   ],
+   [
+    "pay?",
+    6.76
+   ]
+  ]
+ },
+ "r2": {
+  "text": "From TikTok itself? Creators report roughly four hundred to a thousand dollars. And only with ten thousand followers, in eligible countries, on videos over a minute.",
+  "dur": 11.467755,
+  "words": [
+   [
+    "From",
+    0.0
+   ],
+   [
+    "TikTok",
+    0.32
+   ],
+   [
+    "itself?",
+    0.8
+   ],
+   [
+    "Creators",
+    1.92
+   ],
+   [
+    "report",
+    2.4
+   ],
+   [
+    "roughly",
+    2.8
+   ],
+   [
+    "four",
+    3.36
+   ],
+   [
+    "hundred",
+    3.6
+   ],
+   [
+    "to",
+    4.08
+   ],
+   [
+    "a",
+    4.24
+   ],
+   [
+    "thousand",
+    4.48
+   ],
+   [
+    "dollars.",
+    4.88
    ],
    [
     "And",
-    2.107
+    5.84
    ],
    [
-    "it",
-    2.2
+    "only",
+    6.08
    ],
    [
-    "gets",
-    2.32
+    "with",
+    6.44
    ],
    [
-    "paid,",
-    2.88
+    "ten",
+    6.64
    ],
    [
-    "every",
-    3.28
+    "thousand",
+    7.04
    ],
    [
-    "single",
-    3.76
+    "followers,",
+    7.44
    ],
    [
-    "month.",
-    4.16
+    "in",
+    8.24
    ],
    [
-    "Here's",
-    4.907
+    "eligible",
+    8.4
    ],
    [
-    "how.",
-    5.12
+    "countries,",
+    8.88
+   ],
+   [
+    "on",
+    9.68
+   ],
+   [
+    "videos",
+    9.92
+   ],
+   [
+    "over",
+    10.48
+   ],
+   [
+    "a",
+    10.76
+   ],
+   [
+    "minute.",
+    10.88
    ]
   ]
  },
  "r3": {
-  "text": "One. Views. Hit ten thousand followers, and TikTok pays you for videos over one minute.",
-  "dur": 6.922449,
+  "text": "That's why smart faceless pages don't live on views. They sell.",
+  "dur": 4.675918,
   "words": [
    [
-    "One.",
+    "That's",
     0.0
    ],
    [
-    "Views.",
-    0.96
+    "why",
+    0.4
    ],
    [
-    "Hit",
-    2.0
+    "smart",
+    0.56
    ],
    [
-    "ten",
-    2.32
+    "faceless",
+    1.04
    ],
    [
-    "thousand",
+    "pages",
+    1.52
+   ],
+   [
+    "don't",
+    2.08
+   ],
+   [
+    "live",
+    2.4
+   ],
+   [
+    "on",
     2.64
    ],
    [
-    "followers,",
-    3.04
+    "views.",
+    2.8
    ],
    [
-    "and",
-    3.8
+    "They",
+    3.76
    ],
    [
-    "TikTok",
-    3.96
-   ],
-   [
-    "pays",
-    4.48
-   ],
-   [
-    "you",
-    4.88
-   ],
-   [
-    "for",
-    5.04
-   ],
-   [
-    "videos",
-    5.2
-   ],
-   [
-    "over",
-    5.84
-   ],
-   [
-    "one",
-    6.08
-   ],
-   [
-    "minute.",
-    6.32
+    "sell.",
+    4.0
    ]
   ]
  },
  "r4": {
-  "text": "Two. Affiliate links. You recommend a product, someone buys it, and you earn a commission.",
-  "dur": 6.687347,
+  "text": "An affiliate link. Someone buys, and you earn a commission.",
+  "dur": 4.127347,
   "words": [
    [
-    "Two.",
+    "An",
     0.0
    ],
    [
-    "Affiliate",
-    0.88
+    "affiliate",
+    0.44
    ],
    [
-    "links.",
+    "link.",
+    0.92
+   ],
+   [
+    "Someone",
     1.52
    ],
    [
-    "You",
-    2.4
-   ],
-   [
-    "recommend",
-    2.56
-   ],
-   [
-    "a",
-    3.0
-   ],
-   [
-    "product,",
-    3.12
-   ],
-   [
-    "someone",
-    3.92
-   ],
-   [
-    "buys",
-    4.24
-   ],
-   [
-    "it,",
-    4.64
+    "buys,",
+    1.92
    ],
    [
     "and",
-    5.04
+    2.64
    ],
    [
     "you",
-    5.28
+    2.8
    ],
    [
     "earn",
-    5.6
+    3.12
    ],
    [
     "a",
-    5.787
+    3.28
    ],
    [
     "commission.",
-    5.84
+    3.36
    ]
   ]
  },
  "r5": {
-  "text": "Three. Digital products. Make it once, and sell it again, and again, and again.",
-  "dur": 7.000816,
+  "text": "Or a digital product. Make it once, and sell it again, and again.",
+  "dur": 5.146122,
   "words": [
    [
-    "Three.",
+    "Or",
     0.0
    ],
    [
-    "Digital",
-    1.04
+    "a",
+    0.4
    ],
    [
-    "products.",
-    1.52
+    "digital",
+    0.56
+   ],
+   [
+    "product.",
+    0.96
    ],
    [
     "Make",
-    2.64
+    1.84
    ],
    [
     "it",
-    2.84
+    2.04
    ],
    [
     "once,",
-    3.04
+    2.24
    ],
    [
     "and",
-    3.6
+    2.8
    ],
    [
     "sell",
-    3.84
+    3.04
    ],
    [
     "it",
-    4.08
+    3.24
    ],
    [
     "again,",
-    4.16
+    3.56
    ],
    [
     "and",
-    5.04
-   ],
-   [
-    "again,",
-    5.2
-   ],
-   [
-    "and",
-    6.0
+    4.28
    ],
    [
     "again.",
-    6.16
+    4.68
    ]
   ]
  },
  "r6": {
-  "text": "Four. Brand deals. Own a niche, and brands pay to be seen on it.",
-  "dur": 5.564082,
+  "text": "Now do the math. If just one viewer in a thousand buys a twenty dollar guide, that's twenty thousand dollars. From the same video.",
+  "dur": 9.639184,
   "words": [
    [
-    "Four.",
+    "Now",
     0.0
    ],
    [
-    "Brand",
-    1.04
-   ],
-   [
-    "deals.",
-    1.44
-   ],
-   [
-    "Own",
-    2.4
-   ],
-   [
-    "a",
-    2.64
-   ],
-   [
-    "niche,",
-    2.72
-   ],
-   [
-    "and",
-    3.32
-   ],
-   [
-    "brands",
-    3.52
-   ],
-   [
-    "pay",
-    4.0
-   ],
-   [
-    "to",
-    4.4
-   ],
-   [
-    "be",
-    4.52
-   ],
-   [
-    "seen",
-    4.72
-   ],
-   [
-    "on",
-    5.04
-   ],
-   [
-    "it.",
-    5.24
-   ]
-  ]
- },
- "r7": {
-  "text": "But the views usually pay the least. The real money is in what you sell.",
-  "dur": 5.146122,
-  "words": [
-   [
-    "But",
-    0.133
+    "do",
+    0.4
    ],
    [
     "the",
-    0.2
+    0.64
    ],
    [
-    "views",
-    0.32
+    "math.",
+    0.8
    ],
    [
-    "usually",
-    0.88
+    "If",
+    1.68
    ],
    [
-    "pay",
-    1.36
+    "just",
+    1.84
    ],
    [
-    "the",
-    1.6
+    "one",
+    2.24
    ],
    [
-    "least.",
-    1.92
-   ],
-   [
-    "The",
-    2.64
-   ],
-   [
-    "real",
-    2.88
-   ],
-   [
-    "money",
-    3.2
-   ],
-   [
-    "is",
-    3.76
+    "viewer",
+    2.48
    ],
    [
     "in",
-    3.92
+    2.92
    ],
    [
-    "what",
+    "a",
+    3.04
+   ],
+   [
+    "thousand",
+    3.28
+   ],
+   [
+    "buys",
+    3.84
+   ],
+   [
+    "a",
     4.08
    ],
    [
-    "you",
-    4.36
+    "twenty",
+    4.24
    ],
    [
-    "sell.",
+    "dollar",
     4.56
+   ],
+   [
+    "guide,",
+    4.88
+   ],
+   [
+    "that's",
+    5.68
+   ],
+   [
+    "twenty",
+    6.2
+   ],
+   [
+    "thousand",
+    6.56
+   ],
+   [
+    "dollars.",
+    7.04
+   ],
+   [
+    "From",
+    8.24
+   ],
+   [
+    "the",
+    8.44
+   ],
+   [
+    "same",
+    8.64
+   ],
+   [
+    "video.",
+    8.88
    ]
   ]
  },
  "r8": {
-  "text": "So pick one niche. Post every day. And give it ninety days.",
-  "dur": 4.91102,
+  "text": "Niches that work without a face? Money facts. History. A.I. tools. Motivation.",
+  "dur": 7.235918,
   "words": [
    [
-    "So",
-    0.16
+    "Niches",
+    0.0
    ],
    [
-    "pick",
-    0.4
+    "that",
+    0.56
    ],
    [
-    "one",
-    0.8
+    "work",
+    0.88
    ],
    [
-    "niche.",
-    1.04
+    "without",
+    1.24
    ],
    [
-    "Post",
-    1.76
+    "a",
+    1.44
    ],
    [
-    "every",
-    2.24
+    "face?",
+    1.6
    ],
    [
-    "day.",
-    2.56
+    "Money",
+    2.64
    ],
    [
-    "And",
-    3.2
+    "facts.",
+    2.96
    ],
    [
-    "give",
-    3.44
-   ],
-   [
-    "it",
-    3.64
-   ],
-   [
-    "ninety",
+    "History.",
     3.84
    ],
    [
-    "days.",
-    4.24
+    "A.I.",
+    4.8
+   ],
+   [
+    "tools.",
+    5.2
+   ],
+   [
+    "Motivation.",
+    6.16
    ]
   ]
  },
  "r9": {
-  "text": "Which one would you start with?",
-  "dur": 1.802449,
+  "text": "Which one would you start?",
+  "dur": 1.645714,
   "words": [
    [
     "Which",
@@ -458,12 +506,8 @@
     0.72
    ],
    [
-    "start",
-    1.04
-   ],
-   [
-    "with?",
-    1.36
+    "start?",
+    1.12
    ]
   ]
  }

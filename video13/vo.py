@@ -1,14 +1,14 @@
 import json, base64, urllib.request, subprocess
 V = "EXAVITQu4vr4xnSDxMaL"  # Sarah, dramatic settings
 L = {
- "r1": "[confident] This account has no face. And it gets paid, every single month. Here's how.",
- "r3": "One. Views. Hit ten thousand followers, and TikTok pays you for videos over one minute.",
- "r4": "Two. Affiliate links. You recommend a product, someone buys it, and you earn a commission.",
- "r5": "Three. Digital products. Make it once, and sell it again, and again, and again.",
- "r6": "Four. Brand deals. Own a niche, and brands pay to be seen on it.",
- "r7": "[serious] But the views usually pay the least. The real money is in what you sell.",
- "r8": "[confident] So pick one niche. Post every day. And give it ninety days.",
- "r9": "Which one would you start with?",
+ "r1": "[confident] A faceless account. One video. One million views. So how much does that actually pay?",
+ "r2": "From TikTok itself? Creators report roughly four hundred to a thousand dollars. And only with ten thousand followers, in eligible countries, on videos over a minute.",
+ "r3": "That's why smart faceless pages don't live on views. They sell.",
+ "r4": "An affiliate link. Someone buys, and you earn a commission.",
+ "r5": "Or a digital product. Make it once, and sell it again, and again.",
+ "r6": "Now do the math. If just one viewer in a thousand buys a twenty dollar guide, that's twenty thousand dollars. From the same video.",
+ "r8": "Niches that work without a face? Money facts. History. A.I. tools. Motivation.",
+ "r9": "Which one would you start?",
 }
 out = {}
 for k, t in L.items():
