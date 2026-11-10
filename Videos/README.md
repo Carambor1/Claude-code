@@ -16,6 +16,7 @@
 | 10 | Salary Is a Ceiling | 39 s | EN |
 | 11 | Don't Quit the Pirate Token | 38 s | EN |
 | 12 | Earning More Won't Make You Rich | 72 s | EN |
+| 13 | Faceless TikTok Accounts | 50 s | EN |
 
 ---
 
@@ -66,3 +67,7 @@
 ### 12 · Earning More Won't Make You Rich
 **Titel:** Earning more won't make you rich.
 #money #personalfinance #lifestyleinflation #mindset #shorts
+
+### 13 · Faceless TikTok Accounts
+**Titel:** How faceless accounts make money 💸
+#facelesstiktok #makemoneyonline #sidehustle #tiktoktips #shorts
