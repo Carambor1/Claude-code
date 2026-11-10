@@ -16,7 +16,7 @@
 | 10 | Salary Is a Ceiling | 39 s | EN |
 | 11 | Don't Quit the Pirate Token | 38 s | EN |
 | 12 | Earning More Won't Make You Rich | 72 s | EN |
-| 13 | Faceless TikTok Accounts | 50 s | EN |
+| 13 | Faceless TikTok Accounts | 54 s | EN |
 
 ---
 
@@ -69,5 +69,5 @@
 #money #personalfinance #lifestyleinflation #mindset #shorts
 
 ### 13 · Faceless TikTok Accounts
-**Titel:** How faceless accounts make money 💸
+**Titel:** 1M views pays less than you think 💸
 #facelesstiktok #makemoneyonline #sidehustle #tiktoktips #shorts
