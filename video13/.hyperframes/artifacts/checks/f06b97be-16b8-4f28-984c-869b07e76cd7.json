@@ -1,0 +1,484 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 9,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn0\" for opacity between 5.62s and 5.70s.",
+        "selector": "#rn0",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn1\" for opacity between 5.78s and 5.86s.",
+        "selector": "#rn1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn2\" for opacity between 5.94s and 6.02s.",
+        "selector": "#rn2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn3\" for opacity between 6.10s and 6.18s.",
+        "selector": "#rn3",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn4\" for opacity between 6.26s and 6.34s.",
+        "selector": "#rn4",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn5\" for opacity between 6.42s and 6.50s.",
+        "selector": "#rn5",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn6\" for opacity between 6.58s and 6.66s.",
+        "selector": "#rn6",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#rn7\" for opacity between 6.74s and 6.82s.",
+        "selector": "#rn7",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#ct\" for scale between 25.41s and 25.54s.",
+        "selector": "#ct",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video13/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 19.494,
+        "selector": "div.abs.mlab",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 797.63,
+          "top": 813.94,
+          "right": 878.78,
+          "bottom": 853.5,
+          "width": 81.14,
+          "height": 39.56
+        },
+        "containerSelector": "#vb",
+        "text": "1:00",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 590.72,
+          "top": 844.37,
+          "right": 966.01,
+          "bottom": 935.66,
+          "width": 375.29,
+          "height": 91.29
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 797.63,
+          "y": 813.94,
+          "width": 81.14,
+          "height": 39.56
+        },
+        "firstSeen": 19.494,
+        "lastSeen": 19.494,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.494
+        ]
+      }
+    ],
+    "duration": 70.18,
+    "samples": [
+      3.899,
+      11.697,
+      19.494,
+      27.292,
+      35.09,
+      42.888,
+      50.686,
+      58.483,
+      66.281
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      3.899,
+      19.494,
+      35.09,
+      50.686,
+      66.281
+    ],
+    "checked": 9,
+    "passed": 9
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"%\" at 19 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "%",
+        "selector": "#c41",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 875.23,
+          "y": 651.69,
+          "width": 19.53,
+          "height": 22.62
+        },
+        "time": 27.098,
+        "times": [
+          26.973,
+          27.098,
+          27.223
+        ],
+        "fontPx": 18.97,
+        "floorPx": 28,
+        "seconds": 0.999,
+        "elements": [
+          {
+            "selector": "#c41",
+            "text": "%",
+            "fontPx": 18.97,
+            "time": 27.098,
+            "seconds": 0.999
+          },
+          {
+            "selector": "#c42",
+            "text": "%",
+            "fontPx": 19.8,
+            "time": 27.223,
+            "seconds": 0.999
+          },
+          {
+            "selector": "#c40",
+            "text": "%",
+            "fontPx": 24.8,
+            "time": 26.973,
+            "seconds": 0.999
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"+ Follow\" (1 word) is on screen 1.74 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "+ Follow",
+        "selector": "#fo",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 444.17,
+          "y": 988.31,
+          "width": 191.63999999999993,
+          "height": 56.6099999999999
+        },
+        "time": 68.44,
+        "words": 1,
+        "seconds": 1.744,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 68.182,
+            "opacity": 1,
+            "heightPx": 56
+          },
+          {
+            "time": 68.307,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.432,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 68.557,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.681,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.806,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.931,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.68,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.805,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.93,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 70.055,
+            "opacity": 1,
+            "heightPx": 57
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Following ✓\" (1 word) is on screen 1.74 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Following ✓",
+        "selector": "#fo2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 403.39,
+          "y": 988.31,
+          "width": 273.2099999999999,
+          "height": 56.6099999999999
+        },
+        "time": 68.44,
+        "words": 1,
+        "seconds": 1.744,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 68.182,
+            "opacity": 1,
+            "heightPx": 56
+          },
+          {
+            "time": 68.307,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.432,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 68.557,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.681,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.806,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 68.931,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.68,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.805,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 69.93,
+            "opacity": 1,
+            "heightPx": 57
+          },
+          {
+            "time": 70.055,
+            "opacity": 1,
+            "heightPx": 57
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 562
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
