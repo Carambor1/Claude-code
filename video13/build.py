@@ -4,13 +4,14 @@ A faceless figure + jar persist at the bottom; a 4-slot tracker on top; each met
 import json, re, subprocess
 
 VO = json.load(open("vo.json"))
-ORDER = [f"r{i}" for i in range(1, 10)]
-GAP = {"r1": 0.45, "r2": 0.4, "r3": 0.5, "r4": 0.5, "r5": 0.5, "r6": 0.6, "r7": 0.55, "r8": 0.5}
+ORDER = ["r1"] + [f"r{i}" for i in range(3, 10)]
+GAP = {"r1": 0.5, "r3": 0.4, "r4": 0.4, "r5": 0.4, "r6": 0.5, "r7": 0.5, "r8": 0.5}
 T, at = 0.25, {}
 for k in ORDER:
     at[k] = T
     T += VO[k]["dur"] + GAP.get(k, 0.3)
-DUR = round(T + 2.2, 2)
+DUR = round(T + 2.4, 2)
+at["r2"] = round(at["r1"] + [t for x, t in VO["r1"]["words"] if x.startswith("Here")][0] - 0.15, 2)
 W, H = 1080, 1920
 
 def w(k, word, nth=0):
@@ -76,7 +77,7 @@ s3 = ('<div class="abs ctr mlabel">VIEWS</div>' + I("eye", 390, 490, 300, 188, "
 c3 = coins("c3", 4, 518, 560)
 s4 = ('<div class="abs ctr mlabel">AFFILIATE LINKS</div>' + I("link", 440, 470, 200, 200, "lk") + I("bubble", 110, 700, 160, 148, "bb") + I("box", 465, 706, 150, 138, "bx") + I("cart", 800, 710, 170, 134, "ct")
       + f'<svg class="abs" style="left:0;top:0;width:{W}px;height:{H}px" viewBox="0 0 {W} {H}"><path id="a1" d="M292 776 H440 M420 760 L440 776 L420 792" {S} stroke-dasharray="14 10"/><path id="a2" d="M636 776 H784 M764 760 L784 776 L764 792" {S}/></svg>'
-      + I("truck", 455, 874, 150, 94, "tk"))
+     )
 c4 = coins("c4", 3, 862, 640, "%")
 s5 = ('<div class="abs ctr mlabel">DIGITAL PRODUCTS</div>' + I("doc", 455, 500, 170, 216, "d0") + '<div class="abs spk" id="dk" style="left:640px;top:470px">✦</div>'
       + I("grid", 150, 560, 180, 180, "p0") + I("book", 440, 570, 200, 169, "p1") + I("sliders", 750, 560, 180, 180, "p2")
@@ -93,8 +94,7 @@ s8 = (I("target", 110, 560, 220, 220, "g0") + I("cal", 430, 560, 220, 220, "g1")
         '<circle id="rg" cx="60" cy="60" r="50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" transform="rotate(-90 60 60)" stroke-dasharray="314.2" stroke-dashoffset="314.2"/></svg><div class="abs n90" id="n90">0</div></div>'
       + f'<svg class="abs" style="left:0;top:0;width:{W}px;height:{H}px" viewBox="0 0 {W} {H}"><path id="k1" d="M346 670 H416" {S} stroke-dasharray="10 10"/><path id="k2" d="M666 670 H736" {S} stroke-dasharray="10 10"/></svg>'
       + '<div class="abs lab" id="l0" style="left:70px;top:810px;width:300px">ONE NICHE</div><div class="abs lab" id="l1" style="left:390px;top:810px;width:300px">EVERY DAY</div><div class="abs lab" id="l2" style="left:710px;top:810px;width:300px">90 DAYS</div>')
-s9 = ('<div class="abs fol" id="fo" style="left:340px;top:968px;width:400px">+ Follow</div><div class="abs fol on" id="fo2" style="left:340px;top:968px;width:400px">Following ✓</div>'
-      + "".join(f'<div class="abs ht" id="h{i}" style="left:{x}px;top:1010px;width:{s}px;height:{int(s * 0.9)}px">{ICON["heart"]}</div>' for i, (x, s) in enumerate(((190, 110), (790, 100), (300, 80), (700, 120), (120, 90), (880, 76), (250, 100), (760, 86)))))
+s9 = '<div class="abs qm" id="qm" style="left:730px;top:420px">?</div>'
 
 body = [SC("s1", s1), SC("s2", s2), SC("s3", s3), SC("s4", s4), SC("s5", s5), SC("s6", s6), SC("s7", s7), SC("s8", s8), SC("s9", s9)]
 persist = (
@@ -113,8 +113,8 @@ CSS = f"""
     #root svg {{ width: 100%; height: 100%; display: block; overflow: visible; }}
     #root #lay {{ position: absolute; inset: 0; transform: translateY(60px) scale(1.14); transform-origin: 540px 300px; filter: drop-shadow(0 0 6px rgba(255,255,255,0.55)) drop-shadow(0 0 20px rgba(255,255,255,0.25)); }}
     #root .ground {{ left: 0; top: 1205px; width: {W}px; height: 0; border-top: 2px dashed rgba(255,255,255,0.3); }}
-    #root .coin {{ width: 46px; height: 46px; border: 3px solid #fff; border-radius: 50%; background: #000; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; opacity: 0; }}
-    #root .fill {{ position: absolute; left: 13%; right: 13%; bottom: 6%; height: 0; background: #fff; border-radius: 0 0 10px 10px; }}
+    #root .coin {{ color: #4ade80; width: 46px; height: 46px; border: 3px solid #4ade80; border-radius: 50%; background: #000; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; opacity: 0; }}
+    #root .fill {{ position: absolute; left: 13%; right: 13%; bottom: 6%; height: 0; background: #4ade80; border-radius: 0 0 10px 10px; }}
     #root .slot {{ width: 120px; height: 120px; border: 3px solid #fff; border-radius: 50%; background: #000; display: flex; align-items: center; justify-content: center; opacity: 0; }}
     #root .slot .ic {{ width: 70px; height: 70px; display: flex; align-items: center; }}
     #root .slot svg [stroke] {{ stroke-width: 8; }}
@@ -132,11 +132,12 @@ CSS = f"""
     #root .mark {{ left: 244px; top: 18px; width: 0; height: 52px; border-left: 3px dashed #fff; }}
     #root .mlab {{ left: 204px; top: -30px; width: 80px; text-align: center; font-weight: 800; font-size: 32px; }}
     #root .spk {{ font-size: 60px; opacity: 0; }}
-    #root .bar {{ width: 84px; background: #fff; border-radius: 14px 14px 0 0; transform-origin: 50% 100%; }}
+    #root .bar {{ width: 84px; background: #4ade80; border-radius: 14px 14px 0 0; transform-origin: 50% 100%; }}
     #root .bar.dimb {{ background: #000; border: 3px dashed rgba(255,255,255,0.7); border-bottom: 0; }}
     #root .base {{ left: 140px; top: 920px; width: 800px; height: 0; border-top: 3px solid #fff; }}
     #root .n90 {{ left: 0; top: 62px; width: 220px; text-align: center; font-weight: 800; font-size: 84px; letter-spacing: -0.03em; }}
     #root .lab {{ text-align: center; font-weight: 800; font-size: 32px; letter-spacing: 0.16em; color: #d0d0d0; }}
+    #root .qm {{ font-weight: 900; font-size: 150px; opacity: 0; }}
     #root .fol {{ height: 96px; border: 3px solid #fff; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 46px; background: #000; }}
     #root .fol.on {{ background: #fff; color: #000; opacity: 0; }}
     #root .ht {{ opacity: 0; }}
@@ -186,7 +187,7 @@ a(f'tl.fromTo(["#gr", "#bank"], {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }
 fade('#gr', at["r7"] - 0.3); fade('#bank', at["r7"] - 0.3)
 
 # ---- S1 hook
-e_face, e_name, e_voice, e_paid = w("r1", "face"), w("r1", "name"), w("r1", "voice"), w("r1", "paid")
+e_face, e_paid = w("r1", "face"), w("r1", "paid"); e_name, e_voice = e_face + 0.3, e_face + 0.5
 a('tl.fromTo("#youi", { scale: 0.9 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);')
 for sel, t in (("#cam", 0.1), ("#mic", 0.22), ("#nm", 0.34)): pop(sel, t)
 a('gsap.set(["#camS", "#micS"], { strokeDasharray: "170 170", strokeDashoffset: 170 });')
@@ -194,7 +195,7 @@ draw("#camS", e_face - 0.2, 170, 0.35); a(f'tl.to("#face", {{ opacity: 0, durati
 a(f'tl.fromTo("#youi", {{ scale: 1 }}, {{ scale: 1.05, duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }}, {e_face - 0.1:.2f});')
 a(f'tl.to("#nmt", {{ opacity: 0, x: -24, duration: 0.4, ease: "power2.in" }}, {e_name - 0.15:.2f});')
 draw("#micS", e_voice - 0.1, 170, 0.35)
-for sel in ("#cam", "#mic", "#nm"): fade(sel, at["r1"] + 4.2, 0.3, 0.5)
+for sel in ("#cam", "#mic", "#nm"): fade(sel, e_paid - 0.7, 0.3, 0.4)
 for i, (rx, ry) in enumerate(RAIN):
     t0 = e_paid - 0.6 + i * 0.13
     a(f'tl.fromTo("#rn{i}", {{ y: -80, x: 0, scale: 1.5 }}, {{ y: {690 - ry}, x: {(517 - rx) * 0.85:.0f}, scale: 0.7, duration: 0.85, ease: "power2.in" }}, {t0:.2f});')
@@ -207,10 +208,10 @@ sx(e_paid - 0.4, "coin_jar", 0.45); sx(e_paid + 0.1, "kaching", 0.4)
 # ---- S2 title + tracker appears
 sx(at["r2"] - 0.35, "zoom_whoosh", 0.3)
 a(f'tl.fromTo("#t1", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }}, {at["r2"]:.2f});')
-a(f'tl.fromTo("#t2", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }}, {at["r2"] + 0.45:.2f});')
-a(f'tl.fromTo("#t3", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.4 }}, {at["r2"] + 0.9:.2f});')
+a(f'tl.fromTo("#t2", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }}, {at["r2"] + 0.25:.2f});')
+a(f'tl.fromTo("#t3", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.4 }}, {at["r2"] + 0.5:.2f});')
 for i in range(4):
-    t0 = at["r2"] + 0.9 + i * 0.22
+    t0 = at["r2"] + 0.45 + i * 0.14
     a(f'tl.fromTo("#sl{i}", {{ opacity: 0, scale: 0.4 }}, {{ opacity: 0.35, scale: 1, duration: 0.4, ease: "back.out(2.2)" }}, {t0:.2f});'); sx(t0, "pop", 0.25)
 # tracker states per method
 for i, k in enumerate(("r3", "r4", "r5", "r6")):
@@ -219,7 +220,7 @@ for i, k in enumerate(("r3", "r4", "r5", "r6")):
     a(f'tl.to("#sl{i}", {{ opacity: 0.6, scale: 1, duration: 0.4, ease: "power2.inOut" }}, {end:.2f});')
 
 # ---- S3 views
-e = {k: w("r3", k) for k in ("views", "ten", "creator", "pays", "videos", "minute")}
+e = {k: w("r3", k) for k in ("views", "ten", "pays", "videos", "minute")}; e["creator"] = w("r3", "tiktok")
 pop("#ey", e["views"] - 0.1); sx(e["views"] - 0.1, "pop")
 a(f'tl.fromTo("#vw", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.3 }}, {e["views"] + 0.2:.2f});')
 a(f'(() => {{ const o = {{ v: 0 }}; const f = (n) => n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(Math.round(n));'
@@ -233,31 +234,23 @@ a(f'tl.fromTo("#vb", {{ opacity: 0, x: 30 }}, {{ opacity: 1, x: 0, duration: 0.4
 a(f'tl.fromTo("#vbf", {{ scaleX: 0 }}, {{ scaleX: 0.86, duration: {e["minute"] + 0.4 - e["videos"]:.2f}, ease: "none" }}, {e["videos"]:.2f});'); sx(e["minute"] - 0.1, "ui_tick2", 0.4)
 
 # ---- S4 affiliate
-e = {k: w("r4", k) for k in ("affiliate", "recommend", "someone", "buys", "commission", "never")}
-e["product"] = w("r4", "product"); e["product2"] = w("r4", "product", 1)
+e = {k: w("r4", k) for k in ("affiliate", "recommend", "product", "someone", "buys", "commission")}
 pop("#lk", e["affiliate"] - 0.1); sx(e["affiliate"] - 0.1, "pop")
 a(f'tl.to("#lk", {{ scale: 0.55, y: 10, duration: 0.5, ease: "power3.inOut" }}, {e["recommend"] - 0.3:.2f});')
-a('gsap.set(["#bb", "#bx", "#ct", "#tk", "#a1", "#a2"], { opacity: 0 });')
+a('gsap.set(["#bb", "#bx", "#ct", "#a1", "#a2"], { opacity: 0 });')
 pop("#bb", e["recommend"] - 0.05); sx(e["recommend"] - 0.05, "pop", 0.3)
 a(f'tl.to("#a1", {{ opacity: 1, duration: 0.3 }}, {e["product"] - 0.25:.2f});'); pop("#bx", e["product"] - 0.1); sx(e["product"] - 0.1, "pop", 0.3)
 pop("#ct", e["someone"]); sx(e["someone"], "swipe2", 0.28)
 a(f'tl.to("#a2", {{ opacity: 1, duration: 0.3 }}, {e["buys"] - 0.1:.2f});')
 a(f'tl.fromTo("#ct", {{ scale: 1 }}, {{ scale: 1.14, duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }}, {e["buys"]:.2f});'); sx(e["buys"], "kaching", 0.32)
 tj = pay(c4, e["commission"] - 0.1, 50); sx(tj - 0.1, "coin_jar", 0.45)
-a(f'tl.fromTo("#tk", {{ opacity: 0, x: -40 }}, {{ opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }}, {e["never"] - 0.1:.2f});')
-a(f'tl.to("#tk", {{ x: 350, duration: 1.3, ease: "power2.inOut" }}, {e["never"] + 0.4:.2f});'); sx(e["never"] + 0.4, "swipe1", 0.25)
-
 # ---- S5 digital products
-e = {k: w("r5", k) for k in ("digital", "template", "guide", "preset", "once")}
+e = {k: w("r5", k) for k in ("digital", "once")}
 ag = [w("r5", "again", i) for i in range(3)]
 a('gsap.set(["#p0", "#p1", "#p2", "#d1", "#dc0", "#dc1", "#dc2"], { opacity: 0 });')
 pop("#d0", e["digital"] - 0.1); sx(e["digital"] - 0.1, "pop")
 a(f'tl.fromTo("#dk", {{ opacity: 0, scale: 0.3, rotation: -40 }}, {{ opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }}, {e["digital"] + 0.15:.2f});'); sx(e["digital"] + 0.15, "shimmer", 0.28)
-a(f'tl.to(["#d0", "#dk"], {{ opacity: 0, scale: 0.7, duration: 0.4, ease: "power2.inOut" }}, {e["template"] - 0.5:.2f});')
-for i, k in enumerate(("template", "guide", "preset")):
-    pop(f"#p{i}", e[k] - 0.1); sx(e[k] - 0.1, "pop", 0.3)
-for i, dx in enumerate((300, 0, -300)):
-    a(f'tl.to("#p{i}", {{ x: {dx}, y: 60, scale: 0.5, opacity: 0, duration: 0.55, ease: "power3.in" }}, {e["once"] - 0.75:.2f});')
+a(f'tl.to(["#d0", "#dk"], {{ opacity: 0, scale: 0.7, duration: 0.35, ease: "power2.inOut" }}, {e["once"] - 0.6:.2f});')
 pop("#d1", e["once"] - 0.3, 0.5, "back.out(2.4)"); sx(e["once"] - 0.3, "impact", 0.3)
 fl = 50
 for i, (dx, dy) in enumerate(CPX):
@@ -267,7 +260,7 @@ for i, (dx, dy) in enumerate(CPX):
     tj = pay([c5[i]], ag[i] + 0.2, fl); sx(ag[i] + 0.25, "kaching", 0.28)
 
 # ---- S6 brand deals
-e = {k: w("r6", k) for k in ("brand", "page", "owns", "brands", "pay", "seen")}
+e = {k: w("r6", k) for k in ("brand", "brands", "pay", "seen")}; e["page"] = w("r6", "own"); e["owns"] = w("r6", "niche")
 a('gsap.set(["#ph", "#cr", "#s0", "#s1b", "#n0", "#n1", "#sey"], { opacity: 0 });')
 pop("#mg", e["brand"] - 0.1); sx(e["brand"] - 0.1, "pop")
 a(f'tl.fromTo("#mg", {{ rotation: -12 }}, {{ rotation: 0, duration: 0.6, ease: "back.out(2.5)" }}, {e["brand"] - 0.1:.2f});')
@@ -283,22 +276,22 @@ pop("#sey", e["seen"] - 0.05, 0.4)
 tj = pay(c6, e["seen"] + 0.35, 100); sx(tj - 0.1, "coin_jar", 0.45)
 
 # ---- S7 twist: tracker drops down and becomes the chart
-e = {k: w("r7", k) for k in ("nobody", "views", "least", "real", "sell")}
+e = {k: w("r7", k) for k in ("views", "least", "real", "sell")}
 sx(at["r7"] - 0.1, "heartbeat", 0.4)
 for i in range(4):
     a(f'tl.to("#sl{i}", {{ y: 640, opacity: 1, scale: 1, duration: 0.9, ease: "power3.inOut" }}, {at["r7"] - 0.1 + i * 0.07:.2f});')
 sx(at["r7"], "zoom_whoosh", 0.28)
 a('gsap.set(["#b0", "#b1", "#b2", "#b3"], { scaleY: 0 });')
-a(f'tl.to("#b0", {{ scaleY: 1, duration: 0.6, ease: "power2.out" }}, {e["views"] - 0.1:.2f});'); sx(e["views"] - 0.1, "up1", 0.3)
+a(f'tl.to("#b0", {{ scaleY: 1, duration: 0.6, ease: "power2.out" }}, {e["views"] + 0.5:.2f});'); sx(e["views"] - 0.1, "up1", 0.3)
 a(f'tl.to("#sl0", {{ opacity: 0.45, duration: 0.4 }}, {e["least"]:.2f});'); sx(e["least"], "ui_tick2", 0.4)
 for i in (1, 2, 3):
     a(f'tl.to("#b{i}", {{ scaleY: 1, duration: 0.9, ease: "back.out(1.3)" }}, {e["real"] - 0.1 + (i - 1) * 0.16:.2f});')
     a(f'tl.to("#sl{i}", {{ scale: 1.15, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }}, {e["sell"] - 0.05 + (i - 1) * 0.08:.2f});')
 sx(e["real"] - 0.1, "riser", 0.25); sx(e["sell"] - 0.05, "impact", 0.42)
-for i in range(4): a(f'tl.to("#sl{i}", {{ opacity: 0, y: 700, duration: 0.45, ease: "power2.in" }}, {at["r8"] - 0.5:.2f});')
+for i in range(4): a(f'tl.to("#sl{i}", {{ opacity: 0, duration: 0.4, ease: "power2.in" }}, {at["r8"] - 0.5:.2f});')
 
 # ---- S8 method
-e = {k: w("r8", k) for k in ("simple", "pick", "post", "every", "ninety", "judge")}
+e = {k: w("r8", k) for k in ("pick", "post", "every", "ninety")}
 a('gsap.set(["#g0", "#g1", "#g2", "#k1", "#k2", "#l0", "#l1", "#l2", "#g1 .cd"], { opacity: 0 });')
 pop("#g0", e["pick"] - 0.15); sx(e["pick"] - 0.15, "pop")
 a(f'tl.fromTo("#arw", {{ x: 60, y: -60, opacity: 0 }}, {{ x: 0, y: 0, opacity: 1, duration: 0.35, ease: "power3.in" }}, {e["pick"] + 0.25:.2f});'); sx(e["pick"] + 0.55, "impact", 0.3)
@@ -306,24 +299,23 @@ a(f'tl.to("#l0", {{ opacity: 1, duration: 0.3 }}, {e["pick"] + 0.3:.2f});')
 a(f'tl.to("#k1", {{ opacity: 1, duration: 0.3 }}, {e["post"] - 0.4:.2f});'); pop("#g1", e["post"] - 0.15); sx(e["post"] - 0.15, "pop")
 a(f'tl.to("#l1", {{ opacity: 1, duration: 0.3 }}, {e["post"] + 0.3:.2f});')
 for i in range(6):
-    t0 = e["every"] - 0.1 + i * 0.17
+    t0 = e["every"] - 0.1 + i * 0.12
     a(f'tl.fromTo($$("#g1 .cd")[{i}], {{ opacity: 0, scale: 0, transformOrigin: "50% 50%" }}, {{ opacity: 1, scale: 1, duration: 0.2, ease: "back.out(3)" }}, {t0:.2f});'); sx(t0, "ui_tick2", 0.3)
 a(f'tl.to("#k2", {{ opacity: 1, duration: 0.3 }}, {e["ninety"] - 0.45:.2f});'); pop("#g2", e["ninety"] - 0.2); sx(e["ninety"] - 0.2, "riser", 0.25)
-a(f'tl.fromTo("#rg", {{ strokeDashoffset: 314.2 }}, {{ strokeDashoffset: 0, duration: 1.5, ease: "power2.inOut" }}, {e["ninety"] - 0.1:.2f});')
-a(f'(() => {{ const o = {{ v: 0 }}; tl.fromTo(o, {{ v: 0 }}, {{ v: 90, duration: 1.5, ease: "power2.inOut", immediateRender: false, onUpdate: () => {{ $("#n90").textContent = Math.round(o.v); }} }}, {e["ninety"] - 0.1:.2f}); }})();')
-a(f'tl.to("#l2", {{ opacity: 1, duration: 0.3 }}, {e["ninety"] + 0.4:.2f});'); sx(e["ninety"] + 1.35, "impact", 0.35)
+a(f'tl.fromTo("#rg", {{ strokeDashoffset: 314.2 }}, {{ strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }}, {e["ninety"] - 0.1:.2f});')
+a(f'(() => {{ const o = {{ v: 0 }}; tl.fromTo(o, {{ v: 0 }}, {{ v: 90, duration: 1.1, ease: "power2.inOut", immediateRender: false, onUpdate: () => {{ $("#n90").textContent = Math.round(o.v); }} }}, {e["ninety"] - 0.1:.2f}); }})();')
+a(f'tl.to("#l2", {{ opacity: 1, duration: 0.3 }}, {e["ninety"] + 0.4:.2f});'); sx(e["ninety"] + 0.95, "impact", 0.35)
 
 # ---- S9 end
-e = {k: w("r9", k) for k in ("face", "reason", "follow")}
 sx(at["r9"] - 0.45, "zoom_whoosh", 0.28)
-pop("#fo", e["reason"] - 0.3)
-a(f'tl.fromTo("#fo2", {{ opacity: 0, scale: 0.9 }}, {{ opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }}, {e["follow"] + 0.1:.2f});'); sx(e["follow"] + 0.1, "ping", 0.4); sx(e["follow"] + 0.15, "shimmer", 0.35)
-a(f'tl.fromTo("#youi", {{ scale: 1 }}, {{ scale: 1.06, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }}, {e["follow"] + 0.1:.2f});')
-for i in range(8):
-    t0 = e["face"] + 0.3 + i * 0.28
-    a(f'tl.fromTo("#h{i}", {{ opacity: 0, y: 0, scale: 0.5 }}, {{ opacity: 0.95, y: -260, scale: 1, duration: 0.7, ease: "power1.out" }}, {t0:.2f});')
-    a(f'tl.to("#h{i}", {{ opacity: 0, y: -{520 + i % 3 * 60}, x: {(-1) ** i * 30}, duration: 0.9, ease: "power1.in" }}, {t0 + 0.7:.2f});')
-    if i % 2 == 0: sx(t0, "pop", 0.2)
+a(f'tl.fromTo("#qm", {{ opacity: 0, scale: 0.3, rotation: -25 }}, {{ opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2.5)" }}, {at["r9"] + 0.1:.2f});')
+for i in range(4):
+    t0 = at["r9"] + 0.05 + i * 0.12
+    a(f'tl.fromTo("#sl{i}", {{ y: 760, opacity: 0, scale: 0.4 }}, {{ y: 690, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)", immediateRender: false }}, {t0:.2f});'); sx(t0, "pop", 0.28)
+for n in range(8):
+    i = n % 4; t0 = at["r9"] + 0.9 + n * 0.3
+    a(f'tl.fromTo("#sl{i}", {{ scale: 1 }}, {{ scale: 1.28, duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }}, {t0:.2f});'); sx(t0, "ui_tick2", 0.3)
+sx(at["r9"] + 0.1, "ping", 0.35)
 
 open("compositions/w.html", "w").write(f"""<template>
   <style>{CSS}  </style>

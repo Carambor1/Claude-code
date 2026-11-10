@@ -1,15 +1,14 @@
 import json, base64, urllib.request, subprocess
 V = "EXAVITQu4vr4xnSDxMaL"  # Sarah, dramatic settings
 L = {
- "r1": "[confident] This account has no face. No name. No voice of its own. And it gets paid, every single month.",
- "r2": "Here's how faceless accounts actually make money.",
- "r3": "One. Views. Once you hit ten thousand followers, TikTok's Creator Rewards program pays you for videos longer than one minute.",
- "r4": "Two. Affiliate links. You recommend a product. Someone buys it. You earn a commission. And you never even touch the product.",
- "r5": "Three. Digital products. A template. A guide. A preset pack. You make it once, and sell it again, and again, and again.",
- "r6": "Four. Brand deals. When a page owns a niche, brands pay to be seen on it.",
- "r7": "[serious] But here's what nobody tells you. The views usually pay the least. The real money is in what you sell.",
- "r8": "[confident] So the method is simple. Pick one niche. Post every single day. And give it ninety days before you judge it.",
- "r9": "Nobody needs to see your face. They just need a reason to follow.",
+ "r1": "[confident] This account has no face. And it gets paid, every single month. Here's how.",
+ "r3": "One. Views. Hit ten thousand followers, and TikTok pays you for videos over one minute.",
+ "r4": "Two. Affiliate links. You recommend a product, someone buys it, and you earn a commission.",
+ "r5": "Three. Digital products. Make it once, and sell it again, and again, and again.",
+ "r6": "Four. Brand deals. Own a niche, and brands pay to be seen on it.",
+ "r7": "[serious] But the views usually pay the least. The real money is in what you sell.",
+ "r8": "[confident] So pick one niche. Post every day. And give it ninety days.",
+ "r9": "Which one would you start with?",
 }
 out = {}
 for k, t in L.items():

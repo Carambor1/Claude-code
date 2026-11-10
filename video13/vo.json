@@ -1,7 +1,7 @@
 {
  "r1": {
-  "text": "This account has no face. No name. No voice of its own. And it gets paid, every single month.",
-  "dur": 7.079184,
+  "text": "This account has no face. And it gets paid, every single month. Here's how.",
+  "dur": 5.564082,
   "words": [
    [
     "This",
@@ -13,111 +13,57 @@
    ],
    [
     "has",
-    0.8
+    0.72
    ],
    [
     "no",
-    1.04
+    1.16
    ],
    [
     "face.",
-    1.28
-   ],
-   [
-    "No",
-    2.0
-   ],
-   [
-    "name.",
-    2.16
-   ],
-   [
-    "No",
-    2.88
-   ],
-   [
-    "voice",
-    3.12
-   ],
-   [
-    "of",
-    3.4
-   ],
-   [
-    "its",
-    3.52
-   ],
-   [
-    "own.",
-    3.68
+    1.36
    ],
    [
     "And",
-    4.4
+    2.107
    ],
    [
     "it",
-    4.52
+    2.2
    ],
    [
     "gets",
-    4.64
+    2.32
    ],
    [
     "paid,",
-    5.2
+    2.88
    ],
    [
     "every",
-    5.68
+    3.28
    ],
    [
     "single",
-    6.16
+    3.76
    ],
    [
     "month.",
-    6.56
-   ]
-  ]
- },
- "r2": {
-  "text": "Here's how faceless accounts actually make money.",
-  "dur": 3.082449,
-  "words": [
+    4.16
+   ],
    [
     "Here's",
-    0.0
+    4.907
    ],
    [
-    "how",
-    0.44
-   ],
-   [
-    "faceless",
-    0.64
-   ],
-   [
-    "accounts",
-    1.32
-   ],
-   [
-    "actually",
-    1.68
-   ],
-   [
-    "make",
-    2.24
-   ],
-   [
-    "money.",
-    2.48
+    "how.",
+    5.12
    ]
   ]
  },
  "r3": {
-  "text": "One. Views. Once you hit ten thousand followers, TikTok's Creator Rewards program pays you for videos longer than one minute.",
-  "dur": 9.325714,
+  "text": "One. Views. Hit ten thousand followers, and TikTok pays you for videos over one minute.",
+  "dur": 6.922449,
   "words": [
    [
     "One.",
@@ -125,85 +71,65 @@
    ],
    [
     "Views.",
-    0.56
+    0.96
    ],
    [
-    "Once",
-    1.68
-   ],
-   [
-    "you",
-    2.48
-   ],
-   [
-    "hit",
-    2.64
+    "Hit",
+    2.0
    ],
    [
     "ten",
-    2.88
+    2.32
    ],
    [
     "thousand",
-    3.12
+    2.64
    ],
    [
     "followers,",
-    3.52
+    3.04
    ],
    [
-    "TikTok's",
-    4.48
+    "and",
+    3.8
    ],
    [
-    "Creator",
-    5.04
-   ],
-   [
-    "Rewards",
-    5.52
-   ],
-   [
-    "program",
-    6.0
+    "TikTok",
+    3.96
    ],
    [
     "pays",
-    6.64
+    4.48
    ],
    [
     "you",
-    7.04
+    4.88
    ],
    [
     "for",
-    7.2
+    5.04
    ],
    [
     "videos",
-    7.36
+    5.2
    ],
    [
-    "longer",
-    7.84
-   ],
-   [
-    "than",
-    8.24
+    "over",
+    5.84
    ],
    [
     "one",
-    8.48
+    6.08
    ],
    [
     "minute.",
-    8.72
+    6.32
    ]
   ]
  },
  "r4": {
-  "text": "Two. Affiliate links. You recommend a product. Someone buys it. You earn a commission. And you never even touch the product.",
-  "dur": 9.090612,
+  "text": "Two. Affiliate links. You recommend a product, someone buys it, and you earn a commission.",
+  "dur": 6.687347,
   "words": [
    [
     "Two.",
@@ -215,7 +141,7 @@
    ],
    [
     "links.",
-    1.68
+    1.52
    ],
    [
     "You",
@@ -227,73 +153,49 @@
    ],
    [
     "a",
-    3.04
+    3.0
    ],
    [
-    "product.",
+    "product,",
     3.12
    ],
    [
-    "Someone",
-    4.0
+    "someone",
+    3.92
    ],
    [
     "buys",
-    4.32
+    4.24
    ],
    [
-    "it.",
-    4.72
+    "it,",
+    4.64
    ],
    [
-    "You",
+    "and",
+    5.04
+   ],
+   [
+    "you",
     5.28
    ],
    [
     "earn",
-    5.68
+    5.6
    ],
    [
     "a",
-    5.84
+    5.787
    ],
    [
     "commission.",
-    5.92
-   ],
-   [
-    "And",
-    6.8
-   ],
-   [
-    "you",
-    6.96
-   ],
-   [
-    "never",
-    7.2
-   ],
-   [
-    "even",
-    7.52
-   ],
-   [
-    "touch",
-    7.84
-   ],
-   [
-    "the",
-    8.24
-   ],
-   [
-    "product.",
-    8.32
+    5.84
    ]
   ]
  },
  "r5": {
-  "text": "Three. Digital products. A template. A guide. A preset pack. You make it once, and sell it again, and again, and again.",
-  "dur": 10.03102,
+  "text": "Three. Digital products. Make it once, and sell it again, and again, and again.",
+  "dur": 7.000816,
   "words": [
    [
     "Three.",
@@ -308,86 +210,54 @@
     1.52
    ],
    [
-    "A",
-    2.56
-   ],
-   [
-    "template.",
+    "Make",
     2.64
    ],
    [
-    "A",
-    3.52
-   ],
-   [
-    "guide.",
-    3.6
-   ],
-   [
-    "A",
-    4.32
-   ],
-   [
-    "preset",
-    4.48
-   ],
-   [
-    "pack.",
-    4.96
-   ],
-   [
-    "You",
-    5.76
-   ],
-   [
-    "make",
-    5.92
-   ],
-   [
     "it",
-    6.16
+    2.84
    ],
    [
     "once,",
-    6.32
+    3.04
    ],
    [
     "and",
-    6.88
+    3.6
    ],
    [
     "sell",
-    7.04
+    3.84
    ],
    [
     "it",
-    7.28
+    4.08
    ],
    [
     "again,",
-    7.36
+    4.16
    ],
    [
     "and",
-    8.16
+    5.04
    ],
    [
     "again,",
-    8.52
+    5.2
    ],
    [
     "and",
-    9.12
+    6.0
    ],
    [
     "again.",
-    9.48
+    6.16
    ]
   ]
  },
  "r6": {
-  "text": "Four. Brand deals. When a page owns a niche, brands pay to be seen on it.",
-  "dur": 6.347755,
+  "text": "Four. Brand deals. Own a niche, and brands pay to be seen on it.",
+  "dur": 5.564082,
   "words": [
    [
     "Four.",
@@ -402,290 +272,198 @@
     1.44
    ],
    [
-    "When",
-    2.48
+    "Own",
+    2.4
    ],
    [
     "a",
     2.64
    ],
    [
-    "page",
-    2.92
-   ],
-   [
-    "owns",
-    3.2
-   ],
-   [
-    "a",
-    3.48
-   ],
-   [
     "niche,",
-    3.6
+    2.72
+   ],
+   [
+    "and",
+    3.32
    ],
    [
     "brands",
-    4.32
+    3.52
    ],
    [
     "pay",
-    4.96
+    4.0
    ],
    [
     "to",
-    5.2
+    4.4
    ],
    [
     "be",
-    5.36
+    4.52
    ],
    [
     "seen",
-    5.52
+    4.72
    ],
    [
     "on",
-    5.84
+    5.04
    ],
    [
     "it.",
-    6.04
+    5.24
    ]
   ]
  },
  "r7": {
-  "text": "But here's what nobody tells you. The views usually pay the least. The real money is in what you sell.",
-  "dur": 7.549388,
+  "text": "But the views usually pay the least. The real money is in what you sell.",
+  "dur": 5.146122,
   "words": [
    [
     "But",
-    0.08
-   ],
-   [
-    "here's",
-    0.32
-   ],
-   [
-    "what",
-    0.64
-   ],
-   [
-    "nobody",
-    0.96
-   ],
-   [
-    "tells",
-    1.44
-   ],
-   [
-    "you.",
-    1.88
-   ],
-   [
-    "The",
-    2.56
-   ],
-   [
-    "views",
-    2.72
-   ],
-   [
-    "usually",
-    3.28
-   ],
-   [
-    "pay",
-    3.76
+    0.133
    ],
    [
     "the",
-    3.96
+    0.2
+   ],
+   [
+    "views",
+    0.32
+   ],
+   [
+    "usually",
+    0.88
+   ],
+   [
+    "pay",
+    1.36
+   ],
+   [
+    "the",
+    1.6
    ],
    [
     "least.",
-    4.16
+    1.92
    ],
    [
     "The",
-    5.12
+    2.64
    ],
    [
     "real",
-    5.36
+    2.88
    ],
    [
     "money",
-    5.68
+    3.2
    ],
    [
     "is",
-    6.24
+    3.76
    ],
    [
     "in",
-    6.4
+    3.92
    ],
    [
     "what",
-    6.56
+    4.08
    ],
    [
     "you",
-    6.72
+    4.36
    ],
    [
     "sell.",
-    6.96
+    4.56
    ]
   ]
  },
  "r8": {
-  "text": "So the method is simple. Pick one niche. Post every single day. And give it ninety days before you judge it.",
-  "dur": 7.314286,
+  "text": "So pick one niche. Post every day. And give it ninety days.",
+  "dur": 4.91102,
   "words": [
    [
     "So",
     0.16
    ],
    [
-    "the",
-    0.28
-   ],
-   [
-    "method",
+    "pick",
     0.4
    ],
    [
-    "is",
-    0.72
-   ],
-   [
-    "simple.",
-    0.88
-   ],
-   [
-    "Pick",
-    1.68
-   ],
-   [
     "one",
-    2.08
+    0.8
    ],
    [
     "niche.",
-    2.32
+    1.04
    ],
    [
     "Post",
-    3.04
+    1.76
    ],
    [
     "every",
-    3.52
-   ],
-   [
-    "single",
-    3.84
+    2.24
    ],
    [
     "day.",
-    4.16
+    2.56
    ],
    [
     "And",
-    4.88
+    3.2
    ],
    [
     "give",
-    5.04
+    3.44
    ],
    [
     "it",
-    5.2
+    3.64
    ],
    [
     "ninety",
-    5.44
+    3.84
    ],
    [
-    "days",
-    5.84
-   ],
-   [
-    "before",
-    6.24
-   ],
-   [
-    "you",
-    6.56
-   ],
-   [
-    "judge",
-    6.72
-   ],
-   [
-    "it.",
-    6.96
+    "days.",
+    4.24
    ]
   ]
  },
  "r9": {
-  "text": "Nobody needs to see your face. They just need a reason to follow.",
-  "dur": 4.205714,
+  "text": "Which one would you start with?",
+  "dur": 1.802449,
   "words": [
    [
-    "Nobody",
+    "Which",
     0.0
    ],
    [
-    "needs",
-    0.6
+    "one",
+    0.32
    ],
    [
-    "to",
-    0.8
+    "would",
+    0.56
    ],
    [
-    "see",
-    0.96
+    "you",
+    0.72
    ],
    [
-    "your",
-    1.16
+    "start",
+    1.04
    ],
    [
-    "face.",
-    1.52
-   ],
-   [
-    "They",
-    2.2
-   ],
-   [
-    "just",
-    2.4
-   ],
-   [
-    "need",
-    2.72
-   ],
-   [
-    "a",
-    2.88
-   ],
-   [
-    "reason",
-    3.12
-   ],
-   [
-    "to",
-    3.36
-   ],
-   [
-    "follow.",
-    3.52
+    "with?",
+    1.36
    ]
   ]
  }
