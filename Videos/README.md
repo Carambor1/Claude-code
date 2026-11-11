@@ -18,6 +18,7 @@
 | 12 | Earning More Won't Make You Rich | 72 s | EN |
 | 13 | Faceless TikTok Accounts | 54 s | EN |
 | 14 | Money Stacks to Scale | 32 s | EN |
+| 15 | Doubly Landlocked | 34 s | EN |
 
 ---
 
@@ -76,3 +77,7 @@
 ### 14 · Money Stacks to Scale
 **Titel:** $1 million vs $1 trillion, to scale 💵
 #toscale #billion #trillion #mindblown #shorts
+
+### 15 · Doubly Landlocked
+**Titel:** Only 2 countries are doubly landlocked 🌍
+#geography #maps #countries #didyouknow #shorts
