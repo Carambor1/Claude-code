@@ -1,0 +1,364 @@
+{
+ "r1": {
+  "text": "In the next second, four babies will be born.",
+  "dur": 3.395918,
+  "words": [
+   [
+    "In",
+    0.08
+   ],
+   [
+    "the",
+    0.24
+   ],
+   [
+    "next",
+    0.48
+   ],
+   [
+    "second,",
+    0.88
+   ],
+   [
+    "four",
+    1.52
+   ],
+   [
+    "babies",
+    1.92
+   ],
+   [
+    "will",
+    2.48
+   ],
+   [
+    "be",
+    2.64
+   ],
+   [
+    "born.",
+    2.92
+   ]
+  ]
+ },
+ "r2": {
+  "text": "Lightning will strike the Earth more than forty times.",
+  "dur": 3.474286,
+  "words": [
+   [
+    "Lightning",
+    0.0
+   ],
+   [
+    "will",
+    0.56
+   ],
+   [
+    "strike",
+    0.72
+   ],
+   [
+    "the",
+    1.12
+   ],
+   [
+    "Earth",
+    1.28
+   ],
+   [
+    "more",
+    1.6
+   ],
+   [
+    "than",
+    1.84
+   ],
+   [
+    "forty",
+    2.16
+   ],
+   [
+    "times.",
+    2.56
+   ]
+  ]
+ },
+ "r3": {
+  "text": "A bee will beat its wings two hundred times.",
+  "dur": 3.395918,
+  "words": [
+   [
+    "A",
+    0.0
+   ],
+   [
+    "bee",
+    0.28
+   ],
+   [
+    "will",
+    0.48
+   ],
+   [
+    "beat",
+    0.8
+   ],
+   [
+    "its",
+    0.96
+   ],
+   [
+    "wings",
+    1.2
+   ],
+   [
+    "two",
+    1.68
+   ],
+   [
+    "hundred",
+    2.08
+   ],
+   [
+    "times.",
+    2.56
+   ]
+  ]
+ },
+ "r4": {
+  "text": "Your body will build two million new blood cells.",
+  "dur": 3.552653,
+  "words": [
+   [
+    "Your",
+    0.0
+   ],
+   [
+    "body",
+    0.32
+   ],
+   [
+    "will",
+    0.72
+   ],
+   [
+    "build",
+    0.88
+   ],
+   [
+    "two",
+    1.28
+   ],
+   [
+    "million",
+    1.76
+   ],
+   [
+    "new",
+    2.32
+   ],
+   [
+    "blood",
+    2.48
+   ],
+   [
+    "cells.",
+    2.8
+   ]
+  ]
+ },
+ "r5": {
+  "text": "The planet will fly thirty kilometers through space.",
+  "dur": 3.395918,
+  "words": [
+   [
+    "The",
+    0.0
+   ],
+   [
+    "planet",
+    0.32
+   ],
+   [
+    "will",
+    0.56
+   ],
+   [
+    "fly",
+    0.8
+   ],
+   [
+    "thirty",
+    1.28
+   ],
+   [
+    "kilometers",
+    1.6
+   ],
+   [
+    "through",
+    2.44
+   ],
+   [
+    "space.",
+    2.84
+   ]
+  ]
+ },
+ "r6": {
+  "text": "A beam of light could circle the Earth seven times.",
+  "dur": 3.787755,
+  "words": [
+   [
+    "A",
+    0.0
+   ],
+   [
+    "beam",
+    0.24
+   ],
+   [
+    "of",
+    0.56
+   ],
+   [
+    "light",
+    0.72
+   ],
+   [
+    "could",
+    1.12
+   ],
+   [
+    "circle",
+    1.44
+   ],
+   [
+    "the",
+    1.8
+   ],
+   [
+    "Earth",
+    2.0
+   ],
+   [
+    "seven",
+    2.48
+   ],
+   [
+    "times.",
+    2.96
+   ]
+  ]
+ },
+ "r7": {
+  "text": "And the Sun will burn four million tons of itself.",
+  "dur": 3.866122,
+  "words": [
+   [
+    "And",
+    0.0
+   ],
+   [
+    "the",
+    0.2
+   ],
+   [
+    "Sun",
+    0.4
+   ],
+   [
+    "will",
+    0.8
+   ],
+   [
+    "burn",
+    1.04
+   ],
+   [
+    "four",
+    1.44
+   ],
+   [
+    "million",
+    1.92
+   ],
+   [
+    "tons",
+    2.48
+   ],
+   [
+    "of",
+    2.92
+   ],
+   [
+    "itself.",
+    3.04
+   ]
+  ]
+ },
+ "r8": {
+  "text": "All of that, in one second.",
+  "dur": 2.507755,
+  "words": [
+   [
+    "All",
+    0.0
+   ],
+   [
+    "of",
+    0.28
+   ],
+   [
+    "that,",
+    0.4
+   ],
+   [
+    "in",
+    1.12
+   ],
+   [
+    "one",
+    1.36
+   ],
+   [
+    "second.",
+    1.76
+   ]
+  ]
+ },
+ "r9": {
+  "text": "So what did you do with yours?",
+  "dur": 2.194286,
+  "words": [
+   [
+    "So",
+    0.0
+   ],
+   [
+    "what",
+    0.64
+   ],
+   [
+    "did",
+    0.88
+   ],
+   [
+    "you",
+    1.04
+   ],
+   [
+    "do",
+    1.16
+   ],
+   [
+    "with",
+    1.28
+   ],
+   [
+    "yours?",
+    1.44
+   ]
+  ]
+ }
+}
