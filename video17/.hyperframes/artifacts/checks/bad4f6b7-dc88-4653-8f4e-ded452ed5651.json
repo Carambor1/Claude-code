@@ -1,0 +1,569 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "non_deterministic_code",
+        "severity": "error",
+        "message": "Script contains `Math.random()` which produces non-deterministic output. Renders may differ between frames or runs.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video17/assets/film.js",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use a seeded PRNG (e.g. a simple mulberry32) so renders are deterministic across frames."
+      },
+      {
+        "code": "requestanimationframe_in_composition",
+        "severity": "error",
+        "message": "`requestAnimationFrame` runs on wall-clock time, not the GSAP timeline. It will not sync with frame capture and may cause flickering or missed frames during rendering.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video17/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use GSAP tweens or onUpdate callbacks instead of requestAnimationFrame for animation logic."
+      },
+      {
+        "code": "shader_unbounded_cosine_pow",
+        "severity": "warning",
+        "message": "Shader pow(1 - dot(...), ...) can receive a negative base when the cosine exceeds 1, including through GPU rounding. Undefined GLSL results can spread through glow or transmission textures as black artifacts.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video17/assets/film.js",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Bound the cosine on both sides: pow(1.0 - clamp(dot(normal, view), 0.0, 1.0), exponent). A lower-only max(dot(...), 0.0) does not bound the upper end. Inspect the affected frames on the target GPU."
+      },
+      {
+        "code": "gsap_non_transform_motion",
+        "severity": "error",
+        "message": "GSAP tween on \"#kick\" uses motion that snaps to integer device pixels: letterSpacing. Layout and text-reflow properties snap during browser layout; roundProps rounds the tween value. Slow motion or an ease-out tail then stutters under the seek-by-frame capture engine. Animate transforms (x/y/scale/opacity) instead.",
+        "selector": "#kick",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video17/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "do not animate letterSpacing (they reflow text and snap glyph positions): for letterSpacing, split the text into per-character elements and animate each glyph's x (the spread), since uniform scale is NOT equivalent, or hold the final value statically. Transforms interpolate sub-pixel and stay smooth at any speed."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 10,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x10d400188200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/",
+        "line": 9023
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/",
+        "line": 9023
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/",
+        "line": 9023
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/",
+        "line": 9023
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x10d400188200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37655/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x10d400188200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.068,
+        "url": "http://127.0.0.1:37655/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x10d400188200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.068,
+        "url": "http://127.0.0.1:37655/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x95c00166000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.203,
+        "url": "http://127.0.0.1:37655/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x95c00166000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.22",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.203,
+        "url": "http://127.0.0.1:37655/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "warning",
+        "time": 10.339,
+        "selector": "#gl",
+        "message": "Canvas content touches the frame edge (left, right).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r160"
+        },
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 10.339,
+        "lastSeen": 18.61,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          10.339,
+          18.61
+        ]
+      }
+    ],
+    "duration": 37.22,
+    "samples": [
+      2.068,
+      6.203,
+      10.339,
+      14.474,
+      18.61,
+      22.746,
+      26.881,
+      31.017,
+      35.152
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.58:1; WCAG AA requires 3:1.",
+        "text": "200",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(146,164,175)",
+        "ratio": 2.58,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(82,82,82)",
+        "large": true,
+        "selector": "#f3n",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 190,
+          "width": 1080,
+          "height": 250
+        },
+        "time": 10.339,
+        "times": [
+          10.339
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.02:1; WCAG AA requires 3:1.",
+        "text": "WING BEATS",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(162,186,198)",
+        "ratio": 2.02,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(98,98,98)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div:nth-of-type(6) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 454,
+          "width": 1080,
+          "height": 54
+        },
+        "time": 10.339,
+        "times": [
+          10.339
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.068,
+      10.339,
+      18.61,
+      26.881,
+      35.152
+    ],
+    "checked": 19,
+    "passed": 17
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"All of that.\" (3 words) is on screen 0.83 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "All of that.",
+        "selector": "#all1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 252.84,
+          "y": 319.56,
+          "width": 574.3,
+          "height": 145
+        },
+        "time": 28.704,
+        "words": 3,
+        "seconds": 0.835,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 28.352,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.477,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.602,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.727,
+            "opacity": 0.51,
+            "heightPx": 145
+          },
+          {
+            "time": 28.852,
+            "opacity": 0.89,
+            "heightPx": 145
+          },
+          {
+            "time": 28.977,
+            "opacity": 0.99,
+            "heightPx": 145
+          },
+          {
+            "time": 29.102,
+            "opacity": 1,
+            "heightPx": 145
+          },
+          {
+            "time": 29.226,
+            "opacity": 1,
+            "heightPx": 145
+          },
+          {
+            "time": 29.351,
+            "opacity": 1,
+            "heightPx": 145
+          },
+          {
+            "time": 29.476,
+            "opacity": 0.8,
+            "heightPx": 145
+          },
+          {
+            "time": 29.601,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.726,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.851,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 298
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

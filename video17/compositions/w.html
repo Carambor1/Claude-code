@@ -1,0 +1,97 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #000; font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .vig { inset: 0; background: radial-gradient(ellipse 75% 62% at 50% 46%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+    #root .fade { inset: 0; background: #000; opacity: 0; }
+    #root .kick { top: 236px; font-weight: 800; font-size: 46px; letter-spacing: 0.42em; text-indent: 0.42em; text-shadow: 0 2px 18px rgba(0,0,0,0.8); opacity: 0; }
+    #root .fact { top: 190px; opacity: 0; text-shadow: 0 4px 30px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.5); }
+    #root .fn { font-weight: 900; font-size: 250px; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+    #root .fn.sm { font-size: 170px; }
+    #root .fl { margin-top: 14px; font-weight: 700; font-size: 44px; letter-spacing: 0.3em; text-indent: 0.3em; }
+    #root .big { top: 300px; font-weight: 800; font-size: 120px; letter-spacing: -0.03em; opacity: 0; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+    #root .big span { color: #ffd27a; }
+    #root .qq { top: 250px; font-weight: 800; font-size: 104px; line-height: 1.12; letter-spacing: -0.03em; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+    #root .qw { display: inline-block; opacity: 0; }
+    #root #qw6 { color: #ffd27a; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    
+    <canvas id="gl" width="720" height="1280" style="position:absolute;left:0;top:0;width:1080px;height:1920px"></canvas>
+    <div class="abs vig"></div>
+    <div class="abs fade" id="fade"></div>
+    <div class="abs ctr kick" id="kick">IN THE NEXT SECOND</div>
+    <div class="abs ctr fact" id="f1"><div class="fn " id="f1n">4</div><div class="fl">BABIES BORN</div></div><div class="abs ctr fact" id="f2"><div class="fn " id="f2n">40+</div><div class="fl">LIGHTNING STRIKES</div></div><div class="abs ctr fact" id="f3"><div class="fn " id="f3n">200</div><div class="fl">WING BEATS</div></div><div class="abs ctr fact" id="f4"><div class="fn sm" id="f4n">2,000,000</div><div class="fl">NEW BLOOD CELLS · IN YOUR BODY</div></div><div class="abs ctr fact" id="f5"><div class="fn " id="f5n">30 km</div><div class="fl">THROUGH SPACE</div></div><div class="abs ctr fact" id="f6"><div class="fn " id="f6n">7×</div><div class="fl">AROUND THE EARTH</div></div><div class="abs ctr fact" id="f7"><div class="fn sm" id="f7n">4,000,000</div><div class="fl">TONS OF THE SUN · BURNED</div></div>
+    <div class="abs ctr big" id="all1">All of that.</div><div class="abs ctr big" id="all2">In <span>one second.</span></div>
+    <div class="abs ctr qq" id="qq"><span class="qw" id="qw0">So</span> <span class="qw" id="qw1">what</span> <span class="qw" id="qw2">did</span> <span class="qw" id="qw3">you</span> <span class="qw" id="qw4">do</span><br> <span class="qw" id="qw5">with</span> <span class="qw" id="qw6">yours?</span></div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const R = document.querySelector('[data-composition-id="w"]') || document;
+    const $ = (s) => R.querySelector(s);
+    const clock = { t: 0 }; let film = null;
+    window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+    window.__hf.buildReady["film"] = Film.init($("#gl"), {"DUR": 37.22, "births": [1.92, 2.2, 2.48, 2.76], "strike": 4.77, "lapStart": 20.900000000000002, "lap": 0.3, "at": {"strikeCam": 4.0459179999999995, "bee": 7.870204, "blood": 11.716121999999999, "fly": 15.718774999999997, "light": 19.864693, "sun": 23.852448, "end": 28.268569999999997}}).then((f) => { film = f; f.render(clock.t); });
+    tl.fromTo(clock, { t: 0 }, { t: 37.22, duration: 37.22, ease: "none", onUpdate: () => { if (film) film.render(clock.t); } }, 0);
+    tl.set("#fade", { backgroundColor: "#fff" }, 7.57);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 7.61);
+    tl.to("#fade", { opacity: 0, duration: 0.4, ease: "power2.out" }, 7.87);
+    tl.set("#fade", { backgroundColor: "#3a0508" }, 11.42);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 11.46);
+    tl.to("#fade", { opacity: 0, duration: 0.4, ease: "power2.out" }, 11.72);
+    tl.set("#fade", { backgroundColor: "#000" }, 15.42);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 15.46);
+    tl.to("#fade", { opacity: 0, duration: 0.4, ease: "power2.out" }, 15.72);
+    tl.set("#fade", { backgroundColor: "#fff3d0" }, 23.55);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 23.59);
+    tl.to("#fade", { opacity: 0, duration: 0.4, ease: "power2.out" }, 23.85);
+    tl.set("#fade", { backgroundColor: "#000" }, 27.97);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 28.01);
+    tl.to("#fade", { opacity: 0, duration: 0.4, ease: "power2.out" }, 28.27);
+    tl.fromTo("#fade", { opacity: 1, backgroundColor: "#000" }, { opacity: 0, duration: 0.7, ease: "power2.out" }, 0);
+    tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 36.62);
+    tl.set("#fade", { backgroundColor: "#000" }, 36.57);
+    tl.fromTo("#kick", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.25);
+    tl.to("#kick", { opacity: 0, y: -14, duration: 0.35, ease: "power2.in" }, 1.37);
+    tl.fromTo("#f1", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 1.72);
+    tl.to("#f1", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 3.63);
+    tl.fromTo("#f2", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 5.65);
+    tl.to("#f2", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 7.45);
+    tl.fromTo("#f3", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 9.55);
+    tl.to("#f3", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 11.30);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 200, duration: 0.9, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#f3n").textContent = Math.round(o.v); } }, 9.55); })();
+    tl.fromTo("#f4", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 13.00);
+    tl.to("#f4", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 15.30);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 2000000, duration: 1.2, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#f4n").textContent = Math.round(o.v).toLocaleString('en-US'); } }, 13.00); })();
+    tl.fromTo("#f5", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 17.00);
+    tl.to("#f5", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 19.14);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 30, duration: 0.9, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#f5n").textContent = Math.round(o.v) + ' km'; } }, 17.00); })();
+    tl.fromTo("#f6", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 20.90);
+    tl.to("#f6", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 23.43);
+    tl.fromTo("#f7", { opacity: 0, y: 46, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power4.out" }, 25.29);
+    tl.to("#f7", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, 27.85);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 4000000, duration: 1.2, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#f7n").textContent = Math.round(o.v).toLocaleString('en-US'); } }, 25.29); })();
+    tl.call(() => { $("#f6n").textContent = "0×"; }, null, 0);
+    tl.call(() => { $("#f6n").textContent = "1×"; }, null, 21.20);
+    tl.call(() => { $("#f6n").textContent = "2×"; }, null, 21.50);
+    tl.call(() => { $("#f6n").textContent = "3×"; }, null, 21.80);
+    tl.call(() => { $("#f6n").textContent = "4×"; }, null, 22.10);
+    tl.call(() => { $("#f6n").textContent = "5×"; }, null, 22.40);
+    tl.call(() => { $("#f6n").textContent = "6×"; }, null, 22.70);
+    tl.call(() => { $("#f6n").textContent = "7×"; }, null, 23.00);
+    tl.fromTo("#all1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 28.62);
+    tl.to("#all1", { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 29.29);
+    tl.fromTo("#all2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 29.59);
+    tl.to("#all2", { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 31.38);
+    tl.fromTo("#qw0", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 31.65);
+    tl.fromTo("#qw1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 32.29);
+    tl.fromTo("#qw2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 32.53);
+    tl.fromTo("#qw3", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 32.69);
+    tl.fromTo("#qw4", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 32.81);
+    tl.fromTo("#qw5", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 32.93);
+    tl.fromTo("#qw6", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 33.09);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
