@@ -1,0 +1,459 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 19.384,
+        "selector": "#earth",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -8656.8,
+          "top": 1330,
+          "right": 9737.2,
+          "bottom": 19724,
+          "width": 18394,
+          "height": 18394
+        },
+        "containerSelector": "#lay",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -8656.8,
+          "y": 1330,
+          "width": 18394,
+          "height": 18394
+        },
+        "firstSeen": 19.384,
+        "lastSeen": 19.384,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.384
+        ]
+      }
+    ],
+    "duration": 31.72,
+    "samples": [
+      1.762,
+      5.287,
+      8.811,
+      12.336,
+      15.86,
+      19.384,
+      22.909,
+      26.433,
+      29.958
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.762,
+      8.811,
+      15.86,
+      22.909,
+      29.958
+    ],
+    "checked": 18,
+    "passed": 18
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"House · 10 m\" (3 words) is on screen 0.50 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "House · 10 m",
+        "selector": "#l_house",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 650,
+          "y": 1350,
+          "width": 200.44000000000005,
+          "height": 36
+        },
+        "time": 7.704,
+        "words": 3,
+        "seconds": 0.499,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 7.368,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 7.493,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 7.618,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 7.743,
+            "opacity": 0.96,
+            "heightPx": 36
+          },
+          {
+            "time": 7.868,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 7.992,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.117,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.242,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 8.367,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 8.492,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Statue of Liberty · 93 m\" (5 words) is on screen 0.53 s (±0.01 s), under its 1.50 s floor: hold it about 0.5 s + 0.3 s a word (2.00 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Statue of Liberty · 93 m",
+        "selector": "#l_liberty",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 160,
+          "y": 1350,
+          "width": 371.03,
+          "height": 36
+        },
+        "time": 8.336,
+        "words": 5,
+        "seconds": 0.531,
+        "floorSeconds": 1.5,
+        "measured": [
+          {
+            "time": 7.992,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 8.117,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 8.242,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 8.367,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.492,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.617,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.742,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 8.867,
+            "opacity": 0.44,
+            "heightPx": 36
+          },
+          {
+            "time": 8.991,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 9.116,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Mount Everest · 8.8 km\" (5 words) is on screen 0.90 s (±0.01 s), under its 1.50 s floor: hold it about 0.5 s + 0.3 s a word (2.00 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Mount Everest · 8.8 km",
+        "selector": "#l_everest",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 710,
+          "y": 1350,
+          "width": 362.5899999999999,
+          "height": 36
+        },
+        "time": 17.039,
+        "words": 5,
+        "seconds": 0.897,
+        "floorSeconds": 1.5,
+        "measured": [
+          {
+            "time": 16.734,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 16.859,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 16.984,
+            "opacity": 0.3,
+            "heightPx": 36
+          },
+          {
+            "time": 17.109,
+            "opacity": 0.96,
+            "heightPx": 36
+          },
+          {
+            "time": 17.234,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.359,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.483,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.608,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.733,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.858,
+            "opacity": 0.88,
+            "heightPx": 36
+          },
+          {
+            "time": 17.983,
+            "opacity": 0.26,
+            "heightPx": 36
+          },
+          {
+            "time": 18.108,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 18.233,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Clouds · up to 12 km\" (5 words) is on screen 1.04 s (±0.01 s), under its 1.50 s floor: hold it about 0.5 s + 0.3 s a word (2.00 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Clouds · up to 12 km",
+        "selector": "#l_cloud",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 610,
+          "y": 679.8,
+          "width": 315.95000000000005,
+          "height": 36
+        },
+        "time": 17.234,
+        "words": 5,
+        "seconds": 1.038,
+        "floorSeconds": 1.5,
+        "measured": [
+          {
+            "time": 16.859,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 16.984,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17.109,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17.234,
+            "opacity": 0.62,
+            "heightPx": 36
+          },
+          {
+            "time": 17.359,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.483,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.608,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.858,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 17.983,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 18.108,
+            "opacity": 1,
+            "heightPx": 36
+          },
+          {
+            "time": 18.233,
+            "opacity": 0.65,
+            "heightPx": 36
+          },
+          {
+            "time": 18.358,
+            "opacity": 0.25,
+            "heightPx": 36
+          },
+          {
+            "time": 18.483,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 18.607,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 254
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
