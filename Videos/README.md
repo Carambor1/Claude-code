@@ -17,6 +17,7 @@
 | 11 | Don't Quit the Pirate Token | 38 s | EN |
 | 12 | Earning More Won't Make You Rich | 72 s | EN |
 | 13 | Faceless TikTok Accounts | 54 s | EN |
+| 14 | Money Stacks to Scale | 32 s | EN |
 
 ---
 
@@ -71,3 +72,7 @@
 ### 13 · Faceless TikTok Accounts
 **Titel:** 1M views pays less than you think 💸
 #facelesstiktok #makemoneyonline #sidehustle #tiktoktips #shorts
+
+### 14 · Money Stacks to Scale
+**Titel:** $1 million vs $1 trillion, to scale 💵
+#toscale #billion #trillion #mindblown #shorts
