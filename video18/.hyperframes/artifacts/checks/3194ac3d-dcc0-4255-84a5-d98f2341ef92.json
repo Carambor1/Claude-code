@@ -1,0 +1,612 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "non_deterministic_code",
+        "severity": "error",
+        "message": "Script contains `Math.random()` which produces non-deterministic output. Renders may differ between frames or runs.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video18/assets/film.js",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use a seeded PRNG (e.g. a simple mulberry32) so renders are deterministic across frames."
+      },
+      {
+        "code": "requestanimationframe_in_composition",
+        "severity": "error",
+        "message": "`requestAnimationFrame` runs on wall-clock time, not the GSAP timeline. It will not sync with frame capture and may cause flickering or missed frames during rendering.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video18/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use GSAP tweens or onUpdate callbacks instead of requestAnimationFrame for animation logic."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x141c001a0200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:37221/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x141c001a0200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.326,
+        "url": "http://127.0.0.1:37221/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x141c001a0200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.326,
+        "url": "http://127.0.0.1:37221/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x141c001a0200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.326,
+        "url": "http://127.0.0.1:37221/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x183400172000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.978,
+        "url": "http://127.0.0.1:37221/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x183400172000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.87",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.978,
+        "url": "http://127.0.0.1:37221/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "warning",
+        "time": 11.631,
+        "selector": "#gl",
+        "message": "Canvas content touches the frame edge (left, right).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r160"
+        },
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 11.631,
+        "lastSeen": 30.239,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          11.631,
+          30.239
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 20.935,
+        "selector": "#ci0",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -67.7,
+          "top": 462.3,
+          "right": 667.7,
+          "bottom": 1197.7,
+          "width": 735.4,
+          "height": 735.4
+        },
+        "containerSelector": "svg.abs",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 67.7
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -67.7,
+          "y": 462.3,
+          "width": 735.4,
+          "height": 735.4
+        },
+        "firstSeen": 20.935,
+        "lastSeen": 25.587,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          20.935,
+          25.587
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 20.935,
+        "selector": "#ci1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 485.8,
+          "top": 545.8,
+          "right": 1154.2,
+          "bottom": 1214.2,
+          "width": 668.4,
+          "height": 668.4
+        },
+        "containerSelector": "svg.abs",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 74.2
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 485.8,
+          "y": 545.8,
+          "width": 668.4,
+          "height": 668.4
+        },
+        "firstSeen": 20.935,
+        "lastSeen": 25.587,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          20.935,
+          25.587
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 20.935,
+        "selector": "#ci3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -155.9,
+          "top": 904.1,
+          "right": 615.9,
+          "bottom": 1675.9,
+          "width": 771.8,
+          "height": 771.8
+        },
+        "containerSelector": "svg.abs",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 155.9
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -155.9,
+          "y": 904.1,
+          "width": 771.8,
+          "height": 771.8
+        },
+        "firstSeen": 20.935,
+        "lastSeen": 25.587,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          20.935,
+          25.587
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 39.544,
+        "selector": "#h2 > span:nth-of-type(1)",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": 0,
+          "top": 470,
+          "right": 1087.91,
+          "bottom": 616,
+          "width": 1087.91,
+          "height": 146
+        },
+        "containerSelector": "#h2",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 470,
+          "right": 1080,
+          "bottom": 616,
+          "width": 1080,
+          "height": 146
+        },
+        "overflow": {
+          "right": 7.91
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 470,
+          "width": 1087.91,
+          "height": 146
+        },
+        "firstSeen": 39.544,
+        "lastSeen": 39.544,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          39.544
+        ]
+      }
+    ],
+    "duration": 41.87,
+    "samples": [
+      2.326,
+      6.978,
+      11.631,
+      16.283,
+      20.935,
+      25.587,
+      30.239,
+      34.892,
+      39.544
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 5,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.49:1; WCAG AA requires 3:1.",
+        "text": "Miss by one",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(219,210,201)",
+        "ratio": 1.49,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(119,119,119)",
+        "large": true,
+        "selector": "div > div:nth-of-type(2) > div > div:nth-of-type(27) > span",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cap.html",
+        "bbox": {
+          "x": 364.484375,
+          "y": 1570,
+          "width": 351.015625,
+          "height": 75.796875
+        },
+        "time": 30.239,
+        "times": [
+          30.239
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.326,
+      11.631,
+      20.935,
+      30.239,
+      39.544
+    ],
+    "checked": 27,
+    "passed": 26
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 10 text elements stay under it for 0.5 s or more, the smallest \"4\" at 19 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "4",
+        "selector": "#sm3 > b:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 224.16,
+          "y": 1276.92,
+          "width": 11.67,
+          "height": 26.16
+        },
+        "time": 27.622,
+        "times": [
+          0,
+          0,
+          0,
+          0,
+          0.75,
+          0.75,
+          20.123,
+          22.747,
+          25.247,
+          27.622
+        ],
+        "fontPx": 19.43,
+        "floorPx": 28,
+        "seconds": 1.999,
+        "elements": [
+          {
+            "selector": "#sm3 > b:nth-of-type(1)",
+            "text": "4",
+            "fontPx": 19.43,
+            "time": 27.622,
+            "seconds": 1.999
+          },
+          {
+            "selector": "#sm0 > b:nth-of-type(1)",
+            "text": "1",
+            "fontPx": 22.76,
+            "time": 20.123,
+            "seconds": 9.498
+          },
+          {
+            "selector": "div.abs.hud > div:nth-of-type(1)",
+            "text": "GPS / HOW IT WORKS",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 41.87
+          },
+          {
+            "selector": "#tc",
+            "text": "00:00:00",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 41.87
+          },
+          {
+            "selector": "#ix",
+            "text": "01 / 07",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 41.87
+          },
+          {
+            "selector": "div.abs.hud > div:nth-of-type(4)",
+            "text": "N 52.52 / E 13.40",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 41.87
+          },
+          {
+            "selector": "#up",
+            "text": "UPLINK / DOWNLINK LISTENING",
+            "fontPx": 26,
+            "time": 0.75,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#up > span:nth-of-type(1)",
+            "text": "0 BYTES",
+            "fontPx": 26,
+            "time": 0.75,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#sm1 > b:nth-of-type(1)",
+            "text": "2",
+            "fontPx": 26,
+            "time": 22.747,
+            "seconds": 6.874
+          },
+          {
+            "selector": "#sm2 > b:nth-of-type(1)",
+            "text": "3",
+            "fontPx": 26,
+            "time": 25.247,
+            "seconds": 4.374
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 335
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

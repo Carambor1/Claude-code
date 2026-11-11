@@ -1,0 +1,195 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 60% at 50% 45%, #24201d 0%, #121110 70%); font-family: "Inter", sans-serif; color: #f3efe8; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root .or { color: #ff5a1f; }
+    #root .scene { inset: 0; opacity: 0; }
+    #root .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: rgba(243,239,232,0.6); white-space: nowrap; }
+    #root .t1 { font-weight: 900; font-size: 128px; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+    #root .t2 { font-weight: 900; font-size: 190px; letter-spacing: -0.05em; line-height: 1; top: 230px; white-space: nowrap; }
+    #root .t3 { font-size: 138px; top: 250px; line-height: 1; white-space: nowrap; }
+    #root .mono2 { font-family: "JetBrains Mono", monospace; font-weight: 800; letter-spacing: -0.04em; }
+    #root .lab { top: 440px; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.14em; color: rgba(243,239,232,0.75); }
+    #root .blk span { display: inline-block; background: #ff5a1f; color: #121110; padding: 6px 30px 12px; }
+    #root #a1 { top: 250px; } #root #a2 { top: 390px; } #root #a3 { top: 250px; } #root #a4 { top: 390px; }
+    #root .phone { left: 365px; top: 640px; width: 350px; height: 690px; border: 6px solid #f3efe8; border-radius: 60px; }
+    #root .phone.sm { left: 470px; top: 1160px; width: 140px; height: 270px; border-width: 5px; border-radius: 28px; }
+    #root .dot { left: 147px; top: 317px; width: 56px; height: 56px; border-radius: 50%; background: #ff5a1f; box-shadow: 0 0 40px rgba(255,90,31,0.8); }
+    #root .phone.sm .dot { left: 49px; top: 114px; width: 34px; height: 34px; }
+    #root .ring { left: 75px; top: 245px; width: 200px; height: 200px; border-radius: 50%; border: 4px solid #ff5a1f; opacity: 0; }
+    #root .sat { width: 44px; height: 44px; background: #ff5a1f; color: #121110; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; opacity: 0; }
+    #root .sat.big { width: 68px; height: 68px; font-size: 36px; opacity: 1; }
+    #root .sat.big::before, #root .sat.big::after { content: ""; position: absolute; top: 24px; width: 46px; height: 20px; background: #f3efe8; }
+    #root .sat.big::before { left: -54px; } #root .sat.big::after { right: -54px; }
+    #root .dl { width: 220px; text-align: center; font-size: 30px; color: #f3efe8; opacity: 0; }
+    #root .wave { width: 1000px; height: 1000px; border-radius: 50%; border: 4px solid #ff5a1f; opacity: 0; clip-path: inset(50% 0 0 0); }
+    #root .eq { top: 250px; font-weight: 900; font-size: 200px; letter-spacing: -0.05em; line-height: 1; display: flex; justify-content: center; gap: 34px; transform-origin: 50% 0; }
+    #root .eq span { display: inline-block; opacity: 0; }
+    #root .grid i { position: absolute; width: 12px; height: 12px; background: rgba(243,239,232,0.35); }
+    #root .grid { inset: 0; opacity: 0; }
+    #root .cand { width: 32px; height: 32px; border: 5px solid #f3efe8; border-radius: 50%; opacity: 0; }
+    #root .you { width: 52px; height: 52px; opacity: 0; }
+    #root .you i { position: absolute; inset: 0; border-radius: 50%; background: #f3efe8; box-shadow: 0 0 0 10px rgba(243,239,232,0.25), 0 0 50px rgba(255,255,255,0.7); }
+    #root .cnt { top: 230px; display: flex; align-items: center; justify-content: center; gap: 30px; opacity: 0; }
+    #root .cnt b { font-weight: 900; font-size: 250px; letter-spacing: -0.05em; line-height: 1; color: #ff5a1f; }
+    #root .cnt span { font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 44px; letter-spacing: 0.02em; text-align: left; width: 420px; line-height: 1.15; }
+    #root .clk { left: 780px; top: 520px; width: 250px; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; }
+    #root .clk svg { width: 130px; height: 130px; }
+    #root .clk span { font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 28px; }
+    #root .halo { left: 340px; top: 890px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,90,31,0.14); border: 3px solid rgba(255,90,31,0.5); opacity: 0; }
+    #root #ed { opacity: 0; }
+    #root .hud { inset: 0; }
+    #root .hud i { position: absolute; width: 34px; height: 34px; border: 3px solid rgba(243,239,232,0.5); }
+    #root .hud .c1 { left: 40px; top: 60px; border-right: 0; border-bottom: 0; } #root .hud .c2 { right: 40px; top: 60px; border-left: 0; border-bottom: 0; }
+    #root .hud .c3 { left: 40px; bottom: 60px; border-right: 0; border-top: 0; } #root .hud .c4 { right: 40px; bottom: 60px; border-left: 0; border-top: 0; }
+    #root .wipe { inset: 0; background: #ff5a1f; transform: scaleY(0); }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <canvas id="gl" width="720" height="1280" style="position:absolute;left:0;top:0;width:1080px;height:1920px"></canvas><div class="abs scene" id="sc1"><div class="abs ctr t1" id="a1">YOUR PHONE</div><div class="abs ctr t1 or" id="a2">ALWAYS KNOWS</div><div class="abs ctr t1" id="a3">BUT IT NEVER</div><div class="abs ctr t1 blk" id="a4"><span>TALKS BACK.</span></div><div class="abs phone" id="ph"><div class="abs ring" id="pr1"></div><div class="abs ring" id="pr2"></div><div class="abs dot" id="pd"></div></div><div class="abs mono" id="up" style="left:0;width:1080px;text-align:center;top:1390px;font-size:30px">UPLINK <span class="or">0 BYTES</span> / DOWNLINK LISTENING</div></div><div class="abs scene" id="sc2"><div class="abs ctr t2" id="b1">20,000 KM</div><div class="abs ctr lab" id="b1l">ABOVE YOU / DRAWN TO SCALE</div><div class="abs ctr t2 or" id="b2" style="top:1250px;font-size:150px">~30</div><div class="abs ctr lab" id="b2l" style="top:1410px">SATELLITES / SHOUTING THE TIME</div></div><div class="abs scene" id="sc3"><div class="abs sat big" style="left:136px;top:330px"><b>1</b></div><div class="abs mono dl" id="dl0" style="left:60px;top:420px">+<span id="dv0">0.0</span> ms</div><div class="abs wave" id="wv0_0" style="left:-330px;top:-136px"></div><div class="abs wave" id="wv0_1" style="left:-330px;top:-136px"></div><div class="abs wave" id="wv0_2" style="left:-330px;top:-136px"></div><div class="abs sat big" style="left:386px;top:330px"><b>2</b></div><div class="abs mono dl" id="dl1" style="left:310px;top:420px">+<span id="dv1">0.0</span> ms</div><div class="abs wave" id="wv1_0" style="left:-80px;top:-136px"></div><div class="abs wave" id="wv1_1" style="left:-80px;top:-136px"></div><div class="abs wave" id="wv1_2" style="left:-80px;top:-136px"></div><div class="abs sat big" style="left:636px;top:330px"><b>3</b></div><div class="abs mono dl" id="dl2" style="left:560px;top:420px">+<span id="dv2">0.0</span> ms</div><div class="abs wave" id="wv2_0" style="left:170px;top:-136px"></div><div class="abs wave" id="wv2_1" style="left:170px;top:-136px"></div><div class="abs wave" id="wv2_2" style="left:170px;top:-136px"></div><div class="abs sat big" style="left:876px;top:330px"><b>4</b></div><div class="abs mono dl" id="dl3" style="left:800px;top:420px">+<span id="dv3">0.0</span> ms</div><div class="abs wave" id="wv3_0" style="left:410px;top:-136px"></div><div class="abs wave" id="wv3_1" style="left:410px;top:-136px"></div><div class="abs wave" id="wv3_2" style="left:410px;top:-136px"></div><div class="abs ctr t1" id="c1" style="top:760px">IT JUST</div><div class="abs ctr t1 or" id="c2" style="top:900px">LISTENS.</div><div class="abs phone sm" id="ph3"><div class="abs dot"></div></div></div><div class="abs scene" id="sc4"><div class="abs ctr eq" id="eq"><span id="e1">LATE</span><span id="e2" class="or">=</span><span id="e3">FAR</span></div><div class="abs grid" id="g4"><i id="gd0_0" style="left:84px;top:634px"></i><i id="gd0_1" style="left:184px;top:634px"></i><i id="gd0_2" style="left:284px;top:634px"></i><i id="gd0_3" style="left:384px;top:634px"></i><i id="gd0_4" style="left:484px;top:634px"></i><i id="gd0_5" style="left:584px;top:634px"></i><i id="gd0_6" style="left:684px;top:634px"></i><i id="gd0_7" style="left:784px;top:634px"></i><i id="gd0_8" style="left:884px;top:634px"></i><i id="gd0_9" style="left:984px;top:634px"></i><i id="gd1_0" style="left:84px;top:734px"></i><i id="gd1_1" style="left:184px;top:734px"></i><i id="gd1_2" style="left:284px;top:734px"></i><i id="gd1_3" style="left:384px;top:734px"></i><i id="gd1_4" style="left:484px;top:734px"></i><i id="gd1_5" style="left:584px;top:734px"></i><i id="gd1_6" style="left:684px;top:734px"></i><i id="gd1_7" style="left:784px;top:734px"></i><i id="gd1_8" style="left:884px;top:734px"></i><i id="gd1_9" style="left:984px;top:734px"></i><i id="gd2_0" style="left:84px;top:834px"></i><i id="gd2_1" style="left:184px;top:834px"></i><i id="gd2_2" style="left:284px;top:834px"></i><i id="gd2_3" style="left:384px;top:834px"></i><i id="gd2_4" style="left:484px;top:834px"></i><i id="gd2_5" style="left:584px;top:834px"></i><i id="gd2_6" style="left:684px;top:834px"></i><i id="gd2_7" style="left:784px;top:834px"></i><i id="gd2_8" style="left:884px;top:834px"></i><i id="gd2_9" style="left:984px;top:834px"></i><i id="gd3_0" style="left:84px;top:934px"></i><i id="gd3_1" style="left:184px;top:934px"></i><i id="gd3_2" style="left:284px;top:934px"></i><i id="gd3_3" style="left:384px;top:934px"></i><i id="gd3_4" style="left:484px;top:934px"></i><i id="gd3_5" style="left:584px;top:934px"></i><i id="gd3_6" style="left:684px;top:934px"></i><i id="gd3_7" style="left:784px;top:934px"></i><i id="gd3_8" style="left:884px;top:934px"></i><i id="gd3_9" style="left:984px;top:934px"></i><i id="gd4_0" style="left:84px;top:1034px"></i><i id="gd4_1" style="left:184px;top:1034px"></i><i id="gd4_2" style="left:284px;top:1034px"></i><i id="gd4_3" style="left:384px;top:1034px"></i><i id="gd4_4" style="left:484px;top:1034px"></i><i id="gd4_5" style="left:584px;top:1034px"></i><i id="gd4_6" style="left:684px;top:1034px"></i><i id="gd4_7" style="left:784px;top:1034px"></i><i id="gd4_8" style="left:884px;top:1034px"></i><i id="gd4_9" style="left:984px;top:1034px"></i><i id="gd5_0" style="left:84px;top:1134px"></i><i id="gd5_1" style="left:184px;top:1134px"></i><i id="gd5_2" style="left:284px;top:1134px"></i><i id="gd5_3" style="left:384px;top:1134px"></i><i id="gd5_4" style="left:484px;top:1134px"></i><i id="gd5_5" style="left:584px;top:1134px"></i><i id="gd5_6" style="left:684px;top:1134px"></i><i id="gd5_7" style="left:784px;top:1134px"></i><i id="gd5_8" style="left:884px;top:1134px"></i><i id="gd5_9" style="left:984px;top:1134px"></i><i id="gd6_0" style="left:84px;top:1234px"></i><i id="gd6_1" style="left:184px;top:1234px"></i><i id="gd6_2" style="left:284px;top:1234px"></i><i id="gd6_3" style="left:384px;top:1234px"></i><i id="gd6_4" style="left:484px;top:1234px"></i><i id="gd6_5" style="left:584px;top:1234px"></i><i id="gd6_6" style="left:684px;top:1234px"></i><i id="gd6_7" style="left:784px;top:1234px"></i><i id="gd6_8" style="left:884px;top:1234px"></i><i id="gd6_9" style="left:984px;top:1234px"></i><i id="gd7_0" style="left:84px;top:1334px"></i><i id="gd7_1" style="left:184px;top:1334px"></i><i id="gd7_2" style="left:284px;top:1334px"></i><i id="gd7_3" style="left:384px;top:1334px"></i><i id="gd7_4" style="left:484px;top:1334px"></i><i id="gd7_5" style="left:584px;top:1334px"></i><i id="gd7_6" style="left:684px;top:1334px"></i><i id="gd7_7" style="left:784px;top:1334px"></i><i id="gd7_8" style="left:884px;top:1334px"></i><i id="gd7_9" style="left:984px;top:1334px"></i><i id="gd8_0" style="left:84px;top:1434px"></i><i id="gd8_1" style="left:184px;top:1434px"></i><i id="gd8_2" style="left:284px;top:1434px"></i><i id="gd8_3" style="left:384px;top:1434px"></i><i id="gd8_4" style="left:484px;top:1434px"></i><i id="gd8_5" style="left:584px;top:1434px"></i><i id="gd8_6" style="left:684px;top:1434px"></i><i id="gd8_7" style="left:784px;top:1434px"></i><i id="gd8_8" style="left:884px;top:1434px"></i><i id="gd8_9" style="left:984px;top:1434px"></i><i id="gd9_0" style="left:84px;top:1534px"></i><i id="gd9_1" style="left:184px;top:1534px"></i><i id="gd9_2" style="left:284px;top:1534px"></i><i id="gd9_3" style="left:384px;top:1534px"></i><i id="gd9_4" style="left:484px;top:1534px"></i><i id="gd9_5" style="left:584px;top:1534px"></i><i id="gd9_6" style="left:684px;top:1534px"></i><i id="gd9_7" style="left:784px;top:1534px"></i><i id="gd9_8" style="left:884px;top:1534px"></i><i id="gd9_9" style="left:984px;top:1534px"></i></div><svg class="abs" style="left:0;top:0;width:1080px;height:1920px" viewBox="0 0 1080 1920"><circle id="ci0" cx="300" cy="830" r="367.7" fill="none" stroke="#ff5a1f" stroke-width="5" stroke-dasharray="2310" stroke-dashoffset="2310" transform="rotate(-90 300 830)"/><circle id="ci1" cx="820" cy="880" r="334.2" fill="none" stroke="#ff5a1f" stroke-width="5" stroke-dasharray="2100" stroke-dashoffset="2100" transform="rotate(-90 820 880)"/><circle id="ci2" cx="500" cy="1400" r="315.8" fill="none" stroke="#ff5a1f" stroke-width="5" stroke-dasharray="1984" stroke-dashoffset="1984" transform="rotate(-90 500 1400)"/><circle id="ci3" cx="230" cy="1290" r="385.9" fill="none" stroke="#f3efe8" stroke-width="5" stroke-dasharray="2425" stroke-dashoffset="2425" transform="rotate(-90 230 1290)"/></svg><div class="abs sat" id="sm0" style="left:278px;top:808px"><b>1</b></div><div class="abs sat" id="sm1" style="left:798px;top:858px"><b>2</b></div><div class="abs sat" id="sm2" style="left:478px;top:1378px"><b>3</b></div><div class="abs sat" id="sm3" style="left:208px;top:1268px"><b>4</b></div><div class="abs cand" id="x2" style="left:589px;top:608px"></div><div class="abs you" id="you" style="left:534px;top:1064px"><i></i></div><div class="abs ctr cnt" id="cnt"><b id="cn">1</b><span id="cl">SATELLITE = A CIRCLE</span></div><div class="abs clk" id="clk"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#f3efe8" stroke-width="6"/><path id="clh" d="M50 50 V20" stroke="#ff5a1f" stroke-width="7" stroke-linecap="round"/></svg><span>CLOCK FIXED</span></div></div><div class="abs scene" id="sc6"><div class="abs ctr t3 mono2" id="f1">0.000001 s</div><div class="abs ctr lab" id="f1l" style="top:420px">ONE MILLIONTH OF A SECOND LATE</div><div class="abs ctr t2 or" id="f2" style="top:1210px">300 M OFF</div></div><div class="abs scene" id="sc7"><div class="abs grid" id="g7"><i id="ge0_0" style="left:84px;top:634px"></i><i id="ge0_1" style="left:184px;top:634px"></i><i id="ge0_2" style="left:284px;top:634px"></i><i id="ge0_3" style="left:384px;top:634px"></i><i id="ge0_4" style="left:484px;top:634px"></i><i id="ge0_5" style="left:584px;top:634px"></i><i id="ge0_6" style="left:684px;top:634px"></i><i id="ge0_7" style="left:784px;top:634px"></i><i id="ge0_8" style="left:884px;top:634px"></i><i id="ge0_9" style="left:984px;top:634px"></i><i id="ge1_0" style="left:84px;top:734px"></i><i id="ge1_1" style="left:184px;top:734px"></i><i id="ge1_2" style="left:284px;top:734px"></i><i id="ge1_3" style="left:384px;top:734px"></i><i id="ge1_4" style="left:484px;top:734px"></i><i id="ge1_5" style="left:584px;top:734px"></i><i id="ge1_6" style="left:684px;top:734px"></i><i id="ge1_7" style="left:784px;top:734px"></i><i id="ge1_8" style="left:884px;top:734px"></i><i id="ge1_9" style="left:984px;top:734px"></i><i id="ge2_0" style="left:84px;top:834px"></i><i id="ge2_1" style="left:184px;top:834px"></i><i id="ge2_2" style="left:284px;top:834px"></i><i id="ge2_3" style="left:384px;top:834px"></i><i id="ge2_4" style="left:484px;top:834px"></i><i id="ge2_5" style="left:584px;top:834px"></i><i id="ge2_6" style="left:684px;top:834px"></i><i id="ge2_7" style="left:784px;top:834px"></i><i id="ge2_8" style="left:884px;top:834px"></i><i id="ge2_9" style="left:984px;top:834px"></i><i id="ge3_0" style="left:84px;top:934px"></i><i id="ge3_1" style="left:184px;top:934px"></i><i id="ge3_2" style="left:284px;top:934px"></i><i id="ge3_3" style="left:384px;top:934px"></i><i id="ge3_4" style="left:484px;top:934px"></i><i id="ge3_5" style="left:584px;top:934px"></i><i id="ge3_6" style="left:684px;top:934px"></i><i id="ge3_7" style="left:784px;top:934px"></i><i id="ge3_8" style="left:884px;top:934px"></i><i id="ge3_9" style="left:984px;top:934px"></i><i id="ge4_0" style="left:84px;top:1034px"></i><i id="ge4_1" style="left:184px;top:1034px"></i><i id="ge4_2" style="left:284px;top:1034px"></i><i id="ge4_3" style="left:384px;top:1034px"></i><i id="ge4_4" style="left:484px;top:1034px"></i><i id="ge4_5" style="left:584px;top:1034px"></i><i id="ge4_6" style="left:684px;top:1034px"></i><i id="ge4_7" style="left:784px;top:1034px"></i><i id="ge4_8" style="left:884px;top:1034px"></i><i id="ge4_9" style="left:984px;top:1034px"></i><i id="ge5_0" style="left:84px;top:1134px"></i><i id="ge5_1" style="left:184px;top:1134px"></i><i id="ge5_2" style="left:284px;top:1134px"></i><i id="ge5_3" style="left:384px;top:1134px"></i><i id="ge5_4" style="left:484px;top:1134px"></i><i id="ge5_5" style="left:584px;top:1134px"></i><i id="ge5_6" style="left:684px;top:1134px"></i><i id="ge5_7" style="left:784px;top:1134px"></i><i id="ge5_8" style="left:884px;top:1134px"></i><i id="ge5_9" style="left:984px;top:1134px"></i><i id="ge6_0" style="left:84px;top:1234px"></i><i id="ge6_1" style="left:184px;top:1234px"></i><i id="ge6_2" style="left:284px;top:1234px"></i><i id="ge6_3" style="left:384px;top:1234px"></i><i id="ge6_4" style="left:484px;top:1234px"></i><i id="ge6_5" style="left:584px;top:1234px"></i><i id="ge6_6" style="left:684px;top:1234px"></i><i id="ge6_7" style="left:784px;top:1234px"></i><i id="ge6_8" style="left:884px;top:1234px"></i><i id="ge6_9" style="left:984px;top:1234px"></i><i id="ge7_0" style="left:84px;top:1334px"></i><i id="ge7_1" style="left:184px;top:1334px"></i><i id="ge7_2" style="left:284px;top:1334px"></i><i id="ge7_3" style="left:384px;top:1334px"></i><i id="ge7_4" style="left:484px;top:1334px"></i><i id="ge7_5" style="left:584px;top:1334px"></i><i id="ge7_6" style="left:684px;top:1334px"></i><i id="ge7_7" style="left:784px;top:1334px"></i><i id="ge7_8" style="left:884px;top:1334px"></i><i id="ge7_9" style="left:984px;top:1334px"></i><i id="ge8_0" style="left:84px;top:1434px"></i><i id="ge8_1" style="left:184px;top:1434px"></i><i id="ge8_2" style="left:284px;top:1434px"></i><i id="ge8_3" style="left:384px;top:1434px"></i><i id="ge8_4" style="left:484px;top:1434px"></i><i id="ge8_5" style="left:584px;top:1434px"></i><i id="ge8_6" style="left:684px;top:1434px"></i><i id="ge8_7" style="left:784px;top:1434px"></i><i id="ge8_8" style="left:884px;top:1434px"></i><i id="ge8_9" style="left:984px;top:1434px"></i><i id="ge9_0" style="left:84px;top:1534px"></i><i id="ge9_1" style="left:184px;top:1534px"></i><i id="ge9_2" style="left:284px;top:1534px"></i><i id="ge9_3" style="left:384px;top:1534px"></i><i id="ge9_4" style="left:484px;top:1534px"></i><i id="ge9_5" style="left:584px;top:1534px"></i><i id="ge9_6" style="left:684px;top:1534px"></i><i id="ge9_7" style="left:784px;top:1534px"></i><i id="ge9_8" style="left:884px;top:1534px"></i><i id="ge9_9" style="left:984px;top:1534px"></i></div><div class="abs halo" id="hl"></div><div class="abs ring" id="er1" style="left:440px;top:990px"></div><div class="abs ring" id="er2" style="left:440px;top:990px"></div><div class="abs dot" id="ed" style="left:512px;top:1062px"></div><div class="abs ctr t1" id="h1" style="top:300px;font-size:112px">THAT'S THE DOT.</div><div class="abs ctr t1 blk" id="h2" style="top:450px;font-size:104px"><span>IT ONLY LISTENS.</span></div></div><div class="abs hud"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><div class="abs mono" style="left:64px;top:104px">GPS / HOW IT WORKS</div><div class="abs mono" id="tc" style="right:64px;top:104px">00:00:00</div><div class="abs mono" id="ix" style="left:64px;bottom:96px">01 / 07</div><div class="abs mono" style="right:64px;bottom:96px">N 52.52 / E 13.40</div></div><div class="abs wipe" id="wipe"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const R = document.querySelector('[data-composition-id="w"]') || document;
+    const $ = (s) => R.querySelector(s);
+    let film = null;
+    window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+    window.__hf.buildReady["film"] = Film.init($("#gl"), {"shout": 3.93, "miss": 32.699999999999996, "at": {"gA": 5.88, "gB": 11.74, "vA": 29.59, "vB": 35.21}}).then((f) => { film = f; f.render(tl.time()); });
+    tl.set("#sc1", { opacity: 1 }, 0);
+    tl.set("#wipe", { transformOrigin: "50% 100%" }, 5.62); tl.fromTo("#wipe", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "expo.in", immediateRender: false }, 5.64);
+    tl.set("#wipe", { transformOrigin: "50% 0%" }, 5.88); tl.to("#wipe", { scaleY: 0, duration: 0.34, ease: "expo.out" }, 5.90);
+    tl.set("#sc1", { opacity: 0 }, 5.88); tl.set("#sc2", { opacity: 1 }, 5.88);
+    tl.call(() => { $("#ix").textContent = "02 / 07"; }, null, 5.88);
+    tl.set("#wipe", { transformOrigin: "50% 100%" }, 11.48); tl.fromTo("#wipe", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "expo.in", immediateRender: false }, 11.50);
+    tl.set("#wipe", { transformOrigin: "50% 0%" }, 11.74); tl.to("#wipe", { scaleY: 0, duration: 0.34, ease: "expo.out" }, 11.76);
+    tl.set("#sc2", { opacity: 0 }, 11.74); tl.set("#sc3", { opacity: 1 }, 11.74);
+    tl.call(() => { $("#ix").textContent = "03 / 07"; }, null, 11.74);
+    tl.set("#wipe", { transformOrigin: "50% 100%" }, 16.29); tl.fromTo("#wipe", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "expo.in", immediateRender: false }, 16.31);
+    tl.set("#wipe", { transformOrigin: "50% 0%" }, 16.55); tl.to("#wipe", { scaleY: 0, duration: 0.34, ease: "expo.out" }, 16.57);
+    tl.set("#sc3", { opacity: 0 }, 16.55); tl.set("#sc4", { opacity: 1 }, 16.55);
+    tl.call(() => { $("#ix").textContent = "04 / 07"; }, null, 16.55);
+    tl.call(() => { $("#ix").textContent = "05 / 07"; }, null, 22.48);
+    tl.set("#wipe", { transformOrigin: "50% 100%" }, 29.33); tl.fromTo("#wipe", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "expo.in", immediateRender: false }, 29.35);
+    tl.set("#wipe", { transformOrigin: "50% 0%" }, 29.59); tl.to("#wipe", { scaleY: 0, duration: 0.34, ease: "expo.out" }, 29.61);
+    tl.set("#sc4", { opacity: 0 }, 29.59); tl.set("#sc6", { opacity: 1 }, 29.59);
+    tl.call(() => { $("#ix").textContent = "06 / 07"; }, null, 29.59);
+    tl.set("#wipe", { transformOrigin: "50% 100%" }, 34.95); tl.fromTo("#wipe", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "expo.in", immediateRender: false }, 34.97);
+    tl.set("#wipe", { transformOrigin: "50% 0%" }, 35.21); tl.to("#wipe", { scaleY: 0, duration: 0.34, ease: "expo.out" }, 35.23);
+    tl.set("#sc6", { opacity: 0 }, 35.21); tl.set("#sc7", { opacity: 1 }, 35.21);
+    tl.call(() => { $("#ix").textContent = "07 / 07"; }, null, 35.21);
+    tl.call(() => { $("#ix").textContent = "01 / 07"; }, null, 0);
+    (() => { const c = { t: 0 }; tl.fromTo(c, { t: 0 }, { t: 41.87, duration: 41.87, ease: "none", onUpdate: () => { const s = Math.floor(c.t), f = Math.floor((c.t % 1) * 30); $("#tc").textContent = "00:" + String(s).padStart(2, "0") + ":" + String(f).padStart(2, "0"); if (film) film.render(c.t); } }, 0); })();
+    tl.fromTo("#a1", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.05);
+    tl.fromTo("#a2", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.95);
+    tl.fromTo("#ph", { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" }, 0.1);
+    tl.fromTo("#pr1", { scale: 0.3, opacity: 0.9 }, { scale: 3.2, opacity: 0, duration: 1.1, ease: "power2.out", repeat: 4 }, 0.30);
+    tl.fromTo("#pr2", { scale: 0.3, opacity: 0.9 }, { scale: 3.2, opacity: 0, duration: 1.1, ease: "power2.out", repeat: 3 }, 0.85);
+    tl.fromTo("#up", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
+    gsap.set(["#a3", "#a4"], { opacity: 0 });
+    tl.to("#a1", { opacity: 0, x: 420, scaleX: 2.2, filter: "blur(22px)", duration: 0.28, ease: "expo.in" }, 2.59);
+    tl.to("#a2", { opacity: 0, x: -420, scaleX: 2.2, filter: "blur(22px)", duration: 0.28, ease: "expo.in" }, 2.64);
+    tl.fromTo("#a3", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 2.84);
+    tl.fromTo("#a4", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 3.64);
+    tl.fromTo("#up", { scale: 1 }, { scale: 1.08, duration: 0.14, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, 4.14);
+    gsap.set(["#b1", "#b2", "#b1l", "#b2l", "#c1", "#c2", "#f1", "#f2", "#f1l", "#h1", "#h2"], { opacity: 0 });
+    tl.fromTo("#b1", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 6.18);
+    tl.fromTo("#b1l", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 7.09);
+    tl.fromTo("#b2", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 8.32);
+    tl.fromTo("#b2l", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 9.09);
+    tl.fromTo("#wv0_0", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 11.99);
+    tl.fromTo("#wv0_1", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.41);
+    tl.fromTo("#wv0_2", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 1 }, 12.83);
+    tl.fromTo("#dl0", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 14.35);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 67.3, duration: 0.8, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#dv0").textContent = o.v.toFixed(1); } }, 14.35); })();
+    tl.fromTo("#wv1_0", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.16);
+    tl.fromTo("#wv1_1", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.58);
+    tl.fromTo("#wv1_2", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 1 }, 13.00);
+    tl.fromTo("#dl1", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 14.47);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 71.8, duration: 0.8, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#dv1").textContent = o.v.toFixed(1); } }, 14.47); })();
+    tl.fromTo("#wv2_0", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.33);
+    tl.fromTo("#wv2_1", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.75);
+    tl.fromTo("#wv2_2", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 1 }, 13.17);
+    tl.fromTo("#dl2", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 14.59);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 74.2, duration: 0.8, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#dv2").textContent = o.v.toFixed(1); } }, 14.59); })();
+    tl.fromTo("#wv3_0", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 2 }, 12.50);
+    tl.fromTo("#wv3_1", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 1 }, 12.92);
+    tl.fromTo("#wv3_2", { scale: 0.04, opacity: 0.95 }, { scale: 2.0, opacity: 0, duration: 1.26, ease: "power1.out", repeat: 1 }, 13.34);
+    tl.fromTo("#dl3", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 14.71);
+    (() => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: 69.5, duration: 0.8, ease: "power3.out", immediateRender: false, onUpdate: () => { $("#dv3").textContent = o.v.toFixed(1); } }, 14.71); })();
+    tl.fromTo("#c1", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 12.43);
+    tl.fromTo("#c2", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 12.85);
+    tl.fromTo("#ph3", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 11.84);
+    tl.fromTo("#e1", { opacity: 0, x: -400, scaleX: 2.4, scale: 1, filter: "blur(22px)" }, { opacity: 1, x: 0, scaleX: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 16.72);
+    tl.fromTo("#e2", { opacity: 0, x: 0, scaleX: 1, scale: 0.2, filter: "blur(0px)" }, { opacity: 1, x: 0, scaleX: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 17.44);
+    tl.fromTo("#e3", { opacity: 0, x: 400, scaleX: 2.4, scale: 1, filter: "blur(22px)" }, { opacity: 1, x: 0, scaleX: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 17.84);
+    tl.to("#eq", { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, 18.71);
+    tl.fromTo("#g4", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 18.81);
+    tl.fromTo("#cnt", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 18.91);
+    tl.call(() => { $("#cn").textContent = "1"; $("#cl").textContent = "SATELLITE = A CIRCLE"; }, null, 0);
+    tl.fromTo("#sm0", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 19.79);
+    tl.to("#ci0", { strokeDashoffset: 0, duration: 1.1, ease: "power3.inOut" }, 20.04);
+    tl.call(() => { $("#cn").textContent = "2"; $("#cl").textContent = "CIRCLES = 2 POINTS"; }, null, 22.63);
+    tl.fromTo("#cn", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, 22.63);
+    tl.fromTo("#sm1", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 22.43);
+    tl.to("#ci1", { strokeDashoffset: 0, duration: 0.8, ease: "power3.inOut" }, 22.68);
+    tl.fromTo("#x2", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 23.99);
+    tl.fromTo("#you", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 24.17);
+    tl.call(() => { $("#cn").textContent = "3"; $("#cl").textContent = "CIRCLES = 1 POINT"; }, null, 25.03);
+    tl.fromTo("#cn", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, 25.03);
+    tl.fromTo("#sm2", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 24.83);
+    tl.to("#ci2", { strokeDashoffset: 0, duration: 0.8, ease: "power3.inOut" }, 25.08);
+    tl.to("#x2", { opacity: 0, scale: 0.2, duration: 0.3 }, 25.94);
+    tl.to("#you i", { backgroundColor: "#ff5a1f", boxShadow: "0 0 0 14px rgba(255,90,31,0.3), 0 0 70px rgba(255,90,31,0.9)", duration: 0.3 }, 25.99);
+    tl.fromTo("#you", { scale: 1 }, { scale: 1.7, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 25.99);
+    tl.to("#gd2_3", { scale: 0.87, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.38);
+    tl.to("#gd2_4", { scale: 1.20, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.33);
+    tl.to("#gd2_5", { scale: 1.26, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.32);
+    tl.to("#gd2_6", { scale: 1.03, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.to("#gd3_2", { scale: 0.82, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.38);
+    tl.to("#gd3_3", { scale: 1.46, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.29);
+    tl.to("#gd3_4", { scale: 1.93, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.22);
+    tl.to("#gd3_5", { scale: 2.02, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.21);
+    tl.to("#gd3_6", { scale: 1.67, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.26);
+    tl.to("#gd3_7", { scale: 1.09, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.to("#gd4_2", { scale: 1.09, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.to("#gd4_3", { scale: 1.84, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.24);
+    tl.to("#gd4_4", { scale: 2.54, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.14);
+    tl.to("#gd4_5", { scale: 2.75, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.10);
+    tl.to("#gd4_6", { scale: 2.13, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.19);
+    tl.to("#gd4_7", { scale: 1.39, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.30);
+    tl.to("#gd5_2", { scale: 1.09, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.to("#gd5_3", { scale: 1.84, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.24);
+    tl.to("#gd5_4", { scale: 2.54, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.14);
+    tl.to("#gd5_5", { scale: 2.75, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.10);
+    tl.to("#gd5_6", { scale: 2.13, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.19);
+    tl.to("#gd5_7", { scale: 1.39, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.30);
+    tl.to("#gd6_2", { scale: 0.82, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.38);
+    tl.to("#gd6_3", { scale: 1.46, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.29);
+    tl.to("#gd6_4", { scale: 1.93, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.22);
+    tl.to("#gd6_5", { scale: 2.02, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.21);
+    tl.to("#gd6_6", { scale: 1.67, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.26);
+    tl.to("#gd6_7", { scale: 1.09, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.to("#gd7_3", { scale: 0.87, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.38);
+    tl.to("#gd7_4", { scale: 1.20, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.33);
+    tl.to("#gd7_5", { scale: 1.26, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.32);
+    tl.to("#gd7_6", { scale: 1.03, backgroundColor: "#ff5a1f", rotation: 45, duration: 0.35, ease: "back.out(2)" }, 26.35);
+    tl.call(() => { $("#cn").textContent = "4"; $("#cl").textContent = "SATELLITES = CLOCK FIXED"; }, null, 27.51);
+    tl.fromTo("#cn", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, 27.51);
+    tl.fromTo("#sm3", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 27.31);
+    tl.to("#ci3", { strokeDashoffset: 0, duration: 0.8, ease: "power3.inOut" }, 27.56);
+    tl.fromTo("#clk", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 28.43);
+    tl.fromTo("#clh", { rotation: -90, svgOrigin: "50 50" }, { rotation: 0, duration: 0.5, ease: "back.out(2.5)" }, 28.53);
+    tl.fromTo("#f1", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 30.49);
+    tl.fromTo("#f1l", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 31.24);
+    tl.fromTo("#f2", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 33.16);
+    tl.fromTo("#g7", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 35.31);
+    tl.fromTo("#ed", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 35.87);
+    tl.fromTo("#hl", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 36.02);
+    tl.fromTo("#er1", { scale: 0.3, opacity: 0.9 }, { scale: 3.6, opacity: 0, duration: 1.2, ease: "power2.out", repeat: 3 }, 36.02);
+    tl.fromTo("#er2", { scale: 0.3, opacity: 0.9 }, { scale: 3.6, opacity: 0, duration: 1.2, ease: "power2.out", repeat: 3 }, 36.62);
+    tl.fromTo("#h1", { opacity: 0, x: -520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 35.46);
+    tl.fromTo("#h2", { opacity: 0, x: 520, scaleX: 2.6, filter: "blur(26px)" }, { opacity: 1, x: 0, scaleX: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 37.66);
+    tl.fromTo("#h2", { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, 38.51);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
