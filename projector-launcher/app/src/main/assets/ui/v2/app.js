@@ -177,13 +177,25 @@
   }
 
   // ---------- Darstellung ----------
+  const tabLens = h('div'); tabLens.id = 'tab-lens';
+  let lensPlaced = false;
   function renderTabs() {
-    el.tabs.innerHTML = '';
-    SH.forEach((s, i) => {
-      const b = h('button', 'tab' + (i === S.shelf ? ' on' : ''), s.title);
-      b.addEventListener('click', () => setShelf(i));
-      el.tabs.appendChild(b);
-    });
+    if (!el.tabs.querySelector('.tab')) {
+      el.tabs.appendChild(tabLens);
+      SH.forEach((s, i) => {
+        const b = h('button', 'tab', esc(s.title));
+        b.addEventListener('click', () => setShelf(i));
+        el.tabs.appendChild(b);
+      });
+    }
+    const tabs = el.tabs.querySelectorAll('.tab');
+    tabs.forEach((b, i) => b.classList.toggle('on', i === S.shelf));
+    const t = tabs[S.shelf]; if (!t) return;
+    if (!lensPlaced) tabLens.classList.add('snap');
+    else { tabLens.classList.remove('squish'); void tabLens.offsetWidth; tabLens.classList.add('squish'); }
+    tabLens.style.width = t.offsetWidth + 'px';
+    tabLens.style.transform = `translateX(${t.offsetLeft}px)`;
+    if (!lensPlaced) { lensPlaced = true; requestAnimationFrame(() => requestAnimationFrame(() => tabLens.classList.remove('snap'))); }
   }
 
   function renderPeek() {
@@ -203,7 +215,8 @@
     el.row.innerHTML = ''; cards = [];
     shelf.items.forEach((it, i) => {
       const c = h('div', 'card' + (it.kind === 'app' && S.shelf !== 0 && S.favs.includes(it.key) ? ' isfav' : ''));
-      c.appendChild(h('div', 'face'));
+      c.appendChild(h('i', 'bezel'));
+      const face = h('div', 'face'); face.appendChild(h('i', 'shine')); c.appendChild(face);
       c.addEventListener('click', () => { if (i === S.idx[S.shelf]) activate(); else { S.idx[S.shelf] = i; update(); } });
       c.addEventListener('contextmenu', (e) => { e.preventDefault(); S.idx[S.shelf] = i; update(); openMenu(); });
       el.row.appendChild(c); cards.push(c);
@@ -223,10 +236,10 @@
       const d = i - i0;
       const on = d >= -1 && d <= visibleRight;
       // Bilder nur für sichtbare Karten laden; weit entfernte wieder freigeben
-      const face = c.firstChild;
+      const face = c.querySelector('.face'), has = face.querySelector('img');
       if (d >= -2 && d <= visibleRight + 2) {
-        if (!face.firstChild) { const img = new Image(); img.alt = ''; img.decoding = 'async'; img.src = shelf.items[i].img; face.appendChild(img); }
-      } else if (face.firstChild && Math.abs(d) > 30) face.textContent = '';
+        if (!has) { const img = new Image(); img.alt = ''; img.decoding = 'async'; img.src = shelf.items[i].img; face.prepend(img); }
+      } else if (has && Math.abs(d) > 30) has.remove();
       c.style.visibility = on ? '' : 'hidden';
       if (!on) return;
       const x = X0 + d * (W + G) + (d > 0 ? EXTRA : 0);
@@ -524,7 +537,7 @@
     // Android meldet RAM-Knappheit: Bilder außerhalb des Blickfelds freigeben
     onLowMemory: () => {
       const i0 = S.idx[S.shelf];
-      cards.forEach((c, i) => { if (Math.abs(i - i0) > 10) c.firstChild.textContent = ''; });
+      cards.forEach((c, i) => { const img = c.querySelector('.face img'); if (img && Math.abs(i - i0) > 10) img.remove(); });
       for (const k in colorCache) delete colorCache[k];
     },
   };
@@ -534,5 +547,7 @@
   SH = buildShelves();
   buildRow();
   tick(); updateNet(); loadWeather(); lastWeather = lastNet = Date.now();
-  window.addEventListener('resize', () => update(true));
+  window.addEventListener('resize', () => { update(true); lensPlaced = false; renderTabs(); });
+  // Tab-Breiten stimmen erst, wenn die Schrift geladen ist
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { lensPlaced = false; renderTabs(); });
 })();
