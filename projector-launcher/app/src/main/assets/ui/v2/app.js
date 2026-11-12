@@ -288,12 +288,32 @@
   function refresh() { loadApps(); SH = buildShelves(); buildRail(); }
 
   // ---------- Uhr, Wetter, Netz ----------
+  // Uhr mit rollenden Ziffern: nur die Stelle, die sich ändert, wird animiert
+  const digits = [];
+  (function buildClock() {
+    el.time.innerHTML = '';
+    for (let i = 0; i < 4; i++) {
+      if (i === 2) el.time.appendChild(h('span', 'colon', ':'));
+      const d = h('span', 'd'); d.appendChild(h('i', '', '')); el.time.appendChild(d); digits.push(d);
+    }
+  })();
+  function setDigit(d, ch) {
+    const curI = d.lastElementChild;
+    if (curI.textContent === ch) return;
+    if (!curI.textContent) { curI.textContent = ch; return; }
+    curI.classList.remove('in'); curI.classList.add('out');
+    setTimeout(() => curI.remove(), 750);
+    const n = h('i', 'in'); n.textContent = ch; d.appendChild(n);
+  }
   function tick() {
     const d = new Date();
-    el.time.textContent = d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+    const hm = String(d.getHours()).padStart(2, '0') + String(d.getMinutes()).padStart(2, '0');
+    [...hm].forEach((ch, i) => setDigit(digits[i], ch));
+    el.time.setAttribute('aria-label', hm.slice(0, 2) + ':' + hm.slice(2));
     const hh = d.getHours();
     const g = hh >= 5 && hh < 11 ? 'Guten Morgen' : hh < 17 && hh >= 11 ? 'Guten Tag' : hh < 22 && hh >= 17 ? 'Guten Abend' : 'Gute Nacht';
-    el.date.textContent = `${d.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' })} · ${g}${S.name ? ', ' + S.name : ''}`;
+    el.date.innerHTML = `<b>${d.toLocaleDateString('de-DE', { weekday: 'long' })}</b>${d.toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })}`;
+    $('#greet').textContent = g + (S.name ? ', ' + S.name : '');
   }
   async function getJSON(url) {
     const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 8000);

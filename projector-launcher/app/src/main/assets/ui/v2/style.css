@@ -37,8 +37,21 @@ svg { width: 1em; height: 1em; display: block; }
 
 /* ---------- Uhr & Status ---------- */
 #clock { position: fixed; z-index: 2; left: 4rem; top: 2.6rem; transition: all 1.2s var(--glide); }
-#time { font-size: 3.4rem; font-weight: 200; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
-#date { font-size: 1rem; color: var(--muted); margin-top: .45rem; font-weight: 500; }
+/* Uhr: kräftig genug für die Leinwand, Ziffern rollen beim Wechsel */
+#time { display: flex; align-items: center; font-size: 4.1rem; font-weight: 500; letter-spacing: -.02em; line-height: 1;
+  font-variant-numeric: tabular-nums; filter: drop-shadow(0 0 1.4rem rgba(255,255,255,.16)) drop-shadow(0 .3rem .8rem rgba(0,0,0,.35));
+  transition: font-size 1.2s var(--glide); }
+#time .d { position: relative; display: inline-block; width: .6em; height: 1.08em; overflow: hidden; text-align: center; }
+#time .d i { position: absolute; left: 0; right: 0; top: 0; font-style: normal; line-height: 1.08em; }
+#time .d i.in { animation: digitIn .7s var(--glide) both; }
+#time .d i.out { animation: digitOut .7s var(--glide) both; }
+@keyframes digitIn { from { transform: translateY(85%); opacity: 0; filter: blur(3px); } }
+@keyframes digitOut { to { transform: translateY(-85%); opacity: 0; filter: blur(3px); } }
+#time .colon { display: inline-block; width: .3em; text-align: center; transform: translateY(-.07em); animation: breathe 2s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+#date { font-size: 1.1rem; color: var(--muted); margin-top: .55rem; font-weight: 500; }
+#date b { color: var(--text); font-weight: 600; margin-right: .35rem; }
+#greet { font-size: .95rem; color: var(--faint); margin-top: .3rem; font-weight: 500; }
 #status { position: fixed; z-index: 2; right: 4rem; top: 3rem; display: flex; gap: 1.4rem; align-items: center; font-size: 1.05rem; color: var(--muted); font-weight: 500; }
 #status svg { font-size: 1.3rem; }
 #weather { display: flex; gap: .5rem; align-items: center; }
@@ -46,18 +59,18 @@ svg { width: 1em; height: 1em; display: block; }
 #net.off { color: #fda4af; }
 
 /* ---------- Titel der gewählten App ---------- */
-#hero { position: fixed; z-index: 2; left: 4rem; right: 22rem; top: 11.5rem; transition: opacity .6s; }
+#hero { position: fixed; z-index: 2; left: 4rem; right: 22rem; top: 13.4rem; transition: opacity .6s; }
 #hero-label { font-size: .85rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); display: flex; gap: .8rem; }
 #hero-label span { color: var(--faint); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
 #hero-name { font-size: 4.6rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.02; margin-top: .6rem;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 .4rem 2rem rgba(0,0,0,.35); }
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-bottom: .1em; }
 #hero-name.swap { animation: swap .5s var(--glide); }
 @keyframes swap { from { opacity: 0; transform: translateY(.8rem); filter: blur(4px); } }
 #hero-sub { margin-top: .8rem; font-size: 1.05rem; color: var(--muted); }
 #hero-sub b { color: var(--text); font-weight: 600; }
 
 /* ---------- Regale (Hoch/Runter) ---------- */
-#shelves { position: fixed; z-index: 2; right: 4rem; top: 12rem; display: flex; flex-direction: column; gap: .9rem; align-items: flex-end; }
+#shelves { position: fixed; z-index: 2; right: 4rem; top: 13.9rem; display: flex; flex-direction: column; gap: .9rem; align-items: flex-end; }
 .shelf { display: flex; align-items: center; gap: .8rem; font-size: 1rem; font-weight: 600; color: var(--faint); transition: color .4s, transform .5s var(--glide); }
 .shelf i { width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; transition: all .5s var(--glide); }
 .shelf.on { color: var(--text); transform: translateX(-.3rem); }
@@ -103,8 +116,9 @@ svg { width: 1em; height: 1em; display: block; }
 body.idle #hero, body.idle #shelves, body.idle #stage, body.idle #status { opacity: 0; pointer-events: none; }
 #hero, #shelves, #stage, #status { transition: opacity .9s; }
 body.idle #clock { left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
-body.idle #time { font-size: 9rem; font-weight: 100; }
-body.idle #date { font-size: 1.4rem; }
+body.idle #time { font-size: 10rem; justify-content: center; }
+body.idle #date { font-size: 1.5rem; margin-top: 1rem; }
+body.idle #greet { font-size: 1.1rem; }
 body.idle .amb.on { opacity: .35; }
 
 /* ---------- Menüs ---------- */
