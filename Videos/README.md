@@ -21,7 +21,7 @@
 | 15 | Doubly Landlocked | 34 s | EN |
 | 16 | How GPS Works | 42 s | EN |
 | 17 | First Try | 22 s | EN |
-| 18 | Why You Scroll | 44 s | EN |
+| 18 | Why You Scroll | 40 s | EN |
 
 ---
 
