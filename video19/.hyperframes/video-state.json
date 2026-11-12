@@ -738,5 +738,18 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "8f51fd52-7a8d-4d3d-970d-d6c22c23bc15",
+      "completedAt": 1794467222628,
+      "output": "/home/user/Claude-code/video19/out/raw.mp4",
+      "status": "completed",
+      "revision": "cd124728-0093-472c-b201-98b05cccf1f3"
+    },
+    "retainedRevisions": [
+      "cd124728-0093-472c-b201-98b05cccf1f3"
+    ]
+  },
+  "pendingArtifactCleanup": []
 }

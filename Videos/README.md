@@ -20,6 +20,7 @@
 | 14 | Money Stacks to Scale | 32 s | EN |
 | 15 | Doubly Landlocked | 34 s | EN |
 | 16 | How GPS Works | 42 s | EN |
+| 17 | First Try | 22 s | EN |
 
 ---
 
@@ -86,3 +87,7 @@
 ### 16 · How GPS Works
 **Titel:** Your phone never talks to GPS 🛰️
 #gps #howitworks #tech #didyouknow #shorts
+
+### 17 · First Try
+**Titel:** Nobody remembers your first try.
+#motivation #mindset #juststart #discipline #shorts
