@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Beamer Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="aurora">
+
+<div id="bg" aria-hidden="true">
+  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+  <div class="vignette"></div>
+</div>
+
+<header id="top">
+  <div class="clockbox">
+    <div id="time">--:--</div>
+    <div class="sub"><span id="greeting"></span><span class="sep"></span><span id="date"></span></div>
+  </div>
+  <div class="status">
+    <button id="weather" class="chip" data-nav data-key="weather"></button>
+    <span id="net" class="chip ghost" aria-label="Netzwerk"></span>
+    <button id="btn-settings" class="chip round" data-nav data-key="settings" aria-label="Einstellungen"></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="sec">
+    <h2>Favoriten</h2>
+    <div id="favs" class="row favs"></div>
+  </section>
+  <section class="sec">
+    <div id="quick" class="row quick"></div>
+  </section>
+  <section class="sec">
+    <h2>Alle Apps <span id="appcount" class="count"></span></h2>
+    <div id="apps" class="grid"></div>
+  </section>
+</main>
+
+<div id="hint" class="hint"><b>OK</b> öffnen · <b>OK lang</b> / <b>Menü</b> Optionen · <b>Zurück</b> nach oben</div>
+
+<div id="menu" class="overlay hidden">
+  <div class="sheet menu-sheet">
+    <div class="menu-head"><img id="menu-ico" alt=""><div id="menu-title"></div></div>
+    <div id="menu-items" class="menu-items"></div>
+  </div>
+</div>
+
+<div id="settings" class="overlay hidden">
+  <aside class="sheet side">
+    <h3>Einstellungen</h3>
+    <div id="settings-body"></div>
+  </aside>
+</div>
+
+<div id="saver" class="hidden">
+  <div id="saver-clock"><div id="s-time"></div><div id="s-date"></div></div>
+</div>
+
+<div id="toast"></div>
+
+<script src="mock.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

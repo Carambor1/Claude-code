@@ -1,0 +1,52 @@
+name: Beamer Home APK
+
+on:
+  push:
+    paths:
+      - 'projector-launcher/**'
+      - '.github/workflows/beamer-home.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+
+      - name: APK bauen
+        working-directory: projector-launcher
+        run: gradle --no-daemon assembleRelease
+
+      - name: APK umbenennen
+        run: cp projector-launcher/app/build/outputs/apk/release/app-release.apk BeamerHome.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BeamerHome-apk
+          path: BeamerHome.apk
+
+      - name: Als Release "beamer-home-latest" veröffentlichen
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: beamer-home-latest
+          name: Beamer Home (neueste Version)
+          target_commitish: ${{ github.sha }}
+          prerelease: true
+          files: BeamerHome.apk
+          body: |
+            Startbildschirm für den Magcubic HY300 Pro+ (und andere Android-Beamer).
+            Build ${{ github.run_number }} vom Commit ${{ github.sha }}.
+
+            Direkter Download: https://github.com/${{ github.repository }}/releases/download/beamer-home-latest/BeamerHome.apk
