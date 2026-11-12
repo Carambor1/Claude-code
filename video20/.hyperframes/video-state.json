@@ -319,15 +319,14 @@
   },
   "snapshots": {
     "latest": {
-      "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
-      "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-8"
+      "revision": null,
+      "id": "c250b302-dd5e-4b14-854f-03f0cf38c3f1-7"
     },
     "revisions": {
       "d2a6d464-9816-4dbb-a44e-f7821ba6672e": [
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-0",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-00-at-3.5s.png",
           "time": 3.5,
           "metadata": {
             "width": 1080,
@@ -342,12 +341,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-1",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-01-at-16.4s.png",
           "time": 16.4,
           "metadata": {
             "width": 1080,
@@ -362,12 +362,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-2",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-02-at-18.4s.png",
           "time": 18.4,
           "metadata": {
             "width": 1080,
@@ -382,12 +383,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-3",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-03-at-19.8s.png",
           "time": 19.8,
           "metadata": {
             "width": 1080,
@@ -402,12 +404,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-4",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-04-at-28.5s.png",
           "time": 28.5,
           "metadata": {
             "width": 1080,
@@ -422,12 +425,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-5",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-05-at-33.2s.png",
           "time": 33.2,
           "metadata": {
             "width": 1080,
@@ -442,12 +446,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-6",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-06-at-36.5s.png",
           "time": 36.5,
           "metadata": {
             "width": 1080,
@@ -462,12 +467,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-7",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-07-at-41s.png",
           "time": 41,
           "metadata": {
             "width": 1080,
@@ -482,12 +488,13 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         },
         {
           "scope": "full",
           "id": "8f6b2af8-6131-4ed8-942a-2429d77e3ea7-8",
-          "image": "/home/user/Claude-code/video20/.hyperframes/artifacts/snapshots/990e841d-4b72-4bf4-ae50-f4de2f77c6b0/frame-08-at-43.25s.png",
           "time": 43.25,
           "metadata": {
             "width": 1080,
@@ -502,7 +509,9 @@
           "revision": "d2a6d464-9816-4dbb-a44e-f7821ba6672e",
           "inputFingerprint": "87504b9a536353b38c406b28754b1aa4dde477a2bc51842c502f3b3425355089",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "995c6e65-e93f-4375-a978-90c88bd78b5a"
         }
       ]
     },
@@ -788,5 +797,18 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "995c6e65-e93f-4375-a978-90c88bd78b5a",
+      "completedAt": 1794498482173,
+      "output": "/home/user/Claude-code/video20/out/raw.mp4",
+      "status": "completed",
+      "revision": "321b1d59-1e58-476d-9ed5-b8c6a86c349f"
+    },
+    "retainedRevisions": [
+      "321b1d59-1e58-476d-9ed5-b8c6a86c349f"
+    ]
+  },
+  "pendingArtifactCleanup": []
 }

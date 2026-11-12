@@ -21,6 +21,7 @@
 | 15 | Doubly Landlocked | 34 s | EN |
 | 16 | How GPS Works | 42 s | EN |
 | 17 | First Try | 22 s | EN |
+| 18 | Why You Scroll | 44 s | EN |
 
 ---
 
@@ -91,3 +92,7 @@
 ### 17 · First Try
 **Titel:** Nobody remembers your first try.
 #motivation #mindset #juststart #discipline #shorts
+
+### 18 · Why You Scroll
+**Titel:** Why you can't stop scrolling 📱
+#scrolling #screentime #psychology #dopamine #shorts
