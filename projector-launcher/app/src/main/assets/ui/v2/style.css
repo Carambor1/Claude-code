@@ -41,7 +41,7 @@ svg { width: 1em; height: 1em; display: block; }
 
 /* ---------- Kopfzeile ---------- */
 #top { position: fixed; z-index: 2; left: 4rem; right: 4rem; top: 2.4rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; }
-#time { display: flex; align-items: center; font-size: 3.6rem; font-weight: 600; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+#time { display: flex; align-items: center; font-size: 4.8rem; font-weight: 600; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
 #time .d { position: relative; display: inline-block; width: .62em; height: 1.08em; overflow: hidden; text-align: center; }
 #time .d i { position: absolute; left: 0; right: 0; top: 0; font-style: normal; line-height: 1.08em; }
 #time .d i.in { animation: digitIn .7s var(--glide) both; }
@@ -50,7 +50,7 @@ svg { width: 1em; height: 1em; display: block; }
 @keyframes digitOut { to { transform: translateY(-85%); opacity: 0; } }
 #time .colon { display: inline-block; width: .3em; text-align: center; transform: translateY(-.07em); animation: breathe 2s ease-in-out infinite; }
 @keyframes breathe { 50% { opacity: .35; } }
-#date { font-size: 1.25rem; color: var(--muted); margin-top: .5rem; }
+#date { font-size: 1.35rem; color: var(--muted); margin-top: .6rem; }
 #date b { color: var(--text); font-weight: 600; margin-right: .3rem; }
 
 #tabs { display: flex; gap: .4rem; padding: .35rem; border-radius: 2rem; background: rgba(255,255,255,.08); margin-top: .3rem; }
@@ -120,7 +120,7 @@ svg { width: 1em; height: 1em; display: block; }
 body.idle #hero, body.idle #row, body.idle #peek, body.idle #status, body.idle #tabs, body.idle #empty { opacity: 0; pointer-events: none; }
 body.idle #art { opacity: 0; }
 #clock { transition: transform 1s var(--glide); }
-body.idle #clock { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(2.4); text-align: center; }
+body.idle #clock { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(2.1); text-align: center; }
 body.idle #time { justify-content: center; }
 body.idle .amb.on { opacity: .55; }
 
