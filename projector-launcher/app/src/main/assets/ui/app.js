@@ -21,7 +21,8 @@
     city: store.get('city', null),        // { name, lat, lon }
     theme: store.get('theme', 'aurora'),
     saver: store.get('saver', 10),          // Minuten, 0 = aus
-    calm: store.get('calm', false),         // Hintergrund-Animation aus
+    calm: store.get('calm', true),          // Hintergrund-Animation aus (schont die GPU)
+    lite: store.get('lite', false),         // Glas ohne Echtzeit-Unschärfe
     moving: null,                           // Paket, das gerade verschoben wird
   };
 
@@ -207,8 +208,10 @@
     vis.forEach((a) => {
       const t = h('button', 'tile app' + (state.favs.includes(a.pkg) ? ' isfav' : ''));
       t.dataset.nav = ''; t.dataset.key = 'app:' + a.pkg; t.dataset.pkg = a.pkg;
+      const ic = h('div', 'ic');
       const img = new Image(); img.alt = ''; img.loading = 'lazy'; img.src = iconUrl(a.pkg);
-      t.appendChild(img);
+      ic.appendChild(img);
+      t.appendChild(ic);
       t.appendChild(h('span')).textContent = a.label;
       t.addEventListener('click', () => onTile(t));
       el.apps.appendChild(t);
@@ -339,6 +342,48 @@
       e.scrollIntoView({ block: 'nearest', behavior });
     }
   }
+
+  // ---------- Flüssige Fokus-Linse ----------
+  const lens = h('div'); lens.id = 'lens'; document.body.appendChild(lens);
+  let lensFor = null;
+  function lensSpec(e) {
+    if (e.classList.contains('fav')) return { t: e.querySelector('.art'), o: e, s: e.classList.contains('moving') ? 1 : 1.07 };
+    if (e.classList.contains('app')) return { t: e.querySelector('.ic'), o: e.querySelector('.ic'), s: 1.16 };
+    if (e.classList.contains('chip')) return { t: e, o: e, s: 1.07 };
+    if (e.classList.contains('qa')) return { t: e, o: e, s: 1.08 };
+    if (e.classList.contains('sw')) return { t: e, o: e, s: 1.14 };
+    return { t: e, o: e, s: 1 };
+  }
+  function placeLens(e, instant) {
+    if (!e || !inLayer(e) || !el.saver.classList.contains('hidden')) { lens.classList.remove('on'); lensFor = null; return; }
+    const { t, o, s } = lensSpec(e);
+    if (!t || !o.offsetWidth) return;
+    // Ergebnis der Fokus-Animation vorausberechnen, damit die Linse direkt ans Ziel gleitet
+    const or = o.getBoundingClientRect(), tr = t.getBoundingClientRect();
+    const sNow = or.width / o.offsetWidth || 1;
+    const ocx = or.left + or.width / 2, ocy = or.top + or.height / 2;
+    const tcx = ocx + (tr.left + tr.width / 2 - ocx) / sNow * s;
+    const tcy = ocy + (tr.top + tr.height / 2 - ocy) / sNow * s;
+    const pad = 4;
+    const w = t.offsetWidth * s + pad * 2, hgt = t.offsetHeight * s + pad * 2;
+    const br = getComputedStyle(t).borderTopLeftRadius;
+    const rad = br.includes('%') ? Math.min(w, hgt) / 2 : parseFloat(br) * s + pad;
+    if (instant || !lens.classList.contains('on')) lens.classList.add('snap');
+    lens.style.width = w + 'px'; lens.style.height = hgt + 'px';
+    lens.style.borderRadius = rad + 'px';
+    lens.style.transform = `translate(${tcx - w / 2}px, ${tcy - hgt / 2}px)`;
+    if (lensFor && lensFor !== e) { lens.classList.remove('squish'); void lens.offsetWidth; lens.classList.add('squish'); }
+    lensFor = e;
+    lens.classList.add('on');
+    if (lens.classList.contains('snap')) requestAnimationFrame(() => requestAnimationFrame(() => lens.classList.remove('snap')));
+  }
+  let lensRaf = 0;
+  const relens = () => { if (lensRaf) return; lensRaf = requestAnimationFrame(() => { lensRaf = 0; placeLens(document.activeElement); }); };
+  document.addEventListener('focusin', relens);
+  document.addEventListener('focusout', () => setTimeout(relens, 0));
+  document.addEventListener('scroll', relens, true);
+  document.addEventListener('animationend', (e) => { if (e.target.classList && (e.target.classList.contains('sheet'))) relens(); }, true);
+  window.addEventListener('resize', () => placeLens(document.activeElement, true));
 
   function move(dir) {
     const cur = document.activeElement;
@@ -527,6 +572,7 @@
       <div class="set"><label>Design</label><div class="swatches" id="sw"></div></div>
       <div class="set stack">
         <button class="btn wide" data-nav data-key="s:saver" id="btn-saver">${I.moon}<span>Bildschirmschoner</span><span class="val"></span></button>
+        <button class="btn wide" data-nav data-key="s:lite" id="btn-lite">${I.display}<span>Glas-Effekt</span><span class="val"></span></button>
         <button class="btn wide" data-nav data-key="s:calm" id="btn-calm">${I.wave}<span>Bewegter Hintergrund</span><span class="val"></span></button>
         <button class="btn wide" data-nav data-key="s:unhide" id="btn-unhide">${I.eye}<span>Ausgeblendete Apps zeigen</span><span class="val"></span></button>
       </div>
@@ -561,14 +607,16 @@
       sw.appendChild(b);
     });
 
-    const saverBtn = $('#btn-saver'), calmBtn = $('#btn-calm'), unhideBtn = $('#btn-unhide');
+    const saverBtn = $('#btn-saver'), calmBtn = $('#btn-calm'), unhideBtn = $('#btn-unhide'), liteBtn = $('#btn-lite');
     const paint = () => {
       saverBtn.querySelector('.val').textContent = state.saver ? `nach ${state.saver} Min.` : 'aus';
       calmBtn.querySelector('.val').textContent = state.calm ? 'aus' : 'an';
+      liteBtn.querySelector('.val').textContent = state.lite ? 'leicht (schneller)' : 'voll';
       unhideBtn.querySelector('.val').textContent = state.hidden.length || 'keine';
     };
     paint();
     saverBtn.addEventListener('click', () => { state.saver = SAVER_STEPS[(SAVER_STEPS.indexOf(state.saver) + 1) % SAVER_STEPS.length]; store.set('saver', state.saver); paint(); });
+    liteBtn.addEventListener('click', () => { state.lite = !state.lite; store.set('lite', state.lite); document.body.classList.toggle('lite', state.lite); paint(); });
     calmBtn.addEventListener('click', () => { state.calm = !state.calm; store.set('calm', state.calm); document.body.classList.toggle('calm', state.calm); paint(); });
     unhideBtn.addEventListener('click', () => { const n = state.hidden.length; state.hidden = []; store.set('hidden', []); render(); paint(); toast(n ? n + ' App(s) wieder sichtbar' : 'Keine Apps ausgeblendet'); });
     $('#btn-home').addEventListener('click', () => call('openSettings', 'home'));
@@ -599,6 +647,7 @@
   }
   function showSaver() {
     el.saver.classList.remove('hidden');
+    lens.classList.remove('on');
     const place = () => {
       el.saverClock.style.opacity = 0;
       setTimeout(() => {
@@ -611,7 +660,7 @@
     place();
     saverMove = setInterval(place, 30000);
   }
-  function hideSaver() { el.saver.classList.add('hidden'); clearInterval(saverMove); lastInput = Date.now(); }
+  function hideSaver() { el.saver.classList.add('hidden'); clearInterval(saverMove); lastInput = Date.now(); relens(); }
   setInterval(() => {
     if (!state.saver || !el.saver.classList.contains('hidden') || document.hidden) return;
     if (layer() !== document.body || state.moving) return;
@@ -655,6 +704,7 @@
   // ---------- Start ----------
   document.body.dataset.theme = state.theme;
   document.body.classList.toggle('calm', state.calm);
+  document.body.classList.toggle('lite', state.lite);
   loadApps();
   render();
   tick();
