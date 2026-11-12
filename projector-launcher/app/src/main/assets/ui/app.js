@@ -580,6 +580,7 @@
         <button class="btn wide" data-nav data-key="s:unhide" id="btn-unhide">${I.eye}<span>Ausgeblendete Apps zeigen</span><span class="val"></span></button>
       </div>
       <div class="set stack">
+        <button class="btn wide" data-nav data-key="s:v2" id="btn-v2">${I.display}<span>Zu Version 2 (Kino) wechseln</span></button>
         <button class="btn wide" data-nav data-key="s:home" id="btn-home">${I.home}<span>Standard-Startbildschirm wählen</span></button>
         <button class="btn wide" data-nav data-key="s:sys" id="btn-sys">${I.gear}<span>Android-Einstellungen</span></button>
         <button class="btn wide" data-nav data-key="s:date" id="btn-date">${I.info}<span>Datum &amp; Uhrzeit</span></button>
@@ -622,6 +623,7 @@
     liteBtn.addEventListener('click', () => { state.lite = !state.lite; store.set('lite', state.lite); document.body.classList.toggle('lite', state.lite); paint(); });
     calmBtn.addEventListener('click', () => { state.calm = !state.calm; store.set('calm', state.calm); document.body.classList.toggle('calm', state.calm); paint(); });
     unhideBtn.addEventListener('click', () => { const n = state.hidden.length; state.hidden = []; store.set('hidden', []); render(); paint(); toast(n ? n + ' App(s) wieder sichtbar' : 'Keine Apps ausgeblendet'); });
+    $('#btn-v2').addEventListener('click', () => { store.set('ui', 'v2'); location.href = 'v2/index.html'; });
     $('#btn-home').addEventListener('click', () => call('openSettings', 'home'));
     $('#btn-sys').addEventListener('click', () => call('openSettings', 'all'));
     $('#btn-date').addEventListener('click', () => call('openSettings', 'date'));
