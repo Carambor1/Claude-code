@@ -3,3 +3,4 @@ video*/out/.raw.*/
 video*/out/raw.mp4
 video*/node_modules
 video*/.hyperframes/render-outputs.json
+video*/.hyperframes/video-state.json
