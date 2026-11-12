@@ -1,0 +1,203 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: linear-gradient(170deg, #241a5c 0%, #101b4a 45%, #2a1040 100%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .ctr { left: 0; width: 1080px; text-align: center; }
+    #root #bg { inset: 0; }
+    #root .blob { border-radius: 50%; opacity: 0.9; }
+    #root .scene { inset: 0; opacity: 0; }
+    #root .glass { background: radial-gradient(120% 70% at 8% 0%, rgba(255,255,255,0.34), rgba(255,255,255,0) 60%), linear-gradient(140deg, rgba(255,255,255,0.22), rgba(255,255,255,0.07) 55%, rgba(255,255,255,0.14)); -webkit-backdrop-filter: blur(30px) saturate(170%); backdrop-filter: blur(30px) saturate(170%); border: 2px solid rgba(255,255,255,0.45); box-shadow: inset 0 2.5px 0 rgba(255,255,255,0.7), inset 0 -1.5px 0 rgba(255,255,255,0.14), inset 0 0 40px rgba(255,255,255,0.06), 0 34px 90px rgba(0,0,0,0.38); }
+    #root .isl { left: 325px; top: 132px; width: 430px; height: 96px; border-radius: 48px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #root .isl span { font-weight: 600; font-size: 40px; letter-spacing: -0.01em; white-space: nowrap; }
+    #root .ttl { top: 300px; }
+    #root .ttl div { font-weight: 700; font-size: 104px; letter-spacing: -0.035em; line-height: 1.08; white-space: nowrap; text-shadow: 0 6px 40px rgba(0,0,0,0.35); opacity: 0; }
+    #root .ttl .l2 { color: rgba(255,255,255,0.72); }
+    #root .phone { left: 280px; top: 620px; width: 520px; height: 860px; border-radius: 86px; overflow: hidden; }
+    #root .feedw { position: absolute; left: 34px; right: 54px; top: 34px; bottom: 34px; overflow: hidden; border-radius: 56px; }
+    #root .fc { height: 190px; margin-bottom: 22px; border-radius: 40px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; gap: 22px; padding: 0 24px; }
+    #root .fc .th { width: 130px; height: 130px; border-radius: 30px; flex: none; }
+    #root .fc .ln { flex: 1; display: flex; flex-direction: column; gap: 18px; }
+    #root .fc .ln i { display: block; height: 20px; border-radius: 10px; background: rgba(255,255,255,0.55); }
+    #root .sbar { right: 22px; top: 70px; bottom: 70px; width: 10px; border-radius: 5px; background: rgba(255,255,255,0.18); }
+    #root .sbar i { position: absolute; left: 0; top: 0; width: 10px; height: 120px; border-radius: 5px; background: rgba(255,255,255,0.9); }
+    #root .thumb { left: 610px; top: 1250px; width: 120px; height: 120px; border-radius: 50%; opacity: 0; }
+    #root .chip { height: 104px; padding: 0 44px; border-radius: 52px; display: flex; align-items: center; font-weight: 600; font-size: 46px; letter-spacing: -0.01em; white-space: nowrap; opacity: 0; }
+    #root .chip b { color: #fff; font-weight: 800; text-shadow: 0 0 24px rgba(255,55,95,0.95), 0 0 6px rgba(255,55,95,0.9); }
+    #root .reel { top: 720px; width: 250px; height: 330px; border-radius: 60px; overflow: hidden; }
+    #root #rl0 { left: 115px; } #root #rl1 { left: 415px; } #root #rl2 { left: 715px; }
+    #root .strip { position: absolute; left: 0; top: 0; width: 100%; }
+    #root .gw { height: 330px; display: flex; align-items: center; justify-content: center; }
+    #root .gw svg { width: 150px; height: 135px; filter: drop-shadow(0 0 30px rgba(255,55,95,0.8)); }
+    #root .gw .dash { width: 120px; height: 26px; border-radius: 13px; background: rgba(255,255,255,0.5); }
+    #root .spin { left: 495px; top: 600px; width: 90px; height: 90px; border-radius: 50%; border: 9px solid rgba(255,255,255,0.25); border-top-color: #fff; opacity: 0; }
+    #root .vid { left: 140px; top: 650px; width: 800px; height: 520px; border-radius: 64px; }
+    #root .play { position: absolute; left: 350px; top: 200px; width: 0; height: 0; border-left: 110px solid rgba(255,255,255,0.92); border-top: 62px solid transparent; border-bottom: 62px solid transparent; }
+    #root .next { left: 590px; top: 1230px; width: 350px; height: 150px; border-radius: 75px; display: flex; align-items: center; gap: 22px; padding: 0 24px; opacity: 0; }
+    #root .next svg { width: 104px; height: 104px; flex: none; }
+    #root .next b { position: absolute; left: 24px; width: 104px; text-align: center; font-weight: 700; font-size: 48px; }
+    #root .next span { font-weight: 600; font-size: 42px; white-space: nowrap; }
+    #root .app { width: 220px; height: 220px; border-radius: 56px; opacity: 0; }
+    #root .app i { position: absolute; inset: 56px; border-radius: 50%; opacity: 0.9; }
+    #root .badge { position: absolute; right: -26px; top: -26px; min-width: 84px; height: 84px; padding: 0 22px; border-radius: 42px; background: #ff3b30; font-weight: 700; font-size: 46px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(255,59,48,0.6); transform: scale(0); }
+    #root .panel { left: 110px; top: 650px; width: 860px; border-radius: 70px; padding: 14px 54px; opacity: 0; }
+    #root .row { height: 190px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 60px; letter-spacing: -0.02em; border-bottom: 1.5px solid rgba(255,255,255,0.2); }
+    #root .row:last-child { border-bottom: 0; }
+    #root .tog { position: relative; width: 170px; height: 100px; border-radius: 50px; background: rgba(120,120,128,0.5); }
+    #root .tog.on { background: #30d158; }
+    #root .tog i { position: absolute; left: 8px; top: 8px; width: 84px; height: 84px; border-radius: 50%; background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+    #root .tog.on i { transform: translateX(70px); }
+    #root .tm { font-weight: 700; font-size: 60px; font-variant-numeric: tabular-nums; padding: 12px 34px; border-radius: 40px; background: rgba(255,255,255,0.2); opacity: 0.35; }
+    #root .plate { left: 90px; top: 560px; width: 900px; height: 520px; border-radius: 90px; opacity: 0; }
+    #root #tt6 { top: 690px; }
+    #root .capw { left: 0; top: 1580px; width: 1080px; display: flex; justify-content: center; }
+    #root .capw div { font-weight: 600; font-size: 50px; letter-spacing: -0.01em; padding: 18px 44px 22px; border-radius: 52px; white-space: nowrap; background: rgba(20,20,28,0.42); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); border: 1.5px solid rgba(255,255,255,0.28); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.4); }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <div class="abs" id="bg"><div class="abs blob" id="bl0" style="left:-540px;top:-220px;width:1200px;height:1200px;background:radial-gradient(circle,#5e5ce6 0%,#5e5ce600 68%)"></div><div class="abs blob" id="bl1" style="left:210px;top:-330px;width:1100px;height:1100px;background:radial-gradient(circle,#ff375f 0%,#ff375f00 68%)"></div><div class="abs blob" id="bl2" style="left:150px;top:500px;width:1300px;height:1300px;background:radial-gradient(circle,#0a84ff 0%,#0a84ff00 68%)"></div><div class="abs blob" id="bl3" style="left:-465px;top:775px;width:1050px;height:1050px;background:radial-gradient(circle,#ff9f0a 0%,#ff9f0a00 68%)"></div><div class="abs blob" id="bl4" style="left:40px;top:420px;width:800px;height:800px;background:radial-gradient(circle,#30d158 0%,#30d15800 68%)"></div><div class="abs blob" id="bl5" style="left:-250px;top:1200px;width:1100px;height:1100px;background:radial-gradient(circle,#bf5af2 0%,#bf5af200 68%)"></div><div class="abs blob" id="bl6" style="left:450px;top:1250px;width:900px;height:900px;background:radial-gradient(circle,#64d2ff 0%,#64d2ff00 68%)"></div></div><div class="abs scene" id="sc0"><div class="abs ctr ttl" id="tt0"><div class="l1" id="tt0a">You&rsquo;re not weak.</div><div class="l2" id="tt0b">It was built this way.</div></div><div class="abs glass phone" id="ph"><div class="feedw"><div class="feed" id="feed"><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ff375f,#ff9f0a)"></div><div class="ln"><i style="width:70%"></i><i style="width:40%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"></div><div class="ln"><i style="width:77%"></i><i style="width:58%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#30d158,#0a84ff)"></div><div class="ln"><i style="width:84%"></i><i style="width:41%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#bf5af2,#ff375f)"></div><div class="ln"><i style="width:91%"></i><i style="width:59%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ffd60a,#ff9f0a)"></div><div class="ln"><i style="width:98%"></i><i style="width:42%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#64d2ff,#30d158)"></div><div class="ln"><i style="width:75%"></i><i style="width:60%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ff375f,#ff9f0a)"></div><div class="ln"><i style="width:82%"></i><i style="width:43%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"></div><div class="ln"><i style="width:89%"></i><i style="width:61%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#30d158,#0a84ff)"></div><div class="ln"><i style="width:96%"></i><i style="width:44%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#bf5af2,#ff375f)"></div><div class="ln"><i style="width:73%"></i><i style="width:62%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ffd60a,#ff9f0a)"></div><div class="ln"><i style="width:80%"></i><i style="width:45%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#64d2ff,#30d158)"></div><div class="ln"><i style="width:87%"></i><i style="width:63%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ff375f,#ff9f0a)"></div><div class="ln"><i style="width:94%"></i><i style="width:46%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"></div><div class="ln"><i style="width:71%"></i><i style="width:64%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#30d158,#0a84ff)"></div><div class="ln"><i style="width:78%"></i><i style="width:47%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#bf5af2,#ff375f)"></div><div class="ln"><i style="width:85%"></i><i style="width:65%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ffd60a,#ff9f0a)"></div><div class="ln"><i style="width:92%"></i><i style="width:48%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#64d2ff,#30d158)"></div><div class="ln"><i style="width:99%"></i><i style="width:66%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ff375f,#ff9f0a)"></div><div class="ln"><i style="width:76%"></i><i style="width:49%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"></div><div class="ln"><i style="width:83%"></i><i style="width:67%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#30d158,#0a84ff)"></div><div class="ln"><i style="width:90%"></i><i style="width:50%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#bf5af2,#ff375f)"></div><div class="ln"><i style="width:97%"></i><i style="width:68%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ffd60a,#ff9f0a)"></div><div class="ln"><i style="width:74%"></i><i style="width:51%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#64d2ff,#30d158)"></div><div class="ln"><i style="width:81%"></i><i style="width:69%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#ff375f,#ff9f0a)"></div><div class="ln"><i style="width:88%"></i><i style="width:52%"></i></div></div><div class="fc"><div class="th" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"></div><div class="ln"><i style="width:95%"></i><i style="width:70%"></i></div></div></div></div><div class="abs sbar"><i id="sth"></i></div></div><div class="abs glass thumb" id="thb"></div></div><div class="abs scene" id="sc1"><div class="abs ctr ttl" id="tt1"><div class="l1" id="tt1a">The feed</div><div class="l2" id="tt1b">never ends.</div></div><div class="abs glass chip" id="ch1" style="left:330px;top:1380px">Page 1 of &infin;</div></div><div class="abs scene" id="sc2"><div class="abs ctr ttl" id="tt2"><div class="l1" id="tt2a">Rewards</div><div class="l2" id="tt2b">are random.</div></div><div class="abs glass reel" id="rl0"><div class="strip" id="st0"><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div></div></div><div class="abs glass reel" id="rl1"><div class="strip" id="st1"><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div></div></div><div class="abs glass reel" id="rl2"><div class="strip" id="st2"><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><div class="dash"></div></div><div class="gw"><svg viewBox="0 0 100 90"><path d="M50 84 C6 52 14 10 50 30 C86 10 94 52 50 84 Z" fill="#ff375f"/></svg></div></div></div><div class="abs glass chip" id="ch2" style="left:270px;top:1200px">boring &middot; boring &middot; <b>great</b></div><div class="abs spin" id="spn"></div></div><div class="abs scene" id="sc3"><div class="abs ctr ttl" id="tt3"><div class="l1" id="tt3a">Autoplay decides</div><div class="l2" id="tt3b">for you.</div></div><div class="abs glass vid" id="v0"><div class="play"></div></div><div class="abs glass vid" id="v1"><div class="play"></div></div><div class="abs glass next" id="nx"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="8"/><circle id="nxr" cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" transform="rotate(-90 50 50)"/></svg><b id="nxn">3</b><span>Up next</span></div></div><div class="abs scene" id="sc4"><div class="abs ctr ttl" id="tt4"><div class="l1" id="tt4a">Red means</div><div class="l2" id="tt4b">urgent.</div></div><div class="abs glass app" id="ap0" style="left:150px;top:640px"><i style="background:#0a84ff"></i><b class="badge" id="bd0">3</b></div><div class="abs glass app" id="ap1" style="left:430px;top:640px"><i style="background:#30d158"></i></div><div class="abs glass app" id="ap2" style="left:710px;top:640px"><i style="background:#ff9f0a"></i><b class="badge" id="bd2">12</b></div><div class="abs glass app" id="ap3" style="left:150px;top:920px"><i style="background:#bf5af2"></i></div><div class="abs glass app" id="ap4" style="left:430px;top:920px"><i style="background:#64d2ff"></i><b class="badge" id="bd4">1</b></div><div class="abs glass app" id="ap5" style="left:710px;top:920px"><i style="background:#ffd60a"></i><b class="badge" id="bd5">7</b></div><div class="abs glass app" id="ap6" style="left:150px;top:1200px"><i style="background:#ff375f"></i></div><div class="abs glass app" id="ap7" style="left:430px;top:1200px"><i style="background:#5e5ce6"></i><b class="badge" id="bd7">99</b></div><div class="abs glass app" id="ap8" style="left:710px;top:1200px"><i style="background:#30d158"></i></div></div><div class="abs scene" id="sc5"><div class="abs ctr ttl" id="tt5"><div class="l1" id="tt5a">Add your</div><div class="l2" id="tt5b">own stop.</div></div><div class="abs glass panel" id="pn"><div class="row" id="rw0"><span>Autoplay</span><div class="tog on" id="tg0"><i id="tk0"></i></div></div><div class="row" id="rw1"><span>Grayscale</span><div class="tog " id="tg1"><i id="tk1"></i></div></div><div class="row" id="rw2"><span>Timer</span><div class="tm" id="tm">20:00</div></div></div></div><div class="abs scene" id="sc6"><div class="abs glass plate" id="pl"></div><div class="abs ctr ttl" id="tt6"><div class="l1" id="tt6a">It&rsquo;s not you.</div><div class="l2" id="tt6b">It&rsquo;s the design.</div></div></div><div class="abs glass isl" id="isl"><span id="islt">Why you scroll</span></div>
+    <div id="cap0" class="abs capw clip" data-start="0.46" data-duration="0.88"><div>You don't scroll</div></div>
+<div id="cap1" class="abs capw clip" data-start="1.34" data-duration="1.2"><div>because you're weak.</div></div>
+<div id="cap2" class="abs capw clip" data-start="2.54" data-duration="1.12"><div>You scroll because</div></div>
+<div id="cap3" class="abs capw clip" data-start="3.66" data-duration="0.76"><div>the app was</div></div>
+<div id="cap4" class="abs capw clip" data-start="4.42" data-duration="0.92"><div>built that way.</div></div>
+<div id="cap5" class="abs capw clip" data-start="5.79" data-duration="0.96"><div>One.</div></div>
+<div id="cap6" class="abs capw clip" data-start="6.75" data-duration="1.2"><div>The feed never</div></div>
+<div id="cap7" class="abs capw clip" data-start="7.95" data-duration="0.96"><div>ends.</div></div>
+<div id="cap8" class="abs capw clip" data-start="8.91" data-duration="1.04"><div>No last page</div></div>
+<div id="cap9" class="abs capw clip" data-start="9.95" data-duration="1.04"><div>means no reason</div></div>
+<div id="cap10" class="abs capw clip" data-start="10.99" data-duration="0.81"><div>to stop.</div></div>
+<div id="cap11" class="abs capw clip" data-start="12.2" data-duration="0.96"><div>Two.</div></div>
+<div id="cap12" class="abs capw clip" data-start="13.16" data-duration="1.92"><div>Rewards are random.</div></div>
+<div id="cap13" class="abs capw clip" data-start="15.08" data-duration="0.88"><div>Most posts are</div></div>
+<div id="cap14" class="abs capw clip" data-start="15.96" data-duration="0.96"><div>boring.</div></div>
+<div id="cap15" class="abs capw clip" data-start="16.92" data-duration="1.84"><div>One is great.</div></div>
+<div id="cap16" class="abs capw clip" data-start="18.76" data-duration="0.64"><div>That's a slot</div></div>
+<div id="cap17" class="abs capw clip" data-start="19.4" data-duration="0.81"><div>machine.</div></div>
+<div id="cap18" class="abs capw clip" data-start="20.61" data-duration="1.0"><div>Three.</div></div>
+<div id="cap19" class="abs capw clip" data-start="21.61" data-duration="1.4"><div>Autoplay decides for</div></div>
+<div id="cap20" class="abs capw clip" data-start="23.01" data-duration="0.8"><div>you,</div></div>
+<div id="cap21" class="abs capw clip" data-start="23.81" data-duration="1.06"><div>before you can.</div></div>
+<div id="cap22" class="abs capw clip" data-start="25.32" data-duration="1.04"><div>Four.</div></div>
+<div id="cap23" class="abs capw clip" data-start="26.36" data-duration="1.52"><div>Red badges.</div></div>
+<div id="cap24" class="abs capw clip" data-start="27.88" data-duration="1.64"><div>Red means urgent,</div></div>
+<div id="cap25" class="abs capw clip" data-start="29.52" data-duration="0.92"><div>even when nothing</div></div>
+<div id="cap26" class="abs capw clip" data-start="30.44" data-duration="0.65"><div>is.</div></div>
+<div id="cap27" class="abs capw clip" data-start="31.54" data-duration="0.8"><div>So add your</div></div>
+<div id="cap28" class="abs capw clip" data-start="32.34" data-duration="0.96"><div>own stop.</div></div>
+<div id="cap29" class="abs capw clip" data-start="33.3" data-duration="1.52"><div>Turn off autoplay.</div></div>
+<div id="cap30" class="abs capw clip" data-start="34.82" data-duration="1.28"><div>Go grayscale.</div></div>
+<div id="cap31" class="abs capw clip" data-start="36.1" data-duration="1.13"><div>Set a timer.</div></div>
+<div id="cap32" class="abs capw clip" data-start="37.78" data-duration="1.52"><div>It's not you.</div></div>
+<div id="cap33" class="abs capw clip" data-start="39.3" data-duration="1.3"><div>It's the design.</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const R = document.querySelector('[data-composition-id="w"]') || document;
+    const $ = (s) => R.querySelector(s);
+    tl.fromTo("#bl0", { x: 0, y: 0, scale: 1 }, { x: 160, y: 220, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl1", { x: 0, y: 0, scale: 1 }, { x: -200, y: 260, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl2", { x: 0, y: 0, scale: 1 }, { x: -180, y: -240, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl3", { x: 0, y: 0, scale: 1 }, { x: 220, y: -160, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl4", { x: 0, y: 0, scale: 1 }, { x: 120, y: 200, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl5", { x: 0, y: 0, scale: 1 }, { x: 200, y: -140, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.fromTo("#bl6", { x: 0, y: 0, scale: 1 }, { x: -220, y: -120, scale: 1.18, duration: 21.75, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.set("#sc0", { opacity: 1 }, 0);
+    tl.to("#tt0", { opacity: 0, y: -30, filter: "blur(12px)", duration: 0.35, ease: "power2.in" }, 5.24); tl.set("#sc1", { opacity: 1 }, 5.54);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 5.34); tl.call(() => { $("#islt").innerHTML = "1 &nbsp;Endless feed"; }, null, 5.50);
+    tl.to("#isl", { width: 470, x: -20.0, duration: 0.65, ease: "back.out(1.5)" }, 5.46); tl.to("#islt", { opacity: 1, duration: 0.3 }, 5.66);
+    tl.to(["#sc0", "#sc1"], { opacity: 0, scale: 1.05, filter: "blur(16px)", duration: 0.38, ease: "power2.in" }, 11.65);
+    tl.fromTo("#sc2", { opacity: 0, scale: 0.93, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 11.97);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 11.75); tl.call(() => { $("#islt").innerHTML = "2 &nbsp;Random rewards"; }, null, 11.91);
+    tl.to("#isl", { width: 560, x: -65.0, duration: 0.65, ease: "back.out(1.5)" }, 11.87); tl.to("#islt", { opacity: 1, duration: 0.3 }, 12.07);
+    tl.to(["#sc2"], { opacity: 0, scale: 1.05, filter: "blur(16px)", duration: 0.38, ease: "power2.in" }, 20.06);
+    tl.fromTo("#sc3", { opacity: 0, scale: 0.93, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 20.38);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 20.16); tl.call(() => { $("#islt").innerHTML = "3 &nbsp;Autoplay"; }, null, 20.32);
+    tl.to("#isl", { width: 380, x: 25.0, duration: 0.65, ease: "back.out(1.5)" }, 20.28); tl.to("#islt", { opacity: 1, duration: 0.3 }, 20.48);
+    tl.to(["#sc3"], { opacity: 0, scale: 1.05, filter: "blur(16px)", duration: 0.38, ease: "power2.in" }, 24.77);
+    tl.fromTo("#sc4", { opacity: 0, scale: 0.93, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 25.09);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 24.87); tl.call(() => { $("#islt").innerHTML = "4 &nbsp;Red badges"; }, null, 25.03);
+    tl.to("#isl", { width: 430, x: 0.0, duration: 0.65, ease: "back.out(1.5)" }, 24.99); tl.to("#islt", { opacity: 1, duration: 0.3 }, 25.19);
+    tl.to(["#sc4"], { opacity: 0, scale: 1.05, filter: "blur(16px)", duration: 0.38, ease: "power2.in" }, 30.99);
+    tl.fromTo("#sc5", { opacity: 0, scale: 0.93, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 31.31);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 31.09); tl.call(() => { $("#islt").innerHTML = "Your move"; }, null, 31.25);
+    tl.to("#isl", { width: 340, x: 45.0, duration: 0.65, ease: "back.out(1.5)" }, 31.21); tl.to("#islt", { opacity: 1, duration: 0.3 }, 31.41);
+    tl.to(["#sc5"], { opacity: 0, scale: 1.05, filter: "blur(16px)", duration: 0.38, ease: "power2.in" }, 37.23);
+    tl.fromTo("#sc6", { opacity: 0, scale: 0.93, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 37.55);
+    tl.to("#islt", { opacity: 0, duration: 0.15 }, 37.33); tl.call(() => { $("#islt").innerHTML = ""; }, null, 37.49);
+    tl.to("#isl", { width: 96, x: 167.0, duration: 0.65, ease: "back.out(1.5)" }, 37.45); tl.to("#islt", { opacity: 1, duration: 0.3 }, 37.65);
+    tl.call(() => { $("#islt").innerHTML = "Why you scroll"; }, null, 0);
+    tl.fromTo("#isl", { y: -220 }, { y: 0, duration: 0.8, ease: "back.out(1.4)" }, 0.05);
+    tl.fromTo("#tt0a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 0.56);
+    tl.fromTo("#tt0b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 2.69);
+    tl.fromTo("#ph", { opacity: 0, y: 160, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: "power4.out" }, 0.1);
+    tl.fromTo("#feed", { y: 0 }, { y: -4240, duration: 11.95, ease: "none" }, 0);
+    tl.fromTo("#sth", { y: 0 }, { y: 300, duration: 5.54, ease: "power1.out" }, 0);
+    tl.to("#sth", { y: 150, height: 60, duration: 1.1, ease: "power2.inOut" }, 7.50); tl.to("#sth", { y: 90, height: 34, duration: 1.4, ease: "power2.inOut" }, 8.96);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 0.50); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 0.72);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 1.65); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 1.87);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 2.80); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 3.02);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 3.95); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 4.17);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 5.10); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 5.32);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 6.25); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 6.47);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 7.40); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 7.62);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 8.55); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 8.77);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 9.70); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 9.92);
+    tl.fromTo("#thb", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 0.9, y: -60, scale: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 10.85); tl.to("#thb", { y: -330, opacity: 0, duration: 0.5, ease: "power2.in" }, 11.07);
+    tl.fromTo("#tt1a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 6.81);
+    tl.fromTo("#tt1b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 7.50);
+    tl.fromTo("#ch1", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, 9.05);
+    tl.fromTo("#tt2a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 13.06);
+    tl.fromTo("#tt2b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 13.99);
+    tl.fromTo("#st0", { y: 0 }, { y: -2970, duration: 1.43, ease: "power3.out" }, 14.83);
+    tl.fromTo("#st1", { y: 0 }, { y: -2970, duration: 1.73, ease: "power3.out" }, 14.83);
+    tl.fromTo("#st2", { y: 0 }, { y: -2970, duration: 3.09, ease: "power3.out" }, 14.83);
+    tl.fromTo("#spn", { opacity: 0, rotation: 0 }, { opacity: 1, rotation: 720, duration: 1.2, ease: "power1.inOut" }, 14.33); tl.to("#spn", { opacity: 0, duration: 0.2 }, 15.53);
+    tl.to("#rl2", { scale: 1.1, boxShadow: "inset 0 2px 0 rgba(255,255,255,0.7), 0 0 90px rgba(255,55,95,0.75)", duration: 0.5, ease: "back.out(2.2)" }, 17.92);
+    tl.fromTo("#ch2", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, 18.02);
+    tl.to(["#rl0", "#rl1", "#rl2"], { y: -14, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 19.13);
+    tl.fromTo("#tt3a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 21.51);
+    tl.fromTo("#tt3b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 22.64);
+    gsap.set("#v1", { x: 1000, opacity: 1 });
+    tl.fromTo("#nx", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, 21.76);
+    tl.to("#nxr", { strokeDashoffset: 0, duration: 2.33, ease: "none" }, 21.86);
+    tl.call(() => { $("#nxn").textContent = "3"; }, null, 21.86);
+    tl.call(() => { $("#nxn").textContent = "2"; }, null, 22.64);
+    tl.call(() => { $("#nxn").textContent = "1"; }, null, 23.41);
+    tl.to("#v0", { x: -1000, duration: 0.7, ease: "power4.inOut" }, 24.19); tl.to("#v1", { x: 0, duration: 0.7, ease: "power4.inOut" }, 24.19);
+    tl.fromTo("#tt4a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 26.26);
+    tl.fromTo("#tt4b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 28.55);
+    tl.fromTo("#ap0", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.17);
+    tl.fromTo("#ap1", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.22);
+    tl.fromTo("#ap2", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.27);
+    tl.fromTo("#ap3", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.32);
+    tl.fromTo("#ap4", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.37);
+    tl.fromTo("#ap5", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.42);
+    tl.fromTo("#ap6", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.47);
+    tl.fromTo("#ap7", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.52);
+    tl.fromTo("#ap8", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 25.57);
+    tl.to("#bd0", { scale: 1, duration: 0.5, ease: "back.out(3)" }, 26.53);
+    tl.to("#bd0", { scale: 1.22, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 28.65);
+    tl.to("#bd2", { scale: 1, duration: 0.5, ease: "back.out(3)" }, 26.75);
+    tl.to("#bd2", { scale: 1.22, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 28.72);
+    tl.to("#bd4", { scale: 1, duration: 0.5, ease: "back.out(3)" }, 26.97);
+    tl.to("#bd4", { scale: 1.22, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 28.79);
+    tl.to("#bd5", { scale: 1, duration: 0.5, ease: "back.out(3)" }, 27.19);
+    tl.to("#bd5", { scale: 1.22, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 28.86);
+    tl.to("#bd7", { scale: 1, duration: 0.5, ease: "back.out(3)" }, 27.41);
+    tl.to("#bd7", { scale: 1.22, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 28.93);
+    tl.fromTo("#tt5a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 31.84);
+    tl.fromTo("#tt5b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 32.29);
+    tl.fromTo("#pn", { opacity: 0, y: 120, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power4.out" }, 31.44);
+    tl.to("#tk0", { x: 0, duration: 0.4, ease: "back.out(1.6)" }, 33.73); tl.to("#tg0", { backgroundColor: "rgba(120,120,128,0.5)", duration: 0.3 }, 33.73);
+    tl.to("#tk1", { x: 70, duration: 0.4, ease: "back.out(1.6)" }, 34.93); tl.to("#tg1", { backgroundColor: "#30d158", duration: 0.3 }, 34.93);
+    tl.to("#bg", { filter: "grayscale(1)", duration: 0.9, ease: "power2.inOut" }, 35.03);
+    tl.to("#tg1", { backgroundColor: "#b9b9c0", duration: 0.9 }, 35.23);
+    tl.to("#tm", { opacity: 1, scale: 1.12, duration: 0.3, ease: "back.out(2)" }, 36.32); tl.to("#tm", { scale: 1, duration: 0.3 }, 36.62);
+    (() => { const o = { v: 1200 }; tl.fromTo(o, { v: 1200 }, { v: 1197, duration: 0.91, ease: "none", immediateRender: false, onUpdate: () => { const s = Math.ceil(o.v); $("#tm").textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); } }, 36.62); })();
+    tl.fromTo("#pl", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.9, ease: "back.out(1.3)" }, 37.58);
+    tl.fromTo("#tt6a", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 37.78);
+    tl.fromTo("#tt6b", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 39.30);
+    tl.to("#bg", { filter: "grayscale(0)", duration: 1.6, ease: "power2.inOut" }, 40.05);
+    tl.to("#isl", { y: -220, duration: 0.5, ease: "power2.in" }, 37.63);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
