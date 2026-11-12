@@ -16,3 +16,6 @@
 ## Videos-Ordner
 Haupt-Ablage ist die Seite **Shorts Library** (https://claude.ai/artifact/4msEKa1pN6jDx3wbC9cpoK): neues Video mit `-movflags +faststart` + Vorschaubild-JPG als Asset hochladen und als Dokument `videos/vNN` eintragen ({n,title,hashtags,lang,duration,folders[motivation|finanzen|fakten|deutsch],assetId,url,poster(JPG-Asset),posted:{tiktok,youtube}}).
 Jedes fertige Video sofort als `Videos/NN - Titel.mp4` ablegen und in `Videos/README.md` eintragen (Tabelle + Titel + 5 Hashtags). Oben im README bleibt der Link zur Shorts Factory.
+
+## Live page switched off (user request, saves tokens)
+Do not write plan or log entries to the Shorts Factory page any more. No progress in chat either: only the finished video, title and hashtags. The Shorts Library page stays in use.
