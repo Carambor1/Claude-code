@@ -1,0 +1,884 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "non_deterministic_code",
+        "severity": "error",
+        "message": "Script contains `Math.random()` which produces non-deterministic output. Renders may differ between frames or runs.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video19/assets/film.js",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use a seeded PRNG (e.g. a simple mulberry32) so renders are deterministic across frames."
+      },
+      {
+        "code": "requestanimationframe_in_composition",
+        "severity": "error",
+        "message": "`requestAnimationFrame` runs on wall-clock time, not the GSAP timeline. It will not sync with frame capture and may cause flickering or missed frames during rendering.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video19/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use GSAP tweens or onUpdate callbacks instead of requestAnimationFrame for animation logic."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#c99\" for backgroundColor between 12.73s and 12.85s.",
+        "selector": "#c99",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/Claude-code/video19/compositions/w.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x353c00196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x353c00196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 1.199,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x353c00196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 1.199,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x353c00196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 1.199,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x3ad400196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 3.597,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x3ad400196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 3.597,
+        "url": "http://127.0.0.1:36849/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x3ad400196000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "21.58",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 5.994,
+        "url": "http://127.0.0.1:36849/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 10,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 1.199,
+        "selector": "#a2",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": -1.04,
+          "top": 440,
+          "right": 1084.25,
+          "bottom": 590,
+          "width": 1085.29,
+          "height": 150
+        },
+        "containerSelector": "#sc1",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 4.25
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -1.04,
+          "y": 440,
+          "width": 1085.29,
+          "height": 150
+        },
+        "firstSeen": 1.199,
+        "lastSeen": 1.199,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          1.199
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 5.994,
+        "selector": "#k2 > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -67.57,
+          "top": 1078,
+          "right": 797.89,
+          "bottom": 1116,
+          "width": 865.46,
+          "height": 38
+        },
+        "containerSelector": "#w > div:nth-of-type(1)",
+        "text": "THE PITCH THAT FLOPPED",
+        "fixHint": "Text is 865px x 38px inside 1080px x 1920px and overflows by up to 68px; widen the container to at least ~1148px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 67.57
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -67.57,
+          "y": 1078,
+          "width": 865.46,
+          "height": 38
+        },
+        "firstSeen": 5.994,
+        "lastSeen": 5.994,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.994
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 5.994,
+        "selector": "#k2 > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -67.57,
+          "top": 1064,
+          "right": 797.89,
+          "bottom": 1130,
+          "width": 865.46,
+          "height": 66
+        },
+        "containerSelector": "#root",
+        "text": "THE PITCH THAT FLOPPED",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 67.57
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -67.57,
+          "y": 1064,
+          "width": 865.46,
+          "height": 66
+        },
+        "firstSeen": 5.994,
+        "lastSeen": 5.994,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.994
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.994,
+        "selector": "#not",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": -74.79,
+          "top": 214.07,
+          "right": 1154.79,
+          "bottom": 475.93,
+          "width": 1229.58,
+          "height": 261.85
+        },
+        "containerSelector": "#sc2",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 74.79,
+          "right": 74.79
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -74.79,
+          "y": 214.07,
+          "width": 1229.58,
+          "height": 261.85
+        },
+        "firstSeen": 5.994,
+        "lastSeen": 5.994,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.994
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 8.392,
+        "selector": "#p1",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -503.12,
+          "top": 347,
+          "right": 862.93,
+          "bottom": 453,
+          "width": 1366.05,
+          "height": 106
+        },
+        "containerSelector": "#w > div:nth-of-type(1)",
+        "text": "ISN'T THE",
+        "fixHint": "Text is 1366px x 106px inside 1080px x 1920px and overflows by up to 503px; widen the container to at least ~1583px or shrink font-size from 140px to ~111px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 503.12
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -503.12,
+          "y": 347,
+          "width": 1366.05,
+          "height": 106
+        },
+        "firstSeen": 8.392,
+        "lastSeen": 8.392,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.392
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 8.392,
+        "selector": "#p1",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -503.12,
+          "top": 315,
+          "right": 862.93,
+          "bottom": 485,
+          "width": 1366.05,
+          "height": 170
+        },
+        "containerSelector": "#root",
+        "text": "ISN'T THE",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 503.12
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -503.12,
+          "y": 315,
+          "width": 1366.05,
+          "height": 170
+        },
+        "firstSeen": 8.392,
+        "lastSeen": 8.392,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.392
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 8.392,
+        "selector": "#p1",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": -958.42,
+          "top": 330,
+          "right": 1318.22,
+          "bottom": 470,
+          "width": 2276.64,
+          "height": 140
+        },
+        "containerSelector": "#sc3",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 958.42,
+          "right": 238.22
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -958.42,
+          "y": 330,
+          "width": 2276.64,
+          "height": 140
+        },
+        "firstSeen": 8.392,
+        "lastSeen": 8.392,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.392
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 10.79,
+        "selector": "#ix",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 64,
+          "top": 1789,
+          "right": 187.77,
+          "bottom": 1824,
+          "width": 123.77,
+          "height": 35
+        },
+        "containerSelector": "#wipe",
+        "text": "03 / 05",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 64,
+          "y": 1789,
+          "width": 123.77,
+          "height": 35
+        },
+        "firstSeen": 10.79,
+        "lastSeen": 10.79,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          10.79
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 10.79,
+        "selector": "div.abs.hud > div:nth-of-type(4)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 803.83,
+          "top": 1789,
+          "right": 1016,
+          "bottom": 1824,
+          "width": 212.17,
+          "height": 35
+        },
+        "containerSelector": "#wipe",
+        "text": "MAKE IT UGLY",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 803.83,
+          "y": 1789,
+          "width": 212.17,
+          "height": 35
+        },
+        "firstSeen": 10.79,
+        "lastSeen": 10.79,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          10.79
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 17.983,
+        "selector": "#u3",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": -276.11,
+          "top": 250,
+          "right": 1148.62,
+          "bottom": 400,
+          "width": 1424.74,
+          "height": 150
+        },
+        "containerSelector": "#sc6",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 276.11,
+          "right": 68.62
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": -276.11,
+          "y": 250,
+          "width": 1424.74,
+          "height": 150
+        },
+        "firstSeen": 17.983,
+        "lastSeen": 17.983,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.983
+        ]
+      }
+    ],
+    "duration": 21.58,
+    "samples": [
+      1.199,
+      3.597,
+      5.994,
+      8.392,
+      10.79,
+      13.188,
+      15.586,
+      17.983,
+      20.381
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 10,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.77:1; WCAG AA requires 3:1.",
+        "text": "03 / 05",
+        "fg": "rgb(248,179,152)",
+        "bg": "rgb(255,90,31)",
+        "ratio": 1.77,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(89,65,55)",
+        "large": true,
+        "selector": "#ix",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 64,
+          "y": 1789,
+          "width": 123.765625,
+          "height": 35
+        },
+        "time": 10.79,
+        "times": [
+          10.79
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.77:1; WCAG AA requires 3:1.",
+        "text": "MAKE IT UGLY",
+        "fg": "rgb(248,179,152)",
+        "bg": "rgb(255,90,31)",
+        "ratio": 1.77,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(89,65,55)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div:nth-of-type(6) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 803.828125,
+          "y": 1789,
+          "width": 212.171875,
+          "height": 35
+        },
+        "time": 10.79,
+        "times": [
+          10.79
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      1.199,
+      5.994,
+      10.79,
+      15.586,
+      20.381
+    ],
+    "checked": 37,
+    "passed": 35
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"FIRST TRY / A REMINDER\" at 26 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "FIRST TRY / A REMINDER",
+        "selector": "div.abs.hud > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 64,
+          "y": 104,
+          "width": 388.97,
+          "height": 35
+        },
+        "time": 0,
+        "times": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fontPx": 26,
+        "floorPx": 28,
+        "seconds": 21.58,
+        "elements": [
+          {
+            "selector": "div.abs.hud > div:nth-of-type(1)",
+            "text": "FIRST TRY / A REMINDER",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 21.58
+          },
+          {
+            "selector": "#tc",
+            "text": "00:00:00",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 21.58
+          },
+          {
+            "selector": "#ix",
+            "text": "01 / 05",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 21.58
+          },
+          {
+            "selector": "div.abs.hud > div:nth-of-type(4)",
+            "text": "MAKE IT UGLY",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 21.58
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"TRY #001 / ADMIT ONE\" (4 words) is on screen 0.13 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "TRY #001 / ADMIT ONE",
+        "selector": "#tk",
+        "dataAttributes": {},
+        "sourceFile": "compositions/w.html",
+        "bbox": {
+          "x": 310.81,
+          "y": 1364,
+          "width": 458.37000000000006,
+          "height": 81.11999999999989
+        },
+        "time": 10.705,
+        "words": 4,
+        "seconds": 0.132,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 10.353,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 10.478,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 10.603,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 10.728,
+            "opacity": 0.69,
+            "heightPx": 81
+          },
+          {
+            "time": 10.852,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 10.977,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 11.102,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 173
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
