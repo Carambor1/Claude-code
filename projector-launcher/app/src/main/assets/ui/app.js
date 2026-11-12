@@ -154,13 +154,16 @@
       const t = h('button', 'tile fav' + (state.moving === a.pkg ? ' moving' : ''));
       t.dataset.nav = ''; t.dataset.key = 'fav:' + a.pkg; t.dataset.pkg = a.pkg;
       const art = h('div', 'art');
+      // Das App-Bild selbst, groß und unscharf, als farbiger Hintergrund hinter dem Glas
+      const glow = new Image(); glow.className = 'glow'; glow.alt = ''; glow.src = iconUrl(a.pkg);
+      art.appendChild(glow);
       const ico = new Image(); ico.className = 'ico'; ico.dataset.pkg = a.pkg; ico.alt = '';
       ico.onload = () => tintFrom(ico, (c) => art.style.setProperty('--tint', c));
       ico.src = iconUrl(a.pkg);
       art.appendChild(ico);
       if (a.banner && !window.__mockIcon) {
         const bn = new Image(); bn.className = 'banner'; bn.alt = '';
-        bn.onload = () => { ico.remove(); };
+        bn.onload = () => { ico.remove(); glow.remove(); art.classList.add('has-banner'); };
         bn.onerror = () => bn.remove();
         bn.src = bannerUrl(a.pkg);
         art.appendChild(bn);

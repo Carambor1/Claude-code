@@ -29,6 +29,7 @@
   apps.forEach(([pkg, label, color, glyph, system]) => { meta[pkg] = { label, color, glyph, system: !!system }; });
 
   window.__mockIcon = (pkg) => {
+    if (window.__brandIcons && window.__brandIcons[pkg]) return window.__brandIcons[pkg];
     const m = meta[pkg] || { color: '#475569', glyph: '?' };
     const fs = m.glyph.length > 2 ? 30 : m.glyph.length > 1 ? 40 : 56;
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="22" fill="${m.color}"/><text x="48" y="50" dominant-baseline="central" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="${fs}" fill="#fff">${m.glyph}</text></svg>`;
