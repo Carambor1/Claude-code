@@ -23,13 +23,13 @@ def w(k, word, nth=0):
     return round(at[k] + hits[nth], 2)
 B = [0] + [round(at[f"r{i}"] - 0.3, 2) for i in range(2, 8)] + [DUR]
 
-THUMB = ["#ff375f,#ff9f0a", "#0a84ff,#5e5ce6", "#30d158,#0a84ff", "#bf5af2,#ff375f", "#ffd60a,#ff9f0a", "#64d2ff,#30d158"]
+THUMB = ["#c9d1e0,#8b95ab", "#aab4c8,#6f7a92", "#dfe4ee,#9aa4b8", "#b8c1d3,#7b859c", "#cfd6e4,#8f99af", "#a3adc2,#69748c"]
 def fcard(i): return (f'<div class="fc"><div class="th" style="background:linear-gradient(135deg,{THUMB[i % 6]})"></div>'
                       f'<div class="ln"><i style="width:{70 + (i * 37) % 30}%"></i><i style="width:{40 + (i * 53) % 35}%"></i></div></div>')
 FEED = "".join(fcard(i) for i in range(26))
-GLY = {"dash": '<div class="gw"><div class="dash"></div></div>', "heart": '<div class="gw"><svg viewBox="0 0 100 90"><path d="M50 84 C6 52 14 10 50 30 C86 10 94 52 50 84 Z" fill="#ff375f"/></svg></div>'}
+GLY = {"dash": '<div class="gw"><div class="dash"></div></div>', "heart": '<div class="gw"><svg viewBox="0 0 100 90"><path d="M50 84 C6 52 14 10 50 30 C86 10 94 52 50 84 Z" fill="#ff6b81"/></svg></div>'}
 REEL = lambda i, last: f'<div class="abs glass reel" id="rl{i}"><div class="strip" id="st{i}">' + "".join(GLY["dash"] for _ in range(9)) + GLY[last] + '</div></div>'
-ICOL = ["#0a84ff", "#30d158", "#ff9f0a", "#bf5af2", "#64d2ff", "#ffd60a", "#ff375f", "#5e5ce6", "#30d158"]
+ICOL = ["#eef1f7", "#c7cedc", "#dfe4ee", "#b4bdcf", "#eef1f7", "#c7cedc", "#dfe4ee", "#b4bdcf", "#eef1f7"]
 APPS = "".join(f'<div class="abs glass app" id="ap{i}" style="left:{150 + (i % 3) * 280}px;top:{600 + (i // 3) * 250}px"><i style="background:{ICOL[i]}"></i>'
                + (f'<b class="badge" id="bd{i}">{n}</b>' if (n := {0: 3, 2: 12, 4: 1, 5: 7, 7: 99}.get(i)) else "") + '</div>' for i in range(9))
 def row(i, label, ctl): return f'<div class="row" id="rw{i}"><span>{label}</span>{ctl}</div>'
@@ -48,7 +48,7 @@ S[4] = title(4) + APPS
 S[5] = title(5) + '<div class="abs glass panel" id="pn">' + row(0, "Autoplay", TOG(0, True)) + row(1, "Grayscale", TOG(1, False)) + row(2, "Timer", '<div class="tm" id="tm">20:00</div>') + '</div>'
 S[6] = '<div class="abs glass plate" id="pl"></div>' + title(6)
 SVGI = {
-    "heart": '<svg viewBox="0 0 100 100"><path d="M50 86 C8 54 16 14 50 34 C84 14 92 54 50 86 Z" fill="#fff"/></svg>',
+    "heart": '<svg viewBox="0 0 100 100"><path d="M50 86 C8 54 16 14 50 34 C84 14 92 54 50 86 Z" fill="#ff6b81"/></svg>',
     "bell": '<svg viewBox="0 0 100 100"><path d="M50 12 C32 12 26 26 26 42 V60 L16 74 H84 L74 60 V42 C74 26 68 12 50 12 Z M40 80 a10 10 0 0 0 20 0 Z" fill="#fff"/></svg>',
     "chat": '<svg viewBox="0 0 100 100"><path d="M14 18 H86 V68 H48 L28 86 V68 H14 Z" fill="#fff"/></svg>',
     "star": '<svg viewBox="0 0 100 100"><path d="M50 8 L62 38 L94 40 L69 60 L78 92 L50 74 L22 92 L31 60 L6 40 L38 38 Z" fill="#fff"/></svg>',
@@ -57,7 +57,7 @@ SVGI = {
     "moon": '<svg viewBox="0 0 100 100"><path d="M64 12 A40 40 0 1 0 88 62 A32 32 0 0 1 64 12 Z" fill="#fff"/></svg>',
     "clock": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="#fff" stroke-width="10"/><path d="M50 30 V52 L64 62" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg>',
 }
-PCOL = {"heart": "#ff375f", "bell": "#ff453a", "chat": "#0a84ff", "star": "#ffd60a", "play": "#bf5af2", "check": "#30d158", "moon": "#5e5ce6", "clock": "#ff9f0a", "txt": "#8e8e93"}
+PCOL = {"heart": "#5a6379", "bell": "#ff453a", "chat": "#5a6379", "star": "#6b7489", "play": "#4d566b", "check": "#30d158", "moon": "#5a6379", "clock": "#6b7489", "txt": "#5a6379"}
 POPS = []; XS = {i: "" for i in range(7)}
 def pop(scene, kind, x, y, size, t, txt=None, col=None, out=None, drift=None, rot=0):
     pid = f"pp{len(POPS)}"
@@ -65,24 +65,24 @@ def pop(scene, kind, x, y, size, t, txt=None, col=None, out=None, drift=None, ro
     if txt: XS[scene] += f'<div class="abs gl2 tx" id="{pid}" style="left:{x}px;top:{y}px;--c:{c};font-size:{size}px">{txt}</div>'
     else: XS[scene] += f'<div class="abs gl2" id="{pid}" style="left:{x - size / 2}px;top:{y - size / 2}px;width:{size}px;height:{size}px;--c:{c}">{SVGI[kind]}</div>'
     POPS.append((pid, t, out, drift, rot)); return pid
-KIN = ["heart", "chat", "bell", "star", "heart", "play", "bell", "heart", "chat", "star"]
+KIN = ["heart", "chat", "star", "play", "heart", "chat", "star", "heart", "play", "chat"]
 # 0 hook: a storm of likes and alerts around the phone, later snapped to a neat grid ("built that way")
 HOOK = [(150, 700, 150), (930, 760, 170), (120, 960, 130), (960, 1010, 140), (200, 1220, 170), (900, 1250, 150), (110, 1420, 140), (960, 1450, 130),
         (300, 600, 110), (790, 590, 120), (60, 830, 110), (1010, 890, 110), (250, 1500, 120), (820, 1510, 130), (540, 560, 120), (540, 1560, 110)]
 GRIDP = [(130, 700), (950, 700), (130, 900), (950, 900), (130, 1100), (950, 1100), (130, 1300), (950, 1300), (310, 580), (770, 580), (130, 1500), (950, 1500), (310, 1520), (770, 1520), (540, 560), (540, 1540)]
 HID = [pop(0, KIN[i % 10], x, y, s, 0.06 + i * 0.12, rot=(-1) ** i * 12) for i, (x, y, s) in enumerate(HOOK)]
-J1 = pop(0, "txt", 60, 1345, 44, 1.5, txt="just 1 more", col="#5e5ce6", rot=-6); J2 = pop(0, "txt", 690, 640, 44, 2.0, txt="just 1 more", col="#bf5af2", rot=5)
-BD = pop(0, "txt", 395, 1395, 54, w("r1", "built") + 0.05, txt="by design", col="#0a84ff")
+J1 = pop(0, "txt", 60, 1345, 44, 1.5, txt="just 1 more", rot=-6); J2 = pop(0, "txt", 690, 640, 44, 2.0, txt="just 1 more", rot=5)
+BD = pop(0, "txt", 395, 1395, 54, w("r1", "built") + 0.05, txt="by design", col="#3d465c")
 S[0] += f'<svg class="abs" id="bp" style="left:0;top:0;width:{W}px;height:{H}px;opacity:0" viewBox="0 0 {W} {H}">' + "".join(f'<path d="M{x} 520 V1600" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="10 12"/>' for x in (130, 310, 540, 770, 950)) + "".join(f'<path d="M60 {y} H1020" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="10 12"/>' for y in (580, 700, 900, 1100, 1300, 1500)) + '</svg>'
 # 1 endless: cards overflow the phone, a counter, and a "The End" card that gets flicked away
 FLY = [(40, 0.0, 1.0), (760, 0.5, 1.25), (-60, 1.1, 0.85), (820, 1.7, 1.1), (20, 2.4, 1.2), (780, 3.0, 0.9), (-30, 3.6, 1.15), (800, 4.1, 1.0)]
-S[1] += "".join(f'<div class="abs gl2 fly" id="fy{i}" style="left:{x}px;top:1620px;--c:{("#0a84ff", "#ff375f", "#30d158", "#bf5af2")[i % 4]};transform:scale({sc})"><i></i><u></u></div>' for i, (x, dl, sc) in enumerate(FLY))
+S[1] += "".join(f'<div class="abs gl2 fly" id="fy{i}" style="left:{x}px;top:1620px;--c:{("#5a6379", "#4d566b", "#6b7489", "#454e63")[i % 4]};transform:scale({sc})"><i></i><u></u></div>' for i, (x, dl, sc) in enumerate(FLY))
 S[1] += '<div class="abs glass endc" id="endc">The End</div><div class="abs glass chip" id="cnt1" style="left:610px;top:1380px">Posts <b id="cn1">0</b></div>'
 # 2 rewards
 S[2] += '<div class="abs glass meter" id="mt"><i id="mtf"></i><span>REWARD</span></div>'
 BUR = [(math.cos(a * 0.449 + 0.2), math.sin(a * 0.449 + 0.2)) for a in range(14)]
 # 3 autoplay: a queue behind the player and the clock running away
-S[3] = S[3].replace('<div class="abs glass vid" id="v0">', '<div class="abs gl2 vq" id="vq1" style="--c:#5e5ce6"></div><div class="abs gl2 vq" id="vq0" style="--c:#0a84ff"></div><div class="abs glass vid" id="v0">')
+S[3] = S[3].replace('<div class="abs glass vid" id="v0">', '<div class="abs gl2 vq" id="vq1" style="--c:#454e63"></div><div class="abs gl2 vq" id="vq0" style="--c:#5a6379"></div><div class="abs glass vid" id="v0">')
 # 4 badges: banners
 S[4] += '<div class="abs glass ban" id="bn0" style="top:1375px"><b></b><span>3 new likes</span></div><div class="abs glass ban" id="bn1" style="top:1500px"><b></b><span>Someone you know posted</span></div>'
 # 5 your move: a timer ring
@@ -91,20 +91,20 @@ S[5] += '<div class="abs glass ringc" id="rc"><svg viewBox="0 0 100 100"><circle
 for (x, y), wd in zip(((70, 1120), (790, 1130), (430, 1150)), ("most", "posts", "boring")): pop(2, "txt", x, y, 44, w("r3", wd) - 0.08, txt="meh", rot=(-6, 5, -3)[len(POPS) % 3])
 TG = w("r3", "great") + 0.12
 for i, (cx, cy) in enumerate(BUR): pop(2, ("heart", "star")[i % 2], 840, 885, 84 + (i % 3) * 22, TG + i * 0.015, drift=(cx * (330 + i % 4 * 60), cy * (330 + i % 4 * 60), 1.1))
-for i, (x, y) in enumerate(((610, 610), (930, 640), (700, 1110))): pop(2, "txt", x, y, 50, TG + 0.15 + i * 0.12, txt="+1", col="#ff375f", rot=(-8, 6, -4)[i])
-for i, (lab, wd, col) in enumerate((("23:41", "decides", "#5e5ce6"), ("00:58", "for", "#bf5af2"), ("02:17", "can", "#ff453a"))): pop(3, "txt", 130, 1235 + i * 125, 52, w("r4", wd) - 0.05 + (0.25 if i == 2 else 0), txt=lab, col=col, rot=(-4, 3, -2)[i])
+for i, (x, y) in enumerate(((610, 610), (930, 640), (700, 1110))): pop(2, "txt", x, y, 50, TG + 0.15 + i * 0.12, txt="+1", col="#3d465c", rot=(-8, 6, -4)[i])
+for i, (lab, wd, col) in enumerate((("23:41", "decides", "#5a6379"), ("00:58", "for", "#5a6379"), ("02:17", "can", "#ff453a"))): pop(3, "txt", 130, 1235 + i * 125, 52, w("r4", wd) - 0.05 + (0.25 if i == 2 else 0), txt=lab, col=col, rot=(-4, 3, -2)[i])
 BELLS = [pop(4, "bell", x, y, s, w("r5", "badges") + 0.1 + i * 0.15) for i, (x, y, s) in enumerate(((75, 560, 110), (1005, 570, 120), (75, 1300, 100)))]
 for i, wd in enumerate(("autoplay", "grayscale", "timer")): pop(5, "check", 1000, 759 + i * 190, 100, w("r6", wd) + 0.25)
 for i, k in enumerate(("check", "clock", "moon")): pop(6, k, 380 + i * 160, 1230, 130, w("r7", "its", 1) + 0.25 + i * 0.14)
-BLOBS = [("#5e5ce6", 60, 380, 1200), ("#ff375f", 760, 220, 1100), ("#0a84ff", 800, 1150, 1300), ("#ff9f0a", 60, 1300, 1050), ("#30d158", 440, 820, 800), ("#bf5af2", 300, 1750, 1100), ("#64d2ff", 900, 1700, 900)]
+BLOBS = [("#46516d", 60, 380, 1200), ("#39435c", 760, 220, 1100), ("#566589", 800, 1150, 1300), ("#2f384e", 60, 1300, 1050), ("#6c7a9c", 440, 820, 800), ("#3c4763", 300, 1750, 1100), ("#4c5a7c", 900, 1700, 900)]
 bg = '<div class="abs" id="bg">' + "".join(f'<div class="abs blob" id="bl{i}" style="left:{x - s // 2}px;top:{y - s // 2}px;width:{s}px;height:{s}px;background:radial-gradient(circle,{c} 0%,{c}00 68%)"></div>' for i, (c, x, y, s) in enumerate(BLOBS)) + '</div>'
 body = bg + "".join(sc(i, S[i] + XS[i]) for i in range(7)) + '<div class="abs glass isl" id="isl"><span id="islt">Why you scroll</span></div>'
 CSS = f"""
-    #root {{ position: absolute; inset: 0; background: linear-gradient(170deg, #241a5c 0%, #101b4a 45%, #2a1040 100%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }}
+    #root {{ position: absolute; inset: 0; background: linear-gradient(170deg, #1b1f2a 0%, #10131b 50%, #171a24 100%); font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }}
     #root .abs {{ position: absolute; }}
     #root .ctr {{ left: 0; width: {W}px; text-align: center; }}
     #root #bg {{ inset: 0; }}
-    #root .blob {{ border-radius: 50%; opacity: 0.9; }}
+    #root .blob {{ border-radius: 50%; opacity: 0.8; }}
     #root .scene {{ inset: 0; opacity: 0; }}
     #root .glass {{ background: radial-gradient(120% 70% at 8% 0%, rgba(255,255,255,0.34), rgba(255,255,255,0) 60%), linear-gradient(140deg, rgba(255,255,255,0.22), rgba(255,255,255,0.07) 55%, rgba(255,255,255,0.14)); -webkit-backdrop-filter: blur(30px) saturate(170%); backdrop-filter: blur(30px) saturate(170%); border: 2px solid rgba(255,255,255,0.45); box-shadow: inset 0 2.5px 0 rgba(255,255,255,0.7), inset 0 -1.5px 0 rgba(255,255,255,0.14), inset 0 0 40px rgba(255,255,255,0.06), 0 34px 90px rgba(0,0,0,0.38); }}
     #root .isl {{ left: 325px; top: 132px; width: 430px; height: 96px; border-radius: 48px; display: flex; align-items: center; justify-content: center; overflow: hidden; }}
@@ -122,12 +122,12 @@ CSS = f"""
     #root .sbar i {{ position: absolute; left: 0; top: 0; width: 10px; height: 120px; border-radius: 5px; background: rgba(255,255,255,0.9); }}
     #root .thumb {{ left: 610px; top: 1250px; width: 120px; height: 120px; border-radius: 50%; opacity: 0; }}
     #root .chip {{ height: 104px; padding: 0 44px; border-radius: 52px; display: flex; align-items: center; font-weight: 600; font-size: 46px; letter-spacing: -0.01em; white-space: nowrap; opacity: 0; }}
-    #root .chip b {{ color: #fff; font-weight: 800; text-shadow: 0 0 24px rgba(255,55,95,0.95), 0 0 6px rgba(255,55,95,0.9); }}
+    #root .chip b {{ color: #fff; font-weight: 800; text-shadow: 0 0 22px rgba(255,255,255,0.7); }}
     #root .reel {{ top: 720px; width: 250px; height: 330px; border-radius: 60px; overflow: hidden; }}
     #root #rl0 {{ left: 115px; }} #root #rl1 {{ left: 415px; }} #root #rl2 {{ left: 715px; }}
     #root .strip {{ position: absolute; left: 0; top: 0; width: 100%; }}
     #root .gw {{ height: 330px; display: flex; align-items: center; justify-content: center; }}
-    #root .gw svg {{ width: 150px; height: 135px; filter: drop-shadow(0 0 30px rgba(255,55,95,0.8)); }}
+    #root .gw svg {{ width: 150px; height: 135px; filter: drop-shadow(0 0 26px rgba(255,107,129,0.7)); }}
     #root .gw .dash {{ width: 120px; height: 26px; border-radius: 13px; background: rgba(255,255,255,0.5); }}
     #root .spin {{ left: 495px; top: 600px; width: 90px; height: 90px; border-radius: 50%; border: 9px solid rgba(255,255,255,0.25); border-top-color: #fff; opacity: 0; }}
     #root .vid {{ left: 140px; top: 650px; width: 800px; height: 520px; border-radius: 64px; }}
@@ -149,7 +149,7 @@ CSS = f"""
     #root .tm {{ font-weight: 700; font-size: 60px; font-variant-numeric: tabular-nums; padding: 12px 34px; border-radius: 40px; background: rgba(255,255,255,0.2); opacity: 0.35; }}
     #root .plate {{ left: 90px; top: 560px; width: 900px; height: 520px; border-radius: 90px; opacity: 0; }}
     #root #tt6 {{ top: 690px; }}
-    #root .gl2 {{ border-radius: 34%; background: radial-gradient(120% 80% at 15% 0%, rgba(255,255,255,0.55), rgba(255,255,255,0) 55%), linear-gradient(150deg, color-mix(in srgb, var(--c) 92%, #fff), color-mix(in srgb, var(--c) 70%, #000)); border: 2.5px solid rgba(255,255,255,0.6); box-shadow: inset 0 3px 0 rgba(255,255,255,0.55), 0 18px 44px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; opacity: 0; }}
+    #root .gl2 {{ border-radius: 34%; background: radial-gradient(120% 80% at 15% 0%, rgba(255,255,255,0.55), rgba(255,255,255,0) 55%), linear-gradient(150deg, color-mix(in srgb, var(--c) 86%, #fff), color-mix(in srgb, var(--c) 78%, #000)); border: 2.5px solid rgba(255,255,255,0.6); box-shadow: inset 0 3px 0 rgba(255,255,255,0.55), 0 18px 44px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; opacity: 0; }}
     #root .gl2 svg {{ width: 56%; height: 56%; }}
     #root .gl2.tx {{ border-radius: 999px; padding: 16px 38px 20px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }}
     #root .fly {{ width: 330px; height: 150px; border-radius: 40px; justify-content: flex-start; gap: 20px; padding: 0 22px; }}
@@ -158,8 +158,8 @@ CSS = f"""
     #root .endc {{ left: 360px; top: 960px; width: 360px; height: 150px; border-radius: 46px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 60px; opacity: 0; }}
     #root .chip b {{ margin-left: 16px; font-variant-numeric: tabular-nums; }}
     #root .meter {{ left: 190px; top: 1330px; width: 700px; height: 96px; border-radius: 48px; overflow: hidden; opacity: 0; }}
-    #root .meter i {{ position: absolute; inset: 0; background: linear-gradient(90deg, #ff9f0a, #ff375f); transform-origin: 0 50%; transform: scaleX(0.06); }}
-    #root .meter span {{ position: absolute; left: 0; top: 0; width: 100%; line-height: 92px; text-align: center; font-weight: 700; font-size: 40px; letter-spacing: 0.24em; }}
+    #root .meter i {{ position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.55), #fff); transform-origin: 0 50%; transform: scaleX(0.06); }}
+    #root .meter span {{ mix-blend-mode: difference; position: absolute; left: 0; top: 0; width: 100%; line-height: 92px; text-align: center; font-weight: 700; font-size: 40px; letter-spacing: 0.24em; }}
     #root .vq {{ left: 140px; top: 650px; width: 800px; height: 520px; border-radius: 64px; opacity: 0; }}
     #root .ban {{ left: 150px; width: 780px; height: 112px; border-radius: 40px; display: flex; align-items: center; gap: 24px; padding: 0 30px; font-weight: 600; font-size: 44px; white-space: nowrap; opacity: 0; }}
     #root .ban b {{ width: 62px; height: 62px; border-radius: 18px; background: #ff3b30; flex: none; }}
@@ -223,7 +223,7 @@ for i, stop in enumerate((w("r3", "boring") + 0.25, w("r3", "boring") + 0.55, w(
 sx(t_spin, "count_fast", 0.3)
 a(f'tl.fromTo("#spn", {{ opacity: 0, rotation: 0 }}, {{ opacity: 1, rotation: 720, duration: 1.2, ease: "power1.inOut" }}, {t_spin - 0.5:.2f}); tl.to("#spn", {{ opacity: 0, duration: 0.2 }}, {t_spin + 0.7:.2f});')
 tg = w("r3", "great") + 0.15
-a(f'tl.to("#rl2", {{ scale: 1.1, boxShadow: "inset 0 2px 0 rgba(255,255,255,0.7), 0 0 90px rgba(255,55,95,0.75)", duration: 0.5, ease: "back.out(2.2)" }}, {tg:.2f});'); sx(tg, "kaching", 0.34); sx(tg, "shimmer", 0.3)
+a(f'tl.to("#rl2", {{ scale: 1.1, boxShadow: "inset 0 2px 0 rgba(255,255,255,0.7), 0 0 80px rgba(255,255,255,0.45)", duration: 0.5, ease: "back.out(2.2)" }}, {tg:.2f});'); sx(tg, "kaching", 0.34); sx(tg, "shimmer", 0.3)
 a(f'tl.to(["#rl0", "#rl1", "#rl2"], {{ y: -14, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }}, {w("r3", "slot"):.2f});')
 # ---- 3 autoplay
 rise("#tt3a", w("r4", "autoplay") - 0.15); rise("#tt3b", w("r4", "for") - 0.1)
@@ -248,7 +248,7 @@ t0 = w("r6", "autoplay") - 0.1
 a(f'tl.to("#tk0", {{ x: 0, duration: 0.4, ease: "back.out(1.6)" }}, {t0:.2f}); tl.to("#tg0", {{ backgroundColor: "rgba(120,120,128,0.5)", duration: 0.3 }}, {t0:.2f});'); sx(t0, "ui_tick2", 0.45)
 t1 = w("r6", "grayscale") - 0.1
 a(f'tl.to("#tk1", {{ x: 70, duration: 0.4, ease: "back.out(1.6)" }}, {t1:.2f}); tl.to("#tg1", {{ backgroundColor: "#30d158", duration: 0.3 }}, {t1:.2f});'); sx(t1, "ui_tick2", 0.45)
-a(f'tl.to("#bg", {{ filter: "grayscale(1)", duration: 0.9, ease: "power2.inOut" }}, {t1 + 0.1:.2f});'); sx(t1 + 0.1, "swipe2", 0.26)
+a(f'tl.to("#bg", {{ filter: "grayscale(1) brightness(0.7)", duration: 0.9, ease: "power2.inOut" }}, {t1 + 0.1:.2f});'); sx(t1 + 0.1, "swipe2", 0.26)
 a(f'tl.to("#tg1", {{ backgroundColor: "#b9b9c0", duration: 0.9 }}, {t1 + 0.3:.2f});')
 t2 = w("r6", "timer") - 0.15
 a(f'tl.to("#tm", {{ opacity: 1, scale: 1.12, duration: 0.3, ease: "back.out(2)" }}, {t2:.2f}); tl.to("#tm", {{ scale: 1, duration: 0.3 }}, {t2 + 0.3:.2f});'); sx(t2, "clock_tick", 0.6)
@@ -256,7 +256,7 @@ a(f'(() => {{ const o = {{ v: 1200 }}; tl.fromTo(o, {{ v: 1200 }}, {{ v: 1197, d
 # ---- 6 it's the design
 a(f'tl.fromTo("#pl", {{ opacity: 0, scale: 0.86 }}, {{ opacity: 1, scale: 1, duration: 0.9, ease: "back.out(1.3)" }}, {B[6] + 0.05:.2f});')
 rise("#tt6a", w("r7", "its") - 0.05); rise("#tt6b", w("r7", "its", 1) - 0.05); sx(w("r7", "design"), "shimmer", 0.34); sx(w("r7", "its") - 0.05, "impact", 0.3)
-a(f'tl.to("#bg", {{ filter: "grayscale(0)", duration: 1.6, ease: "power2.inOut" }}, {w("r7", "design") + 0.1:.2f});')
+a(f'tl.to("#bg", {{ filter: "grayscale(0) brightness(1)", duration: 1.6, ease: "power2.inOut" }}, {w("r7", "design") + 0.1:.2f});')
 a(f'tl.to("#isl", {{ y: -220, duration: 0.5, ease: "power2.in" }}, {B[6] + 0.1:.2f});')
 sx(0, "boom_open", 0.24)
 
