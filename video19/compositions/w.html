@@ -221,7 +221,7 @@
     tl.to("#c97", { backgroundColor: "#ff5a1f", duration: 0.12 }, 12.678);
     tl.to("#c98", { backgroundColor: "#ff5a1f", duration: 0.12 }, 12.704);
     tl.to("#c99", { backgroundColor: "#ff5a1f", duration: 0.12 }, 12.730);
-    (() => { const o = { v: 1 }; tl.fromTo(o, { v: 1 }, { v: 100, duration: 1.61, ease: "power2.in", immediateRender: false, onUpdate: () => { $("#qn").textContent = String(Math.round(o.v)).padStart(3, "0"); } }, 11.12); })();
+    (() => { const o = { v: 1 }; tl.fromTo(o, { v: 0 }, { v: 1, duration: 1.61, ease: "none", immediateRender: false, onUpdate: () => { $("#qn").textContent = String(Math.max(1, Math.min(100, Math.round(1 + 99 * Math.pow(o.v, 0.625))))).padStart(3, "0"); } }, 11.12); })();
     tl.to(".cells i", { opacity: 0.22, duration: 0.3 }, 12.73); tl.to("#c99", { opacity: 1, backgroundColor: "#f3efe8", scale: 1.7, duration: 0.35, ease: "back.out(3)", boxShadow: "0 0 50px rgba(255,255,255,0.9)" }, 12.73);
     tl.call(() => { $("#q0").textContent = "YOU CAN\u2019T REACH IT WITHOUT"; }, null, 13.22); tl.call(() => { $("#q0").textContent = "PEOPLE ONLY SEE"; }, null, 0);
     tl.call(() => { $("#qn").textContent = "001"; }, null, 14.52);

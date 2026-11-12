@@ -158,7 +158,7 @@ a(f'tl.to("#q0", {{ opacity: 1, duration: 0.3 }}, {t4 + 0.1:.2f});'); smear("#q1
 d4 = W1("hundred") + 0.15 - (t4 + 0.3)
 for n in range(100):
     a(f'tl.to("#c{n}", {{ backgroundColor: "{OR}", duration: 0.12 }}, {t4 + 0.3 + (n / 99) ** 1.6 * d4:.3f});')
-a(f'(() => {{ const o = {{ v: 1 }}; tl.fromTo(o, {{ v: 1 }}, {{ v: 100, duration: {d4:.2f}, ease: "power2.in", immediateRender: false, onUpdate: () => {{ $("#qn").textContent = String(Math.round(o.v)).padStart(3, "0"); }} }}, {t4 + 0.3:.2f}); }})();'); sx(t4 + 0.3, "count_fast", 0.34); sx(t4 + 1.3, "count_fast", 0.34)
+a(f'(() => {{ const o = {{ v: 1 }}; tl.fromTo(o, {{ v: 0 }}, {{ v: 1, duration: {d4:.2f}, ease: "none", immediateRender: false, onUpdate: () => {{ $("#qn").textContent = String(Math.max(1, Math.min(100, Math.round(1 + 99 * Math.pow(o.v, 0.625))))).padStart(3, "0"); }} }}, {t4 + 0.3:.2f}); }})();'); sx(t4 + 0.3, "count_fast", 0.34); sx(t4 + 1.3, "count_fast", 0.34)
 th = W1("hundred") + 0.15
 a(f'tl.to(".cells i", {{ opacity: 0.22, duration: 0.3 }}, {th:.2f}); tl.to("#c99", {{ opacity: 1, backgroundColor: "{WH}", scale: 1.7, duration: 0.35, ease: "back.out(3)", boxShadow: "0 0 50px rgba(255,255,255,0.9)" }}, {th:.2f});'); sx(th, "impact", 0.46); sx(th, "shimmer", 0.34)
 # 5 without try one
