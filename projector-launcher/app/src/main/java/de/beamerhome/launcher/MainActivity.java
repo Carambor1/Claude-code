@@ -2,6 +2,7 @@ package de.beamerhome.launcher;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -20,6 +21,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.LruCache;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -55,14 +57,19 @@ public class MainActivity extends Activity {
     private static final String BASE = "https://" + HOST + "/";
 
     private WebView web;
-    private final Map<String, byte[]> iconCache = new HashMap<>();
+    // Höchstens ~3 MB Icons im RAM (der Beamer hat nur 1 GB)
+    private final LruCache<String, byte[]> iconCache = new LruCache<String, byte[]>(3 * 1024 * 1024) {
+        @Override
+        protected int sizeOf(String key, byte[] value) {
+            return value == null ? 1 : value.length;
+        }
+    };
+    private static final byte[] NONE = new byte[0];
 
     private final BroadcastReceiver packageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            synchronized (iconCache) {
-                iconCache.clear();
-            }
+            iconCache.evictAll();
             js("BH.onAppsChanged()");
         }
     };
@@ -159,8 +166,22 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
+        // Während Netflix & Co. laufen, rechnet der Startbildschirm nichts
         web.onPause();
+        web.pauseTimers();
         super.onPause();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) {
+            iconCache.evictAll();
+            if (web != null) {
+                web.clearCache(false);
+                js("BH.onLowMemory && BH.onLowMemory()");
+            }
+        }
     }
 
     @Override
@@ -255,9 +276,8 @@ public class MainActivity extends Activity {
 
     private byte[] appImage(String pkg, boolean banner) {
         String key = (banner ? "b:" : "i:") + pkg;
-        synchronized (iconCache) {
-            if (iconCache.containsKey(key)) return iconCache.get(key);
-        }
+        byte[] cached = iconCache.get(key);
+        if (cached != null) return cached == NONE ? null : cached;
         byte[] out = null;
         try {
             PackageManager pm = getPackageManager();
@@ -271,12 +291,10 @@ public class MainActivity extends Activity {
             } else {
                 d = pm.getApplicationIcon(pkg);
             }
-            if (d != null) out = toPng(d, banner ? 320 : 192, banner ? 180 : 192);
+            if (d != null) out = toPng(d, banner ? 320 : 160, banner ? 180 : 160);
         } catch (Exception ignored) {
         }
-        synchronized (iconCache) {
-            iconCache.put(key, out);
-        }
+        iconCache.put(key, out == null ? NONE : out);
         return out;
     }
 
@@ -286,7 +304,7 @@ public class MainActivity extends Activity {
         d.setBounds(0, 0, w, h);
         d.draw(c);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, bos);
+        bmp.compress(Bitmap.CompressFormat.PNG, 90, bos);
         bmp.recycle();
         return bos.toByteArray();
     }
