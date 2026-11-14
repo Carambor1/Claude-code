@@ -33,7 +33,7 @@ export async function init(canvas, K) {
     const a1 = at(cyl(0.07, 0.07, 0.55, c, 6), -0.36, 1.12, 0), a2 = at(cyl(0.07, 0.07, 0.55, c, 6), 0.36, 1.12, 0);
     g.add(body, head, e1, e2, l1, l2, a1, a2); g.traverse((o) => { o.castShadow = true; }); g.userData = { l1, l2, a1, a2, head }; return g;
   }
-  function walk(g, ph, amt = 1, arms = true) { const u = g.userData; u.l1.rotation.x = Math.sin(ph) * 0.8 * amt; u.l2.rotation.x = -Math.sin(ph) * 0.8 * amt; if (arms) { u.a1.rotation.z = 2.7; u.a2.rotation.z = -2.7; u.a1.position.y = u.a2.position.y = 1.32; } }
+  function walk(g, ph, amt = 1, arms = true) { const u = g.userData; u.l1.rotation.x = Math.sin(ph) * 0.8 * amt; u.l2.rotation.x = -Math.sin(ph) * 0.8 * amt; if (arms) { const inner = g.userData.home[0] > 0 ? u.a1 : u.a2, outer = g.userData.home[0] > 0 ? u.a2 : u.a1, sgn = g.userData.home[0] > 0 ? 1 : -1; inner.rotation.z = sgn * 2.2; inner.position.set(-sgn * 0.42, 1.36, 0); outer.rotation.z = 0; outer.position.set(sgn * 0.36, 1.12, 0); } }
   const king = new THREE.Group();
   const robe = at(ball(0.95, 0xb3202a, 2), 0, 0.85, 0); robe.scale.set(1.08, 0.92, 1.0);
   const fur = at(new THREE.Mesh(new THREE.TorusGeometry(0.8, 0.13, 6, 14), M(0xfdf6ec)), 0, 1.38, 0); fur.rotation.x = Math.PI / 2;
@@ -51,26 +51,26 @@ export async function init(canvas, K) {
   sedan.children[2].rotation.x = sedan.children[3].rotation.x = Math.PI / 2;
   for (const [x, z] of [[-1.05, -0.85], [1.05, -0.85], [-1.05, 0.85], [1.05, 0.85]]) sedan.add(at(cyl(0.05, 0.05, 2.7, GOLD, 6), x, 1.35, z));
   const roof = at(cone(1.75, 0.8, 0x8e1b2a, 4), 0, 3.1, 0); roof.rotation.y = Math.PI / 4; sedan.add(roof, at(ball(0.14, GOLD, 0), 0, 3.6, 0)); sedan.traverse((o) => { o.castShadow = true; });
-  const rig = new THREE.Group(); scene.add(rig); const CAR = COLS.map((c, i) => { const g = carrier(c); g.userData.home = [i % 2 ? 1.05 : -1.05, 0, i < 2 ? 2.15 : -2.15]; rig.add(g); return g; });
+  const rig = new THREE.Group(); scene.add(rig); const CAR = COLS.map((c, i) => { const g = carrier(c); g.userData.home = [i % 2 ? 1.5 : -1.5, 0, i < 2 ? 2.15 : -2.15]; rig.add(g); return g; });
   const chair = new THREE.Group(); chair.position.y = 1.5; chair.add(sedan, king); king.position.y = 0.2; rig.add(chair);
 
   // ---------- world
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), M(0x86c35c)); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
   const path = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 900), M(0xe2c98f)); path.rotation.x = -Math.PI / 2; path.position.y = 0.01; path.receiveShadow = true; scene.add(path);
-  const trees = []; for (let i = 0; i < 26; i++) { const g = new THREE.Group(); const sc = 0.9 + hash(i) * 1.1; g.add(at(cyl(0.16, 0.2, 1.2, 0x7a5230, 5), 0, 0.6, 0), at(cone(1.0, 2.2, i % 3 ? 0x4f9a48 : 0x3f8a52, 6), 0, 2.2, 0), at(cone(0.75, 1.6, 0x5fae52, 6), 0, 3.3, 0)); g.scale.setScalar(sc); g.traverse((o) => { o.castShadow = true; }); g.userData = { x: (i % 2 ? 1 : -1) * (5 + hash(i * 3) * 16), z0: hash(i * 7) * 120 }; scene.add(g); trees.push(g); }
+  const trees = []; for (let i = 0; i < 26; i++) { const g = new THREE.Group(); const sc = 0.9 + hash(i) * 1.1; g.add(at(cyl(0.16, 0.2, 1.2, 0x7a5230, 5), 0, 0.6, 0), at(cone(1.0, 2.2, i % 3 ? 0x4f9a48 : 0x3f8a52, 6), 0, 2.2, 0), at(cone(0.75, 1.6, 0x5fae52, 6), 0, 3.3, 0)); g.scale.setScalar(sc); g.traverse((o) => { o.castShadow = true; }); g.userData = { x: (i % 2 ? 1 : -1) * (12 + hash(i * 3) * 16), z0: hash(i * 7) * 120 }; scene.add(g); trees.push(g); }
   for (let i = 0; i < 9; i++) { const h = cone(14 + hash(i) * 16, 9 + hash(i * 5) * 12, i % 2 ? 0x79b863 : 0x6fb06a, 5); h.position.set((i % 2 ? 1 : -1) * (55 + hash(i * 9) * 60), 3, -80 + i * 28); scene.add(h); }
   // geese
   const GEESE = []; for (let i = 0; i < 6; i++) { const g = new THREE.Group(); const b = at(ball(0.34, 0xffffff, 1), 0, 0.55, 0); b.scale.set(0.8, 0.8, 1.25); const n = at(cyl(0.07, 0.09, 0.6, 0xffffff, 6), 0, 0.95, 0.3); n.rotation.x = 0.35; const hd = at(ball(0.13, 0xffffff, 0), 0, 1.27, 0.42); const bk = at(cone(0.06, 0.22, 0xf28a1e, 4), 0, 1.25, 0.6); bk.rotation.x = Math.PI / 2; const w1 = at(box(0.5, 0.05, 0.36, 0xf3f3f3), -0.42, 0.62, 0), w2 = at(box(0.5, 0.05, 0.36, 0xf3f3f3), 0.42, 0.62, 0); const f1 = at(cyl(0.03, 0.03, 0.3, 0xf28a1e, 4), -0.1, 0.15, 0), f2 = at(cyl(0.03, 0.03, 0.3, 0xf28a1e, 4), 0.1, 0.15, 0); g.add(b, n, hd, bk, w1, w2, f1, f2); g.traverse((o) => { o.castShadow = true; }); g.userData = { w1, w2, f1, f2 }; g.visible = false; scene.add(g); GEESE.push(g); }
   // dungeon wagon set (x = 60)
-  const DX = 60; const wagon = new THREE.Group(); wagon.position.set(DX + 2.6, 0, 0); wagon.add(at(box(2.6, 0.2, 2.0, 0x6b4a2b), 0, 0.75, 0), at(box(2.6, 0.2, 2.0, 0x4a3320), 0, 2.75, 0));
+  const DX = 60; const wagon = new THREE.Group(); wagon.position.set(DX + 1.5, 0, 0); wagon.add(at(box(2.6, 0.2, 2.0, 0x6b4a2b), 0, 0.75, 0), at(box(2.6, 0.2, 2.0, 0x4a3320), 0, 2.75, 0));
   for (let i = 0; i < 7; i++) { wagon.add(at(cyl(0.05, 0.05, 2.0, 0x2c2c33, 5), -1.25 + i * 0.417, 1.75, 0.95), at(cyl(0.05, 0.05, 2.0, 0x2c2c33, 5), -1.25 + i * 0.417, 1.75, -0.95)); }
   for (const [x, z] of [[-0.9, 1.05], [0.9, 1.05], [-0.9, -1.05], [0.9, -1.05]]) { const wh = at(cyl(0.5, 0.5, 0.16, 0x3a2a1c, 10), x, 0.5, z); wh.rotation.x = Math.PI / 2; wagon.add(wh); }
   const donkey = new THREE.Group(); donkey.add(at(box(1.3, 0.6, 0.5, 0x8d8378), 0, 1.0, 0), at(box(0.45, 0.5, 0.4, 0x8d8378), 0.85, 1.35, 0), at(box(0.1, 0.4, 0.08, 0x8d8378), 0.85, 1.75, 0.14), at(box(0.1, 0.4, 0.08, 0x8d8378), 0.85, 1.75, -0.14)); for (const [x, z] of [[-0.5, 0.18], [0.5, 0.18], [-0.5, -0.18], [0.5, -0.18]]) donkey.add(at(box(0.14, 0.7, 0.14, 0x756c62), x, 0.35, z)); donkey.position.set(2.7, 0, 0); wagon.add(donkey); wagon.traverse((o) => { o.castShadow = true; }); scene.add(wagon);
   const guard = () => { const g = new THREE.Group(); g.add(at(cyl(0.2, 0.26, 1.2, 0x5b6470, 6), 0, 1.0, 0), at(ball(0.26, SKIN), 0, 1.85, 0), at(cone(0.3, 0.36, 0x9aa3ad, 6), 0, 2.15, 0), at(cyl(0.07, 0.07, 0.7, 0x2c2c33, 5), -0.1, 0.3, 0), at(cyl(0.07, 0.07, 0.7, 0x2c2c33, 5), 0.1, 0.3, 0), at(cyl(0.03, 0.03, 2.6, 0x7a5230, 5), 0.34, 1.4, 0), at(cone(0.09, 0.3, 0xc9d0d8, 4), 0.34, 2.85, 0)); g.traverse((o) => { o.castShadow = true; }); scene.add(g); return g; };
   const G1 = guard(), G2 = guard(); const prisoner = carrier(COLS[1]); scene.add(prisoner);
   // rope bridge set (x = 120)
-  const BX = 120; scene.add(at(box(40, 30, 40, 0x9a8f80), BX - 27, -15, 0), at(box(40, 30, 40, 0x9a8f80), BX + 27, -15, 0)); const gap = at(box(14, 0.2, 40, 0x3b7fb5), BX, -9, 0); scene.add(gap);
-  const bridge = new THREE.Group(); bridge.position.set(BX, 0, 0); for (let i = 0; i < 15; i++) bridge.add(at(box(0.8, 0.12, 3.0, i % 2 ? 0x9a6b3c : 0x855a30), -6.5 + i * 0.93, 0, 0));
+  const BX = 120; const BY = 12; scene.add(at(box(40, 30, 40, 0x9a8f80), BX - 27, BY - 15, 0), at(box(40, 30, 40, 0x9a8f80), BX + 27, BY - 15, 0), at(box(40, 0.4, 40, 0x86c35c), BX - 27, BY + 0.01, 0), at(box(40, 0.4, 40, 0x86c35c), BX + 27, BY + 0.01, 0)); const gap = at(box(14, 0.3, 60, 0x3b7fb5), BX, 0.2, 0); scene.add(gap);
+  const bridge = new THREE.Group(); bridge.position.set(BX, BY, 0); for (let i = 0; i < 15; i++) bridge.add(at(box(0.8, 0.12, 3.0, i % 2 ? 0x9a6b3c : 0x855a30), -6.5 + i * 0.93, 0, 0));
   bridge.add(at(cyl(0.05, 0.05, 14, 0x5a4326, 5), 0, 1.1, 1.5), at(cyl(0.05, 0.05, 14, 0x5a4326, 5), 0, 1.1, -1.5)); bridge.children[15].rotation.z = bridge.children[16].rotation.z = Math.PI / 2; bridge.traverse((o) => { o.castShadow = true; o.receiveShadow = true; }); scene.add(bridge);
   // castle mountain set (x = 200)
   const CX = 200, CZ = -70; const mount = cone(46, 78, 0x8b8f97, 7); mount.position.set(CX, 39, CZ); scene.add(mount); scene.add(at(cone(16, 26, 0xf4f6f8, 7), CX, 67, CZ));
@@ -116,27 +116,27 @@ export async function init(canvas, K) {
       // 3a wobble -> anger
       const an = ss(K.wackelt, K.wuetend2 + 0.3, t); scroll(3.2);
       pose(t, { x: 0, z: 0, speed: 1.7, wob: 1 + an * 5, anger: an, point: ss(K.ab - 0.25, K.ab, t) });
-      look(-5.2 + Math.sin(t * 9) * 0.05 * an, 3.5, 9.5, 0, 2.9, 0.2, 38);
+      look(-6.0 + Math.sin(t * 9) * 0.06 * an, 4.0, 11.8, 0, 2.7, 0.2, 38);
     } else if (t < T.s4) {
       // 3b off to the dungeon
       const u = t - K.kerkerCut, d = T.s4 - K.kerkerCut; rig.position.set(-500, 0, 0);
       prisoner.visible = G1.visible = G2.visible = true; const m = ss(0, d * 0.62, u); const inside = u > d * 0.62;
-      const px = lerp(DX - 6.5, DX + 1.2, m); prisoner.position.set(inside ? DX + 2.6 : px, inside ? 0.86 : 0, 0); prisoner.rotation.y = Math.PI / 2; prisoner.rotation.z = inside ? 0 : 0.35; walk(prisoner, u * 16, inside ? 0 : 1, false); prisoner.userData.a1.rotation.z = 2.4; prisoner.userData.a2.rotation.z = -2.4;
-      G1.position.set((inside ? DX + 0.4 : px + 0.9), 0, 0.75); G2.position.set((inside ? DX + 0.4 : px + 0.9), 0, -0.75); G1.rotation.y = G2.rotation.y = Math.PI / 2;
+      const px = lerp(DX - 2.9, DX - 0.2, m); prisoner.position.set(inside ? DX + 1.5 : px, inside ? 0.86 : 0, 0); prisoner.rotation.y = Math.PI / 2; prisoner.rotation.z = inside ? 0 : 0.35; walk(prisoner, u * 16, inside ? 0 : 1, false); prisoner.userData.a1.rotation.z = 2.4; prisoner.userData.a2.rotation.z = -2.4;
+      G1.position.set((inside ? DX - 0.6 : px + 0.8), 0, 0.75); G2.position.set((inside ? DX - 0.6 : px + 0.8), 0, -0.75); G1.rotation.y = G2.rotation.y = Math.PI / 2;
       wagon.rotation.z = inside ? Math.sin(Math.min(1, (u - d * 0.62) * 4) * Math.PI) * 0.06 : 0;
-      look(DX - 1.5 + u * 0.5, 3.0, 10.5, DX + 0.6, 1.7, 0, 38);
+      look(DX - 0.6 + u * 0.3, 2.6, 13, DX - 0.1, 1.7, 0, 40);
     } else if (t < K.brueckeCut) {
       // 4a geese
       const u = t - T.s4; scroll(9);
       pose(t, { x: 0, z: 0, speed: 3.2, wob: 3, anger: 0.5 });
-      GEESE.forEach((g, i) => { g.visible = true; const z = -5.2 - (i % 3) * 1.5 + u * 1.5 + Math.sin(t * 6 + i) * 0.2, x = (i - 2.5) * 1.05; g.position.set(x, Math.abs(Math.sin(t * 14 + i * 2)) * 0.25, z); g.userData.w1.rotation.z = Math.sin(t * 30 + i) * 0.9; g.userData.w2.rotation.z = -Math.sin(t * 30 + i) * 0.9; g.userData.f1.rotation.x = Math.sin(t * 22 + i) * 0.8; g.userData.f2.rotation.x = -Math.sin(t * 22 + i) * 0.8; });
-      look(8.5, 2.6, -1.5 + u * 0.6, 0, 1.7, -1.6, 44);
+      GEESE.forEach((g, i) => { g.visible = true; g.scale.setScalar(1.7); const z = -5.6 - (i % 3) * 1.7 + u * 1.6 + Math.sin(t * 6 + i) * 0.2, x = (i - 2.5) * 1.5; g.position.set(x, Math.abs(Math.sin(t * 14 + i * 2)) * 0.25, z); g.userData.w1.rotation.z = Math.sin(t * 30 + i) * 0.9; g.userData.w2.rotation.z = -Math.sin(t * 30 + i) * 0.9; g.userData.f1.rotation.x = Math.sin(t * 22 + i) * 0.8; g.userData.f2.rotation.x = -Math.sin(t * 22 + i) * 0.8; });
+      look(5.8, 2.3, 10.5 - u * 0.5, 0.2, 1.7, -2.5, 44);
     } else if (t < K.burgCut) {
       // 4b the wobbly bridge
-      const u = t - K.brueckeCut; const sway = Math.sin(t * 4.2) * 0.2; bridge.rotation.x = sway; bridge.position.y = Math.sin(t * 8.4) * 0.12;
-      pose(t, { x: BX - 1.5 + u * 1.2, y: 0.08 + bridge.position.y, z: 0, yaw: Math.PI / 2, speed: 0.9, wob: 4, roll: 0, tilt: sway * 1.6, anger: 0.8, kingFn: (k) => { k.position.z = sway * 2.2; k.rotation.x = sway * 1.2; } });
+      const u = t - K.brueckeCut; const sway = Math.sin(t * 4.2) * 0.2; bridge.rotation.x = sway; bridge.position.y = BY + Math.sin(t * 8.4) * 0.12;
+      pose(t, { x: BX - 1.5 + u * 1.2, y: 0.2 + bridge.position.y, z: 0, yaw: Math.PI / 2, speed: 0.9, wob: 4, roll: 0, tilt: sway * 1.6, anger: 0.8, kingFn: (k) => { k.position.z = sway * 2.2; k.rotation.x = sway * 1.2; } });
       rig.rotation.x = sway;
-      look(BX + 1, 5.2, 12.5, BX, 2.3, 0, 40);
+      look(BX + 3 - u * 0.6, BY + 6.5, 19, BX, BY + 1.2, 0, 40);
     } else if (t < T.s5) {
       // 4c the castle on the mountain: golden hour pull-back
       const u = t - K.burgCut, d = T.s5 - K.burgCut, p = ss(0, d, u); rig.rotation.x = 0;

@@ -1,0 +1,227 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #000; font-family: "Inter", sans-serif; color: #fff; overflow: hidden; }
+    #root .abs { position: absolute; }
+    #root .vig { inset: 0; background: radial-gradient(ellipse 80% 66% at 50% 46%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.38) 100%); }
+    #root .eng { left: 60px; top: 150px; width: 960px; height: 104px; border-radius: 26px; background: rgba(28,30,36,0.94); display: flex; align-items: center; gap: 12px; padding: 0 26px; box-shadow: 0 16px 40px rgba(0,0,0,0.4); font-weight: 700; font-size: 34px; }
+    #root .tab { padding: 12px 24px; border-radius: 14px; color: #9aa0ab; }
+    #root .tab.on { background: #3a3f4b; color: #fff; }
+    #root .tab.r { margin-left: auto; }
+    #root .btns { position: absolute; left: 380px; display: flex; gap: 14px; }
+    #root .btns b { width: 76px; height: 68px; border-radius: 14px; background: #3a3f4b; display: flex; align-items: center; justify-content: center; }
+    #root .btns b i { width: 0; height: 0; border-left: 28px solid #fff; border-top: 17px solid transparent; border-bottom: 17px solid transparent; }
+    #root .btns .pz::before { content: ""; width: 26px; height: 32px; border-left: 9px solid #9aa0ab; border-right: 9px solid #9aa0ab; }
+    #root .btns .st::before { content: ""; width: 30px; height: 30px; background: #9aa0ab; border-radius: 4px; }
+    #root .cur { left: 620px; top: 420px; width: 0; height: 0; border-left: 34px solid #fff; border-bottom: 34px solid transparent; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6)); transform: rotate(8deg); }
+    #root .meter { left: 936px; top: 420px; width: 84px; height: 620px; border-radius: 42px; background: rgba(20,20,24,0.8); border: 5px solid #fff; overflow: hidden; opacity: 0; }
+    #root .mf { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: linear-gradient(0deg, #ffb300, #ff4b3e); transform-origin: 50% 100%; transform: scaleY(0.04); }
+    #root .meter span { position: absolute; left: 0; width: 100%; bottom: 20px; text-align: center; font-weight: 900; font-size: 26px; }
+    #root .bars { inset: 0; opacity: 0; }
+    #root .bars i { position: absolute; top: -40px; width: 34px; height: 2000px; background: linear-gradient(90deg, #17181c, #3c3f47 50%, #17181c); box-shadow: 8px 0 20px rgba(0,0,0,0.5); }
+    #root .term { left: 60px; top: 330px; width: 960px; height: 1080px; border-radius: 30px; background: rgba(16,18,24,0.96); box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; opacity: 0; transform-origin: 0 0; }
+    #root .tb { height: 80px; background: #23262f; display: flex; align-items: center; gap: 14px; padding: 0 28px; font-family: "JetBrains Mono", monospace; font-size: 26px; color: #9aa0ab; }
+    #root .tb i { width: 22px; height: 22px; border-radius: 50%; background: #ff5f57; } #root .tb i:nth-child(2) { background: #febc2e; } #root .tb i:nth-child(3) { background: #28c840; }
+    #root .tb span { margin-left: 16px; }
+    #root .code { padding: 30px 36px; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 35px; line-height: 1.38; color: #d6dae3; white-space: pre; }
+    #root .cl { opacity: 0; }
+    #root .day { left: 610px; top: 300px; padding: 16px 40px; border-radius: 60px; background: #ffcf33; color: #1b1400; font-weight: 900; font-size: 64px; opacity: 0; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+    #root .end { inset: 0; background: #000; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+    #root .crown { margin-top: 380px; width: 300px; height: 210px; opacity: 0; }
+    #root .crown svg { width: 100%; height: 100%; }
+    #root .t1 { margin-top: 30px; font-weight: 900; font-size: 170px; letter-spacing: -0.04em; line-height: 1; opacity: 0; }
+    #root .t2 { font-weight: 900; font-size: 190px; letter-spacing: -0.04em; line-height: 1.02; color: #ffcf33; opacity: 0; white-space: nowrap; }
+    #root .fol { left: 250px; width: 580px; text-align: center; top: 1500px; padding: 22px 0; border-radius: 60px; background: #fff; color: #000; font-weight: 800; font-size: 54px; opacity: 0; }
+    #root .cap { left: 0; top: 1190px; width: 1080px; text-align: center; font-weight: 900; font-size: 136px; letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 10px 0 rgba(0,0,0,0.55); white-space: nowrap; }
+    #root .cap.sm { font-size: 104px; }
+  </style>
+  <div id="root" data-composition-id="w" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <canvas id="gl" width="720" height="1280" style="position:absolute;left:0;top:0;width:1080px;height:1920px"></canvas><div class="abs vig"></div><div class="abs eng" id="eng"><span class="tab">Scene</span><span class="tab on">Game</span><div class="btns"><b id="pb"><i></i></b><b class="pz"></b><b class="st"></b></div><span class="tab r">Day 12</span></div><div class="abs cur" id="cur"></div><div class="abs meter" id="mt"><div class="mf" id="mf"></div><span>WUT</span></div><div class="abs bars" id="bars"><i style="left:60px"></i><i style="left:180px"></i><i style="left:300px"></i><i style="left:420px"></i><i style="left:540px"></i><i style="left:660px"></i><i style="left:780px"></i><i style="left:900px"></i><i style="left:1020px"></i></div><div class="abs term" id="term"><div class="tb"><i></i><i></i><i></i><span>carry_king.cs — built with AI</span></div><div class="code"><div class="cl" id="cl0">// carry_king.cs</div><div class="cl" id="cl1">void Update() {</div><div class="cl" id="cl2">  var wobble = sedan.Tilt(input);</div><div class="cl" id="cl3">  king.anger += wobble * dt;</div><div class="cl" id="cl4">  if (king.anger > 100f) {</div><div class="cl" id="cl5">    Dungeon.Send(worstCarrier);</div><div class="cl" id="cl6">    king.anger = 0f;</div><div class="cl" id="cl7">  }</div><div class="cl" id="cl8">}</div><div class="cl" id="cl9">&nbsp;</div><div class="cl" id="cl10">void OnGooseContact(Goose g) {</div><div class="cl" id="cl11">  carriers.Panic(2.5f);</div><div class="cl" id="cl12">  sedan.AddShake(g.rage);</div><div class="cl" id="cl13">}</div><div class="cl" id="cl14">&nbsp;</div><div class="cl" id="cl15">bool BridgeHolds() =></div><div class="cl" id="cl16">  planks.All(p => p.intact)</div><div class="cl" id="cl17">  && king.weight &lt; 9000f;</div><div class="cl" id="cl18">&nbsp;</div><div class="cl" id="cl19">// TODO: castle on the mountain</div></div></div><div class="abs day" id="day">TAG <b id="dn">1</b></div><div class="abs end" id="end"><div class="crown" id="crw"><svg viewBox="0 0 200 140"><path d="M14 124 L26 34 L66 78 L100 14 L134 78 L174 34 L186 124 Z" fill="#ffcf33"/><rect x="14" y="112" width="172" height="20" rx="6" fill="#e0a800"/><circle cx="26" cy="30" r="12" fill="#ffcf33"/><circle cx="100" cy="12" r="12" fill="#ffcf33"/><circle cx="174" cy="30" r="12" fill="#ffcf33"/><circle cx="100" cy="100" r="9" fill="#ff4b3e"/></svg></div><div class="t1" id="et1">I CARRY</div><div class="t2" id="et2">THE KING</div></div><div class="abs fol" id="fol">Folgen für Teil 2</div>
+    <div id="cp0" class="abs cap  clip" data-start="0.34" data-duration="0.17" style="color:#fff">Ich</div>
+<div id="cp1" class="abs cap sm clip" data-start="0.51" data-duration="0.44" style="color:#fff">programmiere</div>
+<div id="cp2" class="abs cap  clip" data-start="0.95" data-duration="0.15" style="color:#fff">ein</div>
+<div id="cp3" class="abs cap sm clip" data-start="1.1" data-duration="0.96" style="color:#ffcf33">Steam-Spiel</div>
+<div id="cp4" class="abs cap  clip" data-start="2.06" data-duration="0.3" style="color:#fff">ohne</div>
+<div id="cp5" class="abs cap sm clip" data-start="2.36" data-duration="0.59" style="color:#fff">programmieren</div>
+<div id="cp6" class="abs cap  clip" data-start="2.95" data-duration="0.12" style="color:#fff">zu</div>
+<div id="cp7" class="abs cap  clip" data-start="3.06" data-duration="0.61" style="color:#fff">können</div>
+<div id="cp8" class="abs cap  clip" data-start="3.87" data-duration="0.22" style="color:#fff">Die</div>
+<div id="cp9" class="abs cap  clip" data-start="4.09" data-duration="0.82" style="color:#fff">Idee</div>
+<div id="cp10" class="abs cap  clip" data-start="4.91" data-duration="0.3" style="color:#fff">Vier</div>
+<div id="cp11" class="abs cap  clip" data-start="5.21" data-duration="0.81" style="color:#ffcf33">Freunde</div>
+<div id="cp12" class="abs cap  clip" data-start="6.02" data-duration="0.3" style="color:#fff">Ein</div>
+<div id="cp13" class="abs cap  clip" data-start="6.32" data-duration="0.37" style="color:#fff">fetter</div>
+<div id="cp14" class="abs cap  clip" data-start="6.69" data-duration="0.81" style="color:#ffcf33">König</div>
+<div id="cp15" class="abs cap  clip" data-start="7.5" data-duration="0.3" style="color:#fff">Und</div>
+<div id="cp16" class="abs cap  clip" data-start="7.8" data-duration="0.37" style="color:#fff">ihr</div>
+<div id="cp17" class="abs cap  clip" data-start="8.17" data-duration="0.22" style="color:#fff">müsst</div>
+<div id="cp18" class="abs cap  clip" data-start="8.39" data-duration="0.15" style="color:#fff">ihn</div>
+<div id="cp19" class="abs cap  clip" data-start="8.54" data-duration="0.66" style="color:#ffcf33">tragen</div>
+<div id="cp20" class="abs cap  clip" data-start="9.4" data-duration="0.4" style="color:#fff">Wackelt</div>
+<div id="cp21" class="abs cap  clip" data-start="9.8" data-duration="0.12" style="color:#fff">die</div>
+<div id="cp22" class="abs cap  clip" data-start="9.92" data-duration="0.62" style="color:#fff">Sänfte</div>
+<div id="cp23" class="abs cap  clip" data-start="10.54" data-duration="0.19" style="color:#fff">wird</div>
+<div id="cp24" class="abs cap  clip" data-start="10.73" data-duration="0.15" style="color:#fff">er</div>
+<div id="cp25" class="abs cap  clip" data-start="10.88" data-duration="0.81" style="color:#ff4b3e">wütend</div>
+<div id="cp26" class="abs cap  clip" data-start="11.69" data-duration="0.23" style="color:#fff">Wird</div>
+<div id="cp27" class="abs cap  clip" data-start="11.92" data-duration="0.22" style="color:#fff">er</div>
+<div id="cp28" class="abs cap  clip" data-start="12.14" data-duration="0.22" style="color:#fff">zu</div>
+<div id="cp29" class="abs cap  clip" data-start="12.36" data-duration="0.89" style="color:#ff4b3e">wütend</div>
+<div id="cp30" class="abs cap  clip" data-start="13.25" data-duration="0.12" style="color:#fff">ab</div>
+<div id="cp31" class="abs cap  clip" data-start="13.36" data-duration="0.12" style="color:#fff">in</div>
+<div id="cp32" class="abs cap  clip" data-start="13.47" data-duration="0.15" style="color:#fff">den</div>
+<div id="cp33" class="abs cap  clip" data-start="13.62" data-duration="0.74" style="color:#ff4b3e">Kerker</div>
+<div id="cp34" class="abs cap  clip" data-start="14.61" data-duration="1.04" style="color:#ffcf33">Gänse</div>
+<div id="cp35" class="abs cap  clip" data-start="15.65" data-duration="0.59" style="color:#fff">Wackelige</div>
+<div id="cp36" class="abs cap  clip" data-start="16.24" data-duration="0.89" style="color:#ffcf33">Brücken</div>
+<div id="cp37" class="abs cap  clip" data-start="17.13" data-duration="0.18" style="color:#fff">Und</div>
+<div id="cp38" class="abs cap  clip" data-start="17.31" data-duration="0.26" style="color:#fff">eine</div>
+<div id="cp39" class="abs cap  clip" data-start="17.57" data-duration="0.37" style="color:#ffcf33">Burg</div>
+<div id="cp40" class="abs cap  clip" data-start="17.94" data-duration="0.15" style="color:#fff">auf</div>
+<div id="cp41" class="abs cap  clip" data-start="18.09" data-duration="0.3" style="color:#fff">einem</div>
+<div id="cp42" class="abs cap  clip" data-start="18.39" data-duration="0.55" style="color:#fff">riesigen</div>
+<div id="cp43" class="abs cap  clip" data-start="18.94" data-duration="0.7" style="color:#fff">Berg</div>
+<div id="cp44" class="abs cap  clip" data-start="19.84" data-duration="0.19" style="color:#fff">Ich</div>
+<div id="cp45" class="abs cap  clip" data-start="20.03" data-duration="0.26" style="color:#fff">baue</div>
+<div id="cp46" class="abs cap  clip" data-start="20.29" data-duration="0.15" style="color:#fff">das</div>
+<div id="cp47" class="abs cap  clip" data-start="20.44" data-duration="0.59" style="color:#fff">komplett</div>
+<div id="cp48" class="abs cap  clip" data-start="21.03" data-duration="0.15" style="color:#fff">mit</div>
+<div id="cp49" class="abs cap  clip" data-start="21.18" data-duration="0.96" style="color:#ffcf33">KI</div>
+<div id="cp50" class="abs cap  clip" data-start="22.14" data-duration="0.3" style="color:#fff">Jeden</div>
+<div id="cp51" class="abs cap  clip" data-start="22.44" data-duration="0.29" style="color:#fff">Tag</div>
+<div id="cp52" class="abs cap  clip" data-start="22.73" data-duration="0.22" style="color:#fff">ein</div>
+<div id="cp53" class="abs cap  clip" data-start="22.95" data-duration="0.37" style="color:#fff">bisschen</div>
+<div id="cp54" class="abs cap  clip" data-start="23.32" data-duration="0.59" style="color:#fff">mehr</div>
+<div id="cp55" class="abs cap  clip" data-start="24.11" data-duration="0.41" style="color:#fff">Folg</div>
+<div id="cp56" class="abs cap  clip" data-start="24.52" data-duration="0.29" style="color:#fff">mir</div>
+<div id="cp57" class="abs cap  clip" data-start="24.81" data-duration="0.19" style="color:#fff">wenn</div>
+<div id="cp58" class="abs cap  clip" data-start="25.0" data-duration="0.18" style="color:#fff">du</div>
+<div id="cp59" class="abs cap  clip" data-start="25.18" data-duration="0.23" style="color:#fff">sehen</div>
+<div id="cp60" class="abs cap  clip" data-start="25.41" data-duration="0.28" style="color:#fff">willst</div>
+<div id="cp61" class="abs cap  clip" data-start="25.69" data-duration="0.12" style="color:#fff">ob</div>
+<div id="cp62" class="abs cap  clip" data-start="25.81" data-duration="0.15" style="color:#fff">das</div>
+<div id="cp63" class="abs cap  clip" data-start="25.96" data-duration="0.22" style="color:#fff">Ding</div>
+<div id="cp64" class="abs cap  clip" data-start="26.18" data-duration="0.37" style="color:#fff">wirklich</div>
+<div id="cp65" class="abs cap  clip" data-start="26.55" data-duration="0.23" style="color:#fff">auf</div>
+<div id="cp66" class="abs cap  clip" data-start="26.78" data-duration="0.26" style="color:#ffcf33">Steam</div>
+<div id="cp67" class="abs cap  clip" data-start="27.04" data-duration="0.85" style="color:#fff">landet</div>
+<div id="cp68" class="abs cap  clip" data-start="27.89" data-duration="0.81" style="color:#fff">Name</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const R = document.querySelector('[data-composition-id="w"]') || document;
+    const $ = (s) => R.querySelector(s);
+    let film = null; const clock = { t: 0 };
+    window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+    window.__hf.buildReady["film"] = Film.init($("#gl"), {"trip": 2.0500000000000003, "vier": 4.8500000000000005, "koenig": 6.430000000000001, "tragen": 8.48, "wackelt": 9.43654537037037, "wuetend2": 12.4, "ab": 13.29, "kerkerCut": 13.409999999999998, "brueckeCut": 15.54, "burgCut": 17.07, "at": {"s2": 3.76, "s3": 9.29, "s4": 14.5, "s5": 19.73, "s6": 24.0}}).then((f) => { film = f; f.render(clock.t); });
+    tl.fromTo(clock, { t: 0 }, { t: 32.45, duration: 32.45, ease: "none", onUpdate: () => { if (film && clock.t < 28.13) film.render(clock.t); } }, 0);
+    tl.fromTo("#eng", { y: -260 }, { y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+    tl.fromTo("#cur", { x: 240, y: 300 }, { x: -200, y: -212, duration: 0.42, ease: "power3.out" }, 0.05);
+    tl.to("#pb", { backgroundColor: "#2f7df6", scale: 0.86, duration: 0.08 }, 0.5); tl.to("#pb", { scale: 1, duration: 0.15 }, 0.58);
+    tl.to(["#eng", "#cur"], { opacity: 0, y: -80, duration: 0.3 }, 3.46);
+    tl.fromTo("#mt", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.6)" }, 9.39);
+    tl.fromTo("#mf", { scaleY: 0.04 }, { scaleY: 1, duration: 3.26, ease: "power1.in" }, 9.44);
+    tl.fromTo("#mt", { rotation: -3 }, { rotation: 3, duration: 0.06, yoyo: true, repeat: 16, ease: "sine.inOut", immediateRender: false }, 12.40);
+    tl.to("#mt", { opacity: 0, duration: 0.15 }, 13.36);
+    tl.fromTo("#bars", { opacity: 1, y: -2000 }, { y: 0, duration: 0.22, ease: "power3.in", immediateRender: false }, 13.71); tl.to("#bars", { opacity: 0, duration: 0.2 }, 14.38);
+    tl.fromTo("#term", { opacity: 0, y: 200, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.3)" }, 19.73);
+    tl.to("#cl0", { opacity: 1, duration: 0.05 }, 20.03);
+    tl.to("#cl1", { opacity: 1, duration: 0.05 }, 20.12);
+    tl.to("#cl2", { opacity: 1, duration: 0.05 }, 20.22);
+    tl.to("#cl3", { opacity: 1, duration: 0.05 }, 20.32);
+    tl.to("#cl4", { opacity: 1, duration: 0.05 }, 20.41);
+    tl.to("#cl5", { opacity: 1, duration: 0.05 }, 20.51);
+    tl.to("#cl6", { opacity: 1, duration: 0.05 }, 20.60);
+    tl.to("#cl7", { opacity: 1, duration: 0.05 }, 20.70);
+    tl.to("#cl8", { opacity: 1, duration: 0.05 }, 20.79);
+    tl.to("#cl9", { opacity: 1, duration: 0.05 }, 20.89);
+    tl.to("#cl10", { opacity: 1, duration: 0.05 }, 20.98);
+    tl.to("#cl11", { opacity: 1, duration: 0.05 }, 21.08);
+    tl.to("#cl12", { opacity: 1, duration: 0.05 }, 21.17);
+    tl.to("#cl13", { opacity: 1, duration: 0.05 }, 21.27);
+    tl.to("#cl14", { opacity: 1, duration: 0.05 }, 21.36);
+    tl.to("#cl15", { opacity: 1, duration: 0.05 }, 21.46);
+    tl.to("#cl16", { opacity: 1, duration: 0.05 }, 21.55);
+    tl.to("#cl17", { opacity: 1, duration: 0.05 }, 21.65);
+    tl.to("#cl18", { opacity: 1, duration: 0.05 }, 21.74);
+    tl.to("#cl19", { opacity: 1, duration: 0.05 }, 21.84);
+    tl.to("#term", { scale: 0.42, x: 30, y: -40, duration: 0.6, ease: "power4.inOut" }, 22.03);
+    tl.fromTo("#day", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 22.28);
+    (() => { const o = { v: 1 }; tl.fromTo(o, { v: 1 }, { v: 12, duration: 1.47, ease: "none", immediateRender: false, onUpdate: () => { $("#dn").textContent = Math.round(o.v); } }, 22.33); })();
+    tl.to(["#term", "#day"], { opacity: 0, duration: 0.2 }, 23.80);
+    tl.to("#end", { opacity: 1, duration: 0.3 }, 27.68);
+    tl.fromTo("#fol", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 24.15);
+    tl.fromTo("#crw", { opacity: 0, y: -260, rotation: -25 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 28.34);
+    tl.fromTo("#et1", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 28.64); tl.fromTo("#et2", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 29.22);
+    tl.fromTo("#fol", { scale: 1 }, { scale: 1.08, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 29.71);
+    tl.fromTo("#cp0", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 0.34);
+    tl.fromTo("#cp1", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 0.51);
+    tl.fromTo("#cp2", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 0.95);
+    tl.fromTo("#cp3", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 1.10);
+    tl.fromTo("#cp4", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 2.06);
+    tl.fromTo("#cp5", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 2.36);
+    tl.fromTo("#cp6", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 2.95);
+    tl.fromTo("#cp7", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 3.06);
+    tl.fromTo("#cp8", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 3.87);
+    tl.fromTo("#cp9", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 4.09);
+    tl.fromTo("#cp10", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 4.91);
+    tl.fromTo("#cp11", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 5.21);
+    tl.fromTo("#cp12", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 6.02);
+    tl.fromTo("#cp13", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 6.32);
+    tl.fromTo("#cp14", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 6.69);
+    tl.fromTo("#cp15", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 7.50);
+    tl.fromTo("#cp16", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 7.80);
+    tl.fromTo("#cp17", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 8.17);
+    tl.fromTo("#cp18", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 8.39);
+    tl.fromTo("#cp19", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 8.54);
+    tl.fromTo("#cp20", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 9.40);
+    tl.fromTo("#cp21", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 9.80);
+    tl.fromTo("#cp22", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 9.92);
+    tl.fromTo("#cp23", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 10.54);
+    tl.fromTo("#cp24", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 10.73);
+    tl.fromTo("#cp25", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 10.88);
+    tl.fromTo("#cp26", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 11.69);
+    tl.fromTo("#cp27", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 11.92);
+    tl.fromTo("#cp28", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 12.14);
+    tl.fromTo("#cp29", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 12.36);
+    tl.fromTo("#cp30", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 13.25);
+    tl.fromTo("#cp31", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 13.36);
+    tl.fromTo("#cp32", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 13.47);
+    tl.fromTo("#cp33", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 13.62);
+    tl.fromTo("#cp34", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 14.61);
+    tl.fromTo("#cp35", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 15.65);
+    tl.fromTo("#cp36", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 16.24);
+    tl.fromTo("#cp37", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 17.13);
+    tl.fromTo("#cp38", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 17.31);
+    tl.fromTo("#cp39", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 17.57);
+    tl.fromTo("#cp40", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 17.94);
+    tl.fromTo("#cp41", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 18.09);
+    tl.fromTo("#cp42", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 18.39);
+    tl.fromTo("#cp43", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 18.94);
+    tl.fromTo("#cp44", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 19.84);
+    tl.fromTo("#cp45", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 20.03);
+    tl.fromTo("#cp46", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 20.29);
+    tl.fromTo("#cp47", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 20.44);
+    tl.fromTo("#cp48", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 21.03);
+    tl.fromTo("#cp49", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 21.18);
+    tl.fromTo("#cp50", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 22.14);
+    tl.fromTo("#cp51", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 22.44);
+    tl.fromTo("#cp52", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 22.73);
+    tl.fromTo("#cp53", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 22.95);
+    tl.fromTo("#cp54", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 23.32);
+    tl.fromTo("#cp55", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 24.11);
+    tl.fromTo("#cp56", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 24.52);
+    tl.fromTo("#cp57", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 24.81);
+    tl.fromTo("#cp58", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 25.00);
+    tl.fromTo("#cp59", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 25.18);
+    tl.fromTo("#cp60", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 25.41);
+    tl.fromTo("#cp61", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 25.69);
+    tl.fromTo("#cp62", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 25.81);
+    tl.fromTo("#cp63", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 25.96);
+    tl.fromTo("#cp64", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 26.18);
+    tl.fromTo("#cp65", { scale: 0.55, rotation: 3 }, { scale: 1, rotation: 1.5, duration: 0.16, ease: "back.out(3)" }, 26.55);
+    tl.fromTo("#cp66", { scale: 0.55, rotation: -2 }, { scale: 1, rotation: 0, duration: 0.16, ease: "back.out(3)" }, 26.78);
+    tl.fromTo("#cp67", { scale: 0.55, rotation: 4 }, { scale: 1, rotation: -1, duration: 0.16, ease: "back.out(3)" }, 27.04);
+    tl.fromTo("#cp68", { scale: 0.55, rotation: -4 }, { scale: 1, rotation: -1.5, duration: 0.16, ease: "back.out(3)" }, 27.89);
+    window.__timelines["w"] = tl;
+  </script>
+</template>
