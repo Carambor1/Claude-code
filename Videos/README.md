@@ -22,6 +22,7 @@
 | 16 | How GPS Works | 42 s | EN |
 | 17 | First Try | 22 s | EN |
 | 18 | Why You Scroll | 40 s | EN |
+| 19 | I Carry the King | 32 s | DE |
 
 ---
 
@@ -96,3 +97,7 @@
 ### 18 · Why You Scroll
 **Titel:** Why you can't stop scrolling 📱
 #scrolling #screentime #psychology #dopamine #shorts
+
+### 19 · I Carry the King
+**Titel:** Ich baue ein Steam-Spiel mit KI 👑
+#gamedev #indiegame #steam #devlog #shorts
